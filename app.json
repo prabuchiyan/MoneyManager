@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "Money Manager",
+    "slug": "money-manager",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "a644e973-ee5e-48e4-986b-b4e6fefa1342"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a644e973-ee5e-48e4-986b-b4e6fefa1342"
+    },
+    "android": {},
+    "ios": {}
+  }
+}

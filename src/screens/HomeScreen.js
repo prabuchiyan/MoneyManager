@@ -1,0 +1,533 @@
+import React, { useEffect, useState } from 'react';
+import { View, Text, FlatList, ScrollView, TouchableOpacity, Animated } from 'react-native';
+import Svg, { Circle } from 'react-native-svg';
+import { getTotalBalance, getCategorySpending, getMonthlyTrends, getSourceBalances } from '../services/reports';
+import { getBudgetsWithRemaining } from '../services/budgets';
+import { getTransactions, deleteTransaction } from '../services/transactions';
+import { getBills } from '../services/bills';
+import ConfirmDialog from '../components/ConfirmDialog';
+import { getCategories, softDeleteCategory } from '../services/categories';
+import { Avatar, Button as PaperButton } from 'react-native-paper';
+import Header from '../components/Header';
+import events from '../services/events';
+import Card from '../components/Card';
+import FAB from '../components/FAB';
+import { Colors, Spacing } from '../components/Theme';
+
+function daysRemainingInMonth() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth();
+  const last = new Date(year, month + 1, 0).getDate();
+  return last - now.getDate();
+}
+
+const AnimatedCircle = Animated.createAnimatedComponent(Circle);
+
+function BudgetDonut({ limit = 0, spent = 0, remaining = 0, daysLeft = 0 }) {
+  const percentRaw = limit > 0 ? (spent / limit) : 0;
+  const percent = Math.max(0, percentRaw);
+  const pct = limit > 0 ? Math.min(100, Math.round(percent * 100)) : 0;
+  const color = percent <= 1 ? (percent < 0.7 ? '#36B37E' : '#FFB020') : '#E46A6A';
+  const innerColor = remaining >= 0 ? '#36B37E' : '#E46A6A';
+
+  const size = 180;
+  const strokeWidth = 18;
+  const radius = (size - strokeWidth) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const dashOffset = circumference * (1 - Math.min(1, percent));
+
+  // Animated progress
+  const anim = React.useRef(new Animated.Value(Math.min(1, percent))).current;
+  React.useEffect(() => {
+    Animated.timing(anim, { toValue: Math.min(1, percent), duration: 700, useNativeDriver: false }).start();
+  }, [percent]);
+
+  const dashAnim = anim.interpolate({ inputRange: [0, 1], outputRange: [String(circumference), '0'] });
+
+  const fmt = (v) => `₹${Number(v || 0).toLocaleString('en-IN', { maximumFractionDigits: 2 })}`;
+
+  return (
+    <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
+      <Svg width={size} height={size}>
+        <Circle cx={size / 2} cy={size / 2} r={radius} stroke="#eee" strokeWidth={strokeWidth} fill="none" />
+        <AnimatedCircle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          stroke={color}
+          strokeWidth={strokeWidth}
+          strokeLinecap="round"
+          fill="none"
+          strokeDasharray={`${circumference} ${circumference}`}
+          strokeDashoffset={dashAnim}
+          rotation="-90"
+          originX={size / 2}
+          originY={size / 2}
+        />
+      </Svg>
+      <View style={{ position: 'absolute', width: size * 0.7, alignItems: 'center', justifyContent: 'center', padding: 6 }}>
+        <Text style={{ fontWeight: '700', color: innerColor, textAlign: 'center' }}> {remaining >= 0 ? `Safe to Spend: ${fmt(remaining)}` : `Overspent: ${fmt(Math.abs(remaining))}`} </Text>
+        <Text style={{ fontSize: 13, color: '#666', marginTop: 6, textAlign: 'center' }}>{daysLeft} day(s) left</Text>
+        {limit > 0 ? <Text style={{ fontSize: 11, color: '#999', marginTop: 6 }}>Used: {pct}%</Text> : null}
+      </View>
+    </View>
+  );
+}
+
+function CategoryDonut({ data = [] }) {
+  const COLORS_DONUT = ['#4B7CF3', '#FFA500', '#2ECC71', '#E74C3C', '#9B59B6', '#1ABC9C'];
+  const size = 160;
+  const strokeWidth = 18;
+  const radius = (size - strokeWidth) / 2;
+  const circumference = 2 * Math.PI * radius;
+
+  const total = data.reduce((sum, d) => sum + Number(d.amount || 0), 0);
+
+  let cumulative = 0;
+
+  return (
+    <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+      <Svg width={size} height={size}>
+        {data.map((d, i) => {
+          const value = Number(d.amount || 0);
+          const percent = total > 0 ? value / total : 0;
+
+          const strokeDasharray = `${circumference * percent} ${circumference}`;
+          const rotation = (cumulative / total) * 360;
+
+          cumulative += value;
+
+          return (
+            <Circle
+              key={i}
+              cx={size / 2}
+              cy={size / 2}
+              r={radius}
+              stroke={COLORS_DONUT[i % COLORS_DONUT.length]}
+              strokeWidth={strokeWidth}
+              fill="none"
+              strokeDasharray={strokeDasharray}
+              rotation={rotation - 90}
+              originX={size / 2}
+              originY={size / 2}
+              strokeLinecap="butt"
+            />
+          );
+        })}
+      </Svg>
+
+      {/* CENTER TEXT */}
+      <View style={{ position: 'absolute', alignItems: 'center' }}>
+        <Text style={{ fontWeight: '700', fontSize: 14 }}>Total Spend</Text>
+        <Text style={{ fontSize: 18, fontWeight: '800' }}>
+          ₹{total.toLocaleString('en-IN')}
+        </Text>
+      </View>
+    </View>
+  );
+}
+
+export default function HomeScreen({ navigation }) {
+  const [balance, setBalance] = useState(null);
+  const [topCategories, setTopCategories] = useState([]);
+  const [trends, setTrends] = useState([]);
+  const [sourceBalances, setSourceBalances] = useState([]);
+  const [budgets, setBudgets] = useState([]);
+  const [selectedBudgetId, setSelectedBudgetId] = useState('');
+  const [recentTx, setRecentTx] = useState([]);
+  const [categoriesMap, setCategoriesMap] = useState({});
+  const [categories, setCategories] = useState([]);
+  const [confirmVisibleTx, setConfirmVisibleTx] = useState(false);
+  const [confirmTxId, setConfirmTxId] = useState(null);
+  const [confirmTxMessage, setConfirmTxMessage] = useState('Are you sure you want to delete this transaction?');
+  const [bills, setBills] = useState([]);
+
+  async function load() {
+    const b = await getTotalBalance();
+    setBalance(b);
+    const cats = await getCategorySpending();
+    setTopCategories(cats.slice(0, 5));
+    const t = await getMonthlyTrends(6);
+    setTrends(t);
+    const bl = await getBills();
+    setBills(bl);
+    const sb = await getSourceBalances();
+    setSourceBalances(sb);
+    const bs = await getBudgetsWithRemaining();
+    console.debug && console.debug('Home.load budgets:', bs);
+    setBudgets(bs);
+    if (bs && bs.length && !selectedBudgetId) {
+      const firstId = String(bs[0].budget.id);
+      console.debug && console.debug('Home.load setSelectedBudgetId ->', firstId);
+      setSelectedBudgetId(firstId);
+    }
+    // recent transactions
+    try {
+      const catsAll = await getCategories(true);
+      const cmap = {};
+      catsAll.forEach(c => { cmap[c.id] = c; });
+      setCategoriesMap(cmap);
+      setCategories(catsAll);
+      const tx = await getTransactions(6);
+      setRecentTx(tx);
+    } catch (e) {
+      // ignore
+    }
+    return bs;
+  }
+
+  useEffect(() => {
+    (async () => {
+      const bs = await load();
+      if (bs && bs.length) setSelectedBudgetId(String(bs[0].budget.id));
+    })();
+  }, []);
+
+  useEffect(() => {
+    const unsub = navigation.addListener('focus', () => { load(); });
+    return unsub;
+  }, [navigation]);
+
+  useEffect(() => {
+    const off = events.on('transactionsChanged', () => { load(); });
+    return () => off();
+  }, []);
+
+  useEffect(() => {
+    const off2 = events.on('budgetsChanged', async (id) => {
+      console.debug && console.debug('Home.budgetsChanged received id:', id);
+      if (id) {
+        console.debug && console.debug('Home.budgetsChanged setSelectedBudgetId ->', String(id));
+        setSelectedBudgetId(String(id));
+      }
+      const bs = await load();
+      if (!id && bs && bs.length) {
+        console.debug && console.debug('Home.budgetsChanged setSelectedBudgetId after load ->', String(bs[0].budget.id));
+        setSelectedBudgetId(String(bs[0].budget.id));
+      }
+    });
+    return () => off2();
+  }, []);
+
+  const totalSpend = topCategories.reduce(
+    (sum, c) => sum + Number(c.amount || 0),
+    0
+  );
+
+  const today = new Date();
+  const sortedBills = [...bills].sort(
+    (a, b) => new Date(a.due_date) - new Date(b.due_date)
+  );
+
+  const totalBalance = sourceBalances.reduce(
+    (sum, s) => sum + Number(s.balance || 0),
+    0
+  );
+
+  const totalMonthlySpend = topCategories.reduce(
+    (sum, c) => sum + Number(c.amount || 0),
+    0
+  );
+
+  return (
+    <View style={{ flex: 1, backgroundColor: Colors.background }}>
+      <Header title="Money Manager" subtitle={balance ? `Balance: ${balance.balance.toFixed(2)}` : 'Loading...'} />
+      <ScrollView contentContainerStyle={{ padding: Spacing.m }}>
+        <Card>
+          {budgets.length ? (
+            <>
+              {(() => {
+                const sel = budgets.find(x => x.budget.id === selectedBudgetId) || budgets[0];
+                const limit = parseFloat(sel.budget.monthly_limit) || 0;
+                const spent = parseFloat(sel.spent) || 0;
+                const remaining = parseFloat(sel.remaining) || 0;
+                const daysLeft = daysRemainingInMonth();
+                return (
+                  <View style={{ alignItems: 'center', justifyContent: 'center', paddingVertical: 12 }}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Budgets', { editId: sel.budget.id })}>
+                      <BudgetDonut limit={limit} spent={spent} remaining={remaining} daysLeft={daysLeft} />
+                    </TouchableOpacity>
+                  </View>
+                );
+              })()}
+            </>
+          ) : (
+            <View style={{ alignItems: 'center', paddingVertical: 16 }}>
+              <TouchableOpacity onPress={() => navigation.navigate('Budgets')}>
+                <BudgetDonut limit={0} spent={0} remaining={0} daysLeft={daysRemainingInMonth()} />
+              </TouchableOpacity>
+              <View style={{ marginTop: 12, width: '90%', maxWidth: 360, alignItems: 'center' }}>
+                <Text style={{ fontWeight: '700', fontSize: 16 }}>No budgets set</Text>
+                <Text style={{ color: Colors.muted, marginTop: 8, textAlign: 'center' }}>Create a budget to track monthly spending and see safe/overspent amounts here.</Text>
+                <PaperButton mode="contained" onPress={() => navigation.navigate('Budgets')} style={{ marginTop: 12 }}>Create Budget</PaperButton>
+              </View>
+            </View>
+          )}
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginTop: 12
+            }}
+          >
+
+            {/* BALANCE */}
+            <View style={{ flex: 1, alignItems: 'center' }}>
+              <Text style={{ fontSize: 12, color: Colors.muted }}>
+                Balance
+              </Text>
+              <Text style={{ fontSize: 16, fontWeight: '700', color: Colors.text }}>
+                ₹{totalBalance.toLocaleString('en-IN')}
+              </Text>
+            </View>
+
+            {/* DIVIDER */}
+            <View style={{ width: 1, backgroundColor: '#eee' }} />
+
+            {/* TOTAL SPEND */}
+            <View style={{ flex: 1, alignItems: 'center' }}>
+              <Text style={{ fontSize: 12, color: Colors.muted }}>
+                Spend
+              </Text>
+              <Text style={{ fontSize: 16, fontWeight: '700', color: '#E46A6A' }}>
+                ₹{totalMonthlySpend.toLocaleString('en-IN')}
+              </Text>
+            </View>
+
+          </View>
+        </Card>
+
+        <Card>
+          <Text style={{ fontWeight: '600', marginBottom: 8 }}>Latest transactions</Text>
+          {recentTx.length ? recentTx.slice(0, 3).map(r => {
+            const cat = categoriesMap[r.category_id] || {};
+            return (
+              <View key={r.id} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 8 }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Avatar.Icon size={40} icon={cat.icon || 'currency-usd'} style={{ backgroundColor: cat.color || Colors.card, marginRight: 12 }} />
+                  <View>
+                    <Text style={{ color: Colors.text, fontWeight: '600' }}>{cat.name || 'Uncategorized'}</Text>
+                    <Text style={{ color: Colors.muted, fontSize: 12 }} numberOfLines={1}>{r.notes || ''}</Text>
+                  </View>
+                </View>
+                <View style={{ alignItems: 'flex-end' }}>
+                  <Text style={{ color: r.type === 'expense' ? '#E46A6A' : '#4CAF50', fontWeight: '700' }}>{r.type === 'expense' ? `- ${Number(r.amount).toFixed(2)}` : `+ ${Number(r.amount).toFixed(2)}`}</Text>
+                  <Text style={{ color: Colors.muted, fontSize: 12 }}>{new Date(r.date).toLocaleDateString()}</Text>
+                </View>
+              </View>
+            );
+          }) : <Text style={{ color: Colors.muted }}>No recent transactions</Text>}
+          {recentTx.length > 3 && (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Transactions')}
+              style={{ alignItems: 'center', marginTop: 8 }}
+            >
+              <Text style={{ color: Colors.primary, fontWeight: '600' }}>
+                See all ↓
+              </Text>
+            </TouchableOpacity>
+          )}
+        </Card>
+
+        <Card>
+          <Text style={{ fontWeight: '600', marginBottom: 8 }}>
+            Top spend areas
+          </Text>
+
+          {topCategories.length ? (
+            <View style={{ alignItems: 'center', marginBottom: 12 }}>
+              <CategoryDonut data={topCategories} />
+            </View>
+          ) : (
+            <Text style={{ color: Colors.muted }}>No data</Text>
+          )}
+          {topCategories.map(c => {
+            const color = categoriesMap[c.category_id]?.color || '#4B7CF3';
+
+            const amount = Number(c.amount || 0);
+            const percent = totalSpend > 0 ? (amount / totalSpend) * 100 : 0;
+
+            return (
+              <View key={c.category_id} style={{ marginBottom: 10 }}>
+
+                {/* Row */}
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: 4
+                  }}
+                >
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <View
+                      style={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: 5,
+                        backgroundColor: color,
+                        marginRight: 8
+                      }}
+                    />
+                    <Text style={{ color: Colors.text }}>
+                      {c.category_name}
+                    </Text>
+                  </View>
+
+                  <Text style={{ color: '#E46A6A', fontWeight: '600' }}>
+                    ₹{amount.toLocaleString('en-IN')}
+                  </Text>
+                </View>
+
+                {/* Progress Bar */}
+                <View
+                  style={{
+                    height: 6,
+                    backgroundColor: '#eee',
+                    borderRadius: 4,
+                    overflow: 'hidden'
+                  }}
+                >
+                  <View
+                    style={{
+                      width: `${percent}%`,
+                      height: '100%',
+                      backgroundColor: color
+                    }}
+                  />
+                </View>
+              </View>
+            );
+          })}
+        </Card>
+
+        <Card>
+          <Text style={{ fontWeight: '600', marginBottom: 8 }}>
+            Bills
+          </Text>
+
+          {sortedBills.length ? sortedBills.map(b => {
+            const due = new Date(b.due_date);
+            const isOverdue = !b.is_paid && due < today;
+
+            const catColor = categoriesMap[b.category_id]?.color || '#ccc';
+
+            return (
+              <View
+                key={b.id}
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  paddingVertical: 8
+                }}
+              >
+
+                {/* LEFT */}
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <View
+                    style={{
+                      width: 10,
+                      height: 10,
+                      borderRadius: 5,
+                      backgroundColor: catColor,
+                      marginRight: 8
+                    }}
+                  />
+                  <View>
+                    <Text style={{ color: Colors.text, fontWeight: '600' }}>
+                      {b.name}
+                    </Text>
+                    <Text style={{ fontSize: 12, color: Colors.muted }}>
+                      Due: {new Date(b.due_date).toLocaleDateString()}
+                    </Text>
+                  </View>
+                </View>
+
+                {/* RIGHT */}
+                <View style={{ alignItems: 'flex-end' }}>
+                  <Text style={{
+                    fontWeight: '700',
+                    color: isOverdue ? '#E46A6A' : Colors.text
+                  }}>
+                    ₹{Number(b.amount).toLocaleString('en-IN')}
+                  </Text>
+
+                  <Text style={{
+                    fontSize: 12,
+                    color: b.is_paid ? '#36B37E' : isOverdue ? '#E46A6A' : '#FFB020'
+                  }}>
+                    {b.is_paid ? 'Paid' : isOverdue ? 'Overdue' : 'Upcoming'}
+                  </Text>
+                </View>
+
+              </View>
+            );
+          }) : (
+            <Text style={{ color: Colors.muted }}>
+              No bills added
+            </Text>
+          )}
+        </Card>
+
+        <Card>
+          <Text style={{ fontWeight: '600', marginBottom: 8 }}>Source balances</Text>
+          {sourceBalances.length ? sourceBalances.map(s => (
+            <View key={s.source_id} style={{ flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 6 }}>
+              <Text style={{ color: Colors.text }}>{s.name}</Text>
+              <Text style={{ color: Colors.text }}>{Number(s.balance).toFixed(2)}</Text>
+            </View>
+          )) : <Text style={{ color: Colors.muted }}>No sources</Text>}
+        </Card>
+
+        <Card style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <TouchableOpacity onPress={() => navigation.navigate('TransactionAdd')} style={{ backgroundColor: Colors.primary, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 8, minWidth: 110, alignItems: 'center' }}>
+            <Text style={{ color: '#fff', fontWeight: '700' }}>+ Transaction</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigation.navigate('Categories')} style={{ backgroundColor: Colors.card, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 8, minWidth: 90, alignItems: 'center' }}>
+            <Text style={{ color: Colors.text, fontWeight: '600' }}>Categories</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigation.navigate('Sources')} style={{ backgroundColor: Colors.card, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 8, minWidth: 90, alignItems: 'center' }}>
+            <Text style={{ color: Colors.text, fontWeight: '600' }}>Sources</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigation.navigate('Bills')} style={{ backgroundColor: Colors.card, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 8, minWidth: 90, alignItems: 'center' }}>
+            <Text style={{ color: Colors.text, fontWeight: '600' }}>Bills</Text>
+          </TouchableOpacity>
+        </Card>
+
+        <Card>
+          <Text style={{ color: Colors.muted }}>Overview</Text>
+          <Text style={{ fontSize: 28, fontWeight: '700', color: Colors.text }}>{balance ? balance.balance.toFixed(2) : '—'}</Text>
+        </Card>
+
+        <Card>
+          <Text style={{ fontWeight: '600', marginBottom: 8 }}>Top spends (this month)</Text>
+          {topCategories.length ? topCategories.map(c => (
+            <View key={c.category_id} style={{ flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 6 }}>
+              <Text style={{ color: Colors.text }}>{c.category_name}</Text>
+              <Text style={{ color: '#E46A6A' }}>-{Number(c.amount).toFixed(2)}</Text>
+            </View>
+          )) : <Text style={{ color: Colors.muted }}>No data</Text>}
+        </Card>
+
+        <Card>
+          <Text style={{ fontWeight: '600', marginBottom: 8 }}>Monthly trends</Text>
+          {trends.length ? trends.map(ti => (
+            <View key={ti.month} style={{ flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 6 }}>
+              <Text style={{ color: Colors.text }}>{ti.month}</Text>
+              <Text style={{ color: Colors.muted }}>+{ti.income.toFixed(0)} / -{ti.expense.toFixed(0)}</Text>
+            </View>
+          )) : <Text style={{ color: Colors.muted }}>No trend data</Text>}
+        </Card>
+      </ScrollView>
+
+      <FAB onPress={() => navigation.navigate('Transactions')} />
+
+      <ConfirmDialog visible={confirmVisibleTx} title="Delete Transaction" message={confirmTxMessage} onCancel={() => { setConfirmVisibleTx(false); setConfirmTxId(null); }} onConfirm={async () => { if (confirmTxId) { await deleteTransaction(confirmTxId); } setConfirmVisibleTx(false); setConfirmTxId(null); load(); }} />
+    </View>
+  );
+}

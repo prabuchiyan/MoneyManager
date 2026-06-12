@@ -1,0 +1,199 @@
+import { Platform } from 'react-native';
+let db = null;
+
+function makeRows(arr) {
+  return {
+    length: arr.length,
+    item(i) { return arr[i]; }
+  };
+}
+
+// Minimal localStorage-backed shim for web to emulate executeSql result shape
+function createWebExecuteSql() {
+  const prefix = 'mm_db_';
+
+  function ensureTable(name) {
+    const key = prefix + name;
+    if (!localStorage.getItem(key)) {
+      localStorage.setItem(key, JSON.stringify([]));
+      localStorage.setItem(prefix + name + '_meta', JSON.stringify({ nextId: 1 }));
+    }
+  }
+
+  function readTable(name) {
+    ensureTable(name);
+    return JSON.parse(localStorage.getItem(prefix + name) || '[]');
+  }
+
+  function writeTable(name, rows) {
+    localStorage.setItem(prefix + name, JSON.stringify(rows));
+  }
+
+  return async function executeSql(sql, params = []) {
+    const s = sql.trim();
+    const l = s.toLowerCase();
+
+    // CREATE TABLE -> ensure table exists (extract table name)
+    if (l.startsWith('create table')) {
+      const m = s.match(/create table if not exists\s+([a-zA-Z0-9_]+)/i);
+      if (m) ensureTable(m[1]);
+      return { rows: makeRows([]) };
+    }
+
+    // INSERT
+    if (l.startsWith('insert into')) {
+      const m = s.match(/insert into\s+([a-zA-Z0-9_]+)\s*\(([^)]+)\)\s*values\s*\(([^)]+)\)/i);
+      if (!m) throw new Error('Unsupported INSERT SQL: ' + sql);
+      const table = m[1];
+      const cols = m[2].split(',').map(c=>c.trim());
+      const rows = readTable(table);
+      const metaKey = prefix + table + '_meta';
+      const meta = JSON.parse(localStorage.getItem(metaKey) || '{"nextId":1}');
+      const obj = {};
+      for (let i=0;i<cols.length;i++) obj[cols[i]] = params[i] !== undefined ? params[i] : null;
+      obj.id = meta.nextId++;
+      rows.push(obj);
+      writeTable(table, rows);
+      localStorage.setItem(metaKey, JSON.stringify(meta));
+      return { insertId: obj.id, rows: makeRows([]) };
+    }
+
+    // SELECT * FROM table [WHERE ...] [ORDER BY ...] [LIMIT ?]
+    if (l.startsWith('select')) {
+      const m = s.match(/select\s+\*\s+from\s+([a-zA-Z0-9_]+)/i);
+      if (!m) throw new Error('Unsupported SELECT SQL: ' + sql);
+      const table = m[1];
+      let rows = readTable(table);
+
+      // WHERE id = ? or other simple equality conditions chained with AND
+      const whereMatch = s.match(/where\s+(.+?)(order by|limit|$)/i);
+      if (whereMatch) {
+        const cond = whereMatch[1].trim();
+        // support simple 'id = ?' or 'is_active=1'
+        const eqMatch = cond.match(/([a-zA-Z0-9_]+)\s*=\s*\?/);
+        if (eqMatch) {
+          const col = eqMatch[1];
+          const val = params.shift();
+          rows = rows.filter(r => String(r[col]) === String(val));
+        } else {
+          // support literal conditions like is_active=1
+          const litMatch = cond.match(/([a-zA-Z0-9_]+)\s*=\s*([0-9]+)/);
+          if (litMatch) {
+            const col = litMatch[1];
+            const val = litMatch[2];
+            rows = rows.filter(r => String(r[col]) === String(val));
+          }
+        }
+      }
+
+      // ORDER BY date DESC or name
+      const orderMatch = s.match(/order by\s+([a-zA-Z0-9_\.\s,]+)(limit|$)/i);
+      if (orderMatch) {
+        const ord = orderMatch[1].trim();
+        // simple support: 'date desc' or 'name'
+        const parts = ord.split(',').map(p=>p.trim());
+        rows.sort((a,b)=>{
+          for (const p of parts) {
+            const seg = p.split(/\s+/);
+            const col = seg[0];
+            const dir = (seg[1]||'').toLowerCase();
+            const A = a[col]; const B = b[col];
+            if (A == null && B != null) return 1;
+            if (A != null && B == null) return -1;
+            if (A == null && B == null) continue;
+            if (A < B) return dir === 'desc' ? 1 : -1;
+            if (A > B) return dir === 'desc' ? -1 : 1;
+          }
+          return 0;
+        });
+      }
+
+      // LIMIT
+      const limitMatch = s.match(/limit\s+\?/i);
+      if (limitMatch) {
+        const lim = params[0];
+        rows = rows.slice(0, lim);
+      }
+
+      return { rows: makeRows(rows) };
+    }
+
+    // UPDATE table SET col = ?,... WHERE id = ?
+    if (l.startsWith('update')) {
+      const m = s.match(/update\s+([a-zA-Z0-9_]+)\s+set\s+(.+)\s+where\s+(.+)/i);
+      if (!m) throw new Error('Unsupported UPDATE SQL: ' + sql);
+      const table = m[1];
+      const setClause = m[2];
+      const where = m[3];
+      const rows = readTable(table);
+      const assignments = setClause.split(',').map(p=>p.trim());
+      // assume params are in order
+      let pIndex = 0;
+      const updates = {};
+      for (const a of assignments) {
+        const col = a.split('=')[0].trim();
+        updates[col] = params[pIndex++];
+      }
+      // support where id = ?
+      const whereMatch = where.match(/id\s*=\s*\?/i);
+      if (whereMatch) {
+        const id = params[pIndex++];
+        let changed = 0;
+        for (let r of rows) {
+          if (String(r.id) === String(id)) {
+            Object.assign(r, updates);
+            changed++;
+          }
+        }
+        writeTable(table, rows);
+        return { rowsAffected: changed, rows: makeRows([]) };
+      }
+      writeTable(table, rows);
+      return { rows: makeRows([]) };
+    }
+
+    // DELETE FROM table WHERE id = ?
+    if (l.startsWith('delete')) {
+      const m = s.match(/delete from\s+([a-zA-Z0-9_]+)\s+where\s+(.+)/i);
+      if (!m) throw new Error('Unsupported DELETE SQL: ' + sql);
+      const table = m[1];
+      const where = m[2];
+      const rows = readTable(table);
+      const idMatch = where.match(/id\s*=\s*\?/i);
+      if (idMatch) {
+        const id = params[0];
+        const filtered = rows.filter(r => String(r.id) !== String(id));
+        writeTable(table, filtered);
+        return { rowsAffected: rows.length - filtered.length, rows: makeRows([]) };
+      }
+      writeTable(table, rows);
+      return { rows: makeRows([]) };
+    }
+
+    // fallback: no-op
+    return { rows: makeRows([]) };
+  };
+}
+
+export function executeSql(sql, params = []) {
+  if (Platform && Platform.OS === 'web') {
+    if (!db) db = createWebExecuteSql();
+    return db(sql, Array.from(params));
+  }
+
+  // native path
+  const SQLite = require('expo-sqlite');
+  const nativeDb = SQLite.openDatabase('money_manager.db');
+  return new Promise((resolve, reject) => {
+    nativeDb.transaction(tx => {
+      tx.executeSql(
+        sql,
+        params,
+        (_, result) => resolve(result),
+        (_, err) => { reject(err); return false; }
+      );
+    }, reject);
+  });
+}
+
+export default null;
