@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
+import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
@@ -19,23 +20,58 @@ import { Colors } from './src/components/Theme';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [ready, setReady] = useState(false);
+
   useEffect(() => {
     (async () => {
-      // Ensure icon fonts are loaded on web/native before UI renders
       try {
-        if (MaterialCommunityIcons && MaterialCommunityIcons.loadFont) await MaterialCommunityIcons.loadFont();
-        if (Feather && Feather.loadFont) await Feather.loadFont();
-      } catch (e) { console.warn('Icon font load failed', e); }
-      await initDB();
-      try { await runBillMaintenance(); } catch (e) { console.warn('Bill maintenance error', e); }
+        // Load icons
+        if (MaterialCommunityIcons?.loadFont) {
+          await MaterialCommunityIcons.loadFont();
+        }
+        if (Feather?.loadFont) {
+          await Feather.loadFont();
+        }
+
+        // Init DB
+        await initDB();
+
+        // Run maintenance
+        try {
+          await runBillMaintenance();
+        } catch (e) {
+          console.warn('Bill maintenance error', e);
+        }
+
+        // ✅ ONLY after everything is ready
+        setReady(true);
+
+      } catch (e) {
+        console.error('App init failed:', e);
+      }
     })();
   }, []);
 
+  // 🚨 BLOCK UI until ready
+  if (!ready) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
+
   return (
-    <PaperProvider theme={{
-      ...PaperDefaultTheme,
-      colors: { ...PaperDefaultTheme.colors, primary: Colors.primary, accent: Colors.accent }
-    }}>
+    <PaperProvider
+      theme={{
+        ...PaperDefaultTheme,
+        colors: {
+          ...PaperDefaultTheme.colors,
+          primary: Colors.primary,
+          accent: Colors.accent
+        }
+      }}
+    >
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Dashboard" component={HomeScreen} />
