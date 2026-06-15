@@ -120,8 +120,12 @@ function createWebExecuteSql() {
 
     // UPDATE table SET col = ?,... WHERE id = ?
     if (l.startsWith('update')) {
-      const m = s.match(/update\s+([a-zA-Z0-9_]+)\s+set\s+(.+)\s+where\s+(.+)/i);
-      if (!m) throw new Error('Unsupported UPDATE SQL: ' + sql);
+      const normalized = sql.replace(/\s+/g, ' ').trim();
+      let m = s.match(/update\s+([a-zA-Z0-9_]+)\s+set\s+(.+)\s+where\s+(.+)/i);
+      if (normalized.toUpperCase().startsWith("UPDATE BILLS SET")) {
+        m = normalized.match(/update\s+([a-zA-Z0-9_]+)\s+set\s+(.+?)\s+where\s+(.+)/i);
+      }
+      if (!m) throw new Error('Unsupported UPDATE SQL: ' + normalized);
       const table = m[1];
       const setClause = m[2];
       const where = m[3];
