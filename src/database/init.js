@@ -63,12 +63,67 @@ export async function initDB() {
       name TEXT NOT NULL,
       amount REAL NOT NULL,
       due_date TEXT,
+      status TEXT DEFAULT 'pending',
       is_recurring INTEGER DEFAULT 0,
       recurrence_type TEXT,
+      recurrence_interval INTEGER DEFAULT 1,
+      recurrence_end_date TEXT,
       category_id INTEGER,
+      source_id INTEGER,
+      reminder_days_before INTEGER DEFAULT 2,
+      last_reminded_at TEXT,
+      auto_pay INTEGER DEFAULT 0,
+      notes TEXT,
+      attachment_url TEXT,
+      linked_transaction_id INTEGER,
+      paid_at TEXT,
       is_paid INTEGER DEFAULT 0,
-      linked_transaction_id INTEGER
+      created_at TEXT DEFAULT (datetime('now')),
+      updated_at TEXT DEFAULT (datetime('now')),
+      deleted_at TEXT
     );`);
+
+    const billColumns = [
+      ['status', "TEXT DEFAULT 'pending'"],
+      ['recurrence_interval', 'INTEGER DEFAULT 1'],
+      ['recurrence_end_date', 'TEXT'],
+      ['source_id', 'INTEGER'],
+      ['reminder_days_before', 'INTEGER DEFAULT 2'],
+      ['last_reminded_at', 'TEXT'],
+      ['auto_pay', 'INTEGER DEFAULT 0'],
+      ['notes', 'TEXT'],
+      ['attachment_url', 'TEXT'],
+      ['paid_at', 'TEXT'],
+      ['created_at', "TEXT DEFAULT (datetime('now'))"],
+      ['updated_at', "TEXT DEFAULT (datetime('now'))"],
+      ['deleted_at', 'TEXT'],
+    ];
+    for (const [col, def] of billColumns) {
+      try {
+        await executeSql(`ALTER TABLE bills ADD COLUMN ${col} ${def}`, []);
+      } catch (e) {
+        // ignore if column already exists or ALTER not supported on web shim
+      }
+    }
+
+    // Migrate legacy is_paid rows to status column
+    try {
+      await executeSql(
+        `UPDATE bills SET status = 'paid', paid_at = datetime('now') WHERE is_paid = 1 AND (status IS NULL OR status = 'pending')`,
+        []
+      );
+      const today = new Date().toISOString().slice(0, 10);
+      await executeSql(
+        `UPDATE bills SET status = 'overdue' WHERE is_paid = 0 AND due_date < ? AND (status IS NULL OR status = 'pending')`,
+        [today]
+      );
+      await executeSql(
+        `UPDATE bills SET status = 'pending' WHERE is_paid = 0 AND (status IS NULL OR status = '')`,
+        []
+      );
+    } catch (e) {
+      // web shim may not support complex UPDATE; handled in service layer
+    }
 
     console.log('Database initialized');
     // Seed defaults if empty (helpful for web/local dev)

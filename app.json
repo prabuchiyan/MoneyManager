@@ -8,6 +8,16 @@
       "android",
       "web"
     ],
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "backgroundColor": "#ffffff",
+          "imageWidth": 200
+        }
+      ]
+    ],
     "extra": {
       "eas": {
         "projectId": "a644e973-ee5e-48e4-986b-b4e6fefa1342"
@@ -19,7 +29,9 @@
     "updates": {
       "url": "https://u.expo.dev/a644e973-ee5e-48e4-986b-b4e6fefa1342"
     },
-    "android": {},
+    "android": {
+      "package": "com.prabuchiyan.moneymanager"
+    },
     "ios": {}
   }
 }

@@ -15,11 +15,27 @@ export async function createTransaction(tx) {
 // emit change after creation
 const _origCreate = createTransaction;
 
-export async function getTransactions(limit = 100) {
-  const res = await executeSql(`SELECT * FROM transactions ORDER BY date DESC LIMIT ?`, [limit]);
-  const rows = [];
-  for (let i = 0; i < res.rows.length; i++) rows.push(res.rows.item(i));
-  return rows;
+export async function getTransactions(limit = 100, sourceId = null) {
+  try {
+    const params = [];
+    const rows = [];
+    let query = `SELECT * FROM transactions`;
+
+    if (sourceId) {
+      query += ` WHERE source_id = ?`;
+      params.push(sourceId);
+    }
+
+    query += ` ORDER BY date DESC LIMIT ?`;
+    params.push(limit);
+
+    const res = await executeSql(query, params);
+    for (let i = 0; i < res.rows.length; i++) rows.push(res.rows.item(i));
+    return rows;
+  } catch (error) {
+    console.error('getTransactions error:', error);
+    return [];
+  }
 }
 
 export async function deleteTransaction(id) {

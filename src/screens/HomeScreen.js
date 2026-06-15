@@ -4,7 +4,9 @@ import Svg, { Circle } from 'react-native-svg';
 import { getTotalBalance, getCategorySpending, getMonthlyTrends, getSourceBalances } from '../services/reports';
 import { getBudgetsWithRemaining } from '../services/budgets';
 import { getTransactions, deleteTransaction } from '../services/transactions';
-import { getBills } from '../services/bills';
+import { getBills, getBillsSummary } from '../services/bills';
+import { getBillDisplayStatus, formatCurrency } from '../services/billUtils';
+import { getSources } from '../services/sources';
 import ConfirmDialog from '../components/ConfirmDialog';
 import { getCategories, softDeleteCategory } from '../services/categories';
 import { Avatar, Button as PaperButton } from 'react-native-paper';
@@ -132,6 +134,7 @@ export default function HomeScreen({ navigation }) {
   const [balance, setBalance] = useState(null);
   const [topCategories, setTopCategories] = useState([]);
   const [trends, setTrends] = useState([]);
+  const [sources, setSources] = useState([]);
   const [sourceBalances, setSourceBalances] = useState([]);
   const [budgets, setBudgets] = useState([]);
   const [selectedBudgetId, setSelectedBudgetId] = useState('');
@@ -142,6 +145,7 @@ export default function HomeScreen({ navigation }) {
   const [confirmTxId, setConfirmTxId] = useState(null);
   const [confirmTxMessage, setConfirmTxMessage] = useState('Are you sure you want to delete this transaction?');
   const [bills, setBills] = useState([]);
+  const [billsSummary, setBillsSummary] = useState(null);
 
   async function load() {
     const b = await getTotalBalance();
@@ -150,8 +154,12 @@ export default function HomeScreen({ navigation }) {
     setTopCategories(cats.slice(0, 5));
     const t = await getMonthlyTrends(6);
     setTrends(t);
-    const bl = await getBills();
+    const bl = await getBills({ sortBy: 'due_date' });
     setBills(bl);
+    const bsum = await getBillsSummary();
+    setBillsSummary(bsum);
+    const availableSources = await getSources(true);
+    setSources(availableSources);
     const sb = await getSourceBalances();
     setSourceBalances(sb);
     const bs = await getBudgetsWithRemaining();
@@ -195,6 +203,11 @@ export default function HomeScreen({ navigation }) {
   }, []);
 
   useEffect(() => {
+    const offBills = events.on('billsChanged', () => { load(); });
+    return () => offBills();
+  }, []);
+
+  useEffect(() => {
     const off2 = events.on('budgetsChanged', async (id) => {
       console.debug && console.debug('Home.budgetsChanged received id:', id);
       if (id) {
@@ -215,9 +228,8 @@ export default function HomeScreen({ navigation }) {
     0
   );
 
-  const today = new Date();
   const sortedBills = [...bills].sort(
-    (a, b) => new Date(a.due_date) - new Date(b.due_date)
+    (a, b) => new Date(a.due_date || 0) - new Date(b.due_date || 0)
   );
 
   const totalBalance = sourceBalances.reduce(
@@ -232,7 +244,6 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={{ flex: 1, backgroundColor: Colors.background }}>
-      <Header title="Money Manager" subtitle={balance ? `Balance: ${balance.balance.toFixed(2)}` : 'Loading...'} />
       <ScrollView contentContainerStyle={{ padding: Spacing.m }}>
         <Card>
           {budgets.length ? (
@@ -285,7 +296,24 @@ export default function HomeScreen({ navigation }) {
             {/* DIVIDER */}
             <View style={{ width: 1, backgroundColor: '#eee' }} />
 
-            {/* TOTAL SPEND */}
+            {/* BILL DUE */}
+            <TouchableOpacity
+              style={{ flex: 1, alignItems: 'center' }}
+              onPress={() => navigation.navigate('Bills')}
+            >
+              <Text style={{ fontSize: 16, fontWeight: '700', color: '#FF9800' }}>
+                ₹{billsSummary?.upcoming7?.toLocaleString('en-IN') || 0}
+              </Text>
+
+              <Text style={{ fontSize: 11, color: Colors.muted }}>
+                {billsSummary?.dueThisMonthCount || 0} Bill Due
+              </Text>
+            </TouchableOpacity>
+
+            {/* DIVIDER */}
+            <View style={{ width: 1, backgroundColor: '#eee' }} />
+
+            {/* SPEND */}
             <View style={{ flex: 1, alignItems: 'center' }}>
               <Text style={{ fontSize: 12, color: Colors.muted }}>
                 Spend
@@ -342,14 +370,17 @@ export default function HomeScreen({ navigation }) {
           ) : (
             <Text style={{ color: Colors.muted }}>No data</Text>
           )}
+
           {topCategories.map(c => {
-            const color = categoriesMap[c.category_id]?.color || '#4B7CF3';
+            const cat = categoriesMap[c.category_id] || {};
+            const color = cat.color || '#4B7CF3';
+            const icon = cat.icon || 'tag';
 
             const amount = Number(c.amount || 0);
             const percent = totalSpend > 0 ? (amount / totalSpend) * 100 : 0;
 
             return (
-              <View key={c.category_id} style={{ marginBottom: 10 }}>
+              <View key={c.category_id} style={{ marginBottom: 12 }}>
 
                 {/* Row */}
                 <View
@@ -357,24 +388,30 @@ export default function HomeScreen({ navigation }) {
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    marginBottom: 4
+                    marginBottom: 6
                   }}
                 >
+
+                  {/* LEFT: Icon + Name */}
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <View
+
+                    {/* 🔵 Circular Icon */}
+                    <Avatar.Icon
+                      size={34}
+                      icon={icon}
                       style={{
-                        width: 10,
-                        height: 10,
-                        borderRadius: 5,
                         backgroundColor: color,
-                        marginRight: 8
+                        marginRight: 10
                       }}
+                      color="#fff"
                     />
-                    <Text style={{ color: Colors.text }}>
+
+                    <Text style={{ color: Colors.text, fontWeight: '500' }}>
                       {c.category_name}
                     </Text>
                   </View>
 
+                  {/* RIGHT: Amount */}
                   <Text style={{ color: '#E46A6A', fontWeight: '600' }}>
                     ₹{amount.toLocaleString('en-IN')}
                   </Text>
@@ -397,88 +434,122 @@ export default function HomeScreen({ navigation }) {
                     }}
                   />
                 </View>
+
               </View>
             );
           })}
         </Card>
 
-        <Card>
-          <Text style={{ fontWeight: '600', marginBottom: 8 }}>
-            Bills
-          </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Bills')}>
+          <Card>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+              <Text style={{ fontWeight: '600' }}>Bills</Text>
+              <Text style={{ color: Colors.primary, fontWeight: '600', fontSize: 13 }}>View all ›</Text>
+            </View>
 
-          {sortedBills.length ? sortedBills.map(b => {
-            const due = new Date(b.due_date);
-            const isOverdue = !b.is_paid && due < today;
+            {billsSummary ? (
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginBottom: 12 }}>
+                <View style={{ width: '50%', marginBottom: 6 }}>
+                  <Text style={{ fontSize: 11, color: Colors.muted }}>This month</Text>
+                  <Text style={{ fontWeight: '700', color: Colors.text }}>{formatCurrency(billsSummary.totalThisMonth)}</Text>
+                </View>
+                <View style={{ width: '50%', marginBottom: 6 }}>
+                  <Text style={{ fontSize: 11, color: Colors.muted }}>Paid</Text>
+                  <Text style={{ fontWeight: '700', color: '#36B37E' }}>{formatCurrency(billsSummary.totalPaid)}</Text>
+                </View>
+                <View style={{ width: '50%' }}>
+                  <Text style={{ fontSize: 11, color: Colors.muted }}>Overdue</Text>
+                  <Text style={{ fontWeight: '700', color: '#E46A6A' }}>{formatCurrency(billsSummary.overdueAmount)}</Text>
+                </View>
+                <View style={{ width: '50%' }}>
+                  <Text style={{ fontSize: 11, color: Colors.muted }}>Next 7 days</Text>
+                  <Text style={{ fontWeight: '700', color: '#FFB020' }}>{formatCurrency(billsSummary.upcoming7)}</Text>
+                </View>
+              </View>
+            ) : null}
 
-            const catColor = categoriesMap[b.category_id]?.color || '#ccc';
+            {sortedBills.length ? sortedBills.slice(0, 5).map(b => {
+              const display = getBillDisplayStatus(b);
+              const catColor = categoriesMap[b.category_id]?.color || '#ccc';
 
-            return (
-              <View
-                key={b.id}
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  paddingVertical: 8
-                }}
-              >
+              return (
+                <View
+                  key={b.id}
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    paddingVertical: 8
+                  }}
+                >
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <View
+                      style={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: 5,
+                        backgroundColor: catColor,
+                        marginRight: 8
+                      }}
+                    />
+                    <View>
+                      <Text style={{ color: Colors.text, fontWeight: '600' }}>
+                        {b.name}
+                      </Text>
+                      <Text style={{ fontSize: 12, color: Colors.muted }}>
+                        Due: {b.due_date ? new Date(b.due_date).toLocaleDateString() : '—'}
+                      </Text>
+                    </View>
+                  </View>
 
-                {/* LEFT */}
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <View
-                    style={{
-                      width: 10,
-                      height: 10,
-                      borderRadius: 5,
-                      backgroundColor: catColor,
-                      marginRight: 8
-                    }}
-                  />
-                  <View>
-                    <Text style={{ color: Colors.text, fontWeight: '600' }}>
-                      {b.name}
+                  <View style={{ alignItems: 'flex-end' }}>
+                    <Text style={{ fontWeight: '700', color: display.color }}>
+                      {formatCurrency(b.amount)}
                     </Text>
-                    <Text style={{ fontSize: 12, color: Colors.muted }}>
-                      Due: {new Date(b.due_date).toLocaleDateString()}
+                    <Text style={{ fontSize: 12, color: display.color }}>
+                      {display.label}
                     </Text>
                   </View>
                 </View>
-
-                {/* RIGHT */}
-                <View style={{ alignItems: 'flex-end' }}>
-                  <Text style={{
-                    fontWeight: '700',
-                    color: isOverdue ? '#E46A6A' : Colors.text
-                  }}>
-                    ₹{Number(b.amount).toLocaleString('en-IN')}
-                  </Text>
-
-                  <Text style={{
-                    fontSize: 12,
-                    color: b.is_paid ? '#36B37E' : isOverdue ? '#E46A6A' : '#FFB020'
-                  }}>
-                    {b.is_paid ? 'Paid' : isOverdue ? 'Overdue' : 'Upcoming'}
-                  </Text>
-                </View>
-
-              </View>
-            );
-          }) : (
-            <Text style={{ color: Colors.muted }}>
-              No bills added
-            </Text>
-          )}
-        </Card>
+              );
+            }) : (
+              <Text style={{ color: Colors.muted }}>
+                No bills added
+              </Text>
+            )}
+          </Card>
+        </TouchableOpacity>
 
         <Card>
-          <Text style={{ fontWeight: '600', marginBottom: 8 }}>Source balances</Text>
-          {sourceBalances.length ? sourceBalances.map(s => (
-            <View key={s.source_id} style={{ flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 6 }}>
-              <Text style={{ color: Colors.text }}>{s.name}</Text>
-              <Text style={{ color: Colors.text }}>{Number(s.balance).toFixed(2)}</Text>
-            </View>
-          )) : <Text style={{ color: Colors.muted }}>No sources</Text>}
+          <Text style={{ fontWeight: '600', marginBottom: 8 }}>
+            Source balances
+          </Text>
+
+          {sources.length ? sources.map(item => (
+            <TouchableOpacity
+              key={item.id}
+              onPress={() => navigation.navigate('SourcesDetails', {
+                sourceId: item.id,
+                sourceName: item.name
+              })}
+            >
+              <View style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                paddingVertical: 8
+              }}>
+                <Text style={{ color: Colors.text }}>
+                  {item.name}
+                </Text>
+
+                <Text style={{ color: Colors.text }}>
+                  ₹ {Number(item.initial_balance || 0).toFixed(2)}
+                </Text>
+              </View>
+            </TouchableOpacity>
+          )) : (
+            <Text style={{ color: Colors.muted }}>No sources</Text>
+          )}
         </Card>
 
         <Card style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>

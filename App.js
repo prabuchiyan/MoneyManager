@@ -6,10 +6,12 @@ import TransactionsScreen from './src/screens/TransactionsScreen';
 import TransactionAddScreen from './src/screens/TransactionAddScreen';
 import CategoriesScreen from './src/screens/CategoriesScreen';
 import SourcesScreen from './src/screens/SourcesScreen';
+import SourcesDetails from './src/screens/SourcesDetails';
 import BudgetsScreen from './src/screens/BudgetsScreen';
 import BillsScreen from './src/screens/BillsScreen';
+import BillDetailScreen from './src/screens/BillDetailScreen';
 import { initDB } from './src/database/init';
-import { runRecurringScheduler } from './src/services/bills';
+import { runBillMaintenance } from './src/services/bills';
 import { Provider as PaperProvider, DefaultTheme as PaperDefaultTheme } from 'react-native-paper';
 import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 import { Colors } from './src/components/Theme';
@@ -25,7 +27,7 @@ export default function App() {
         if (Feather && Feather.loadFont) await Feather.loadFont();
       } catch (e) { console.warn('Icon font load failed', e); }
       await initDB();
-      try { await runRecurringScheduler(); } catch (e) { console.warn('Scheduler error', e); }
+      try { await runBillMaintenance(); } catch (e) { console.warn('Bill maintenance error', e); }
     })();
   }, []);
 
@@ -36,13 +38,15 @@ export default function App() {
     }}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Dashboard" component={HomeScreen} />
           <Stack.Screen name="Transactions" component={TransactionsScreen} />
           <Stack.Screen name="TransactionAdd" component={TransactionAddScreen} options={{ title: 'Add Transaction' }} />
           <Stack.Screen name="Categories" component={CategoriesScreen} />
           <Stack.Screen name="Sources" component={SourcesScreen} />
+          <Stack.Screen name="SourcesDetails" component={SourcesDetails} />
           <Stack.Screen name="Budgets" component={BudgetsScreen} />
-          <Stack.Screen name="Bills" component={BillsScreen} />
+          <Stack.Screen name="Bills" component={BillsScreen} options={{ title: 'Bills' }} />
+          <Stack.Screen name="BillDetail" component={BillDetailScreen} options={{ title: 'Bill Details' }} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
