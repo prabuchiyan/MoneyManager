@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ErrorBoundary from './src/screens/ErrorBoundary';
 import HomeScreen from './src/screens/HomeScreen';
 import TransactionsScreen from './src/screens/TransactionsScreen';
 import TransactionAddScreen from './src/screens/TransactionAddScreen';
@@ -62,29 +63,31 @@ export default function App() {
   }
 
   return (
-    <PaperProvider
-      theme={{
-        ...PaperDefaultTheme,
-        colors: {
-          ...PaperDefaultTheme.colors,
-          primary: Colors.primary,
-          accent: Colors.accent
-        }
-      }}
-    >
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Dashboard" component={HomeScreen} />
-          <Stack.Screen name="Transactions" component={TransactionsScreen} />
-          <Stack.Screen name="TransactionAdd" component={TransactionAddScreen} options={{ title: 'Add Transaction' }} />
-          <Stack.Screen name="Categories" component={CategoriesScreen} />
-          <Stack.Screen name="Sources" component={SourcesScreen} />
-          <Stack.Screen name="SourcesDetails" component={SourcesDetails} />
-          <Stack.Screen name="Budgets" component={BudgetsScreen} />
-          <Stack.Screen name="Bills" component={BillsScreen} options={{ title: 'Bills' }} />
-          <Stack.Screen name="BillDetail" component={BillDetailScreen} options={{ title: 'Bill Details' }} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </PaperProvider>
+    <ErrorBoundary>
+      <PaperProvider
+        theme={{
+          ...PaperDefaultTheme,
+          colors: {
+            ...PaperDefaultTheme.colors,
+            primary: Colors.primary,
+            accent: Colors.accent
+          }
+        }}
+      >
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Dashboard" component={HomeScreen} />
+            <Stack.Screen name="Transactions" component={TransactionsScreen} />
+            <Stack.Screen name="TransactionAdd" component={TransactionAddScreen} options={{ title: 'Add Transaction' }} />
+            <Stack.Screen name="Categories" component={CategoriesScreen} />
+            <Stack.Screen name="Sources" component={SourcesScreen} />
+            <Stack.Screen name="SourcesDetails" component={SourcesDetails} />
+            <Stack.Screen name="Budgets" component={BudgetsScreen} />
+            <Stack.Screen name="Bills" component={BillsScreen} options={{ title: 'Bills' }} />
+            <Stack.Screen name="BillDetail" component={BillDetailScreen} options={{ title: 'Bill Details' }} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PaperProvider>
+    </ErrorBoundary>
   );
 }

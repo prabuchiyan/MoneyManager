@@ -246,7 +246,7 @@ export default function HomeScreen({ navigation }) {
     <View style={{ flex: 1, backgroundColor: Colors.background }}>
       <ScrollView contentContainerStyle={{ padding: Spacing.m }}>
         <Card>
-          {budgets.length ? (
+          {/* {budgets.length ? (
             <>
               {(() => {
                 const sel = budgets.find(x => x.budget.id === selectedBudgetId) || budgets[0];
@@ -274,7 +274,8 @@ export default function HomeScreen({ navigation }) {
                 <PaperButton mode="contained" onPress={() => navigation.navigate('Budgets')} style={{ marginTop: 12 }}>Create Budget</PaperButton>
               </View>
             </View>
-          )}
+          )} */}
+          
           <View
             style={{
               flexDirection: 'row',
@@ -282,8 +283,6 @@ export default function HomeScreen({ navigation }) {
               marginTop: 12
             }}
           >
-
-            {/* BALANCE */}
             <View style={{ flex: 1, alignItems: 'center' }}>
               <Text style={{ fontSize: 12, color: Colors.muted }}>
                 Balance
@@ -293,10 +292,8 @@ export default function HomeScreen({ navigation }) {
               </Text>
             </View>
 
-            {/* DIVIDER */}
             <View style={{ width: 1, backgroundColor: '#eee' }} />
 
-            {/* BILL DUE */}
             <TouchableOpacity
               style={{ flex: 1, alignItems: 'center' }}
               onPress={() => navigation.navigate('Bills')}
@@ -310,10 +307,8 @@ export default function HomeScreen({ navigation }) {
               </Text>
             </TouchableOpacity>
 
-            {/* DIVIDER */}
             <View style={{ width: 1, backgroundColor: '#eee' }} />
 
-            {/* SPEND */}
             <View style={{ flex: 1, alignItems: 'center' }}>
               <Text style={{ fontSize: 12, color: Colors.muted }}>
                 Spend
@@ -381,8 +376,6 @@ export default function HomeScreen({ navigation }) {
 
             return (
               <View key={c.category_id} style={{ marginBottom: 12 }}>
-
-                {/* Row */}
                 <View
                   style={{
                     flexDirection: 'row',
@@ -391,11 +384,7 @@ export default function HomeScreen({ navigation }) {
                     marginBottom: 6
                   }}
                 >
-
-                  {/* LEFT: Icon + Name */}
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-
-                    {/* 🔵 Circular Icon */}
                     <Avatar.Icon
                       size={34}
                       icon={icon}
@@ -410,14 +399,10 @@ export default function HomeScreen({ navigation }) {
                       {c.category_name}
                     </Text>
                   </View>
-
-                  {/* RIGHT: Amount */}
                   <Text style={{ color: '#E46A6A', fontWeight: '600' }}>
                     ₹{amount.toLocaleString('en-IN')}
                   </Text>
                 </View>
-
-                {/* Progress Bar */}
                 <View
                   style={{
                     height: 6,
