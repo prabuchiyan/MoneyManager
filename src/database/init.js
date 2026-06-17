@@ -19,20 +19,10 @@ export async function initDB() {
       name TEXT NOT NULL,
       type TEXT,
       initial_balance REAL DEFAULT 0,
-      is_active INTEGER DEFAULT 1
+      is_active INTEGER DEFAULT 1,
+      icon TEXT,
+      color TEXT
     );`);
-    // Ensure `icon` column exists for sources (safe ALTER)
-    try {
-      await executeSql(`ALTER TABLE sources ADD COLUMN icon TEXT`, []);
-    } catch (e) {
-      // ignore if column already exists or ALTER not supported on web shim
-    }
-    // Ensure `color` column exists for categories (safe ALTER)
-    try {
-      await executeSql(`ALTER TABLE categories ADD COLUMN color TEXT`, []);
-    } catch (e) {
-      // ignore if column already exists or ALTER not supported on web shim
-    }
 
     // Transactions
     await executeSql(`CREATE TABLE IF NOT EXISTS transactions (
@@ -82,29 +72,6 @@ export async function initDB() {
       updated_at TEXT DEFAULT (datetime('now')),
       deleted_at TEXT
     );`);
-
-    const billColumns = [
-      ['status', "TEXT DEFAULT 'pending'"],
-      ['recurrence_interval', 'INTEGER DEFAULT 1'],
-      ['recurrence_end_date', 'TEXT'],
-      ['source_id', 'INTEGER'],
-      ['reminder_days_before', 'INTEGER DEFAULT 2'],
-      ['last_reminded_at', 'TEXT'],
-      ['auto_pay', 'INTEGER DEFAULT 0'],
-      ['notes', 'TEXT'],
-      ['attachment_url', 'TEXT'],
-      ['paid_at', 'TEXT'],
-      ['created_at', "TEXT DEFAULT (datetime('now'))"],
-      ['updated_at', "TEXT DEFAULT (datetime('now'))"],
-      ['deleted_at', 'TEXT'],
-    ];
-    for (const [col, def] of billColumns) {
-      try {
-        await executeSql(`ALTER TABLE bills ADD COLUMN ${col} ${def}`, []);
-      } catch (e) {
-        // ignore if column already exists or ALTER not supported on web shim
-      }
-    }
 
     // Migrate legacy is_paid rows to status column
     try {

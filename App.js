@@ -57,7 +57,7 @@ export default function App() {
   if (!ready) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Loading...</Text>
+        <Text>Prabuchiyan...</Text>
       </View>
     );
   }

@@ -1,9 +1,9 @@
 import { executeSql } from '../database/db';
 
-export async function createSource({ name, type = null, initial_balance = 0, icon = null }) {
+export async function createSource({ name, type = null, initial_balance = 0, icon = null, color = null }) {
   const res = await executeSql(
-    `INSERT INTO sources (name, type, initial_balance, icon) VALUES (?,?,?,?)`,
-    [name, type, initial_balance, icon]
+    `INSERT INTO sources (name, type, initial_balance, icon, color) VALUES (?,?,?,?,?)`,
+    [name, type, initial_balance, icon, color]
   );
   return res.insertId;
 }
@@ -18,10 +18,10 @@ export async function getSources(activeOnly = true) {
   return rows;
 }
 
-export async function updateSource(id, { name, type, initial_balance = 0, icon = null, is_active = 1 }) {
+export async function updateSource(id, { name, type, initial_balance = 0, icon = null, is_active = 1, color = null }) {
   await executeSql(
-    `UPDATE sources SET name = ?, type = ?, initial_balance = ?, icon = ?, is_active = ? WHERE id = ?`,
-    [name, type, initial_balance, icon, is_active ? 1 : 0, id]
+    `UPDATE sources SET name = ?, type = ?, initial_balance = ?, icon = ?, is_active = ?, color = ? WHERE id = ?`,
+    [name, type, initial_balance, icon, is_active ? 1 : 0, color, id]
   );
 }
 
