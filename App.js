@@ -11,6 +11,7 @@ import SourcesDashboard from './src/screens/SourcesDashboard';
 import SourcesScreen from './src/screens/SourcesScreen';
 import SourcesDetails from './src/screens/SourcesDetails';
 import BudgetsScreen from './src/screens/BudgetsScreen';
+import ReportsScreen from './src/screens/ReportsScreen';
 import BillsScreen from './src/screens/BillsScreen';
 import BillDetailScreen from './src/screens/BillDetailScreen';
 import { initDB } from './src/database/init';
@@ -89,6 +90,7 @@ export default function App() {
             <Stack.Screen name="SourcesDashboard" component={SourcesDashboard} />
             <Stack.Screen name="Sources" component={SourcesScreen} />
             <Stack.Screen name="SourcesDetails" component={SourcesDetails} />
+            <Stack.Screen name="Reports" component={ReportsScreen} options={{ title: 'Financial Reports' }} />
             <Stack.Screen name="Budgets" component={BudgetsScreen} />
             <Stack.Screen name="Bills" component={BillsScreen} options={{ title: 'Bills' }} />
             <Stack.Screen name="BillDetail" component={BillDetailScreen} options={{ title: 'Bill Details' }} />

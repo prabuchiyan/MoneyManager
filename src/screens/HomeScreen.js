@@ -327,15 +327,19 @@ export default function HomeScreen({ navigation }) {
             </TouchableOpacity>
 
             <View style={{ width: 1, backgroundColor: '#eee' }} />
-
-            <View style={{ flex: 1, alignItems: 'center' }}>
-              <Text style={{ fontSize: 12, color: Colors.muted }}>
-                Spend
-              </Text>
-              <Text style={{ fontSize: 16, fontWeight: '700', color: '#E46A6A' }}>
-                ₹{totalMonthlySpend.toLocaleString('en-IN')}
-              </Text>
-            </View>
+            <TouchableOpacity
+              style={{ flex: 1, alignItems: 'center' }}
+              onPress={() => navigation.navigate('Reports')}
+            >
+              <View style={{ flex: 1, alignItems: 'center' }}>
+                <Text style={{ fontSize: 12, color: Colors.muted }}>
+                  Spend
+                </Text>
+                <Text style={{ fontSize: 16, fontWeight: '700', color: '#E46A6A' }}>
+                  ₹{totalMonthlySpend.toLocaleString('en-IN')}
+                </Text>
+              </View>
+            </TouchableOpacity>
 
           </View>
         </Card>

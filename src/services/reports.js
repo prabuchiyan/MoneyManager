@@ -65,4 +65,48 @@ export async function getSourceBalances() {
   return result;
 }
 
+export function groupTransactions(transactions, mode) {
+  if (!transactions) return [];
+  const groups = {};
+
+  transactions.forEach(tx => {
+    const amount = Number(tx.amount) || 0;
+    const dateObj = new Date(tx.date);
+    if (isNaN(dateObj.getTime())) return;
+
+    let key = '';
+    if (mode === 'daily') {
+      key = tx.date.split('T')[0];
+    } else if (mode === 'weekly') {
+      const day = dateObj.getDay();
+      const diff = dateObj.getDate() - day;
+      const weekStart = new Date(dateObj.setDate(diff));
+      key = weekStart.toISOString().split('T')[0];
+    } else if (mode === 'monthly') {
+      key = tx.date.substring(0, 7); // YYYY-MM
+    } else if (mode === 'yearly') {
+      key = tx.date.substring(0, 4); // YYYY
+    }
+
+    if (!groups[key]) {
+      groups[key] = { label: key, income: 0, expense: 0, balance: 0 };
+    }
+
+    if (tx.type === 'income') {
+      groups[key].income += amount;
+    } else if (tx.type === 'expense') {
+      groups[key].expense += amount;
+    }
+  });
+
+  const result = Object.values(groups);
+  result.sort((a, b) => a.label.localeCompare(b.label));
+
+  if (mode === 'daily') return result.slice(-7);
+  if (mode === 'weekly') return result.slice(-8);
+  if (mode === 'monthly') return result.slice(-12);
+  if (mode === 'yearly') return result.slice(-5);
+  return result;
+}
+
 export default { getTotalBalance, getCategorySpending, getMonthlyTrends };
