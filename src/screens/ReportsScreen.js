@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { Chip } from 'react-native-paper';
 import { getTransactions } from '../services/transactions';
+import { getCategories } from '../services/categories';
 import { groupTransactions } from '../services/reports';
 import Card from '../components/Card';
 import { Colors, Spacing } from '../components/Theme';
@@ -9,14 +10,21 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function ReportsScreen() {
   const [transactions, setTransactions] = useState([]);
+  const [categoriesMap, setCategoriesMap] = useState({});
   const [mode, setMode] = useState('monthly');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchTransactions() {
+    async function loadData() {
       try {
         setLoading(true);
-        const tx = await getTransactions(500);
+        const [tx, cats] = await Promise.all([
+          getTransactions(500),
+          getCategories(true)
+        ]);
+        const cmap = {};
+        cats.forEach(c => { cmap[c.id] = c; });
+        setCategoriesMap(cmap);
         setTransactions(tx);
       } catch (e) {
         console.error(e);
@@ -24,7 +32,7 @@ export default function ReportsScreen() {
         setLoading(false);
       }
     }
-    fetchTransactions();
+    loadData();
   }, []);
 
   const reportData = useMemo(() => {
@@ -32,8 +40,10 @@ export default function ReportsScreen() {
   }, [transactions, mode]);
 
   const maxAmount = useMemo(() => {
-    const points = reportData.map(d => Math.max(d.income, d.expense));
-    return Math.max(...points, 100);
+    if (!reportData || reportData.length === 0) return 100;
+    const points = reportData.map(d => Math.max(d.income || 0, d.expense || 0));
+    const max = Math.max(...points);
+    return max > 0 ? max : 100;
   }, [reportData]);
 
   const formatLabel = (label) => {
@@ -74,8 +84,8 @@ export default function ReportsScreen() {
               {reportData.map((data, idx) => (
                 <View key={idx} style={styles.chartColumn}>
                   <View style={styles.barContainer}>
-                    <View style={[styles.bar, { backgroundColor: '#36B37E', height: `${(data.income / maxAmount) * 100}%` }]} />
-                    <View style={[styles.bar, { backgroundColor: '#E46A6A', height: `${(data.expense / maxAmount) * 100}%` }]} />
+                    <View style={[styles.bar, styles.incomeBar, { height: `${Math.max((data.income / maxAmount) * 100, 2)}%` }]} />
+                    <View style={[styles.bar, styles.expenseBar, { height: `${Math.max((data.expense / maxAmount) * 100, 2)}%` }]} />
                   </View>
                   <Text style={styles.axisLabel} numberOfLines={1}>
                     {formatLabel(data.label)}
@@ -102,6 +112,29 @@ export default function ReportsScreen() {
               <Text style={styles.incomeText}>+ ₹{data.income.toLocaleString('en-IN')}</Text>
               <Text style={styles.expenseText}>- ₹{data.expense.toLocaleString('en-IN')}</Text>
             </View>
+
+            <View style={styles.categoryBreakdown}>
+              {Object.entries(data.categories).map(([cid, totals]) => {
+                const cat = categoriesMap[cid] || { name: 'Uncategorized', icon: 'help-circle', color: '#999' };
+                const isExpense = totals.expense > 0;
+                return (
+                  <View key={cid} style={styles.catRow}>
+                    <View style={styles.catInfo}>
+                      <MaterialCommunityIcons 
+                        name={cat.icon || 'tag'} 
+                        size={16} 
+                        color={cat.color} 
+                        style={{ marginRight: 6 }} 
+                      />
+                      <Text style={styles.catName}>{cat.name}</Text>
+                    </View>
+                    <Text style={[styles.catAmount, { color: isExpense ? '#E46A6A' : '#36B37E' }]}>
+                      {isExpense ? '-' : '+'}₹{(isExpense ? totals.expense : totals.income).toLocaleString('en-IN')}
+                    </Text>
+                  </View>
+                );
+              })}
+            </View>
           </Card>
         ))}
       </ScrollView>
@@ -117,8 +150,10 @@ const styles = StyleSheet.create({
   chartTitle: { fontSize: 16, fontWeight: '700', color: Colors.text, marginBottom: 20 },
   chartOuterRow: { flexDirection: 'row', alignItems: 'flex-end', height: 160, justifyContent: 'space-around', width: '100%' },
   chartColumn: { alignItems: 'center', flex: 1 },
-  barContainer: { flexDirection: 'row', alignItems: 'flex-end', height: '85%', gap: 3, justifyContent: 'center', width: '100%' },
-  bar: { width: 8, borderRadius: 4 },
+  barContainer: { flexDirection: 'row', alignItems: 'flex-end', height: '85%', justifyContent: 'center', width: '100%' },
+  bar: { width: 8, borderRadius: 4, marginHorizontal: 1.5 },
+  incomeBar: { backgroundColor: '#36B37E' },
+  expenseBar: { backgroundColor: '#E46A6A' },
   axisLabel: { fontSize: 11, color: Colors.muted, marginTop: 6, textAlign: 'center' },
   legendRow: { flexDirection: 'row', justifyContent: 'center', gap: 16, marginTop: 16 },
   legendItem: { flexDirection: 'row', alignItems: 'center', gap: 6 },
@@ -132,4 +167,9 @@ const styles = StyleSheet.create({
   detailsRow: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 },
   incomeText: { fontSize: 13, color: '#36B37E', fontWeight: '600' },
   expenseText: { fontSize: 13, color: '#E46A6A', fontWeight: '600' },
+  categoryBreakdown: { marginTop: 12, paddingTop: 8, borderTopWidth: 1, borderTopColor: '#f9f9f9' },
+  catRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 },
+  catInfo: { flexDirection: 'row', alignItems: 'center' },
+  catName: { fontSize: 12, color: Colors.text },
+  catAmount: { fontSize: 12, fontWeight: '600' },
 });

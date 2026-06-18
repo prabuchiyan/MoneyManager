@@ -89,13 +89,20 @@ export function groupTransactions(transactions, mode) {
     }
 
     if (!groups[key]) {
-      groups[key] = { label: key, income: 0, expense: 0, balance: 0 };
+      groups[key] = { label: key, income: 0, expense: 0, balance: 0, categories: {} };
+    }
+
+    const cid = tx.category_id || 'uncategorized';
+    if (!groups[key].categories[cid]) {
+      groups[key].categories[cid] = { income: 0, expense: 0 };
     }
 
     if (tx.type === 'income') {
       groups[key].income += amount;
+      groups[key].categories[cid].income += amount;
     } else if (tx.type === 'expense') {
       groups[key].expense += amount;
+      groups[key].categories[cid].expense += amount;
     }
   });
 
