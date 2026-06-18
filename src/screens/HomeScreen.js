@@ -81,8 +81,7 @@ function BudgetDonut({ limit = 0, spent = 0, remaining = 0, daysLeft = 0 }) {
   );
 }
 
-function CategoryDonut({ data = [] }) {
-  const COLORS_DONUT = ['#4B7CF3', '#FFA500', '#2ECC71', '#E74C3C', '#9B59B6', '#1ABC9C'];
+function CategoryDonut({ data = [], categoriesMap = {} }) {
   const size = 160;
   const strokeWidth = 18;
   const radius = (size - strokeWidth) / 2;
@@ -98,6 +97,8 @@ function CategoryDonut({ data = [] }) {
         {data.map((d, i) => {
           const value = Number(d.amount || 0);
           const percent = total > 0 ? value / total : 0;
+          const cat = categoriesMap[d.category_id] || {};
+          const color = cat.color || '#eee';
 
           const strokeDasharray = `${circumference * percent} ${circumference}`;
           const rotation = (cumulative / total) * 360;
@@ -110,7 +111,7 @@ function CategoryDonut({ data = [] }) {
               cx={size / 2}
               cy={size / 2}
               r={radius}
-              stroke={COLORS_DONUT[i % COLORS_DONUT.length]}
+              stroke={color}
               strokeWidth={strokeWidth}
               fill="none"
               strokeDasharray={strokeDasharray}
@@ -152,10 +153,19 @@ export default function HomeScreen({ navigation }) {
   const [billsSummary, setBillsSummary] = useState(null);
 
   async function load() {
+    // Load categories first to ensure we have colors/icons for reports
+    try {
+      const catsAll = await getCategories(true);
+      const cmap = {};
+      catsAll.forEach(c => { cmap[c.id] = c; });
+      setCategoriesMap(cmap);
+      setCategories(catsAll);
+    } catch (e) {
+      console.error('Error loading categories:', e);
+    }
+
     const b = await getTotalBalance();
     setBalance(b);
-    const cats = await getCategorySpending();
-    setTopCategories(cats.slice(0, 5));
     const t = await getMonthlyTrends(6);
     setTrends(t);
     const bl = await getBills({ sortBy: 'due_date' });
@@ -168,6 +178,10 @@ export default function HomeScreen({ navigation }) {
     setSourceBalances(sb);
     const bs = await getBudgetsWithRemaining();
     console.debug && console.debug('Home.load budgets:', bs);
+
+    const cats = await getCategorySpending();
+    setTopCategories(cats);
+
     setBudgets(bs);
     if (bs && bs.length && !selectedBudgetId) {
       const firstId = String(bs[0].budget.id);
@@ -176,11 +190,6 @@ export default function HomeScreen({ navigation }) {
     }
     // recent transactions
     try {
-      const catsAll = await getCategories(true);
-      const cmap = {};
-      catsAll.forEach(c => { cmap[c.id] = c; });
-      setCategoriesMap(cmap);
-      setCategories(catsAll);
       const tx = await getTransactions(6);
       setRecentTx(tx);
     } catch (e) {
@@ -288,14 +297,19 @@ export default function HomeScreen({ navigation }) {
               marginTop: 12
             }}
           >
-            <View style={{ flex: 1, alignItems: 'center' }}>
-              <Text style={{ fontSize: 12, color: Colors.muted }}>
-                Balance
-              </Text>
-              <Text style={{ fontSize: 16, fontWeight: '700', color: Colors.text }}>
-                ₹{totalBalance.toLocaleString('en-IN')}
-              </Text>
-            </View>
+            <TouchableOpacity
+              style={{ flex: 1, alignItems: 'center' }}
+              onPress={() => navigation.navigate('SourcesDashboard')}
+            >
+              <View style={{ flex: 1, alignItems: 'center' }}>
+                <Text style={{ fontSize: 12, color: Colors.muted }}>
+                  Balance
+                </Text>
+                <Text style={{ fontSize: 16, fontWeight: '700', color: Colors.text }}>
+                  ₹{totalBalance.toLocaleString('en-IN')}
+                </Text>
+              </View>
+            </TouchableOpacity>
 
             <View style={{ width: 1, backgroundColor: '#eee' }} />
 
@@ -359,13 +373,13 @@ export default function HomeScreen({ navigation }) {
         </Card>
 
         <Card>
-          <Text style={{ fontWeight: '600', marginBottom: 8 }}>
-            Top spend areas
+          <Text style={{ fontWeight: '700', marginBottom: 8 }}>
+            Spend Areas
           </Text>
 
           {topCategories.length ? (
             <View style={{ alignItems: 'center', marginBottom: 12 }}>
-              <CategoryDonut data={topCategories} />
+              <CategoryDonut data={topCategories} categoriesMap={categoriesMap} />
             </View>
           ) : (
             <Text style={{ color: Colors.muted }}>No data</Text>
@@ -509,56 +523,6 @@ export default function HomeScreen({ navigation }) {
             )}
           </Card>
         </TouchableOpacity>
-
-        <Card>
-          <Text style={{ fontWeight: '600', marginBottom: 8 }}>
-            Source balances
-          </Text>
-
-          {sources.length ? sources.map(item => (
-            <TouchableOpacity
-              key={item.id}
-              onPress={() => navigation.navigate('SourcesDetails', {
-                sourceId: item.id,
-                sourceName: item.name
-              })}
-            >
-              <View style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                paddingVertical: 8
-              }}>
-                <Text style={{ color: Colors.text }}>
-                  {item.name}
-                </Text>
-
-                <Text style={{ color: Colors.text }}>
-                  ₹ {Number(item.initial_balance || 0).toFixed(2)}
-                </Text>
-              </View>
-            </TouchableOpacity>
-          )) : (
-            <Text style={{ color: Colors.muted }}>No sources</Text>
-          )}
-        </Card>
-
-        <Card style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-          <TouchableOpacity onPress={() => navigation.navigate('TransactionAdd')} style={{ backgroundColor: Colors.primary, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 8, minWidth: 110, alignItems: 'center' }}>
-            <Text style={{ color: '#fff', fontWeight: '700' }}>+ Transaction</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => navigation.navigate('Categories')} style={{ backgroundColor: Colors.card, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 8, minWidth: 90, alignItems: 'center' }}>
-            <Text style={{ color: Colors.text, fontWeight: '600' }}>Categories</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => navigation.navigate('Sources')} style={{ backgroundColor: Colors.card, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 8, minWidth: 90, alignItems: 'center' }}>
-            <Text style={{ color: Colors.text, fontWeight: '600' }}>Sources</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => navigation.navigate('Bills')} style={{ backgroundColor: Colors.card, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 8, minWidth: 90, alignItems: 'center' }}>
-            <Text style={{ color: Colors.text, fontWeight: '600' }}>Bills</Text>
-          </TouchableOpacity>
-        </Card>
 
         <Card>
           <Text style={{ fontWeight: '600', marginBottom: 8 }}>Top spends (this month)</Text>

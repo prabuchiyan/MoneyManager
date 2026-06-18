@@ -5,6 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TextInput as PaperTextInput, Button as PaperButton, Chip, Avatar } from 'react-native-paper';
 import IconPicker from '../components/IconPicker';
 import ConfirmDialog from '../components/ConfirmDialog';
+import ColorPickerModal from '../components/ColorPickerModal';
 import { createCategory, getCategories, softDeleteCategory, updateCategory } from '../services/categories';
 import Card from '../components/Card';
 import IconButton from '../components/IconButton';
@@ -26,8 +27,6 @@ export default function CategoriesScreen({ route }) {
   const [userPickedIconAdd, setUserPickedIconAdd] = useState(false);
   const [userPickedIconEdit, setUserPickedIconEdit] = useState(false);
 
-  const ICON_OPTIONS = ['tag', 'shopping-bag', 'home', 'credit-card', 'dollar-sign', 'book', 'heart', 'coffee'];
-  const COLOR_OPTIONS = ['#4B7CF3', '#FFA500', '#2ECC71', '#E74C3C', '#9B59B6', '#F1C40F', '#34495E', '#1ABC9C'];
   const EXTENDED_COLORS = ['#4B7CF3', '#3B82F6', '#2563EB', '#6366F1', '#8B5CF6', '#A78BFA', '#F97316', '#FB923C', '#F59E0B', '#FBBF24', '#16A34A', '#22C55E', '#A3E635', '#84CC16', '#DC2626', '#EF4444', '#F43F5E', '#DB2777', '#0EA5A4', '#14B8A6', '#06B6D4', '#0891B2', '#334155', '#475569', '#64748B'];
 
   const [showColorPickerForAdd, setShowColorPickerForAdd] = useState(false);
@@ -340,45 +339,18 @@ export default function CategoriesScreen({ route }) {
       <IconPicker visible={showIconPickerForAdd} onClose={() => setShowIconPickerForAdd(false)} onSelect={(name) => { setSelectedIcon(name); setUserPickedIconAdd(true); }} />
       <IconPicker visible={showIconPickerForEdit} onClose={() => setShowIconPickerForEdit(false)} onSelect={(name) => { setEditIcon(name); setUserPickedIconEdit(true); }} />
 
-      <Modal visible={showColorPickerForAdd} transparent animationType="slide" onRequestClose={() => setShowColorPickerForAdd(false)}>
-        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'center', padding: 20 }}>
-          <Card style={{ padding: 12 }}>
-            <Text style={{ fontSize: 16, marginBottom: 8 }}>Choose color</Text>
-            <ScrollView contentContainerStyle={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-              {EXTENDED_COLORS.map(c => (
-                <TouchableOpacity key={c} onPress={() => { setSelectedColor(c); setShowColorPickerForAdd(false); }} style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: c, margin: 6, borderWidth: selectedColor === c ? 2 : 0, borderColor: '#222' }} />
-              ))}
-            </ScrollView>
-            <View style={{ flexDirection: 'row', marginTop: 8, alignItems: 'center' }}>
-              <TextInput placeholder="#rrggbb" value={customColorInputAdd} onChangeText={setCustomColorInputAdd} style={{ flex: 1, borderWidth: 1, borderColor: '#eee', padding: 8 }} />
-              <View style={{ width: 8 }} />
-              <IconButton label="Apply" icon="check" onPress={() => { const hex = customColorInputAdd.trim(); if (/^#([0-9A-Fa-f]{6})$/.test(hex)) { setSelectedColor(hex); setShowColorPickerForAdd(false); setCustomColorInputAdd(''); } }} />
-            </View>
-            <View style={{ height: 8 }} />
-            <IconButton label="Close" icon="x" onPress={() => setShowColorPickerForAdd(false)} />
-          </Card>
-        </View>
-      </Modal>
-
-      <Modal visible={showColorPickerForEdit} transparent animationType="slide" onRequestClose={() => setShowColorPickerForEdit(false)}>
-        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'center', padding: 20 }}>
-          <Card style={{ padding: 12 }}>
-            <Text style={{ fontSize: 16, marginBottom: 8 }}>Choose color</Text>
-            <ScrollView contentContainerStyle={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-              {EXTENDED_COLORS.map(c => (
-                <TouchableOpacity key={c} onPress={() => { setEditColor(c); setShowColorPickerForEdit(false); }} style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: c, margin: 6, borderWidth: editColor === c ? 2 : 0, borderColor: '#222' }} />
-              ))}
-            </ScrollView>
-            <View style={{ flexDirection: 'row', marginTop: 8, alignItems: 'center' }}>
-              <TextInput placeholder="#rrggbb" value={customColorInputEdit} onChangeText={setCustomColorInputEdit} style={{ flex: 1, borderWidth: 1, borderColor: '#eee', padding: 8 }} />
-              <View style={{ width: 8 }} />
-              <IconButton label="Apply" icon="check" onPress={() => { const hex = customColorInputEdit.trim(); if (/^#([0-9A-Fa-f]{6})$/.test(hex)) { setEditColor(hex); setShowColorPickerForEdit(false); setCustomColorInputEdit(''); } }} />
-            </View>
-            <View style={{ height: 8 }} />
-            <IconButton label="Close" icon="x" onPress={() => setShowColorPickerForEdit(false)} />
-          </Card>
-        </View>
-      </Modal>
+      <ColorPickerModal
+        visible={showColorPickerForAdd}
+        onClose={() => setShowColorPickerForAdd(false)}
+        onSelect={setSelectedColor}
+        currentColor={selectedColor}
+      />
+      <ColorPickerModal
+        visible={showColorPickerForEdit}
+        onClose={() => setShowColorPickerForEdit(false)}
+        onSelect={setEditColor}
+        currentColor={editColor}
+      />
     </View>
   );
 }

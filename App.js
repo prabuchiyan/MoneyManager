@@ -7,6 +7,7 @@ import HomeScreen from './src/screens/HomeScreen';
 import TransactionsScreen from './src/screens/TransactionsScreen';
 import TransactionAddScreen from './src/screens/TransactionAddScreen';
 import CategoriesScreen from './src/screens/CategoriesScreen';
+import SourcesDashboard from './src/screens/SourcesDashboard';
 import SourcesScreen from './src/screens/SourcesScreen';
 import SourcesDetails from './src/screens/SourcesDetails';
 import BudgetsScreen from './src/screens/BudgetsScreen';
@@ -80,6 +81,7 @@ export default function App() {
             <Stack.Screen name="Transactions" component={TransactionsScreen} />
             <Stack.Screen name="TransactionAdd" component={TransactionAddScreen} options={{ title: 'Add Transaction' }} />
             <Stack.Screen name="Categories" component={CategoriesScreen} />
+            <Stack.Screen name="SourcesDashboard" component={SourcesDashboard} />
             <Stack.Screen name="Sources" component={SourcesScreen} />
             <Stack.Screen name="SourcesDetails" component={SourcesDetails} />
             <Stack.Screen name="Budgets" component={BudgetsScreen} />

@@ -5,6 +5,7 @@ import { getCategories } from '../services/categories';
 import { getSources } from '../services/sources';
 import { TextInput as PaperTextInput, Button as PaperButton, Chip } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import CategoryCreateModal from './CategoryCreateModal';
 
 export default function TransactionForm({ onCreated, onCancel }) {
   const [amount, setAmount] = useState('');
@@ -19,6 +20,7 @@ export default function TransactionForm({ onCreated, onCancel }) {
   const [showCategoryPicker, setShowCategoryPicker] = useState(false);
   const [showSourcePicker, setShowSourcePicker] = useState(false);
   const [showDateTimePicker, setShowDateTimePicker] = useState(false);
+  const [showCategoryCreateModal, setShowCategoryCreateModal] = useState(false);
   const [catSearch, setCatSearch] = useState('');
   const [srcSearch, setSrcSearch] = useState('');
   const [pickerMode, setPickerMode] = useState('date');
@@ -94,17 +96,23 @@ export default function TransactionForm({ onCreated, onCancel }) {
       </View>
 
       <View style={{ marginBottom: 12 }}>
-        <PaperTextInput
-          label="Date & Time"
-          value={formatDateTime(date)}
-          editable={false}
-          onPressIn={() => {
+        <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={() => {
             setPickerMode('date');
             setShowDateTimePicker(true);
           }}
-          mode="outlined"
-          style={{ marginBottom: 8 }}
-        />
+        >
+          <PaperTextInput
+            label="Date & Time"
+            value={formatDateTime(date)}
+            editable={false}
+            pointerEvents="none"
+            mode="outlined"
+            style={{ marginBottom: 8 }}
+            right={<PaperTextInput.Icon icon="calendar" />}
+          />
+        </TouchableOpacity>
       </View>
 
       <View style={{ marginBottom: 12 }}>
@@ -118,6 +126,13 @@ export default function TransactionForm({ onCreated, onCancel }) {
             <View style={{ backgroundColor: '#fff', padding: 12, borderRadius: 8, maxHeight: '80%' }}>
               <PaperTextInput label="Search" value={catSearch} onChangeText={setCatSearch} mode="outlined" style={{ marginBottom: 8 }} />
               <ScrollView>
+                <TouchableOpacity
+                  onPress={() => { setShowCategoryPicker(false); setShowCategoryCreateModal(true); }}
+                  style={{ flexDirection: 'row', alignItems: 'center', padding: 10, borderBottomWidth: 1, borderColor: '#f3f3f3', backgroundColor: '#e6f7ff' }}
+                >
+                  <MaterialCommunityIcons name="plus-circle-outline" size={20} color={'#4B7CF3'} style={{ marginRight: 12 }} />
+                  <Text style={{ fontSize: 16, color: '#4B7CF3', fontWeight: '600' }}>Create New Category</Text>
+                </TouchableOpacity>
                 {categories.filter(c => c.name.toLowerCase().includes(catSearch.toLowerCase())).map(c => (
                   <TouchableOpacity key={c.id} onPress={() => { setCategoryId(c.id); setShowCategoryPicker(false); }} style={{ flexDirection: 'row', alignItems: 'center', padding: 10, borderBottomWidth: 1, borderColor: '#f3f3f3', backgroundColor: categoryId === c.id ? '#FFF9F9' : '#fff' }}>
                     <View style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: c.color || '#eee', alignItems: 'center', justifyContent: 'center', marginRight: 12 }}>
@@ -259,6 +274,17 @@ export default function TransactionForm({ onCreated, onCancel }) {
           );
         })()
       )}
+
+      <CategoryCreateModal
+        visible={showCategoryCreateModal}
+        onClose={() => setShowCategoryCreateModal(false)}
+        onCategoryCreated={async (newCategory) => {
+          const cats = await getCategories(true);
+          setCategories(cats);
+          setCategoryId(newCategory.id);
+        }}
+        currentType={type}
+      />
     </ScrollView>
   );
 }

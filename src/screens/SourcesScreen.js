@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity, ScrollView, Modal } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
 import { TextInput as PaperInput, Button as PaperButton, Avatar } from 'react-native-paper';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 import IconButton from '../components/IconButton';
 import { createSource, getSources, deleteSource, updateSource } from '../services/sources';
 import Card from '../components/Card';
-import IconPicker from '../components/IconPicker';
+import IconPicker from '../components/IconPicker'; // Assuming this is a custom component
+import ColorPickerModal from '../components/ColorPickerModal';
 import ConfirmDialog from '../components/ConfirmDialog';
-import { Spacing } from '../components/Theme';
+import { Colors, Spacing } from '../components/Theme';
 
 export default function SourcesScreen() {
 
@@ -135,15 +136,22 @@ export default function SourcesScreen() {
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}
+    >
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>Manage Sources</Text>
+        <Text style={styles.headerSubtitle}>Add or edit your payment accounts</Text>
+      </View>
 
-      <Card style={{ margin: Spacing.m }}>
+      <Card style={styles.addCard}>
         <PaperInput
           label="Name"
           value={name}
           onChangeText={setName}
           mode="outlined"
-          style={{ marginBottom: 8 }}
+          style={styles.input}
         />
 
         <PaperInput
@@ -152,7 +160,7 @@ export default function SourcesScreen() {
           onChangeText={setInitial}
           keyboardType="numeric"
           mode="outlined"
-          style={{ marginBottom: 8 }}
+          style={styles.input}
         />
 
         <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 8 }}>
@@ -194,43 +202,55 @@ export default function SourcesScreen() {
       <FlatList
         data={items}
         keyExtractor={(i) => String(i.id)}
-        contentContainerStyle={{ padding: Spacing.m }}
+        contentContainerStyle={styles.listContent}
         renderItem={({ item }) => (
-          <Card style={{ marginBottom: Spacing.s }}>
+          <Card style={styles.itemCard}>
             {editingId === item.id ? (
               <View>
-                <PaperInput value={editName} onChangeText={setEditName} mode="outlined" style={{ marginBottom: 6 }} />
-                <PaperInput value={editInitial} onChangeText={setEditInitial} mode="outlined" keyboardType="numeric" style={{ marginBottom: 6 }} />
-                <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 6 }}>
-                  <TouchableOpacity onPress={() => setShowIconPickerEdit(true)} style={{ marginRight: 10 }}>
-                    <Avatar.Icon size={28} icon={editIcon} style={{ backgroundColor: editColor }} />
+                <PaperInput label="Name" value={editName} onChangeText={setEditName} mode="outlined" style={styles.input} />
+                <PaperInput label="Initial Balance" value={editInitial} onChangeText={setEditInitial} mode="outlined" keyboardType="numeric" style={styles.input} />
+                <View style={styles.editActions}>
+                  <TouchableOpacity
+                    onPress={() => setShowIconPickerEdit(true)}
+                    style={[styles.iconSelector, { backgroundColor: (editColor || Colors.primary) + '15' }]}
+                  >
+                    <MaterialCommunityIcons name={editIcon} size={24} color={editColor} />
                   </TouchableOpacity>
                   <IconButton label="Icon" icon="image" onPress={() => setShowIconPickerEdit(true)} />
                   <IconButton label="Colors" icon="droplet" onPress={() => setShowColorPickerEdit(true)} />
                 </View>
-
-                <View style={{ flexDirection: 'row' }}>
+                <View style={{ flexDirection: 'row', marginTop: 8 }}>
                   <PaperButton mode="contained" onPress={saveEdit}>Save</PaperButton>
                   <View style={{ width: 8 }} />
                   <PaperButton mode="outlined" onPress={() => setEditingId(null)}>Cancel</PaperButton>
                 </View>
               </View>
-
             ) : (
-              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <Avatar.Icon size={28} icon={item.icon || 'cash'} style={{ backgroundColor: item.color || '#4B7CF3', marginRight: 8 }} />
-                  <Text>{item.name} — ₹{item.initial_balance}</Text>
+              <View style={styles.itemRow}>
+                <View style={[styles.itemIconWrapper, { backgroundColor: (item.color || Colors.primary) + '15' }]}>
+                  <MaterialCommunityIcons
+                    name={item.icon || 'cash'}
+                    size={22}
+                    color={item.color || Colors.primary}
+                  />
                 </View>
-
-                <View style={{ flexDirection: 'row' }}>
-                  <PaperButton compact onPress={() => startEdit(item)}>Edit</PaperButton>
-                  <PaperButton compact mode="outlined" onPress={() => {
-                    setConfirmTargetId(item.id);
-                    setConfirmVisible(true);
-                  }}>
-                    Delete
-                  </PaperButton>
+                <View style={styles.itemInfo}>
+                  <Text style={styles.itemName}>{item.name}</Text>
+                  <Text style={styles.itemBalance}>₹{Number(item.initial_balance || 0).toLocaleString('en-IN')}</Text>
+                </View>
+                <View style={styles.itemActions}>
+                  <TouchableOpacity onPress={() => startEdit(item)} style={styles.actionBtn}>
+                    <Feather name="edit-2" size={16} color={Colors.primary} />
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => {
+                      setConfirmTargetId(item.id);
+                      setConfirmVisible(true);
+                    }}
+                    style={styles.actionBtn}
+                  >
+                    <Feather name="trash-2" size={16} color="#e53935" />
+                  </TouchableOpacity>
                 </View>
               </View>
             )}
@@ -252,46 +272,125 @@ export default function SourcesScreen() {
       <IconPicker visible={showIconPickerAdd} onClose={() => setShowIconPickerAdd(false)} onSelect={setSelectedIcon} />
       <IconPicker visible={showIconPickerEdit} onClose={() => setShowIconPickerEdit(false)} onSelect={setEditIcon} />
 
-      <Modal visible={showColorPickerAdd} transparent animationType="slide" onRequestClose={() => setShowColorPickerAdd(false)}>
-        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'center', padding: 20 }}>
-          <Card style={{ padding: 12 }}>
-            <Text style={{ fontSize: 16, marginBottom: 8 }}>Choose color</Text>
-            <ScrollView contentContainerStyle={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-              {EXTENDED_COLORS.map(c => (
-                <TouchableOpacity key={c} onPress={() => { setSelectedColor(c); setShowColorPickerAdd(false); }} style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: c, margin: 6, borderWidth: selectedColor === c ? 2 : 0, borderColor: '#222' }} />
-              ))}
-            </ScrollView>
-            <View style={{ flexDirection: 'row', marginTop: 8, alignItems: 'center' }}>
-              <PaperInput placeholder="#rrggbb" value={customColorInputAdd} onChangeText={setCustomColorInputAdd} style={{ flex: 1, borderWidth: 1, borderColor: '#eee', padding: 8 }} />
-              <View style={{ width: 8 }} />
-              <IconButton label="Apply" icon="check" onPress={() => { const hex = customColorInputAdd.trim(); if (/^#([0-9A-Fa-f]{6})$/.test(hex)) { setSelectedColor(hex); setShowColorPickerAdd(false); setCustomColorInputAdd(''); } }} />
-            </View>
-            <View style={{ height: 8 }} />
-            <IconButton label="Close" icon="x" onPress={() => setShowColorPickerAdd(false)} />
-          </Card>
-        </View>
-      </Modal>
-
-      <Modal visible={showColorPickerEdit} transparent animationType="slide" onRequestClose={() => setShowColorPickerEdit(false)}>
-        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'center', padding: 20 }}>
-          <Card style={{ padding: 12 }}>
-            <Text style={{ fontSize: 16, marginBottom: 8 }}>Choose color</Text>
-            <ScrollView contentContainerStyle={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-              {EXTENDED_COLORS.map(c => (
-                <TouchableOpacity key={c} onPress={() => { setEditColor(c); setShowColorPickerEdit(false); }} style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: c, margin: 6, borderWidth: selectedColor === c ? 2 : 0, borderColor: '#222' }} />
-              ))}
-            </ScrollView>
-            <View style={{ flexDirection: 'row', marginTop: 8, alignItems: 'center' }}>
-              <PaperInput placeholder="#rrggbb" value={customColorInputEdit} onChangeText={setCustomColorInputEdit} style={{ flex: 1, borderWidth: 1, borderColor: '#eee', padding: 8 }} />
-              <View style={{ width: 8 }} />
-              <IconButton label="Apply" icon="check" onPress={() => { const hex = customColorInputEdit.trim(); if (/^#([0-9A-Fa-f]{6})$/.test(hex)) { setSelectedColor(hex); setShowColorPickerEdit(false); setCustomColorInputEdit(''); } }} />
-            </View>
-            <View style={{ height: 8 }} />
-            <IconButton label="Close" icon="x" onPress={() => setShowColorPickerEdit(false)} />
-          </Card>
-        </View>
-      </Modal>
-
-    </View>
+      <ColorPickerModal
+        visible={showColorPickerAdd}
+        onClose={() => setShowColorPickerAdd(false)}
+        onSelect={setSelectedColor}
+        currentColor={selectedColor}
+      />
+      <ColorPickerModal
+        visible={showColorPickerEdit}
+        onClose={() => setShowColorPickerEdit(false)}
+        onSelect={setEditColor}
+        currentColor={editColor}
+      />
+    </KeyboardAvoidingView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.background,
+  },
+  header: {
+    padding: Spacing.m,
+    paddingBottom: 0,
+  },
+  headerTitle: {
+    fontSize: 24,
+    fontWeight: '800',
+    color: Colors.text,
+  },
+  headerSubtitle: {
+    fontSize: 14,
+    color: Colors.muted,
+    marginTop: 4,
+  },
+  addCard: {
+    margin: Spacing.m,
+    padding: 16,
+    borderRadius: 20,
+  },
+  input: {
+    marginBottom: 12,
+    backgroundColor: '#fff',
+  },
+  formActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  iconSelector: {
+    width: 48,
+    height: 48,
+    borderRadius: 12,
+    backgroundColor: '#f5f5f5',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#eee',
+  },
+  iconButtons: {
+    flexDirection: 'row',
+    flex: 1,
+  },
+  addBtn: {
+    borderRadius: 12,
+  },
+  addBtnLabel: {
+    fontWeight: '700',
+  },
+  listContent: {
+    padding: Spacing.m,
+    paddingTop: 0,
+    paddingBottom: 40,
+  },
+  itemCard: {
+    marginBottom: 12,
+    padding: 12,
+    borderRadius: 16,
+  },
+  itemRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  itemIconWrapper: {
+    width: 44,
+    height: 44,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
+  },
+  itemInfo: {
+    flex: 1,
+  },
+  itemName: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: Colors.text,
+  },
+  itemBalance: {
+    fontSize: 13,
+    color: Colors.muted,
+    marginTop: 2,
+  },
+  itemActions: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  actionBtn: {
+    padding: 8,
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#f0f0f0',
+  },
+  editActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 8,
+    gap: 8,
+  },
+});
