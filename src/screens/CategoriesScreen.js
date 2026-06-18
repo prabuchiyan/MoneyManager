@@ -198,9 +198,13 @@ export default function CategoriesScreen({ route }) {
           <IconButton label="Colors" icon="droplet" onPress={() => setShowColorPickerForAdd(true)} />
           <IconButton label="Icon" icon="image" onPress={() => setShowIconPickerForAdd(true)} />
           <View />
-          <PaperButton mode="contained" onPress={add} style={{ alignSelf: 'flex-start' }}>
-            Add Category
-          </PaperButton>
+        </View>
+        <View style={{ flexDirection: 'row', marginBottom: 8 }}>
+          <View style={{ flexDirection: 'right' }}>
+            <PaperButton mode="contained" onPress={add} style={{ alignSelf: 'flex-start' }}>
+              Add Category
+            </PaperButton>
+          </View>
         </View>
       </Card>
 
@@ -217,7 +221,7 @@ export default function CategoriesScreen({ route }) {
         )}
 
         renderItem={({ item }) => (
-          <Card style={{ marginBottom: 10, padding: 12 }}>
+          <Card style={{ marginBottom: 10 }}>
 
             {editingId === item.id ? (
               <>

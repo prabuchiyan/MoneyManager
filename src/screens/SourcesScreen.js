@@ -41,7 +41,6 @@ export default function SourcesScreen() {
 
   async function load() {
     const rows = await getSources(true);
-    console.log('Prabu rows', rows);
     setItems(rows);
   }
 
@@ -177,15 +176,19 @@ export default function SourcesScreen() {
           <IconButton label="Icon" icon="image" onPress={() => setShowIconPickerAdd(true)} />
 
           <View style={{ flex: 1 }} />
-          <PaperButton
-            mode="contained"
-            onPress={add}
-            style={{ alignSelf: 'flex-start' }}
-          >
-            Add Source
-          </PaperButton>
         </View>
 
+        <View style={{ flexDirection: 'row', marginBottom: 8 }}>
+          <View style={{ flexDirection: 'right' }}>
+            <PaperButton
+              mode="contained"
+              onPress={add}
+              style={{ alignSelf: 'flex-start' }}
+            >
+              Add Source
+            </PaperButton>
+          </View>
+        </View>
       </Card>
 
       <FlatList

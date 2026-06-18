@@ -40,14 +40,18 @@ function BudgetDonut({ limit = 0, spent = 0, remaining = 0, daysLeft = 0 }) {
   const dashOffset = circumference * (1 - Math.min(1, percent));
 
   // Animated progress
-  const anim = React.useRef(new Animated.Value(Math.min(1, percent))).current;
+  const safePercent = isNaN(percent) ? 0 : percent;
+
+  const anim = React.useRef(new Animated.Value(Math.min(1, safePercent))).current;
   React.useEffect(() => {
     Animated.timing(anim, { toValue: Math.min(1, percent), duration: 700, useNativeDriver: false }).start();
   }, [percent]);
 
-  const dashAnim = anim.interpolate({ inputRange: [0, 1], outputRange: [String(circumference), '0'] });
+  const dashAnim = anim.interpolate({ inputRange: [0, 1], outputRange: [circumference, 0] });
 
-  const fmt = (v) => `₹${Number(v || 0).toLocaleString('en-IN', { maximumFractionDigits: 2 })}`;
+  function fmt(v) {
+    return `₹${Number(v || 0).toLocaleString('en-IN', { maximumFractionDigits: 2 })}`;
+  }
 
   return (
     <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
@@ -246,13 +250,14 @@ export default function HomeScreen({ navigation }) {
     <View style={{ flex: 1, backgroundColor: Colors.background }}>
       <ScrollView contentContainerStyle={{ padding: Spacing.m }}>
         <Card>
-          {/* {budgets.length ? (
+          {budgets.length ? (
             <>
               {(() => {
-                const sel = budgets.find(x => x.budget.id === selectedBudgetId) || budgets[0];
-                const limit = parseFloat(sel.budget.monthly_limit) || 0;
-                const spent = parseFloat(sel.spent) || 0;
-                const remaining = parseFloat(sel.remaining) || 0;
+                const sel = budgets.find(x => x?.budget?.id === selectedBudgetId) || budgets[0];
+                if (!sel || !sel.budget) return null;
+                const limit = Number(sel.budget?.monthly_limit ?? 0);
+                const spent = Number(sel?.spent ?? 0);
+                const remaining = Number(sel?.remaining ?? 0);
                 const daysLeft = daysRemainingInMonth();
                 return (
                   <View style={{ alignItems: 'center', justifyContent: 'center', paddingVertical: 12 }}>
@@ -268,14 +273,14 @@ export default function HomeScreen({ navigation }) {
               <TouchableOpacity onPress={() => navigation.navigate('Budgets')}>
                 <BudgetDonut limit={0} spent={0} remaining={0} daysLeft={daysRemainingInMonth()} />
               </TouchableOpacity>
-              <View style={{ marginTop: 12, width: '90%', maxWidth: 360, alignItems: 'center' }}>
+              <View style={{ marginTop: 12, alignSelf: 'stretch', maxWidth: 360, alignItems: 'center' }}>
                 <Text style={{ fontWeight: '700', fontSize: 16 }}>No budgets set</Text>
                 <Text style={{ color: Colors.muted, marginTop: 8, textAlign: 'center' }}>Create a budget to track monthly spending and see safe/overspent amounts here.</Text>
                 <PaperButton mode="contained" onPress={() => navigation.navigate('Budgets')} style={{ marginTop: 12 }}>Create Budget</PaperButton>
               </View>
             </View>
-          )} */}
-          
+          )}
+
           <View
             style={{
               flexDirection: 'row',
@@ -556,11 +561,6 @@ export default function HomeScreen({ navigation }) {
         </Card>
 
         <Card>
-          <Text style={{ color: Colors.muted }}>Overview</Text>
-          <Text style={{ fontSize: 28, fontWeight: '700', color: Colors.text }}>{balance ? balance.balance.toFixed(2) : '—'}</Text>
-        </Card>
-
-        <Card>
           <Text style={{ fontWeight: '600', marginBottom: 8 }}>Top spends (this month)</Text>
           {topCategories.length ? topCategories.map(c => (
             <View key={c.category_id} style={{ flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 6 }}>
@@ -581,7 +581,7 @@ export default function HomeScreen({ navigation }) {
         </Card>
       </ScrollView>
 
-      <FAB onPress={() => navigation.navigate('Transactions')} />
+      <FAB onPress={() => navigation.navigate('TransactionAdd')} />
 
       <ConfirmDialog visible={confirmVisibleTx} title="Delete Transaction" message={confirmTxMessage} onCancel={() => { setConfirmVisibleTx(false); setConfirmTxId(null); }} onConfirm={async () => { if (confirmTxId) { await deleteTransaction(confirmTxId); } setConfirmVisibleTx(false); setConfirmTxId(null); load(); }} />
     </View>
