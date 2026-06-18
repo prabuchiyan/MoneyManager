@@ -2,6 +2,7 @@ import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import { getTransactions, deleteTransaction } from '../services/transactions';
 import { getCategories } from '../services/categories';
+import { getSources } from '../services/sources';
 import Card from '../components/Card';
 import { Colors, Spacing } from '../components/Theme';
 import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
@@ -12,16 +13,13 @@ export default function SourcesDetails({ route, navigation }) {
   const [transactions, setTransactions] = useState([]);
   const [categoriesMap, setCategoriesMap] = useState({});
   const [loading, setLoading] = useState(true);
+  const [source, setSource] = useState(null);
 
   useLayoutEffect(() => {
     navigation.setOptions({
       title: sourceName
     });
   }, [sourceName]);
-
-  useEffect(() => {
-    loadTransactions();
-  }, [sourceId]);
 
   const loadTransactions = async () => {
     try {
@@ -30,7 +28,7 @@ export default function SourcesDetails({ route, navigation }) {
         getTransactions(100, sourceId),
         getCategories(true)
       ]);
-      
+
       const cmap = {};
       catData.forEach(c => { cmap[c.id] = c; });
       setCategoriesMap(cmap);
@@ -42,7 +40,16 @@ export default function SourcesDetails({ route, navigation }) {
     }
   };
 
-  // ✅ Delete with confirmation
+  async function load() {
+    loadTransactions();
+    if (sourceId) {
+      const src = await getSources(true);
+      setSource(src.find((s) => s.id === sourceId) || null);
+    }
+  }
+
+  useEffect(() => { load(); }, []);
+
   const handleDelete = (id) => {
     Alert.alert(
       'Delete Transaction',
@@ -62,7 +69,10 @@ export default function SourcesDetails({ route, navigation }) {
   };
 
   const handleEdit = (item) => {
-    navigation.navigate('TransactionAdd', {
+    // Navigate to the TransactionAdd screen, passing the transaction data for editing
+    // The TransactionAddScreen will then pass these props to the TransactionForm
+    // which will handle pre-filling the form and calling updateTransaction.
+    navigation.navigate('TransactionAdd', { 
       isEdit: true,
       transaction: item
     });
@@ -74,8 +84,9 @@ export default function SourcesDetails({ route, navigation }) {
     return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
   };
 
-  const totalBalance = transactions.reduce((sum, tx) => {
-    return tx.type === 'expense' ? sum - tx.amount : sum + tx.amount;
+  const totalBalance = (source?.initial_balance || 0) + transactions.reduce((sum, tx) => {
+    const amount = Number(tx.amount) || 0;
+    return sum + (tx.type === 'expense' ? -amount : amount);
   }, 0);
 
   const renderItem = ({ item }) => {
@@ -86,13 +97,13 @@ export default function SourcesDetails({ route, navigation }) {
       <Card style={styles.txCard}>
         <View style={styles.txContent}>
           <View style={[styles.iconContainer, { backgroundColor: (category.color || '#eee') + '15' }]}>
-            <MaterialCommunityIcons 
-              name={category.icon || 'tag'} 
-              size={22} 
-              color={category.color || Colors.muted} 
+            <MaterialCommunityIcons
+              name={category.icon || 'tag'}
+              size={22}
+              color={category.color || Colors.muted}
             />
           </View>
-          
+
           <View style={{ flex: 1 }}>
             <Text style={styles.title} numberOfLines={1}>
               {item.notes || category.name || 'Untitled'}
@@ -109,7 +120,7 @@ export default function SourcesDetails({ route, navigation }) {
             ]}>
               {isExpense ? '-' : '+'} ₹{Number(item.amount).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
             </Text>
-            
+
             <View style={styles.actions}>
               <TouchableOpacity onPress={() => handleEdit(item)} style={styles.actionBtn}>
                 <Feather name="edit-2" size={14} color={Colors.primary} />

@@ -6,17 +6,18 @@ import { getSources } from '../services/sources';
 import { TextInput as PaperTextInput, Button as PaperButton, Chip } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import CategoryCreateModal from './CategoryCreateModal';
+import { updateTransaction } from '../services/transactions';
 
-export default function TransactionForm({ onCreated, onCancel }) {
-  const [amount, setAmount] = useState('');
+export default function TransactionForm({ onCreated, onCancel, transaction, isEdit }) {
+  const [amount, setAmount] = useState(isEdit && transaction ? String(transaction.amount) : '');
   const [amountError, setAmountError] = useState(false);
-  const [type, setType] = useState('expense');
+  const [type, setType] = useState(isEdit && transaction ? transaction.type : 'expense');
   const [categories, setCategories] = useState([]);
   const [sources, setSources] = useState([]);
-  const [categoryId, setCategoryId] = useState(null);
-  const [sourceId, setSourceId] = useState(null);
-  const [date, setDate] = useState(new Date().toISOString());
-  const [notes, setNotes] = useState('');
+  const [categoryId, setCategoryId] = useState(isEdit && transaction ? transaction.category_id : null);
+  const [sourceId, setSourceId] = useState(isEdit && transaction ? transaction.source_id : null);
+  const [date, setDate] = useState(isEdit && transaction ? transaction.date : new Date().toISOString());
+  const [notes, setNotes] = useState(isEdit && transaction ? transaction.notes : '');
   const [showCategoryPicker, setShowCategoryPicker] = useState(false);
   const [showSourcePicker, setShowSourcePicker] = useState(false);
   const [showDateTimePicker, setShowDateTimePicker] = useState(false);
@@ -24,6 +25,7 @@ export default function TransactionForm({ onCreated, onCancel }) {
   const [catSearch, setCatSearch] = useState('');
   const [srcSearch, setSrcSearch] = useState('');
   const [pickerMode, setPickerMode] = useState('date');
+  const [notesError, setNotesError] = useState(false); // Added for notes validation
 
   useEffect(() => {
     (async () => {
@@ -31,8 +33,11 @@ export default function TransactionForm({ onCreated, onCancel }) {
       setCategories(cats);
       const src = await getSources(true);
       setSources(src);
-      if (cats.length && !categoryId) setCategoryId(cats[0].id);
-      if (src.length && !sourceId) setSourceId(src[0].id);
+      // Set default category/source if not in edit mode AND no category/source is selected yet
+      if (!isEdit) {
+        if (cats.length && categoryId === null) setCategoryId(cats[0].id);
+        if (src.length && sourceId === null) setSourceId(src[0].id);
+      }
     })();
   }, []);
 
@@ -42,10 +47,35 @@ export default function TransactionForm({ onCreated, onCancel }) {
       setAmountError(true);
       return;
     }
-    const id = await createTransaction({ type, amount: val, category_id: categoryId, source_id: sourceId, date, notes });
+    if (!categoryId) {
+      alert('Please select a category.'); // Simple alert for missing category
+      return;
+    }
+    if (!sourceId) {
+      alert('Please select a source.'); // Simple alert for missing source
+      return;
+    }
+    if (!notes.trim()) {
+      setNotesError(true);
+      return;
+    }
+
+    let id;
+    const transactionData = { type, amount: val, category_id: categoryId, source_id: sourceId, date, notes };
+
+    if (isEdit && transaction && transaction.id) {
+      id = await updateTransaction(transaction.id, transactionData);
+    } else {
+      id = await createTransaction(transactionData);
+    }
     if (onCreated) onCreated(id);
-    setAmount(''); setNotes('');
+    if (!isEdit) { // Only reset form if it was a new transaction
+      setAmount('');
+      setNotes('');
+      setDate(new Date().toISOString());
+    }
     setAmountError(false);
+    setNotesError(false);
   }
 
   function formatDateTime(isoString) {
@@ -72,17 +102,17 @@ export default function TransactionForm({ onCreated, onCancel }) {
       <View style={{ borderRadius: 12, overflow: 'hidden', marginBottom: 12 }}>
         <View style={{ backgroundColor: type === 'expense' ? '#FFF2F2' : '#F1FFF6', padding: 14, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
           <View>
-            <Text style={{ color: accent, fontSize: 14, fontWeight: '700', textTransform: 'uppercase' }}>{type}</Text>
-            <Text style={{ fontSize: 22, fontWeight: '800', color: accent }}>{amount ? (Number(amount).toFixed(2)) : '0.00'}</Text>
+            <Text style={{ color: accent, fontSize: 14, fontWeight: '700', textTransform: 'uppercase' }}>{type || 'expense'}</Text>
+            <Text style={{ fontSize: 22, fontWeight: '800', color: accent }}>{amount ? (Number(amount).toLocaleString('en-IN', { minimumFractionDigits: 2 })) : '0.00'}</Text>
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <View style={{ alignItems: 'center', marginRight: 12 }}>
               <MaterialCommunityIcons name={(categories.find(x => x.id === categoryId) || {}).icon || 'tag'} size={26} color={(categories.find(x => x.id === categoryId) || {}).color || '#4B7CF3'} />
-              <Text style={{ fontSize: 12 }}>{(categories.find(x => x.id === categoryId) || {}).name || 'Category'}</Text>
+              <Text style={{ fontSize: 12 }}>{(categories.find(x => x.id === categoryId) || {}).name || 'Select Category'}</Text>
             </View>
             <View style={{ alignItems: 'center' }}>
-              <MaterialCommunityIcons name={(sources.find(x => x.id === sourceId) || {}).icon || 'cash'} size={26} color={(sources.find(x => x.id === sourceId) || {}).icon_color || '#4B7CF3'} />
-              <Text style={{ fontSize: 12 }}>{(sources.find(x => x.id === sourceId) || {}).name || 'Source'}</Text>
+              <MaterialCommunityIcons name={(sources.find(x => x.id === sourceId) || {}).icon || 'cash'} size={26} color={(sources.find(x => x.id === sourceId) || {}).color || '#4B7CF3'} />
+              <Text style={{ fontSize: 12 }}>{(sources.find(x => x.id === sourceId) || {}).name || 'Select Source'}</Text>
             </View>
           </View>
         </View>
@@ -150,10 +180,10 @@ export default function TransactionForm({ onCreated, onCancel }) {
       </View>
 
       <View style={{ marginBottom: 12 }}>
-        <Text style={{ marginBottom: 6, color: '#666' }}>Source</Text>
+        <Text style={{ marginBottom: 6, color: '#666' }}>Payment Source</Text>
         <TouchableOpacity onPress={() => setShowSourcePicker(true)} activeOpacity={0.8} style={{ borderWidth: 1, borderColor: '#eee', padding: 12, borderRadius: 8, backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center' }}>
           <View style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: '#f0f4ff', alignItems: 'center', justifyContent: 'center', marginRight: 10 }}>
-            <MaterialCommunityIcons name={(sources.find(x => x.id === sourceId) || {}).icon || 'cash'} size={18} color={(sources.find(x => x.id === sourceId) || {}).icon_color || '#4B7CF3'} />
+            <MaterialCommunityIcons name={(sources.find(x => x.id === sourceId) || {}).icon || 'cash'} size={18} color={(sources.find(x => x.id === sourceId) || {}).color || '#4B7CF3'} />
           </View>
           <Text style={{ fontSize: 16 }}>{(sources.find(x => x.id === sourceId) || {}).name || 'Select source'}</Text>
         </TouchableOpacity>
@@ -162,10 +192,10 @@ export default function TransactionForm({ onCreated, onCancel }) {
             <View style={{ backgroundColor: '#fff', padding: 12, borderRadius: 8, maxHeight: '80%' }}>
               <PaperTextInput label="Search" value={srcSearch} onChangeText={setSrcSearch} mode="outlined" style={{ marginBottom: 8 }} />
               <ScrollView>
-                {sources.filter(s => s.name.toLowerCase().includes(srcSearch.toLowerCase())).map(s => (
+                {sources.filter(s => s.name.toLowerCase().includes(srcSearch.toLowerCase()) && s.is_active).map(s => ( // Filter active sources
                   <TouchableOpacity key={s.id} onPress={() => { setSourceId(s.id); setShowSourcePicker(false); }} style={{ flexDirection: 'row', alignItems: 'center', padding: 10, borderBottomWidth: 1, borderColor: '#f3f3f3', backgroundColor: sourceId === s.id ? '#F7FBFF' : '#fff' }}>
                     <View style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: '#eef7ff', alignItems: 'center', justifyContent: 'center', marginRight: 12 }}>
-                      <MaterialCommunityIcons name={s.icon || 'cash'} size={18} color={(s.icon_color) || '#4B7CF3'} />
+                      <MaterialCommunityIcons name={s.icon || 'cash'} size={18} color={(s.color) || '#4B7CF3'} />
                     </View>
                     <Text style={{ fontSize: 16 }}>{s.name}</Text>
                   </TouchableOpacity>
@@ -178,9 +208,10 @@ export default function TransactionForm({ onCreated, onCancel }) {
         </Modal>
       </View>
 
-      <PaperTextInput label="Notes" value={notes} onChangeText={setNotes} mode="outlined" multiline style={{ marginBottom: 12 }} />
+      <PaperTextInput label="Notes" value={notes} onChangeText={(t) => { setNotes(t); setNotesError(false); }} mode="outlined" multiline style={{ marginBottom: 12 }} error={notesError} />
+      {notesError && <Text style={{ color: '#E46A6A', marginBottom: 8 }}>Notes cannot be empty.</Text>}
 
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 12 }}>
         <PaperButton mode="contained" onPress={submit} style={{ backgroundColor: accent }} labelStyle={{ color: '#fff' }}>
           Save
         </PaperButton>

@@ -345,17 +345,54 @@ export default function HomeScreen({ navigation }) {
           {recentTx.length ? recentTx.slice(0, 3).map(r => {
             const cat = categoriesMap[r.category_id] || {};
             return (
-              <View key={r.id} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 8 }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <Avatar.Icon size={40} icon={cat.icon || 'currency-usd'} style={{ backgroundColor: cat.color || Colors.card, marginRight: 12 }} />
-                  <View>
-                    <Text style={{ color: Colors.text, fontWeight: '600' }}>{cat.name || 'Uncategorized'}</Text>
-                    <Text style={{ color: Colors.muted, fontSize: 12 }} numberOfLines={1}>{r.notes || ''}</Text>
+              <View
+                key={r.id}
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  paddingVertical: 8
+                }}
+              >
+                <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+                  <Avatar.Icon
+                    size={40}
+                    icon={cat.icon || 'currency-usd'}
+                    style={{
+                      backgroundColor: cat.color || Colors.card,
+                      marginRight: 12
+                    }}
+                  />
+                  <View style={{ flex: 1 }}>
+                    <Text
+                      style={{ color: Colors.text, fontWeight: '600' }}
+                      numberOfLines={1}
+                    >
+                      {cat.name || 'Uncategorized'}
+                    </Text>
+                    <Text
+                      style={{ color: Colors.muted, fontSize: 12 }}
+                      numberOfLines={1}
+                      ellipsizeMode="tail"
+                    >
+                      {r.notes || ''}
+                    </Text>
                   </View>
                 </View>
-                <View style={{ alignItems: 'flex-end' }}>
-                  <Text style={{ color: r.type === 'expense' ? '#E46A6A' : '#4CAF50', fontWeight: '700' }}>{r.type === 'expense' ? `- ${Number(r.amount).toFixed(2)}` : `+ ${Number(r.amount).toFixed(2)}`}</Text>
-                  <Text style={{ color: Colors.muted, fontSize: 12 }}>{new Date(r.date).toLocaleDateString()}</Text>
+                <View style={{ alignItems: 'flex-end', marginLeft: 8 }}>
+                  <Text
+                    style={{
+                      color: r.type === 'expense' ? '#E46A6A' : '#4CAF50',
+                      fontWeight: '700'
+                    }}
+                  >
+                    {r.type === 'expense'
+                      ? `- ${Number(r.amount).toFixed(2)}`
+                      : `+ ${Number(r.amount).toFixed(2)}`}
+                  </Text>
+                  <Text style={{ color: Colors.muted, fontSize: 12 }}>
+                    {new Date(r.date).toLocaleDateString()}
+                  </Text>
                 </View>
               </View>
             );
