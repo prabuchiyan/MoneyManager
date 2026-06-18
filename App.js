@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ErrorBoundary from './src/screens/ErrorBoundary';
@@ -58,6 +58,11 @@ export default function App() {
   if (!ready) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Image 
+          source={require('./assets/logo.png')} 
+          style={{ width: 100, height: 100, marginBottom: 20 }}
+          resizeMode="contain"
+        />
         <Text>Prabuchiyan...</Text>
       </View>
     );
