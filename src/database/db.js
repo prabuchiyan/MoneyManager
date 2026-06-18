@@ -1,4 +1,5 @@
 import { Platform } from 'react-native';
+import * as SQLite from 'expo-sqlite';
 let db = null;
 
 function makeRows(arr) {
@@ -179,25 +180,56 @@ function createWebExecuteSql() {
   };
 }
 
+function isSelectQuery(sql) {
+  return /^\s*(SELECT|PRAGMA|WITH)\b/i.test(sql);
+}
+
+function getNativeDb() {
+  if (!db) {
+    db = SQLite.openDatabaseSync('money_manager.db');
+  }
+  return db;
+}
+
 export function executeSql(sql, params = []) {
-  if (Platform && Platform.OS === 'web') {
+  if (Platform.OS === 'web') {
     if (!db) db = createWebExecuteSql();
     return db(sql, Array.from(params));
   }
 
-  // native path
-  const SQLite = require('expo-sqlite');
-  const nativeDb = SQLite.openDatabase('money_manager.db');
-  return new Promise((resolve, reject) => {
-    nativeDb.transaction(tx => {
-      tx.executeSql(
-        sql,
-        params,
-        (_, result) => resolve(result),
-        (_, err) => { reject(err); return false; }
-      );
-    }, reject);
-  });
+  try {
+    const nativeDb = getNativeDb();
+
+    // SELECT-like queries
+    if (isSelectQuery(sql)) {
+      const rows = nativeDb.getAllSync(sql, params);
+
+      return Promise.resolve({
+        rows: {
+          _array: rows,
+          length: rows.length,
+          item: (index) => rows[index],
+        },
+        rowsAffected: 0,
+        insertId: undefined,
+      });
+    }
+
+    // INSERT / UPDATE / DELETE / CREATE / DROP
+    const result = nativeDb.runSync(sql, params);
+
+    return Promise.resolve({
+      rows: {
+        _array: [],
+        length: 0,
+        item: () => undefined,
+      },
+      rowsAffected: result.changes ?? 0,
+      insertId: result.lastInsertRowId ?? undefined,
+    });
+  } catch (error) {
+    return Promise.reject(error);
+  }
 }
 
 export default null;

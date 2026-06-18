@@ -40,14 +40,18 @@ function BudgetDonut({ limit = 0, spent = 0, remaining = 0, daysLeft = 0 }) {
   const dashOffset = circumference * (1 - Math.min(1, percent));
 
   // Animated progress
-  const anim = React.useRef(new Animated.Value(Math.min(1, percent))).current;
+  const safePercent = isNaN(percent) ? 0 : percent;
+
+  const anim = React.useRef(new Animated.Value(Math.min(1, safePercent))).current;
   React.useEffect(() => {
     Animated.timing(anim, { toValue: Math.min(1, percent), duration: 700, useNativeDriver: false }).start();
   }, [percent]);
 
-  const dashAnim = anim.interpolate({ inputRange: [0, 1], outputRange: [String(circumference), '0'] });
+  const dashAnim = anim.interpolate({ inputRange: [0, 1], outputRange: [circumference, 0] });
 
-  const fmt = (v) => `₹${Number(v || 0).toLocaleString('en-IN', { maximumFractionDigits: 2 })}`;
+  function fmt(v) {
+    return `₹${Number(v || 0).toLocaleString('en-IN', { maximumFractionDigits: 2 })}`;
+  }
 
   return (
     <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
@@ -77,8 +81,7 @@ function BudgetDonut({ limit = 0, spent = 0, remaining = 0, daysLeft = 0 }) {
   );
 }
 
-function CategoryDonut({ data = [] }) {
-  const COLORS_DONUT = ['#4B7CF3', '#FFA500', '#2ECC71', '#E74C3C', '#9B59B6', '#1ABC9C'];
+function CategoryDonut({ data = [], categoriesMap = {} }) {
   const size = 160;
   const strokeWidth = 18;
   const radius = (size - strokeWidth) / 2;
@@ -94,6 +97,8 @@ function CategoryDonut({ data = [] }) {
         {data.map((d, i) => {
           const value = Number(d.amount || 0);
           const percent = total > 0 ? value / total : 0;
+          const cat = categoriesMap[d.category_id] || {};
+          const color = cat.color || '#eee';
 
           const strokeDasharray = `${circumference * percent} ${circumference}`;
           const rotation = (cumulative / total) * 360;
@@ -106,7 +111,7 @@ function CategoryDonut({ data = [] }) {
               cx={size / 2}
               cy={size / 2}
               r={radius}
-              stroke={COLORS_DONUT[i % COLORS_DONUT.length]}
+              stroke={color}
               strokeWidth={strokeWidth}
               fill="none"
               strokeDasharray={strokeDasharray}
@@ -148,10 +153,19 @@ export default function HomeScreen({ navigation }) {
   const [billsSummary, setBillsSummary] = useState(null);
 
   async function load() {
+    // Load categories first to ensure we have colors/icons for reports
+    try {
+      const catsAll = await getCategories(true);
+      const cmap = {};
+      catsAll.forEach(c => { cmap[c.id] = c; });
+      setCategoriesMap(cmap);
+      setCategories(catsAll);
+    } catch (e) {
+      console.error('Error loading categories:', e);
+    }
+
     const b = await getTotalBalance();
     setBalance(b);
-    const cats = await getCategorySpending();
-    setTopCategories(cats.slice(0, 5));
     const t = await getMonthlyTrends(6);
     setTrends(t);
     const bl = await getBills({ sortBy: 'due_date' });
@@ -164,6 +178,10 @@ export default function HomeScreen({ navigation }) {
     setSourceBalances(sb);
     const bs = await getBudgetsWithRemaining();
     console.debug && console.debug('Home.load budgets:', bs);
+
+    const cats = await getCategorySpending();
+    setTopCategories(cats);
+
     setBudgets(bs);
     if (bs && bs.length && !selectedBudgetId) {
       const firstId = String(bs[0].budget.id);
@@ -172,11 +190,6 @@ export default function HomeScreen({ navigation }) {
     }
     // recent transactions
     try {
-      const catsAll = await getCategories(true);
-      const cmap = {};
-      catsAll.forEach(c => { cmap[c.id] = c; });
-      setCategoriesMap(cmap);
-      setCategories(catsAll);
       const tx = await getTransactions(6);
       setRecentTx(tx);
     } catch (e) {
@@ -249,10 +262,11 @@ export default function HomeScreen({ navigation }) {
           {budgets.length ? (
             <>
               {(() => {
-                const sel = budgets.find(x => x.budget.id === selectedBudgetId) || budgets[0];
-                const limit = parseFloat(sel.budget.monthly_limit) || 0;
-                const spent = parseFloat(sel.spent) || 0;
-                const remaining = parseFloat(sel.remaining) || 0;
+                const sel = budgets.find(x => x?.budget?.id === selectedBudgetId) || budgets[0];
+                if (!sel || !sel.budget) return null;
+                const limit = Number(sel.budget?.monthly_limit ?? 0);
+                const spent = Number(sel?.spent ?? 0);
+                const remaining = Number(sel?.remaining ?? 0);
                 const daysLeft = daysRemainingInMonth();
                 return (
                   <View style={{ alignItems: 'center', justifyContent: 'center', paddingVertical: 12 }}>
@@ -268,13 +282,14 @@ export default function HomeScreen({ navigation }) {
               <TouchableOpacity onPress={() => navigation.navigate('Budgets')}>
                 <BudgetDonut limit={0} spent={0} remaining={0} daysLeft={daysRemainingInMonth()} />
               </TouchableOpacity>
-              <View style={{ marginTop: 12, width: '90%', maxWidth: 360, alignItems: 'center' }}>
+              <View style={{ marginTop: 12, alignSelf: 'stretch', maxWidth: 360, alignItems: 'center' }}>
                 <Text style={{ fontWeight: '700', fontSize: 16 }}>No budgets set</Text>
                 <Text style={{ color: Colors.muted, marginTop: 8, textAlign: 'center' }}>Create a budget to track monthly spending and see safe/overspent amounts here.</Text>
                 <PaperButton mode="contained" onPress={() => navigation.navigate('Budgets')} style={{ marginTop: 12 }}>Create Budget</PaperButton>
               </View>
             </View>
           )}
+
           <View
             style={{
               flexDirection: 'row',
@@ -282,21 +297,22 @@ export default function HomeScreen({ navigation }) {
               marginTop: 12
             }}
           >
+            <TouchableOpacity
+              style={{ flex: 1, alignItems: 'center' }}
+              onPress={() => navigation.navigate('SourcesDashboard')}
+            >
+              <View style={{ flex: 1, alignItems: 'center' }}>
+                <Text style={{ fontSize: 12, color: Colors.muted }}>
+                  Balance
+                </Text>
+                <Text style={{ fontSize: 16, fontWeight: '700', color: Colors.text }}>
+                  ₹{totalBalance.toLocaleString('en-IN')}
+                </Text>
+              </View>
+            </TouchableOpacity>
 
-            {/* BALANCE */}
-            <View style={{ flex: 1, alignItems: 'center' }}>
-              <Text style={{ fontSize: 12, color: Colors.muted }}>
-                Balance
-              </Text>
-              <Text style={{ fontSize: 16, fontWeight: '700', color: Colors.text }}>
-                ₹{totalBalance.toLocaleString('en-IN')}
-              </Text>
-            </View>
-
-            {/* DIVIDER */}
             <View style={{ width: 1, backgroundColor: '#eee' }} />
 
-            {/* BILL DUE */}
             <TouchableOpacity
               style={{ flex: 1, alignItems: 'center' }}
               onPress={() => navigation.navigate('Bills')}
@@ -310,10 +326,8 @@ export default function HomeScreen({ navigation }) {
               </Text>
             </TouchableOpacity>
 
-            {/* DIVIDER */}
             <View style={{ width: 1, backgroundColor: '#eee' }} />
 
-            {/* SPEND */}
             <View style={{ flex: 1, alignItems: 'center' }}>
               <Text style={{ fontSize: 12, color: Colors.muted }}>
                 Spend
@@ -331,17 +345,54 @@ export default function HomeScreen({ navigation }) {
           {recentTx.length ? recentTx.slice(0, 3).map(r => {
             const cat = categoriesMap[r.category_id] || {};
             return (
-              <View key={r.id} style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 8 }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <Avatar.Icon size={40} icon={cat.icon || 'currency-usd'} style={{ backgroundColor: cat.color || Colors.card, marginRight: 12 }} />
-                  <View>
-                    <Text style={{ color: Colors.text, fontWeight: '600' }}>{cat.name || 'Uncategorized'}</Text>
-                    <Text style={{ color: Colors.muted, fontSize: 12 }} numberOfLines={1}>{r.notes || ''}</Text>
+              <View
+                key={r.id}
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  paddingVertical: 8
+                }}
+              >
+                <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+                  <Avatar.Icon
+                    size={40}
+                    icon={cat.icon || 'currency-usd'}
+                    style={{
+                      backgroundColor: cat.color || Colors.card,
+                      marginRight: 12
+                    }}
+                  />
+                  <View style={{ flex: 1 }}>
+                    <Text
+                      style={{ color: Colors.text, fontWeight: '600' }}
+                      numberOfLines={1}
+                    >
+                      {cat.name || 'Uncategorized'}
+                    </Text>
+                    <Text
+                      style={{ color: Colors.muted, fontSize: 12 }}
+                      numberOfLines={1}
+                      ellipsizeMode="tail"
+                    >
+                      {r.notes || ''}
+                    </Text>
                   </View>
                 </View>
-                <View style={{ alignItems: 'flex-end' }}>
-                  <Text style={{ color: r.type === 'expense' ? '#E46A6A' : '#4CAF50', fontWeight: '700' }}>{r.type === 'expense' ? `- ${Number(r.amount).toFixed(2)}` : `+ ${Number(r.amount).toFixed(2)}`}</Text>
-                  <Text style={{ color: Colors.muted, fontSize: 12 }}>{new Date(r.date).toLocaleDateString()}</Text>
+                <View style={{ alignItems: 'flex-end', marginLeft: 8 }}>
+                  <Text
+                    style={{
+                      color: r.type === 'expense' ? '#E46A6A' : '#4CAF50',
+                      fontWeight: '700'
+                    }}
+                  >
+                    {r.type === 'expense'
+                      ? `- ${Number(r.amount).toFixed(2)}`
+                      : `+ ${Number(r.amount).toFixed(2)}`}
+                  </Text>
+                  <Text style={{ color: Colors.muted, fontSize: 12 }}>
+                    {new Date(r.date).toLocaleDateString()}
+                  </Text>
                 </View>
               </View>
             );
@@ -359,13 +410,13 @@ export default function HomeScreen({ navigation }) {
         </Card>
 
         <Card>
-          <Text style={{ fontWeight: '600', marginBottom: 8 }}>
-            Top spend areas
+          <Text style={{ fontWeight: '700', marginBottom: 8 }}>
+            Spend Areas
           </Text>
 
           {topCategories.length ? (
             <View style={{ alignItems: 'center', marginBottom: 12 }}>
-              <CategoryDonut data={topCategories} />
+              <CategoryDonut data={topCategories} categoriesMap={categoriesMap} />
             </View>
           ) : (
             <Text style={{ color: Colors.muted }}>No data</Text>
@@ -381,8 +432,6 @@ export default function HomeScreen({ navigation }) {
 
             return (
               <View key={c.category_id} style={{ marginBottom: 12 }}>
-
-                {/* Row */}
                 <View
                   style={{
                     flexDirection: 'row',
@@ -391,11 +440,7 @@ export default function HomeScreen({ navigation }) {
                     marginBottom: 6
                   }}
                 >
-
-                  {/* LEFT: Icon + Name */}
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-
-                    {/* 🔵 Circular Icon */}
                     <Avatar.Icon
                       size={34}
                       icon={icon}
@@ -410,14 +455,10 @@ export default function HomeScreen({ navigation }) {
                       {c.category_name}
                     </Text>
                   </View>
-
-                  {/* RIGHT: Amount */}
                   <Text style={{ color: '#E46A6A', fontWeight: '600' }}>
                     ₹{amount.toLocaleString('en-IN')}
                   </Text>
                 </View>
-
-                {/* Progress Bar */}
                 <View
                   style={{
                     height: 6,
@@ -521,61 +562,6 @@ export default function HomeScreen({ navigation }) {
         </TouchableOpacity>
 
         <Card>
-          <Text style={{ fontWeight: '600', marginBottom: 8 }}>
-            Source balances
-          </Text>
-
-          {sources.length ? sources.map(item => (
-            <TouchableOpacity
-              key={item.id}
-              onPress={() => navigation.navigate('SourcesDetails', {
-                sourceId: item.id,
-                sourceName: item.name
-              })}
-            >
-              <View style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                paddingVertical: 8
-              }}>
-                <Text style={{ color: Colors.text }}>
-                  {item.name}
-                </Text>
-
-                <Text style={{ color: Colors.text }}>
-                  ₹ {Number(item.initial_balance || 0).toFixed(2)}
-                </Text>
-              </View>
-            </TouchableOpacity>
-          )) : (
-            <Text style={{ color: Colors.muted }}>No sources</Text>
-          )}
-        </Card>
-
-        <Card style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-          <TouchableOpacity onPress={() => navigation.navigate('TransactionAdd')} style={{ backgroundColor: Colors.primary, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 8, minWidth: 110, alignItems: 'center' }}>
-            <Text style={{ color: '#fff', fontWeight: '700' }}>+ Transaction</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => navigation.navigate('Categories')} style={{ backgroundColor: Colors.card, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 8, minWidth: 90, alignItems: 'center' }}>
-            <Text style={{ color: Colors.text, fontWeight: '600' }}>Categories</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => navigation.navigate('Sources')} style={{ backgroundColor: Colors.card, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 8, minWidth: 90, alignItems: 'center' }}>
-            <Text style={{ color: Colors.text, fontWeight: '600' }}>Sources</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => navigation.navigate('Bills')} style={{ backgroundColor: Colors.card, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 8, minWidth: 90, alignItems: 'center' }}>
-            <Text style={{ color: Colors.text, fontWeight: '600' }}>Bills</Text>
-          </TouchableOpacity>
-        </Card>
-
-        <Card>
-          <Text style={{ color: Colors.muted }}>Overview</Text>
-          <Text style={{ fontSize: 28, fontWeight: '700', color: Colors.text }}>{balance ? balance.balance.toFixed(2) : '—'}</Text>
-        </Card>
-
-        <Card>
           <Text style={{ fontWeight: '600', marginBottom: 8 }}>Top spends (this month)</Text>
           {topCategories.length ? topCategories.map(c => (
             <View key={c.category_id} style={{ flexDirection: 'row', justifyContent: 'space-between', paddingVertical: 6 }}>
@@ -596,7 +582,7 @@ export default function HomeScreen({ navigation }) {
         </Card>
       </ScrollView>
 
-      <FAB onPress={() => navigation.navigate('Transactions')} />
+      <FAB onPress={() => navigation.navigate('TransactionAdd')} />
 
       <ConfirmDialog visible={confirmVisibleTx} title="Delete Transaction" message={confirmTxMessage} onCancel={() => { setConfirmVisibleTx(false); setConfirmTxId(null); }} onConfirm={async () => { if (confirmTxId) { await deleteTransaction(confirmTxId); } setConfirmVisibleTx(false); setConfirmTxId(null); load(); }} />
     </View>

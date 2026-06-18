@@ -13,6 +13,7 @@
     "doctor": "expo doctor"
   },
   "dependencies": {
+    "@expo/metro-runtime": "~3.2.3",
     "@react-native-community/datetimepicker": "8.0.1",
     "@react-navigation/native": "6.1.6",
     "@react-navigation/native-stack": "6.9.12",

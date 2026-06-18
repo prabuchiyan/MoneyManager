@@ -37,22 +37,22 @@ export default function BudgetsScreen({ route, navigation }) {
     // go back to home after setting
     await load();
     if (typeof navigation !== 'undefined' && navigation) {
-      navigation.navigate('Home');
+      navigation.navigate('Dashboard');
     }
   }
 
   return (
-    <View style={{flex:1}}>
-      <Card style={{margin: Spacing.m, paddingVertical: 28}}>
-        <View style={{alignItems:'center'}}>
-          <Avatar.Icon size={56} icon="cash" style={{backgroundColor:'#E8F7EF', marginBottom:12}} />
-          <Text style={{fontSize:22,fontWeight:'800',marginBottom:6}}>Monthly Budget</Text>
-          <Text style={{color:'#666',textAlign:'center',maxWidth:360,marginBottom:16}}>One simple box — set a monthly spending limit and tap Set Now.</Text>
+    <View style={{ flex: 1 }}>
+      <Card style={{ margin: Spacing.m, paddingVertical: 28 }}>
+        <View style={{ alignItems: 'center' }}>
+          <Avatar.Icon size={56} icon="cash" style={{ backgroundColor: '#E8F7EF', marginBottom: 12 }} />
+          <Text style={{ fontSize: 22, fontWeight: '800', marginBottom: 6 }}>Monthly Budget</Text>
+          <Text style={{ color: '#666', textAlign: 'center', maxWidth: 360, marginBottom: 16 }}>One simple box — set a monthly spending limit and tap Set Now.</Text>
 
-          <View style={{width:'92%', maxWidth:520, alignItems:'center'}}>
-            <View style={{width:'100%', backgroundColor:'#F6FBF7', borderRadius:12, paddingVertical:18, paddingHorizontal:16, alignItems:'center', marginBottom:12, borderWidth:1, borderColor:'#E6F4EA'}}>
-              <Text style={{color:'#2E7D32', fontSize:14, fontWeight:'700', marginBottom:6}}>Preview</Text>
-              <Text style={{fontSize:28, fontWeight:'900', color:'#1B5E20'}}>₹ {limit ? Number(limit).toLocaleString('en-IN') : '0'}</Text>
+          <View style={{ width: '92%', maxWidth: 520, alignItems: 'center' }}>
+            <View style={{ width: '100%', backgroundColor: '#F6FBF7', borderRadius: 12, paddingVertical: 18, paddingHorizontal: 16, alignItems: 'center', marginBottom: 12, borderWidth: 1, borderColor: '#E6F4EA' }}>
+              <Text style={{ color: '#2E7D32', fontSize: 14, fontWeight: '700', marginBottom: 6 }}>Preview</Text>
+              <Text style={{ fontSize: 28, fontWeight: '900', color: '#1B5E20' }}>₹ {limit ? Number(limit).toLocaleString('en-IN') : '0'}</Text>
             </View>
 
             <PaperInput
@@ -62,16 +62,16 @@ export default function BudgetsScreen({ route, navigation }) {
               keyboardType="numeric"
               onChangeText={setLimit}
               placeholder="e.g. 50,000"
-              style={{backgroundColor:'white', width:'100%'}}
+              style={{ backgroundColor: 'white', width: '100%' }}
               theme={{ colors: { primary: '#36B37E' } }}
               outlineColor="#eee"
             />
 
-            <Button mode="contained" onPress={setNow} style={{marginTop:18, paddingVertical:12, borderRadius:10, width:'100%'}} contentStyle={{paddingVertical:6}}>
+            <Button mode="contained" onPress={setNow} style={{ marginTop: 18, paddingVertical: 12, borderRadius: 10, width: '100%' }} contentStyle={{ paddingVertical: 6 }}>
               Set Now
             </Button>
 
-            <Text style={{color:'#999', fontSize:12, marginTop:10, textAlign:'center'}}>This will create or update your general monthly budget.</Text>
+            <Text style={{ color: '#999', fontSize: 12, marginTop: 10, textAlign: 'center' }}>This will create or update your general monthly budget.</Text>
           </View>
         </View>
       </Card>
