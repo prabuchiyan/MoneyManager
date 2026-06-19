@@ -1,0 +1,1128 @@
+{
+  "version": 1,
+  "timestamp": "2026-06-19T13:52:32.073932Z",
+  "data": {
+    "transactions": [
+      {
+        "id": 12812,
+        "type": "income",
+        "amount": 15.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2026-03-01T00:00:00Z",
+        "notes": "SELF"
+      },
+      {
+        "id": 12813,
+        "type": "income",
+        "amount": 15000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-01T04:58:48Z",
+        "notes": "Ravi"
+      },
+      {
+        "id": 12814,
+        "type": "income",
+        "amount": 3154.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-01T05:00:41Z",
+        "notes": "Abi"
+      },
+      {
+        "id": 12815,
+        "type": "expense",
+        "amount": 55.0,
+        "category_id": 9,
+        "source_id": 2,
+        "date": "2026-03-01T13:00:59Z",
+        "notes": "Snacks From Bakery"
+      },
+      {
+        "id": 12816,
+        "type": "expense",
+        "amount": 4623.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-02T13:01:12Z",
+        "notes": "March Month - 2026"
+      },
+      {
+        "id": 12817,
+        "type": "expense",
+        "amount": 110.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2026-03-02T13:16:12Z",
+        "notes": "Pdkt Home Ground Floor Electricity Bill Paid"
+      },
+      {
+        "id": 12818,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-02T13:18:21Z",
+        "notes": "Pdkt Home Ground Floor Electricity Bill Paid"
+      },
+      {
+        "id": 12819,
+        "type": "income",
+        "amount": 3.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-02T13:20:21Z",
+        "notes": "Cashback"
+      },
+      {
+        "id": 12820,
+        "type": "expense",
+        "amount": 569.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-02T13:29:14Z",
+        "notes": "Pdkt Shop Electricity"
+      },
+      {
+        "id": 12821,
+        "type": "expense",
+        "amount": 110.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2026-03-03T15:39:03Z",
+        "notes": "Lunch: Chicken Fried Rice"
+      },
+      {
+        "id": 12822,
+        "type": "expense",
+        "amount": 15000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-03T15:41:17Z",
+        "notes": "PPF - Jan, Feb & Mar 2026"
+      },
+      {
+        "id": 12823,
+        "type": "expense",
+        "amount": 320.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-03T16:14:27Z",
+        "notes": "Kallu Kudi Trip: Spend"
+      },
+      {
+        "id": 12824,
+        "type": "income",
+        "amount": 30.31,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-03T16:21:33Z",
+        "notes": "Cashback"
+      },
+      {
+        "id": 12825,
+        "type": "expense",
+        "amount": 196.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2026-03-04T20:58:39Z",
+        "notes": "Pdkt Home DTH Recharge"
+      },
+      {
+        "id": 12826,
+        "type": "expense",
+        "amount": 3.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-04T20:58:55Z",
+        "notes": "Pdkt Home DTH Recharge"
+      },
+      {
+        "id": 12827,
+        "type": "income",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-04T21:01:26Z",
+        "notes": "Cashback"
+      },
+      {
+        "id": 12828,
+        "type": "expense",
+        "amount": 27.14,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-05T08:41:01Z",
+        "notes": "Petrol Surcharge"
+      },
+      {
+        "id": 12829,
+        "type": "expense",
+        "amount": 90.0,
+        "category_id": 16,
+        "source_id": 11,
+        "date": "2026-03-05T19:32:40Z",
+        "notes": "Lunch: Biriyani"
+      },
+      {
+        "id": 12830,
+        "type": "expense",
+        "amount": 2300.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-05T19:33:25Z",
+        "notes": "Car Petrol"
+      },
+      {
+        "id": 12831,
+        "type": "income",
+        "amount": 1500.0,
+        "category_id": 13,
+        "source_id": 2,
+        "date": "2026-03-06T00:17:37Z",
+        "notes": "Abi"
+      },
+      {
+        "id": 12832,
+        "type": "expense",
+        "amount": 602.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-06T00:19:48Z",
+        "notes": "March Month - 2026"
+      },
+      {
+        "id": 12833,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 9,
+        "source_id": 11,
+        "date": "2026-03-06T00:22:02Z",
+        "notes": "Snacks: Mushroom & Masaal Poori"
+      },
+      {
+        "id": 12834,
+        "type": "expense",
+        "amount": 15346.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-06T07:23:16Z",
+        "notes": "Move to FD"
+      },
+      {
+        "id": 12835,
+        "type": "expense",
+        "amount": 14500.0,
+        "category_id": 2,
+        "source_id": 2,
+        "date": "2026-03-07T09:16:24Z",
+        "notes": "March Month House Rent"
+      },
+      {
+        "id": 12836,
+        "type": "expense",
+        "amount": 155.0,
+        "category_id": 9,
+        "source_id": 11,
+        "date": "2026-03-07T17:34:13Z",
+        "notes": "Snacks From Bakery"
+      },
+      {
+        "id": 12837,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2026-03-07T17:52:28Z",
+        "notes": "Milk"
+      },
+      {
+        "id": 12838,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2026-03-08T11:00:25Z",
+        "notes": "Lemon"
+      },
+      {
+        "id": 12839,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 9,
+        "source_id": 11,
+        "date": "2026-03-08T11:01:06Z",
+        "notes": "Snacks From Grocery Shop"
+      },
+      {
+        "id": 12840,
+        "type": "expense",
+        "amount": 36.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2026-03-08T11:06:55Z",
+        "notes": "Ciggerate"
+      },
+      {
+        "id": 12841,
+        "type": "expense",
+        "amount": 645.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2026-03-08T11:15:24Z",
+        "notes": "Drinks & Side"
+      },
+      {
+        "id": 12842,
+        "type": "income",
+        "amount": 45.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-09T11:33:45Z",
+        "notes": "Cashback"
+      },
+      {
+        "id": 12843,
+        "type": "expense",
+        "amount": 2995.0,
+        "category_id": 15,
+        "source_id": 3,
+        "date": "2026-03-10T17:05:16Z",
+        "notes": "Give Back to Vivek"
+      },
+      {
+        "id": 12844,
+        "type": "expense",
+        "amount": 125.0,
+        "category_id": 9,
+        "source_id": 11,
+        "date": "2026-03-10T17:09:22Z",
+        "notes": "Sweets From Bakery"
+      },
+      {
+        "id": 12845,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 9,
+        "source_id": 11,
+        "date": "2026-03-10T17:12:03Z",
+        "notes": "Snacks From Bakery"
+      },
+      {
+        "id": 12846,
+        "type": "expense",
+        "amount": 10000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-10T17:14:32Z",
+        "notes": "Gave it to Dad"
+      },
+      {
+        "id": 12847,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-10T17:14:53Z",
+        "notes": "Gave it to Mom"
+      },
+      {
+        "id": 12848,
+        "type": "expense",
+        "amount": 55.0,
+        "category_id": 11,
+        "source_id": 13,
+        "date": "2026-03-11T11:38:12Z",
+        "notes": "Postpaid Bill Paid For Myself"
+      },
+      {
+        "id": 12849,
+        "type": "expense",
+        "amount": 769.82,
+        "category_id": 11,
+        "source_id": 3,
+        "date": "2026-03-11T11:40:31Z",
+        "notes": "Postpaid Bill Paid For Myself"
+      },
+      {
+        "id": 12850,
+        "type": "expense",
+        "amount": 475.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2026-03-11T12:07:03Z",
+        "notes": "Added to Amazon Wallet"
+      },
+      {
+        "id": 12851,
+        "type": "income",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-11T14:33:32Z",
+        "notes": "Voucher Added"
+      },
+      {
+        "id": 12852,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 9,
+        "source_id": 11,
+        "date": "2026-03-12T19:23:51Z",
+        "notes": "Samosa"
+      },
+      {
+        "id": 12853,
+        "type": "income",
+        "amount": 16.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-12T19:24:20Z",
+        "notes": "Cashback"
+      },
+      {
+        "id": 12854,
+        "type": "expense",
+        "amount": 220.0,
+        "category_id": 16,
+        "source_id": 11,
+        "date": "2026-03-13T12:10:41Z",
+        "notes": "Chicken Fried Rice"
+      },
+      {
+        "id": 12855,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-13T12:35:08Z",
+        "notes": "March Month - 2026"
+      },
+      {
+        "id": 12856,
+        "type": "income",
+        "amount": 18.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-14T10:26:20Z",
+        "notes": "Cashback"
+      },
+      {
+        "id": 12857,
+        "type": "expense",
+        "amount": 140.0,
+        "category_id": 9,
+        "source_id": 11,
+        "date": "2026-03-14T12:14:10Z",
+        "notes": "Snacks From Chips Shop"
+      },
+      {
+        "id": 12858,
+        "type": "expense",
+        "amount": 10773.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-15T09:34:25Z",
+        "notes": "Sofa 3+1"
+      },
+      {
+        "id": 12859,
+        "type": "expense",
+        "amount": 9227.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-15T09:35:26Z",
+        "notes": "Sofa 3+1"
+      },
+      {
+        "id": 12860,
+        "type": "expense",
+        "amount": 1155.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2026-03-15T13:41:51Z",
+        "notes": "In-laws Visit: Bus Tickets"
+      },
+      {
+        "id": 12861,
+        "type": "expense",
+        "amount": 560.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-18T09:40:55Z",
+        "notes": "Biriyani & Side Dish"
+      },
+      {
+        "id": 12862,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-18T09:42:37Z",
+        "notes": "Ciggerate"
+      },
+      {
+        "id": 12863,
+        "type": "expense",
+        "amount": 55.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-19T11:21:16Z",
+        "notes": "Milk"
+      },
+      {
+        "id": 12864,
+        "type": "expense",
+        "amount": 760.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-20T15:01:51Z",
+        "notes": "In-laws Visit: Biriyani & Kabab"
+      },
+      {
+        "id": 12865,
+        "type": "expense",
+        "amount": 3436.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-21T09:15:50Z",
+        "notes": "In-laws Visit: Mysuru Visit"
+      },
+      {
+        "id": 12866,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2026-03-21T09:19:03Z",
+        "notes": "In-laws Visit: Mysuru Visit"
+      },
+      {
+        "id": 12867,
+        "type": "expense",
+        "amount": 224.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2026-03-21T10:05:18Z",
+        "notes": "In-laws Visit: Mysuru Visit"
+      },
+      {
+        "id": 12868,
+        "type": "expense",
+        "amount": 224.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-21T10:08:53Z",
+        "notes": "In-laws Visit: Mysuru Visit"
+      },
+      {
+        "id": 12869,
+        "type": "income",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2026-03-21T12:50:14Z",
+        "notes": "Get it From Abi"
+      },
+      {
+        "id": 12870,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-22T09:25:52Z",
+        "notes": "Money Added to Amazon Wallet"
+      },
+      {
+        "id": 12871,
+        "type": "expense",
+        "amount": 5.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2026-03-22T09:28:55Z",
+        "notes": "Bike Air"
+      },
+      {
+        "id": 12872,
+        "type": "expense",
+        "amount": 160.0,
+        "category_id": 12,
+        "source_id": 2,
+        "date": "2026-03-22T09:29:14Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 12873,
+        "type": "income",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-22T09:33:22Z",
+        "notes": "Transfer to Axix"
+      },
+      {
+        "id": 12874,
+        "type": "expense",
+        "amount": 859.0,
+        "category_id": 11,
+        "source_id": 13,
+        "date": "2026-03-22T09:36:10Z",
+        "notes": "Recharge to Mother-in-law"
+      },
+      {
+        "id": 12875,
+        "type": "income",
+        "amount": 859.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2026-03-22T09:44:33Z",
+        "notes": "Recharge to Mother-in-law"
+      },
+      {
+        "id": 12876,
+        "type": "income",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-23T09:31:03Z",
+        "notes": "Cashback"
+      },
+      {
+        "id": 12877,
+        "type": "expense",
+        "amount": 430.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2026-03-23T10:39:20Z",
+        "notes": "In-laws Visit: Shawai Chicken"
+      },
+      {
+        "id": 12878,
+        "type": "expense",
+        "amount": 4000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-24T05:10:04Z",
+        "notes": "Sofa 3+1 Balance"
+      },
+      {
+        "id": 12879,
+        "type": "expense",
+        "amount": 800.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-24T05:10:32Z",
+        "notes": "Sofa 3+1: Transport"
+      },
+      {
+        "id": 12880,
+        "type": "expense",
+        "amount": 5594.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-24T10:43:22Z",
+        "notes": "Move to FD"
+      },
+      {
+        "id": 12881,
+        "type": "expense",
+        "amount": 23.6,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-25T09:55:43Z",
+        "notes": "Pdkt to Tnj: Petrol Surcharge"
+      },
+      {
+        "id": 12882,
+        "type": "expense",
+        "amount": 546.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2026-03-25T12:54:42Z",
+        "notes": "Pdkt to Tnj: Break Fast"
+      },
+      {
+        "id": 12883,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2026-03-25T12:56:49Z",
+        "notes": "Pdkt to Tnj: Breakfast Tips"
+      },
+      {
+        "id": 12884,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-25T13:07:26Z",
+        "notes": "Pdkt to Tnj: Car Petrol"
+      },
+      {
+        "id": 12885,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2026-03-25T13:10:30Z",
+        "notes": "Pdkt to Tnj: Car Air Tips"
+      },
+      {
+        "id": 12886,
+        "type": "expense",
+        "amount": 271.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-25T13:29:43Z",
+        "notes": "Bang Electricity Bill Paid"
+      },
+      {
+        "id": 12887,
+        "type": "expense",
+        "amount": 2500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-26T13:34:03Z",
+        "notes": "Car Petrol"
+      },
+      {
+        "id": 12888,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2026-03-27T10:32:56Z",
+        "notes": "Drinks: Snacks"
+      },
+      {
+        "id": 12889,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2026-03-27T10:37:06Z",
+        "notes": "Drinks: Food"
+      },
+      {
+        "id": 12890,
+        "type": "expense",
+        "amount": 61.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2026-03-27T10:43:25Z",
+        "notes": "Drinks: Ciggerate"
+      },
+      {
+        "id": 12891,
+        "type": "expense",
+        "amount": 550.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2026-03-29T09:41:22Z",
+        "notes": "Bakery Snacks For Akka Family"
+      },
+      {
+        "id": 12892,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2026-03-29T09:43:29Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 12893,
+        "type": "income",
+        "amount": 183243.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-30T09:49:58Z",
+        "notes": "March Month Salary"
+      },
+      {
+        "id": 12894,
+        "type": "income",
+        "amount": 1800.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-30T09:57:05Z",
+        "notes": "March Month Fual Amount"
+      },
+      {
+        "id": 12895,
+        "type": "expense",
+        "amount": 4920.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2026-03-30T10:05:35Z",
+        "notes": "Gold Chit: Purchase Amount"
+      },
+      {
+        "id": 12896,
+        "type": "expense",
+        "amount": 300.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2026-03-31T02:25:36Z",
+        "notes": "Elanjavur Temple Visit: Mottai"
+      },
+      {
+        "id": 12897,
+        "type": "income",
+        "amount": 500.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2026-03-31T02:34:54Z",
+        "notes": "Get it From Abi"
+      },
+      {
+        "id": 12898,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2026-03-31T02:35:45Z",
+        "notes": "Elanjavur Temple Visit: Donated"
+      },
+      {
+        "id": 12899,
+        "type": "income",
+        "amount": 267.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-31T10:04:59Z",
+        "notes": "Interest Credited"
+      },
+      {
+        "id": 12900,
+        "type": "expense",
+        "amount": 14403.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2026-03-31T10:31:19Z",
+        "notes": "SBI Credit Card Bill Paid"
+      },
+      {
+        "id": 12901,
+        "type": "income",
+        "amount": 14403.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2026-03-31T10:31:59Z",
+        "notes": "SBI Credit Card Bill Paid"
+      },
+      {
+        "id": 12902,
+        "type": "expense",
+        "amount": 34.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-31T10:32:33Z",
+        "notes": "SBI Credit Card Bill Paid"
+      },
+      {
+        "id": 12903,
+        "type": "income",
+        "amount": 34.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2026-03-31T10:33:17Z",
+        "notes": "SBI Credit Card Bill Paid"
+      },
+      {
+        "id": 12904,
+        "type": "expense",
+        "amount": 540.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2026-03-31T20:10:33Z",
+        "notes": "Family Lunch: Kushka & Kabbab"
+      },
+      {
+        "id": 12905,
+        "type": "income",
+        "amount": 4.0,
+        "category_id": 5,
+        "source_id": 13,
+        "date": "2026-03-31T20:14:01Z",
+        "notes": "Cashback"
+      },
+      {
+        "id": 12906,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2026-03-31T23:59:59Z",
+        "notes": "To Apr"
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Groceries",
+        "type": "expense",
+        "icon": "cart",
+        "color": "#F97316"
+      },
+      {
+        "id": 2,
+        "name": "Rent",
+        "type": "expense",
+        "icon": "home-account",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "name": "Utilities",
+        "type": "expense",
+        "icon": "lightning-bolt",
+        "color": "#64748B"
+      },
+      {
+        "id": 4,
+        "name": "Salary",
+        "type": "income",
+        "icon": "cash-multiple",
+        "color": "#16A34A"
+      },
+      {
+        "id": 5,
+        "name": "Misc",
+        "type": "expense",
+        "icon": "dots-horizontal",
+        "color": "#9CA3AF"
+      },
+      {
+        "id": 6,
+        "name": "DTH",
+        "type": "expense",
+        "icon": "television-play",
+        "color": "#8B5CF6"
+      },
+      {
+        "id": 9,
+        "name": "Snacks",
+        "type": "expense",
+        "icon": "food-variant",
+        "color": "#FBBF24"
+      },
+      {
+        "id": 10,
+        "name": "Wallet Transfer",
+        "type": "expense",
+        "icon": "swap-horizontal",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "Mobile Recharge",
+        "type": "expense",
+        "icon": "cellphone",
+        "color": "#0EA5E9"
+      },
+      {
+        "id": 12,
+        "name": "Bike / Vehicle",
+        "type": "expense",
+        "icon": "motorbike",
+        "color": "#DC2626"
+      },
+      {
+        "id": 13,
+        "name": "Money Received",
+        "type": "income",
+        "icon": "arrow-down-bold-circle",
+        "color": "#10B981"
+      },
+      {
+        "id": 14,
+        "name": "Interest",
+        "type": "income",
+        "icon": "percent",
+        "color": "#22C55E"
+      },
+      {
+        "id": 15,
+        "name": "Money Given",
+        "type": "expense",
+        "icon": "arrow-up-bold-circle",
+        "color": "#EF4444"
+      },
+      {
+        "id": 16,
+        "name": "Food & Dining",
+        "type": "expense",
+        "icon": "silverware-fork-knife",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 17,
+        "name": "Family",
+        "type": "expense",
+        "icon": "account-group",
+        "color": "#F43F5E"
+      },
+      {
+        "id": 18,
+        "name": "Gifts",
+        "type": "expense",
+        "icon": "gift",
+        "color": "#EC4899"
+      },
+      {
+        "id": 19,
+        "name": "Savings",
+        "type": "expense",
+        "icon": "piggy-bank",
+        "color": "#059669"
+      },
+      {
+        "id": 20,
+        "name": "Loan / EMI",
+        "type": "expense",
+        "icon": "bank-transfer",
+        "color": "#B91C1C"
+      },
+      {
+        "id": 21,
+        "name": "Transport",
+        "type": "expense",
+        "icon": "bus",
+        "color": "#14B8A6"
+      },
+      {
+        "id": 22,
+        "name": "Entertainment",
+        "type": "expense",
+        "icon": "movie-open",
+        "color": "#7C3AED"
+      },
+      {
+        "id": 23,
+        "name": "Donations",
+        "type": "expense",
+        "icon": "hand-heart",
+        "color": "#22C55E"
+      },
+      {
+        "id": 24,
+        "name": "Home Improvement",
+        "type": "expense",
+        "icon": "hammer-wrench",
+        "color": "#A16207"
+      },
+      {
+        "id": 25,
+        "name": "Printing & Stationery",
+        "type": "expense",
+        "icon": "printer",
+        "color": "#6B7280"
+      },
+      {
+        "id": 26,
+        "name": "Bank Charges",
+        "type": "expense",
+        "icon": "bank",
+        "color": "#374151"
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "name": "Cash Spend",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "name": "Axis",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 3,
+        "name": "SBI Group",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 4,
+        "name": "Airtel Payments",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 5,
+        "name": "Paytm",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 6,
+        "name": "Unknown",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 7,
+        "name": "Vijaya",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 8,
+        "name": "Freecharge",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 9,
+        "name": "City Union",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 10,
+        "name": "MOBIKWIK",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "BOB",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 12,
+        "name": "HDFC",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 13,
+        "name": "Other",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      }
+    ],
+    "budgets": [],
+    "bills": []
+  }
+}

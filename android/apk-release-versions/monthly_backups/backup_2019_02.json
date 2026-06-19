@@ -1,0 +1,1650 @@
+{
+  "version": 1,
+  "timestamp": "2026-06-19T13:52:31.971021Z",
+  "data": {
+    "transactions": [
+      {
+        "id": 3020,
+        "type": "income",
+        "amount": 122.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-01T00:00:00Z",
+        "notes": "SELF"
+      },
+      {
+        "id": 3021,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2019-02-01T05:39:08Z",
+        "notes": "Cab : Thanjavur Railway Station to Home"
+      },
+      {
+        "id": 3022,
+        "type": "expense",
+        "amount": 9000.0,
+        "category_id": 2,
+        "source_id": 2,
+        "date": "2019-02-01T08:05:53Z",
+        "notes": "Room Rent"
+      },
+      {
+        "id": 3023,
+        "type": "expense",
+        "amount": 4000.0,
+        "category_id": 15,
+        "source_id": 2,
+        "date": "2019-02-01T09:38:22Z",
+        "notes": "Give Back to Sathiya"
+      },
+      {
+        "id": 3024,
+        "type": "income",
+        "amount": 19.0,
+        "category_id": 13,
+        "source_id": 2,
+        "date": "2019-02-01T09:38:37Z",
+        "notes": "Get it From Tez"
+      },
+      {
+        "id": 3025,
+        "type": "income",
+        "amount": 3000.0,
+        "category_id": 20,
+        "source_id": 1,
+        "date": "2019-02-01T11:34:32Z",
+        "notes": "Abi"
+      },
+      {
+        "id": 3026,
+        "type": "income",
+        "amount": 1550.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-01T12:33:12Z",
+        "notes": "Converted to Cash"
+      },
+      {
+        "id": 3027,
+        "type": "expense",
+        "amount": 440.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-01T12:33:54Z",
+        "notes": "Cold - Check-up"
+      },
+      {
+        "id": 3028,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-01T12:42:55Z",
+        "notes": "Jan - 30 - Wed - 2019"
+      },
+      {
+        "id": 3029,
+        "type": "expense",
+        "amount": 1950.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-01T12:47:16Z",
+        "notes": "P2A/903212849841/500101011302227."
+      },
+      {
+        "id": 3030,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2019-02-01T19:52:54Z",
+        "notes": "Auto : Thanjavur Home to Old Bus Stand"
+      },
+      {
+        "id": 3031,
+        "type": "expense",
+        "amount": 72.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2019-02-01T19:54:14Z",
+        "notes": "Bus : Thanjavur to Pudukkottai"
+      },
+      {
+        "id": 3032,
+        "type": "expense",
+        "amount": 18.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2019-02-01T19:56:17Z",
+        "notes": "Bus : Thanjavur Old Bus Stand to New Bus Stand"
+      },
+      {
+        "id": 3033,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-02T08:24:26Z",
+        "notes": "Pomegranate Juice"
+      },
+      {
+        "id": 3034,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2019-02-02T08:24:32Z",
+        "notes": "Coffee &Tea"
+      },
+      {
+        "id": 3035,
+        "type": "income",
+        "amount": 3000.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2019-02-02T09:43:45Z",
+        "notes": "Get it Back to Abi Parents"
+      },
+      {
+        "id": 3036,
+        "type": "expense",
+        "amount": 3000.0,
+        "category_id": 15,
+        "source_id": 1,
+        "date": "2019-02-02T09:46:29Z",
+        "notes": "Give Back to Akka"
+      },
+      {
+        "id": 3037,
+        "type": "expense",
+        "amount": 550.0,
+        "category_id": 18,
+        "source_id": 1,
+        "date": "2019-02-02T12:40:34Z",
+        "notes": "Bag For Shivani"
+      },
+      {
+        "id": 3038,
+        "type": "expense",
+        "amount": 86.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-02T12:43:07Z",
+        "notes": "Feeding Bottle"
+      },
+      {
+        "id": 3039,
+        "type": "expense",
+        "amount": 308.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2019-02-03T05:38:46Z",
+        "notes": "Bus : Trichy to Bangalore"
+      },
+      {
+        "id": 3040,
+        "type": "expense",
+        "amount": 2.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-03T10:50:10Z",
+        "notes": "Donated"
+      },
+      {
+        "id": 3041,
+        "type": "expense",
+        "amount": 11000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-03T12:01:49Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 3042,
+        "type": "expense",
+        "amount": 7000.0,
+        "category_id": 15,
+        "source_id": 1,
+        "date": "2019-02-03T12:33:58Z",
+        "notes": "Give Back to Akka"
+      },
+      {
+        "id": 3043,
+        "type": "expense",
+        "amount": 3000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-03T13:14:58Z",
+        "notes": "Meenachi Aunty Daughter Marriage"
+      },
+      {
+        "id": 3044,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2019-02-03T22:04:11Z",
+        "notes": "Petrol For Akka Bike"
+      },
+      {
+        "id": 3045,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-03T22:04:56Z",
+        "notes": "Feb - 06 - Wed - 2019"
+      },
+      {
+        "id": 3046,
+        "type": "expense",
+        "amount": 47.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2019-02-03T22:05:49Z",
+        "notes": "Bus : Pudukkottai to Trichy"
+      },
+      {
+        "id": 3047,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2019-02-04T10:29:34Z",
+        "notes": "Set Dosa"
+      },
+      {
+        "id": 3048,
+        "type": "expense",
+        "amount": 300.0,
+        "category_id": 12,
+        "source_id": 2,
+        "date": "2019-02-04T13:35:42Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 3049,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2019-02-04T14:10:35Z",
+        "notes": "Sambar Rice"
+      },
+      {
+        "id": 3050,
+        "type": "expense",
+        "amount": 3.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2019-02-04T19:35:34Z",
+        "notes": "Bike Air"
+      },
+      {
+        "id": 3051,
+        "type": "expense",
+        "amount": 845.0,
+        "category_id": 21,
+        "source_id": 2,
+        "date": "2019-02-04T19:37:23Z",
+        "notes": "Train : Bangalore to Thanjavur"
+      },
+      {
+        "id": 3052,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-04T21:35:57Z",
+        "notes": "Added to Paytm Wallet"
+      },
+      {
+        "id": 3053,
+        "type": "expense",
+        "amount": 82.5,
+        "category_id": 16,
+        "source_id": 5,
+        "date": "2019-02-04T21:52:45Z",
+        "notes": "Chicken Biriyani"
+      },
+      {
+        "id": 3054,
+        "type": "expense",
+        "amount": 74.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-04T22:22:54Z",
+        "notes": "Idly Rice(1Kg) & Urad Dall(1/2Kg)"
+      },
+      {
+        "id": 3055,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2019-02-05T10:22:09Z",
+        "notes": "Idly with Vadai"
+      },
+      {
+        "id": 3056,
+        "type": "income",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-05T10:50:18Z",
+        "notes": "GANESH PRABU S. Call 18605005555 (if in India) if you have not done this transaction."
+      },
+      {
+        "id": 3057,
+        "type": "expense",
+        "amount": 90.0,
+        "category_id": 5,
+        "source_id": 5,
+        "date": "2019-02-05T13:32:58Z",
+        "notes": "null"
+      },
+      {
+        "id": 3058,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 5,
+        "date": "2019-02-05T14:22:44Z",
+        "notes": "Sambar Rice"
+      },
+      {
+        "id": 3059,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 5,
+        "source_id": 5,
+        "date": "2019-02-05T14:23:06Z",
+        "notes": "Friut Bowl"
+      },
+      {
+        "id": 3060,
+        "type": "income",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-05T14:24:48Z",
+        "notes": "RAVINDRANATH P. Call 18605005555 (if in India) if you have not done this transaction."
+      },
+      {
+        "id": 3061,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-05T15:46:58Z",
+        "notes": "P2A/903615545889/50100152561211."
+      },
+      {
+        "id": 3062,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 5,
+        "date": "2019-02-05T21:51:34Z",
+        "notes": "null"
+      },
+      {
+        "id": 3063,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 5,
+        "date": "2019-02-05T21:52:30Z",
+        "notes": "Dosa with omelette"
+      },
+      {
+        "id": 3064,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-05T21:57:07Z",
+        "notes": "Used By Arokya"
+      },
+      {
+        "id": 3065,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-05T22:00:56Z",
+        "notes": "Used By Arokya"
+      },
+      {
+        "id": 3066,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-05T22:07:22Z",
+        "notes": "Used By Arokya"
+      },
+      {
+        "id": 3067,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 11,
+        "source_id": 2,
+        "date": "2019-02-06T04:55:17Z",
+        "notes": "Recharge for ABI"
+      },
+      {
+        "id": 3068,
+        "type": "income",
+        "amount": 35.0,
+        "category_id": 5,
+        "source_id": 8,
+        "date": "2019-02-06T10:25:23Z",
+        "notes": "null"
+      },
+      {
+        "id": 3069,
+        "type": "expense",
+        "amount": 234.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-06T11:59:30Z",
+        "notes": "Electricity Bill Paid"
+      },
+      {
+        "id": 3070,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 5,
+        "date": "2019-02-06T13:35:21Z",
+        "notes": "SANTOSH KULAL at Feb 6 2019 13 35 21"
+      },
+      {
+        "id": 3071,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-06T13:36:57Z",
+        "notes": "Added to Paytm Wallet"
+      },
+      {
+        "id": 3072,
+        "type": "expense",
+        "amount": 135.0,
+        "category_id": 18,
+        "source_id": 1,
+        "date": "2019-02-07T10:43:11Z",
+        "notes": "Chocolate For Ravi Daughter Birthday"
+      },
+      {
+        "id": 3073,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-07T16:11:35Z",
+        "notes": "Chappathi With Chicken"
+      },
+      {
+        "id": 3074,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 5,
+        "date": "2019-02-07T20:04:12Z",
+        "notes": "null"
+      },
+      {
+        "id": 3075,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 5,
+        "date": "2019-02-07T20:24:35Z",
+        "notes": "Dall Curry"
+      },
+      {
+        "id": 3076,
+        "type": "income",
+        "amount": 2.25,
+        "category_id": 13,
+        "source_id": 2,
+        "date": "2019-02-08T15:59:03Z",
+        "notes": "Get it from Tez"
+      },
+      {
+        "id": 3077,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2019-02-08T16:31:28Z",
+        "notes": "Meals - Hotel 25 Extra Paid"
+      },
+      {
+        "id": 3078,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 16,
+        "source_id": 5,
+        "date": "2019-02-08T16:32:05Z",
+        "notes": "Meals - Hotel 25"
+      },
+      {
+        "id": 3079,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 9,
+        "source_id": 5,
+        "date": "2019-02-08T16:40:10Z",
+        "notes": "Peanut Masala"
+      },
+      {
+        "id": 3080,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2019-02-08T16:41:47Z",
+        "notes": "Sandeep kumar"
+      },
+      {
+        "id": 3081,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 5,
+        "source_id": 5,
+        "date": "2019-02-08T22:18:20Z",
+        "notes": "null"
+      },
+      {
+        "id": 3082,
+        "type": "expense",
+        "amount": 2720.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-09T15:58:54Z",
+        "notes": "Sarakku"
+      },
+      {
+        "id": 3083,
+        "type": "expense",
+        "amount": 720.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-09T19:53:53Z",
+        "notes": "Sarakku For Dinesh Marriage"
+      },
+      {
+        "id": 3084,
+        "type": "income",
+        "amount": 2000.0,
+        "category_id": 20,
+        "source_id": 1,
+        "date": "2019-02-10T16:26:10Z",
+        "notes": "Abi"
+      },
+      {
+        "id": 3085,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 5,
+        "source_id": 5,
+        "date": "2019-02-10T22:03:24Z",
+        "notes": "null"
+      },
+      {
+        "id": 3086,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 18,
+        "source_id": 1,
+        "date": "2019-02-10T22:14:09Z",
+        "notes": "Dinesh Marriage Gift"
+      },
+      {
+        "id": 3087,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-10T22:14:46Z",
+        "notes": "Water Bottle"
+      },
+      {
+        "id": 3088,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2019-02-10T22:15:38Z",
+        "notes": "Bus : Hosur to Bangalore"
+      },
+      {
+        "id": 3089,
+        "type": "income",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-11T09:28:02Z",
+        "notes": "Mrs P DEIVAJOTHI. Call 18605005555 (if in India) if you have not done this transaction."
+      },
+      {
+        "id": 3090,
+        "type": "expense",
+        "amount": 45.0,
+        "category_id": 16,
+        "source_id": 5,
+        "date": "2019-02-11T10:20:13Z",
+        "notes": "Masala Doeai"
+      },
+      {
+        "id": 3091,
+        "type": "expense",
+        "amount": 55.0,
+        "category_id": 5,
+        "source_id": 5,
+        "date": "2019-02-11T13:30:14Z",
+        "notes": "null"
+      },
+      {
+        "id": 3092,
+        "type": "income",
+        "amount": 180.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-11T13:35:16Z",
+        "notes": "GANESH PRABU S. Call 18605005555 (if in India) if you have not done this transaction."
+      },
+      {
+        "id": 3093,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-11T13:35:16Z",
+        "notes": "P2A/904213287483/50100152561211."
+      },
+      {
+        "id": 3094,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 16,
+        "source_id": 5,
+        "date": "2019-02-11T15:17:18Z",
+        "notes": "Meals - Hotel 25"
+      },
+      {
+        "id": 3095,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-11T18:45:22Z",
+        "notes": "Fruits Bowl"
+      },
+      {
+        "id": 3096,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 5,
+        "source_id": 5,
+        "date": "2019-02-11T20:28:31Z",
+        "notes": "null"
+      },
+      {
+        "id": 3097,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 16,
+        "source_id": 5,
+        "date": "2019-02-11T20:55:10Z",
+        "notes": "Parotta With Kalakki"
+      },
+      {
+        "id": 3098,
+        "type": "income",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 8,
+        "date": "2019-02-11T22:51:45Z",
+        "notes": "null"
+      },
+      {
+        "id": 3099,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2019-02-12T10:04:24Z",
+        "notes": "Prabu"
+      },
+      {
+        "id": 3100,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 16,
+        "source_id": 5,
+        "date": "2019-02-12T10:05:43Z",
+        "notes": "Veg Pulav"
+      },
+      {
+        "id": 3101,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2019-02-12T20:36:52Z",
+        "notes": "Meals - Hotel 25"
+      },
+      {
+        "id": 3102,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-12T20:37:21Z",
+        "notes": "Fruits Bowl"
+      },
+      {
+        "id": 3103,
+        "type": "expense",
+        "amount": 111.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-12T21:09:26Z",
+        "notes": "Chicken Biriyani"
+      },
+      {
+        "id": 3104,
+        "type": "expense",
+        "amount": 34.65,
+        "category_id": 16,
+        "source_id": 8,
+        "date": "2019-02-13T09:41:23Z",
+        "notes": "Masala Dosai, Vada with kasari"
+      },
+      {
+        "id": 3105,
+        "type": "expense",
+        "amount": 300.0,
+        "category_id": 12,
+        "source_id": 2,
+        "date": "2019-02-13T15:56:00Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 3106,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2019-02-13T19:52:28Z",
+        "notes": "Meals - Hotel 25"
+      },
+      {
+        "id": 3107,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-13T22:45:06Z",
+        "notes": "Plain Dosa"
+      },
+      {
+        "id": 3108,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-14T10:59:20Z",
+        "notes": "Fruits Bowl"
+      },
+      {
+        "id": 3109,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2019-02-14T15:11:38Z",
+        "notes": "Meals - Hotel 25"
+      },
+      {
+        "id": 3110,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-14T20:26:52Z",
+        "notes": "Coke"
+      },
+      {
+        "id": 3111,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-15T01:14:59Z",
+        "notes": "Fruits Bowl"
+      },
+      {
+        "id": 3112,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-15T01:16:03Z",
+        "notes": "Meals - Hotel 25"
+      },
+      {
+        "id": 3113,
+        "type": "expense",
+        "amount": 999.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2019-02-15T10:52:17Z",
+        "notes": "Clothes for Dad"
+      },
+      {
+        "id": 3114,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 5,
+        "date": "2019-02-15T11:30:01Z",
+        "notes": "Dall Curry"
+      },
+      {
+        "id": 3115,
+        "type": "income",
+        "amount": 160.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-15T13:55:14Z",
+        "notes": "PUVVADA HARI SATYAN. Call 18605005555 (if in India) if you have not done this transaction."
+      },
+      {
+        "id": 3116,
+        "type": "expense",
+        "amount": 160.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-15T13:55:14Z",
+        "notes": "P2A/904613918109/00000020217632287."
+      },
+      {
+        "id": 3117,
+        "type": "income",
+        "amount": 130.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-15T13:55:15Z",
+        "notes": "ARJUN HARIDAS. Call 18605005555 (if in India) if you have not done this transaction."
+      },
+      {
+        "id": 3118,
+        "type": "expense",
+        "amount": 888.92,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2019-02-15T22:25:30Z",
+        "notes": "Clothes for Myself"
+      },
+      {
+        "id": 3119,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 5,
+        "date": "2019-02-15T22:52:04Z",
+        "notes": "null"
+      },
+      {
+        "id": 3120,
+        "type": "expense",
+        "amount": 69.09,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-16T09:04:12Z",
+        "notes": "Meals For Godavari Restaurant"
+      },
+      {
+        "id": 3121,
+        "type": "income",
+        "amount": 1000.0,
+        "category_id": 13,
+        "source_id": 2,
+        "date": "2019-02-16T10:43:41Z",
+        "notes": "Get it From Abi"
+      },
+      {
+        "id": 3122,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 5,
+        "date": "2019-02-16T14:37:03Z",
+        "notes": "Meals From Godavri Paid Remaining"
+      },
+      {
+        "id": 3123,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-17T16:34:30Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 3124,
+        "type": "expense",
+        "amount": 515.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2019-02-17T23:43:27Z",
+        "notes": "Groceries - Grofers"
+      },
+      {
+        "id": 3125,
+        "type": "income",
+        "amount": 2.25,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-18T10:22:20Z",
+        "notes": "Petrol Surcharge"
+      },
+      {
+        "id": 3126,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2019-02-18T15:12:08Z",
+        "notes": "Meals - Hotel 25"
+      },
+      {
+        "id": 3127,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-18T15:12:43Z",
+        "notes": "Fruits Bowl"
+      },
+      {
+        "id": 3128,
+        "type": "expense",
+        "amount": 4548.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-18T20:15:52Z",
+        "notes": "Bajaj Insurance"
+      },
+      {
+        "id": 3129,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-18T21:35:39Z",
+        "notes": "Dosa With Vada"
+      },
+      {
+        "id": 3130,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-18T21:35:40Z",
+        "notes": "Haircuts"
+      },
+      {
+        "id": 3131,
+        "type": "expense",
+        "amount": 131.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-18T23:59:59Z",
+        "notes": "Chicken Biriyani With Chicken Fry"
+      },
+      {
+        "id": 3132,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2019-02-19T14:34:07Z",
+        "notes": "Meals - Hotel 25"
+      },
+      {
+        "id": 3133,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-19T14:34:38Z",
+        "notes": "Fruits Bowl"
+      },
+      {
+        "id": 3134,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 5,
+        "date": "2019-02-19T19:45:15Z",
+        "notes": "Dall Curry"
+      },
+      {
+        "id": 3135,
+        "type": "expense",
+        "amount": 350.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-20T10:39:14Z",
+        "notes": "Water Bill"
+      },
+      {
+        "id": 3136,
+        "type": "expense",
+        "amount": 58.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-20T20:41:24Z",
+        "notes": "Eggs"
+      },
+      {
+        "id": 3137,
+        "type": "expense",
+        "amount": 24.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2019-02-20T20:50:14Z",
+        "notes": "Meals - Hotel 25"
+      },
+      {
+        "id": 3138,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-20T20:51:13Z",
+        "notes": "Fruits Bowl"
+      },
+      {
+        "id": 3139,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-21T10:33:22Z",
+        "notes": "Idly With Vadai"
+      },
+      {
+        "id": 3140,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-21T14:01:52Z",
+        "notes": "Meals"
+      },
+      {
+        "id": 3141,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-21T14:41:20Z",
+        "notes": "Fruits Bowl"
+      },
+      {
+        "id": 3142,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-22T14:16:07Z",
+        "notes": "Meals With Vadai"
+      },
+      {
+        "id": 3143,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-22T14:24:54Z",
+        "notes": "Fruits Bowl"
+      },
+      {
+        "id": 3144,
+        "type": "income",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-22T23:01:10Z",
+        "notes": "SELVAKUMAR T. Call 18605005555 (if in India) if you have not done this transaction."
+      },
+      {
+        "id": 3145,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-23T11:49:51Z",
+        "notes": "Feb - 13 - Wed - 2019"
+      },
+      {
+        "id": 3146,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-23T11:50:17Z",
+        "notes": "Feb - 20 - Wed - 2019"
+      },
+      {
+        "id": 3147,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-23T11:56:01Z",
+        "notes": "P2A/905411133094/500101011302227."
+      },
+      {
+        "id": 3148,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-23T14:11:08Z",
+        "notes": "Egg Curry"
+      },
+      {
+        "id": 3149,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-23T22:21:23Z",
+        "notes": "Drumstick Curry"
+      },
+      {
+        "id": 3150,
+        "type": "income",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-24T14:13:21Z",
+        "notes": "BOOPATHI ANDIMUTHU. Call 18605005555 (if in India) if you have not done this transaction."
+      },
+      {
+        "id": 3151,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 15,
+        "source_id": 2,
+        "date": "2019-02-25T11:47:24Z",
+        "notes": "Give Back to Abi"
+      },
+      {
+        "id": 3152,
+        "type": "expense",
+        "amount": 110.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-25T18:28:32Z",
+        "notes": "Mutton Biriyani"
+      },
+      {
+        "id": 3153,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-25T21:12:00Z",
+        "notes": "Pdkt Home Add on Channels"
+      },
+      {
+        "id": 3154,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-26T13:39:12Z",
+        "notes": "Meals - Hotel 25"
+      },
+      {
+        "id": 3155,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-26T14:03:46Z",
+        "notes": "Fruits Bowl"
+      },
+      {
+        "id": 3156,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-26T22:18:52Z",
+        "notes": "Plain Dosa With Kalakki"
+      },
+      {
+        "id": 3157,
+        "type": "income",
+        "amount": 1.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-27T05:52:02Z",
+        "notes": "Paytm. Call 18605005555 (if in India) if you have not done this transaction."
+      },
+      {
+        "id": 3158,
+        "type": "expense",
+        "amount": 45.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-27T09:53:41Z",
+        "notes": "Set Dosa"
+      },
+      {
+        "id": 3159,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-27T13:51:58Z",
+        "notes": "P2A/905813384839/016901608330."
+      },
+      {
+        "id": 3160,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-27T14:42:38Z",
+        "notes": "Rice With Vada"
+      },
+      {
+        "id": 3161,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-27T14:43:13Z",
+        "notes": "Watermelon & Butter Milk"
+      },
+      {
+        "id": 3162,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-27T21:14:34Z",
+        "notes": "Dall Curry"
+      },
+      {
+        "id": 3163,
+        "type": "income",
+        "amount": 44264.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-28T14:07:02Z",
+        "notes": "Feb Month"
+      },
+      {
+        "id": 3164,
+        "type": "expense",
+        "amount": 15539.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-28T14:51:07Z",
+        "notes": "Bill Paid"
+      },
+      {
+        "id": 3165,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-28T15:21:17Z",
+        "notes": "Rice With Vada"
+      },
+      {
+        "id": 3166,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-28T15:21:18Z",
+        "notes": "Fruits Bowl"
+      },
+      {
+        "id": 3167,
+        "type": "income",
+        "amount": 11700.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-28T17:14:20Z",
+        "notes": "Magesha Mobile Purchase"
+      },
+      {
+        "id": 3168,
+        "type": "income",
+        "amount": 29583.49,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-28T17:32:17Z",
+        "notes": "Axis Credit Card Bill Paid"
+      },
+      {
+        "id": 3169,
+        "type": "expense",
+        "amount": 29583.49,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-28T17:36:56Z",
+        "notes": "MOB/CCPMT/75NH46L94818/530562XXXXXX8905/. Call 18605005555 (if in India) if you have not done this transaction."
+      },
+      {
+        "id": 3170,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2019-02-28T17:52:31Z",
+        "notes": "Feb - 27 - Wed - 2019"
+      },
+      {
+        "id": 3171,
+        "type": "expense",
+        "amount": 108.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2019-02-28T19:21:21Z",
+        "notes": "Mutton Biriyani"
+      },
+      {
+        "id": 3172,
+        "type": "expense",
+        "amount": 3.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2019-02-28T23:59:59Z",
+        "notes": "To Mar"
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Groceries",
+        "type": "expense",
+        "icon": "cart",
+        "color": "#F97316"
+      },
+      {
+        "id": 2,
+        "name": "Rent",
+        "type": "expense",
+        "icon": "home-account",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "name": "Utilities",
+        "type": "expense",
+        "icon": "lightning-bolt",
+        "color": "#64748B"
+      },
+      {
+        "id": 4,
+        "name": "Salary",
+        "type": "income",
+        "icon": "cash-multiple",
+        "color": "#16A34A"
+      },
+      {
+        "id": 5,
+        "name": "Misc",
+        "type": "expense",
+        "icon": "dots-horizontal",
+        "color": "#9CA3AF"
+      },
+      {
+        "id": 6,
+        "name": "DTH",
+        "type": "expense",
+        "icon": "television-play",
+        "color": "#8B5CF6"
+      },
+      {
+        "id": 9,
+        "name": "Snacks",
+        "type": "expense",
+        "icon": "food-variant",
+        "color": "#FBBF24"
+      },
+      {
+        "id": 10,
+        "name": "Wallet Transfer",
+        "type": "expense",
+        "icon": "swap-horizontal",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "Mobile Recharge",
+        "type": "expense",
+        "icon": "cellphone",
+        "color": "#0EA5E9"
+      },
+      {
+        "id": 12,
+        "name": "Bike / Vehicle",
+        "type": "expense",
+        "icon": "motorbike",
+        "color": "#DC2626"
+      },
+      {
+        "id": 13,
+        "name": "Money Received",
+        "type": "income",
+        "icon": "arrow-down-bold-circle",
+        "color": "#10B981"
+      },
+      {
+        "id": 14,
+        "name": "Interest",
+        "type": "income",
+        "icon": "percent",
+        "color": "#22C55E"
+      },
+      {
+        "id": 15,
+        "name": "Money Given",
+        "type": "expense",
+        "icon": "arrow-up-bold-circle",
+        "color": "#EF4444"
+      },
+      {
+        "id": 16,
+        "name": "Food & Dining",
+        "type": "expense",
+        "icon": "silverware-fork-knife",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 17,
+        "name": "Family",
+        "type": "expense",
+        "icon": "account-group",
+        "color": "#F43F5E"
+      },
+      {
+        "id": 18,
+        "name": "Gifts",
+        "type": "expense",
+        "icon": "gift",
+        "color": "#EC4899"
+      },
+      {
+        "id": 19,
+        "name": "Savings",
+        "type": "expense",
+        "icon": "piggy-bank",
+        "color": "#059669"
+      },
+      {
+        "id": 20,
+        "name": "Loan / EMI",
+        "type": "expense",
+        "icon": "bank-transfer",
+        "color": "#B91C1C"
+      },
+      {
+        "id": 21,
+        "name": "Transport",
+        "type": "expense",
+        "icon": "bus",
+        "color": "#14B8A6"
+      },
+      {
+        "id": 22,
+        "name": "Entertainment",
+        "type": "expense",
+        "icon": "movie-open",
+        "color": "#7C3AED"
+      },
+      {
+        "id": 23,
+        "name": "Donations",
+        "type": "expense",
+        "icon": "hand-heart",
+        "color": "#22C55E"
+      },
+      {
+        "id": 24,
+        "name": "Home Improvement",
+        "type": "expense",
+        "icon": "hammer-wrench",
+        "color": "#A16207"
+      },
+      {
+        "id": 25,
+        "name": "Printing & Stationery",
+        "type": "expense",
+        "icon": "printer",
+        "color": "#6B7280"
+      },
+      {
+        "id": 26,
+        "name": "Bank Charges",
+        "type": "expense",
+        "icon": "bank",
+        "color": "#374151"
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "name": "Cash Spend",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "name": "Axis",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 3,
+        "name": "SBI Group",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 4,
+        "name": "Airtel Payments",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 5,
+        "name": "Paytm",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 6,
+        "name": "Unknown",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 7,
+        "name": "Vijaya",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 8,
+        "name": "Freecharge",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 9,
+        "name": "City Union",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 10,
+        "name": "MOBIKWIK",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "BOB",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 12,
+        "name": "HDFC",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 13,
+        "name": "Other",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      }
+    ],
+    "budgets": [],
+    "bills": []
+  }
+}

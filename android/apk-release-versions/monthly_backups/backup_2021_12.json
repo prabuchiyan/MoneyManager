@@ -1,0 +1,1497 @@
+{
+  "version": 1,
+  "timestamp": "2026-06-19T13:52:32.013291Z",
+  "data": {
+    "transactions": [
+      {
+        "id": 7852,
+        "type": "income",
+        "amount": 1700.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-01T00:00:00Z",
+        "notes": "SELF"
+      },
+      {
+        "id": 7853,
+        "type": "expense",
+        "amount": 4867.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2021-12-01T08:23:50Z",
+        "notes": "PostalLifeCRCard"
+      },
+      {
+        "id": 7854,
+        "type": "expense",
+        "amount": 10000.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2021-12-01T09:37:36Z",
+        "notes": "Give it Back to Agalya"
+      },
+      {
+        "id": 7855,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-01T10:39:05Z",
+        "notes": "Nursary - School Admission Fees"
+      },
+      {
+        "id": 7856,
+        "type": "income",
+        "amount": 2350.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2021-12-01T23:59:59Z",
+        "notes": "null"
+      },
+      {
+        "id": 7857,
+        "type": "expense",
+        "amount": 15000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-02T09:22:19Z",
+        "notes": "Bank of /BANK O"
+      },
+      {
+        "id": 7858,
+        "type": "income",
+        "amount": 15000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2021-12-02T10:03:26Z",
+        "notes": "PRABU"
+      },
+      {
+        "id": 7859,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-02T23:33:41Z",
+        "notes": "Car Wash"
+      },
+      {
+        "id": 7860,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-02T23:37:16Z",
+        "notes": "Milk"
+      },
+      {
+        "id": 7861,
+        "type": "expense",
+        "amount": 8000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2021-12-03T19:04:04Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 7862,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 9,
+        "source_id": 2,
+        "date": "2021-12-03T19:25:53Z",
+        "notes": "Masal Poori"
+      },
+      {
+        "id": 7863,
+        "type": "expense",
+        "amount": 6000.0,
+        "category_id": 19,
+        "source_id": 2,
+        "date": "2021-12-03T20:35:13Z",
+        "notes": "Shivani RD"
+      },
+      {
+        "id": 7864,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-04T07:54:52Z",
+        "notes": "Gave it to Dad"
+      },
+      {
+        "id": 7865,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-04T07:59:48Z",
+        "notes": "Gave it to Mom"
+      },
+      {
+        "id": 7866,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-04T08:00:55Z",
+        "notes": "Milk"
+      },
+      {
+        "id": 7867,
+        "type": "expense",
+        "amount": 7300.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-04T16:39:39Z",
+        "notes": "Paid in Gujappa"
+      },
+      {
+        "id": 7868,
+        "type": "expense",
+        "amount": 254.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2021-12-04T18:26:15Z",
+        "notes": "Paid Jana Priya For Akka"
+      },
+      {
+        "id": 7869,
+        "type": "income",
+        "amount": 250.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-04T18:31:52Z",
+        "notes": "Paid Super Market For Akka"
+      },
+      {
+        "id": 7870,
+        "type": "income",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-04T18:37:31Z",
+        "notes": "Vinodh Transferred"
+      },
+      {
+        "id": 7871,
+        "type": "expense",
+        "amount": 1300.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-04T19:30:23Z",
+        "notes": "Floor Cover"
+      },
+      {
+        "id": 7872,
+        "type": "expense",
+        "amount": 5600.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-04T19:34:40Z",
+        "notes": "Seat Covers"
+      },
+      {
+        "id": 7873,
+        "type": "expense",
+        "amount": 400.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-04T19:35:15Z",
+        "notes": "Steering Wheel Cover"
+      },
+      {
+        "id": 7874,
+        "type": "expense",
+        "amount": 160.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2021-12-04T20:22:11Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 7875,
+        "type": "expense",
+        "amount": 140.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-04T20:27:54Z",
+        "notes": "Dates for Mom"
+      },
+      {
+        "id": 7876,
+        "type": "expense",
+        "amount": 90.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-04T20:30:30Z",
+        "notes": "Fig Fruit For Mom"
+      },
+      {
+        "id": 7877,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-04T20:33:53Z",
+        "notes": "Tobacco For Rat"
+      },
+      {
+        "id": 7878,
+        "type": "expense",
+        "amount": 330.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-05T08:04:17Z",
+        "notes": "PRABU S/STATE B"
+      },
+      {
+        "id": 7879,
+        "type": "expense",
+        "amount": 244.0,
+        "category_id": 9,
+        "source_id": 3,
+        "date": "2021-12-05T09:11:16Z",
+        "notes": "Snacks From Super Market"
+      },
+      {
+        "id": 7880,
+        "type": "expense",
+        "amount": 85.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2021-12-05T09:13:22Z",
+        "notes": "Paneer Cube 200G"
+      },
+      {
+        "id": 7881,
+        "type": "expense",
+        "amount": 31.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2021-12-05T09:14:13Z",
+        "notes": "Panner Butter Masala Pocket"
+      },
+      {
+        "id": 7882,
+        "type": "expense",
+        "amount": 45.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2021-12-05T09:15:31Z",
+        "notes": "Maggie 280G"
+      },
+      {
+        "id": 7883,
+        "type": "expense",
+        "amount": 140.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2021-12-05T09:16:27Z",
+        "notes": "Lion Honey 250 + 250G"
+      },
+      {
+        "id": 7884,
+        "type": "expense",
+        "amount": 47.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2021-12-05T09:17:50Z",
+        "notes": "Amul Butter"
+      },
+      {
+        "id": 7885,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-05T09:19:31Z",
+        "notes": "Gave it to Eniyan"
+      },
+      {
+        "id": 7886,
+        "type": "expense",
+        "amount": 592.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2021-12-05T17:12:29Z",
+        "notes": "Shopping in Jana Priya"
+      },
+      {
+        "id": 7887,
+        "type": "expense",
+        "amount": 115.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2021-12-05T20:22:26Z",
+        "notes": "Puffs & Cakes"
+      },
+      {
+        "id": 7888,
+        "type": "expense",
+        "amount": 110.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2021-12-06T23:35:27Z",
+        "notes": "Mushroom Fry & Phel Poori"
+      },
+      {
+        "id": 7889,
+        "type": "expense",
+        "amount": 269.0,
+        "category_id": 11,
+        "source_id": 2,
+        "date": "2021-12-07T08:45:42Z",
+        "notes": "Recharge For Abi"
+      },
+      {
+        "id": 7890,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-07T14:39:18Z",
+        "notes": "Nursary - School Bag"
+      },
+      {
+        "id": 7891,
+        "type": "expense",
+        "amount": 600.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-07T19:28:47Z",
+        "notes": "Dec-21"
+      },
+      {
+        "id": 7892,
+        "type": "expense",
+        "amount": 131.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-08T15:01:56Z",
+        "notes": "PRABU S/STATE B"
+      },
+      {
+        "id": 7893,
+        "type": "income",
+        "amount": 131.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2021-12-08T16:17:51Z",
+        "notes": "PRABU, INFO"
+      },
+      {
+        "id": 7894,
+        "type": "income",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-08T16:22:33Z",
+        "notes": "Mr Siva S"
+      },
+      {
+        "id": 7895,
+        "type": "expense",
+        "amount": 9000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2021-12-11T13:25:35Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 7896,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-11T14:40:20Z",
+        "notes": "Car Petrol"
+      },
+      {
+        "id": 7897,
+        "type": "expense",
+        "amount": 350.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-11T14:41:34Z",
+        "notes": "Cake For Eniyan & Geethan"
+      },
+      {
+        "id": 7898,
+        "type": "expense",
+        "amount": 45.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2021-12-11T14:44:35Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 7899,
+        "type": "expense",
+        "amount": 285.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2021-12-11T15:45:13Z",
+        "notes": "Halwa"
+      },
+      {
+        "id": 7900,
+        "type": "expense",
+        "amount": 248.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-12T06:56:32Z",
+        "notes": "Doctor Visit For Myself : Medicine"
+      },
+      {
+        "id": 7901,
+        "type": "expense",
+        "amount": 15.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2021-12-12T06:58:37Z",
+        "notes": "Tea"
+      },
+      {
+        "id": 7902,
+        "type": "expense",
+        "amount": 250.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-12T11:25:02Z",
+        "notes": "Doctor Visit For Myself : ECG"
+      },
+      {
+        "id": 7903,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-12T15:48:11Z",
+        "notes": "Doctor Visit For Myself : Fees"
+      },
+      {
+        "id": 7904,
+        "type": "expense",
+        "amount": 65.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2021-12-12T16:54:36Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 7905,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2021-12-12T18:30:44Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 7906,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-13T07:41:37Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 7907,
+        "type": "expense",
+        "amount": 15.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2021-12-13T08:56:16Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 7908,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2021-12-13T10:08:11Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 7909,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-14T10:47:47Z",
+        "notes": "Toys For Eniyan, Shivani & Shreesha"
+      },
+      {
+        "id": 7910,
+        "type": "expense",
+        "amount": 250.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-14T12:12:45Z",
+        "notes": "Fast Tag"
+      },
+      {
+        "id": 7911,
+        "type": "expense",
+        "amount": 1320.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-14T15:14:01Z",
+        "notes": "Clothes For Eniyan & Chezhiyan"
+      },
+      {
+        "id": 7912,
+        "type": "expense",
+        "amount": 45.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2021-12-14T18:10:57Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 7913,
+        "type": "expense",
+        "amount": 2500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-15T08:27:08Z",
+        "notes": "Mr. Agaly"
+      },
+      {
+        "id": 7914,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2021-12-15T09:21:31Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 7915,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-15T10:08:02Z",
+        "notes": "Nursary - Monthly School Fees"
+      },
+      {
+        "id": 7916,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-15T10:43:08Z",
+        "notes": "Gave it to Dad"
+      },
+      {
+        "id": 7917,
+        "type": "income",
+        "amount": 680.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-15T10:49:01Z",
+        "notes": "Converted to Cash"
+      },
+      {
+        "id": 7918,
+        "type": "expense",
+        "amount": 7.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-15T11:26:37Z",
+        "notes": "Gave it to Eniyan"
+      },
+      {
+        "id": 7919,
+        "type": "expense",
+        "amount": 871.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2021-12-15T18:37:26Z",
+        "notes": "4th Service"
+      },
+      {
+        "id": 7920,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-15T23:12:52Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 7921,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-16T10:55:47Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 7922,
+        "type": "expense",
+        "amount": 80.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-16T10:56:32Z",
+        "notes": "Pomegranate"
+      },
+      {
+        "id": 7923,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-16T11:27:10Z",
+        "notes": "Thiruvappor Temple Visit Donated"
+      },
+      {
+        "id": 7924,
+        "type": "income",
+        "amount": 3500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-16T13:01:54Z",
+        "notes": "VIVEK V"
+      },
+      {
+        "id": 7925,
+        "type": "expense",
+        "amount": 4000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-16T13:04:00Z",
+        "notes": "CHANDRASE"
+      },
+      {
+        "id": 7926,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-17T10:41:52Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 7927,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-17T10:43:37Z",
+        "notes": "Pomegranate"
+      },
+      {
+        "id": 7928,
+        "type": "income",
+        "amount": 742.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-17T22:47:27Z",
+        "notes": "Ms ABINAY"
+      },
+      {
+        "id": 7929,
+        "type": "expense",
+        "amount": 15.0,
+        "category_id": 22,
+        "source_id": 1,
+        "date": "2021-12-18T08:23:26Z",
+        "notes": "Movie : Spider Man - No Way Home : Bike Parking"
+      },
+      {
+        "id": 7930,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 22,
+        "source_id": 1,
+        "date": "2021-12-18T08:23:52Z",
+        "notes": "Movie : Spider Man - No Way Home : Ticket"
+      },
+      {
+        "id": 7931,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-18T11:25:11Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 7932,
+        "type": "income",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-18T13:41:36Z",
+        "notes": "Converted to Cash"
+      },
+      {
+        "id": 7933,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-19T08:19:41Z",
+        "notes": "VIVEK V/Bank of I"
+      },
+      {
+        "id": 7934,
+        "type": "expense",
+        "amount": 42.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-19T08:29:07Z",
+        "notes": "PRABU S/STATE B"
+      },
+      {
+        "id": 7935,
+        "type": "income",
+        "amount": 42.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2021-12-19T09:28:32Z",
+        "notes": "PRABU, INFO: Transfer to"
+      },
+      {
+        "id": 7936,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-19T13:42:43Z",
+        "notes": "Gave it to Rajendran Uncle"
+      },
+      {
+        "id": 7937,
+        "type": "expense",
+        "amount": 68.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-19T13:45:47Z",
+        "notes": "Pdkt Home First Floor Electricity"
+      },
+      {
+        "id": 7938,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-20T11:29:27Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 7939,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-21T11:54:52Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 7940,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-22T11:32:04Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 7941,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-22T11:34:22Z",
+        "notes": "Pomegranate 1/2 Kg"
+      },
+      {
+        "id": 7942,
+        "type": "income",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2021-12-22T16:35:50Z",
+        "notes": "null"
+      },
+      {
+        "id": 7943,
+        "type": "expense",
+        "amount": 900.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-22T16:59:24Z",
+        "notes": "Ms ABINAY"
+      },
+      {
+        "id": 7944,
+        "type": "income",
+        "amount": 720.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-22T22:01:31Z",
+        "notes": "RADHA S"
+      },
+      {
+        "id": 7945,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-23T10:33:54Z",
+        "notes": "Ms ABINAY"
+      },
+      {
+        "id": 7946,
+        "type": "income",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-23T10:35:27Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 7947,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-23T10:36:07Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 7948,
+        "type": "expense",
+        "amount": 122.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-23T10:37:57Z",
+        "notes": "Pomegranate 650G"
+      },
+      {
+        "id": 7949,
+        "type": "expense",
+        "amount": 269.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-23T16:05:08Z",
+        "notes": "Bang Home DTH Recharge"
+      },
+      {
+        "id": 7950,
+        "type": "expense",
+        "amount": 3.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-24T09:52:51Z",
+        "notes": "Donation"
+      },
+      {
+        "id": 7951,
+        "type": "expense",
+        "amount": 600.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-24T09:54:15Z",
+        "notes": "Hospital Visit For Eniyan & Chezhiyan"
+      },
+      {
+        "id": 7952,
+        "type": "income",
+        "amount": 1.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-24T13:08:17Z",
+        "notes": "S SURESH"
+      },
+      {
+        "id": 7953,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-25T09:50:55Z",
+        "notes": "Muni Kovil Donated"
+      },
+      {
+        "id": 7954,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-25T09:51:14Z",
+        "notes": "Gave it to Akka"
+      },
+      {
+        "id": 7955,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 2,
+        "source_id": 2,
+        "date": "2021-12-25T17:33:32Z",
+        "notes": "Rental Agreement"
+      },
+      {
+        "id": 7956,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-26T07:30:18Z",
+        "notes": "Bananas"
+      },
+      {
+        "id": 7957,
+        "type": "expense",
+        "amount": 17.7,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2021-12-27T06:09:21Z",
+        "notes": "SMS Alert charg"
+      },
+      {
+        "id": 7958,
+        "type": "expense",
+        "amount": 17.7,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2021-12-27T06:14:48Z",
+        "notes": "SMS Alert charg"
+      },
+      {
+        "id": 7959,
+        "type": "income",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-27T07:28:10Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 7960,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-27T07:31:51Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 7961,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-27T07:32:34Z",
+        "notes": "Pomegranate 1Kg"
+      },
+      {
+        "id": 7962,
+        "type": "income",
+        "amount": 12.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2021-12-27T07:33:25Z",
+        "notes": "Get it From Abi"
+      },
+      {
+        "id": 7963,
+        "type": "expense",
+        "amount": 5.0,
+        "category_id": 2,
+        "source_id": 1,
+        "date": "2021-12-27T07:34:06Z",
+        "notes": "Rental Agreement Xerox"
+      },
+      {
+        "id": 7964,
+        "type": "expense",
+        "amount": 160.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2021-12-27T07:34:46Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 7965,
+        "type": "expense",
+        "amount": 234.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-27T17:57:56Z",
+        "notes": "PRABU S/STATE B"
+      },
+      {
+        "id": 7966,
+        "type": "income",
+        "amount": 3.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-28T07:22:58Z",
+        "notes": "GOOGLEPAY"
+      },
+      {
+        "id": 7967,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-28T07:39:15Z",
+        "notes": "Hospital Visit For Mom : Injection, ECG & Fees"
+      },
+      {
+        "id": 7968,
+        "type": "expense",
+        "amount": 362.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-28T07:39:49Z",
+        "notes": "Hospital Visit For Mom : Tablets"
+      },
+      {
+        "id": 7969,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-28T11:21:08Z",
+        "notes": "Hospital Visit For Mom : Water Bottle"
+      },
+      {
+        "id": 7970,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-29T12:14:06Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 7971,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-29T12:15:06Z",
+        "notes": "Pudhina & Kothamalli"
+      },
+      {
+        "id": 7972,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-29T12:15:22Z",
+        "notes": "Gee"
+      },
+      {
+        "id": 7973,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-30T09:28:41Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 7974,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 18,
+        "source_id": 1,
+        "date": "2021-12-30T09:29:52Z",
+        "notes": "Birthday Gift For Jegan Neighbour Son"
+      },
+      {
+        "id": 7975,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-30T10:16:03Z",
+        "notes": "Condoms"
+      },
+      {
+        "id": 7976,
+        "type": "expense",
+        "amount": 47.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-30T10:16:48Z",
+        "notes": "Medicine For Eniyan"
+      },
+      {
+        "id": 7977,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-30T10:17:24Z",
+        "notes": "Cooking Oil"
+      },
+      {
+        "id": 7978,
+        "type": "income",
+        "amount": 112154.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-30T18:19:15Z",
+        "notes": "December Month"
+      },
+      {
+        "id": 7979,
+        "type": "expense",
+        "amount": 24682.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2021-12-30T21:18:56Z",
+        "notes": "Cred/Yes Bank"
+      },
+      {
+        "id": 7980,
+        "type": "income",
+        "amount": 24682.0,
+        "category_id": 3,
+        "source_id": 3,
+        "date": "2021-12-30T21:19:02Z",
+        "notes": "SBI Credit Card Bill Paid"
+      },
+      {
+        "id": 7981,
+        "type": "income",
+        "amount": 9.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2021-12-31T06:22:24Z",
+        "notes": "null"
+      },
+      {
+        "id": 7982,
+        "type": "income",
+        "amount": 5.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2021-12-31T06:22:24Z",
+        "notes": "null"
+      },
+      {
+        "id": 7983,
+        "type": "income",
+        "amount": 12.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2021-12-31T06:22:25Z",
+        "notes": "null"
+      },
+      {
+        "id": 7984,
+        "type": "expense",
+        "amount": 370.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-31T10:18:29Z",
+        "notes": "Hospital Visit For Eniyan : Fees & Medicine"
+      },
+      {
+        "id": 7985,
+        "type": "expense",
+        "amount": 400.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-31T10:19:09Z",
+        "notes": "Car Petrol"
+      },
+      {
+        "id": 7986,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-31T10:19:38Z",
+        "notes": "Car Air"
+      },
+      {
+        "id": 7987,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2021-12-31T23:59:59Z",
+        "notes": "To Jan"
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Groceries",
+        "type": "expense",
+        "icon": "cart",
+        "color": "#F97316"
+      },
+      {
+        "id": 2,
+        "name": "Rent",
+        "type": "expense",
+        "icon": "home-account",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "name": "Utilities",
+        "type": "expense",
+        "icon": "lightning-bolt",
+        "color": "#64748B"
+      },
+      {
+        "id": 4,
+        "name": "Salary",
+        "type": "income",
+        "icon": "cash-multiple",
+        "color": "#16A34A"
+      },
+      {
+        "id": 5,
+        "name": "Misc",
+        "type": "expense",
+        "icon": "dots-horizontal",
+        "color": "#9CA3AF"
+      },
+      {
+        "id": 6,
+        "name": "DTH",
+        "type": "expense",
+        "icon": "television-play",
+        "color": "#8B5CF6"
+      },
+      {
+        "id": 9,
+        "name": "Snacks",
+        "type": "expense",
+        "icon": "food-variant",
+        "color": "#FBBF24"
+      },
+      {
+        "id": 10,
+        "name": "Wallet Transfer",
+        "type": "expense",
+        "icon": "swap-horizontal",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "Mobile Recharge",
+        "type": "expense",
+        "icon": "cellphone",
+        "color": "#0EA5E9"
+      },
+      {
+        "id": 12,
+        "name": "Bike / Vehicle",
+        "type": "expense",
+        "icon": "motorbike",
+        "color": "#DC2626"
+      },
+      {
+        "id": 13,
+        "name": "Money Received",
+        "type": "income",
+        "icon": "arrow-down-bold-circle",
+        "color": "#10B981"
+      },
+      {
+        "id": 14,
+        "name": "Interest",
+        "type": "income",
+        "icon": "percent",
+        "color": "#22C55E"
+      },
+      {
+        "id": 15,
+        "name": "Money Given",
+        "type": "expense",
+        "icon": "arrow-up-bold-circle",
+        "color": "#EF4444"
+      },
+      {
+        "id": 16,
+        "name": "Food & Dining",
+        "type": "expense",
+        "icon": "silverware-fork-knife",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 17,
+        "name": "Family",
+        "type": "expense",
+        "icon": "account-group",
+        "color": "#F43F5E"
+      },
+      {
+        "id": 18,
+        "name": "Gifts",
+        "type": "expense",
+        "icon": "gift",
+        "color": "#EC4899"
+      },
+      {
+        "id": 19,
+        "name": "Savings",
+        "type": "expense",
+        "icon": "piggy-bank",
+        "color": "#059669"
+      },
+      {
+        "id": 20,
+        "name": "Loan / EMI",
+        "type": "expense",
+        "icon": "bank-transfer",
+        "color": "#B91C1C"
+      },
+      {
+        "id": 21,
+        "name": "Transport",
+        "type": "expense",
+        "icon": "bus",
+        "color": "#14B8A6"
+      },
+      {
+        "id": 22,
+        "name": "Entertainment",
+        "type": "expense",
+        "icon": "movie-open",
+        "color": "#7C3AED"
+      },
+      {
+        "id": 23,
+        "name": "Donations",
+        "type": "expense",
+        "icon": "hand-heart",
+        "color": "#22C55E"
+      },
+      {
+        "id": 24,
+        "name": "Home Improvement",
+        "type": "expense",
+        "icon": "hammer-wrench",
+        "color": "#A16207"
+      },
+      {
+        "id": 25,
+        "name": "Printing & Stationery",
+        "type": "expense",
+        "icon": "printer",
+        "color": "#6B7280"
+      },
+      {
+        "id": 26,
+        "name": "Bank Charges",
+        "type": "expense",
+        "icon": "bank",
+        "color": "#374151"
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "name": "Cash Spend",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "name": "Axis",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 3,
+        "name": "SBI Group",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 4,
+        "name": "Airtel Payments",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 5,
+        "name": "Paytm",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 6,
+        "name": "Unknown",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 7,
+        "name": "Vijaya",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 8,
+        "name": "Freecharge",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 9,
+        "name": "City Union",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 10,
+        "name": "MOBIKWIK",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "BOB",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 12,
+        "name": "HDFC",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 13,
+        "name": "Other",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      }
+    ],
+    "budgets": [],
+    "bills": []
+  }
+}

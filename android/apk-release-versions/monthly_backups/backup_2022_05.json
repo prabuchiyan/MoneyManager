@@ -1,0 +1,1902 @@
+{
+  "version": 1,
+  "timestamp": "2026-06-19T13:52:32.018753Z",
+  "data": {
+    "transactions": [
+      {
+        "id": 8511,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-01T06:50:38Z",
+        "notes": "Adhisayam Amusement Park Visit : Car Petrol"
+      },
+      {
+        "id": 8512,
+        "type": "expense",
+        "amount": 65.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-01T07:24:25Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8513,
+        "type": "expense",
+        "amount": 95.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-01T09:06:29Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8514,
+        "type": "expense",
+        "amount": 3500.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2022-05-01T11:14:42Z",
+        "notes": "Adhisayam Amusement Park Visit : Tickets"
+      },
+      {
+        "id": 8515,
+        "type": "income",
+        "amount": 871.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-01T12:10:25Z",
+        "notes": "Last Month Balance"
+      },
+      {
+        "id": 8516,
+        "type": "expense",
+        "amount": 381.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-01T12:15:18Z",
+        "notes": "Adhisayam Amusement Park Visit : Cash Spend"
+      },
+      {
+        "id": 8517,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-01T12:16:22Z",
+        "notes": "Thanjavur Visit : Car Parking"
+      },
+      {
+        "id": 8518,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-01T18:37:54Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8519,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-01T20:34:56Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8520,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-01T21:23:44Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8521,
+        "type": "expense",
+        "amount": 800.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-01T21:54:15Z",
+        "notes": "Thanjavur Visit : Car Petrol"
+      },
+      {
+        "id": 8522,
+        "type": "income",
+        "amount": 2350.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2022-05-01T23:59:59Z",
+        "notes": "null"
+      },
+      {
+        "id": 8523,
+        "type": "income",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-02T03:10:56Z",
+        "notes": "ganeshagalya35_"
+      },
+      {
+        "id": 8524,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-02T08:20:00Z",
+        "notes": "ganeshagalya35@oksbi"
+      },
+      {
+        "id": 8525,
+        "type": "expense",
+        "amount": 666.0,
+        "category_id": 11,
+        "source_id": 2,
+        "date": "2022-05-02T16:06:44Z",
+        "notes": "Recharge For Abi"
+      },
+      {
+        "id": 8526,
+        "type": "expense",
+        "amount": 199.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-02T19:38:17Z",
+        "notes": "Pdkt Home DTH Recharge"
+      },
+      {
+        "id": 8527,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-02T20:01:15Z",
+        "notes": "Thanjavur Visit : Car Parking"
+      },
+      {
+        "id": 8528,
+        "type": "expense",
+        "amount": 17000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-02T21:00:42Z",
+        "notes": "Ms ABINAY"
+      },
+      {
+        "id": 8529,
+        "type": "income",
+        "amount": 17000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-02T21:40:58Z",
+        "notes": "ATM Withdrawal - Indian - Indian"
+      },
+      {
+        "id": 8530,
+        "type": "expense",
+        "amount": 13000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-02T21:42:42Z",
+        "notes": "Gave it to Dad"
+      },
+      {
+        "id": 8531,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-02T21:44:33Z",
+        "notes": "April Month Maid - Salary"
+      },
+      {
+        "id": 8532,
+        "type": "expense",
+        "amount": 5017.7,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-02T23:53:05Z",
+        "notes": "NPS - May Month"
+      },
+      {
+        "id": 8533,
+        "type": "expense",
+        "amount": 1500.0,
+        "category_id": 15,
+        "source_id": 1,
+        "date": "2022-05-03T07:13:20Z",
+        "notes": "Vinoth"
+      },
+      {
+        "id": 8534,
+        "type": "expense",
+        "amount": 410.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-03T10:37:49Z",
+        "notes": "Pdkt Home Ground Floor Electricity"
+      },
+      {
+        "id": 8535,
+        "type": "expense",
+        "amount": 4867.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-03T13:11:57Z",
+        "notes": "sbimops@sbi"
+      },
+      {
+        "id": 8536,
+        "type": "expense",
+        "amount": 6000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-04T06:40:18Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8537,
+        "type": "expense",
+        "amount": 6000.0,
+        "category_id": 19,
+        "source_id": 2,
+        "date": "2022-05-04T07:14:34Z",
+        "notes": "Shivani RD"
+      },
+      {
+        "id": 8538,
+        "type": "income",
+        "amount": 73484.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-04T14:20:44Z",
+        "notes": "Pearson Final Settlement"
+      },
+      {
+        "id": 8539,
+        "type": "expense",
+        "amount": 134.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2022-05-04T18:18:29Z",
+        "notes": "Bang Home DTH Recharge"
+      },
+      {
+        "id": 8540,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-04T20:39:41Z",
+        "notes": "IFT PPF I-CONNECT COLLEC"
+      },
+      {
+        "id": 8541,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-04T20:46:30Z",
+        "notes": "PPF - May 2022"
+      },
+      {
+        "id": 8542,
+        "type": "income",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-04T21:18:25Z",
+        "notes": "null"
+      },
+      {
+        "id": 8543,
+        "type": "expense",
+        "amount": 620.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-05T09:41:51Z",
+        "notes": "Pdkt Shop Electricity"
+      },
+      {
+        "id": 8544,
+        "type": "expense",
+        "amount": 394.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-05T09:55:12Z",
+        "notes": "PRABU S/STATE B"
+      },
+      {
+        "id": 8545,
+        "type": "income",
+        "amount": 394.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2022-05-05T10:32:29Z",
+        "notes": "PRABU, INFO"
+      },
+      {
+        "id": 8546,
+        "type": "expense",
+        "amount": 470.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-05T11:16:43Z",
+        "notes": "Pdkt Home First Floor Electricity"
+      },
+      {
+        "id": 8547,
+        "type": "expense",
+        "amount": 20000.0,
+        "category_id": 15,
+        "source_id": 2,
+        "date": "2022-05-05T11:17:24Z",
+        "notes": "Give it Back to Agalya"
+      },
+      {
+        "id": 8548,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2022-05-05T18:06:37Z",
+        "notes": "Bhel & Masal Poori"
+      },
+      {
+        "id": 8549,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-05T18:06:55Z",
+        "notes": "Cakes From Bakery"
+      },
+      {
+        "id": 8550,
+        "type": "income",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2022-05-05T23:59:59Z",
+        "notes": "null"
+      },
+      {
+        "id": 8551,
+        "type": "expense",
+        "amount": 200000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-06T08:16:02Z",
+        "notes": "TD"
+      },
+      {
+        "id": 8552,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-06T20:58:18Z",
+        "notes": "Palm Wine Trip : Bike Petrol"
+      },
+      {
+        "id": 8553,
+        "type": "expense",
+        "amount": 5.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-06T20:58:57Z",
+        "notes": "Palm Wine Trip : Bike Air"
+      },
+      {
+        "id": 8554,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-06T20:59:48Z",
+        "notes": "Chicken Fried Rice & Mushroom Fry"
+      },
+      {
+        "id": 8555,
+        "type": "expense",
+        "amount": 55.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-06T21:07:35Z",
+        "notes": "Sana Powder"
+      },
+      {
+        "id": 8556,
+        "type": "expense",
+        "amount": 75.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-06T21:09:41Z",
+        "notes": "Flax Seeds"
+      },
+      {
+        "id": 8557,
+        "type": "expense",
+        "amount": 70.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2022-05-06T21:13:22Z",
+        "notes": "Potato & Onion Chips"
+      },
+      {
+        "id": 8558,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-07T10:06:41Z",
+        "notes": "Palm Wine Trip : Snacks"
+      },
+      {
+        "id": 8559,
+        "type": "income",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-08T09:39:23Z",
+        "notes": "vivekking005-2_"
+      },
+      {
+        "id": 8560,
+        "type": "expense",
+        "amount": 607.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-08T09:51:20Z",
+        "notes": "Palm Wine Trip : Spend By Cash"
+      },
+      {
+        "id": 8561,
+        "type": "expense",
+        "amount": 417.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-08T09:53:59Z",
+        "notes": "PRABU S/STATE B"
+      },
+      {
+        "id": 8562,
+        "type": "expense",
+        "amount": 12000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-08T10:14:54Z",
+        "notes": "Ms ABINAY"
+      },
+      {
+        "id": 8563,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 22,
+        "source_id": 2,
+        "date": "2022-05-08T19:29:37Z",
+        "notes": "Movie : Doctor Strange in the Multiverse of Madness"
+      },
+      {
+        "id": 8564,
+        "type": "expense",
+        "amount": 285.0,
+        "category_id": 22,
+        "source_id": 1,
+        "date": "2022-05-08T19:38:54Z",
+        "notes": "Movie : Doctor Strange in the Multiverse of Madness"
+      },
+      {
+        "id": 8565,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2022-05-08T19:46:21Z",
+        "notes": "Egg Buffs"
+      },
+      {
+        "id": 8566,
+        "type": "expense",
+        "amount": 4000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-09T16:36:59Z",
+        "notes": "Gold Chit Mom - December & January Month"
+      },
+      {
+        "id": 8567,
+        "type": "expense",
+        "amount": 4000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-09T16:37:21Z",
+        "notes": "Gold Chit Abi - December & January Month"
+      },
+      {
+        "id": 8568,
+        "type": "expense",
+        "amount": 130.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2022-05-09T21:02:54Z",
+        "notes": "Snacks From Bakery"
+      },
+      {
+        "id": 8569,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2022-05-09T21:03:55Z",
+        "notes": "Chocolates For Eniyan & Shreesha"
+      },
+      {
+        "id": 8570,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2022-05-10T21:05:47Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 8571,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2022-05-10T21:06:20Z",
+        "notes": "Vadai"
+      },
+      {
+        "id": 8572,
+        "type": "expense",
+        "amount": 105.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-11T21:07:01Z",
+        "notes": "Cakes From Bakery Maharaj"
+      },
+      {
+        "id": 8573,
+        "type": "expense",
+        "amount": 80.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2022-05-11T21:08:41Z",
+        "notes": "Bovonto Cool Drink"
+      },
+      {
+        "id": 8574,
+        "type": "expense",
+        "amount": 280.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2022-05-12T08:38:12Z",
+        "notes": "Parotta & Egg Mass"
+      },
+      {
+        "id": 8575,
+        "type": "income",
+        "amount": 15.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2022-05-12T13:20:10Z",
+        "notes": "Get it From Abi"
+      },
+      {
+        "id": 8576,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-12T16:34:23Z",
+        "notes": "Cone Ice Cream"
+      },
+      {
+        "id": 8577,
+        "type": "expense",
+        "amount": 177.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-13T08:17:25Z",
+        "notes": "Debit Card Charges"
+      },
+      {
+        "id": 8578,
+        "type": "expense",
+        "amount": 29390.0,
+        "category_id": 11,
+        "source_id": 3,
+        "date": "2022-05-13T14:32:26Z",
+        "notes": "Purchased Tab For Karthik"
+      },
+      {
+        "id": 8579,
+        "type": "income",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-13T17:10:15Z",
+        "notes": "abinayasri107_o"
+      },
+      {
+        "id": 8580,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2022-05-14T00:09:20Z",
+        "notes": "Gave it to Akka"
+      },
+      {
+        "id": 8581,
+        "type": "expense",
+        "amount": 2500.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-15T07:43:09Z",
+        "notes": "abinayasri107@okicici"
+      },
+      {
+        "id": 8582,
+        "type": "income",
+        "amount": 2500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-15T07:50:03Z",
+        "notes": "Ms ABINAY"
+      },
+      {
+        "id": 8583,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-15T08:07:26Z",
+        "notes": "Brindha Marriage Visit : Car Petrol"
+      },
+      {
+        "id": 8584,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-15T09:00:44Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8585,
+        "type": "expense",
+        "amount": 3000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-15T11:27:17Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 8586,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-15T16:07:12Z",
+        "notes": "Brindha Marriage Visit : Car Air"
+      },
+      {
+        "id": 8587,
+        "type": "expense",
+        "amount": 2.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-15T16:25:47Z",
+        "notes": "Brindha Marriage Visit : Moi Cover"
+      },
+      {
+        "id": 8588,
+        "type": "expense",
+        "amount": 1001.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-15T16:26:59Z",
+        "notes": "Brindha Marriage Visit : Moi"
+      },
+      {
+        "id": 8589,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-15T18:00:54Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8590,
+        "type": "expense",
+        "amount": 175.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-15T19:20:41Z",
+        "notes": "Brindha Marriage Visit : Lassi For All"
+      },
+      {
+        "id": 8591,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-15T19:23:20Z",
+        "notes": "Brindha Marriage Visit : Car Parking"
+      },
+      {
+        "id": 8592,
+        "type": "expense",
+        "amount": 250.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-15T19:24:30Z",
+        "notes": "Sandals For Abi"
+      },
+      {
+        "id": 8593,
+        "type": "expense",
+        "amount": 825.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-16T10:30:52Z",
+        "notes": "Last & Current Month"
+      },
+      {
+        "id": 8594,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-17T05:15:47Z",
+        "notes": "Fast Tag"
+      },
+      {
+        "id": 8595,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2022-05-17T06:03:28Z",
+        "notes": "5P613890"
+      },
+      {
+        "id": 8596,
+        "type": "expense",
+        "amount": 45.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-17T06:42:34Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8597,
+        "type": "expense",
+        "amount": 85.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-17T11:26:13Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8598,
+        "type": "expense",
+        "amount": 80.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-17T13:27:02Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8599,
+        "type": "expense",
+        "amount": 1500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-17T13:33:56Z",
+        "notes": "Car Petrol"
+      },
+      {
+        "id": 8600,
+        "type": "expense",
+        "amount": 1500.0,
+        "category_id": 5,
+        "source_id": 5,
+        "date": "2022-05-17T13:34:04Z",
+        "notes": "Car Petrol"
+      },
+      {
+        "id": 8601,
+        "type": "expense",
+        "amount": 1155.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2022-05-17T14:38:44Z",
+        "notes": "Move to Bnglr : Lunch"
+      },
+      {
+        "id": 8602,
+        "type": "expense",
+        "amount": 90.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-17T15:38:44Z",
+        "notes": "Move to Bnglr : Dinner"
+      },
+      {
+        "id": 8603,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-17T16:00:40Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8604,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2022-05-17T19:14:34Z",
+        "notes": "Move to Bnglr : Car Petrol"
+      },
+      {
+        "id": 8605,
+        "type": "expense",
+        "amount": 155.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-17T19:36:55Z",
+        "notes": "Move to Bnglr : Breakfast"
+      },
+      {
+        "id": 8606,
+        "type": "income",
+        "amount": 100.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2022-05-17T19:37:37Z",
+        "notes": "Get it From Mom"
+      },
+      {
+        "id": 8607,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-17T19:40:02Z",
+        "notes": "Move to Bnglr : Sugarcane Juice"
+      },
+      {
+        "id": 8608,
+        "type": "expense",
+        "amount": 230.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-17T19:50:53Z",
+        "notes": "Move to Bnglr : Mangoes"
+      },
+      {
+        "id": 8609,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-17T19:52:12Z",
+        "notes": "Move to Bnglr : Brinjal"
+      },
+      {
+        "id": 8610,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-17T19:57:36Z",
+        "notes": "Move to Bnglr : Lunch Tips"
+      },
+      {
+        "id": 8611,
+        "type": "income",
+        "amount": 200164.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-18T05:52:18Z",
+        "notes": "null"
+      },
+      {
+        "id": 8612,
+        "type": "expense",
+        "amount": 105.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-18T11:21:19Z",
+        "notes": "Move to Bnglr : Breakfast"
+      },
+      {
+        "id": 8613,
+        "type": "expense",
+        "amount": 1200.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-18T13:40:10Z",
+        "notes": "Move to Bnglr : Gas Cylinder Refill"
+      },
+      {
+        "id": 8614,
+        "type": "expense",
+        "amount": 380.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-18T15:39:27Z",
+        "notes": "May Month - 2022"
+      },
+      {
+        "id": 8615,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-18T15:49:22Z",
+        "notes": "May Month - 2022"
+      },
+      {
+        "id": 8616,
+        "type": "expense",
+        "amount": 75000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-18T16:21:56Z",
+        "notes": "RD"
+      },
+      {
+        "id": 8617,
+        "type": "income",
+        "amount": 4209.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2022-05-19T02:04:07Z",
+        "notes": "PRABU, INFO"
+      },
+      {
+        "id": 8618,
+        "type": "expense",
+        "amount": 4209.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-19T04:34:34Z",
+        "notes": "PRABU S/STATE B"
+      },
+      {
+        "id": 8619,
+        "type": "expense",
+        "amount": 4000.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2022-05-19T17:19:38Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 8620,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-19T18:20:26Z",
+        "notes": "May Month - 2022"
+      },
+      {
+        "id": 8621,
+        "type": "expense",
+        "amount": 1200.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-20T15:38:35Z",
+        "notes": "BharatPe"
+      },
+      {
+        "id": 8622,
+        "type": "expense",
+        "amount": 130.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-20T17:53:04Z",
+        "notes": "May Month - 2022"
+      },
+      {
+        "id": 8623,
+        "type": "expense",
+        "amount": 225.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-20T18:14:25Z",
+        "notes": "Move to Bnglr : Bath Room Bucket"
+      },
+      {
+        "id": 8624,
+        "type": "expense",
+        "amount": 125.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-20T18:14:51Z",
+        "notes": "Move to Bnglr : Bath Room Tub"
+      },
+      {
+        "id": 8625,
+        "type": "expense",
+        "amount": 99.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-20T18:15:22Z",
+        "notes": "Move to Bnglr : Broom Stick"
+      },
+      {
+        "id": 8626,
+        "type": "expense",
+        "amount": 58.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-20T18:15:44Z",
+        "notes": "Move to Bnglr : Bath Room Mug Big"
+      },
+      {
+        "id": 8627,
+        "type": "expense",
+        "amount": 32.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-20T18:16:17Z",
+        "notes": "Move to Bnglr : Bath Room Mug Small"
+      },
+      {
+        "id": 8628,
+        "type": "expense",
+        "amount": 135.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-20T18:16:54Z",
+        "notes": "Move to Bnglr : Mop"
+      },
+      {
+        "id": 8629,
+        "type": "expense",
+        "amount": 36.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-20T18:17:58Z",
+        "notes": "Move to Bnglr : Kitchen Wiper"
+      },
+      {
+        "id": 8630,
+        "type": "expense",
+        "amount": 62.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-20T18:18:44Z",
+        "notes": "Move to Bnglr : Soap Box 2"
+      },
+      {
+        "id": 8631,
+        "type": "expense",
+        "amount": 68.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-20T18:19:44Z",
+        "notes": "Move to Bnglr : Toilet Cleaning Brush"
+      },
+      {
+        "id": 8632,
+        "type": "expense",
+        "amount": 360.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-20T18:20:36Z",
+        "notes": "Move to Bnglr : Window Screen"
+      },
+      {
+        "id": 8633,
+        "type": "expense",
+        "amount": 80.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-20T18:22:23Z",
+        "notes": "Move to Bnglr : Floor Mats"
+      },
+      {
+        "id": 8634,
+        "type": "expense",
+        "amount": 325.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-21T09:27:09Z",
+        "notes": "May Month - 2022"
+      },
+      {
+        "id": 8635,
+        "type": "expense",
+        "amount": 475.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-22T09:26:47Z",
+        "notes": "Bank of /BANK O"
+      },
+      {
+        "id": 8636,
+        "type": "income",
+        "amount": 475.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-22T10:03:56Z",
+        "notes": "PRABU"
+      },
+      {
+        "id": 8637,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-22T11:02:10Z",
+        "notes": "May Month - 2022"
+      },
+      {
+        "id": 8638,
+        "type": "expense",
+        "amount": 2982.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2022-05-22T11:59:09Z",
+        "notes": "May Month - 2022"
+      },
+      {
+        "id": 8639,
+        "type": "income",
+        "amount": 400.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-23T08:04:01Z",
+        "notes": "PRABU"
+      },
+      {
+        "id": 8640,
+        "type": "income",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-23T08:55:29Z",
+        "notes": "abinayasri107_o"
+      },
+      {
+        "id": 8641,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-23T12:53:57Z",
+        "notes": "Move to BOB"
+      },
+      {
+        "id": 8642,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-24T18:40:56Z",
+        "notes": "May Month - 2022"
+      },
+      {
+        "id": 8643,
+        "type": "expense",
+        "amount": 1700.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2022-05-24T20:12:59Z",
+        "notes": "Move to Bnglr : Purchased Cooker"
+      },
+      {
+        "id": 8644,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-24T20:43:09Z",
+        "notes": "May Month - 2022"
+      },
+      {
+        "id": 8645,
+        "type": "expense",
+        "amount": 220.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-24T21:38:46Z",
+        "notes": "Clothes For Shivani"
+      },
+      {
+        "id": 8646,
+        "type": "expense",
+        "amount": 380.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-24T21:40:09Z",
+        "notes": "Clothes for Abi"
+      },
+      {
+        "id": 8647,
+        "type": "income",
+        "amount": 280.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2022-05-24T22:09:31Z",
+        "notes": "PRABU, INFO"
+      },
+      {
+        "id": 8648,
+        "type": "expense",
+        "amount": 10000.0,
+        "category_id": 15,
+        "source_id": 2,
+        "date": "2022-05-26T10:01:24Z",
+        "notes": "Give it Back to Agalya"
+      },
+      {
+        "id": 8649,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-26T20:15:33Z",
+        "notes": "OM PRAKAS"
+      },
+      {
+        "id": 8650,
+        "type": "income",
+        "amount": 150.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-27T09:50:29Z",
+        "notes": "abinayasri107_o"
+      },
+      {
+        "id": 8651,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-27T09:59:00Z",
+        "notes": "Move to BOB"
+      },
+      {
+        "id": 8652,
+        "type": "expense",
+        "amount": 400.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-27T10:07:21Z",
+        "notes": "PRABU S/STATE B"
+      },
+      {
+        "id": 8653,
+        "type": "income",
+        "amount": 400.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2022-05-27T10:33:02Z",
+        "notes": "PRABU, INFO"
+      },
+      {
+        "id": 8654,
+        "type": "income",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-27T16:26:39Z",
+        "notes": "abinayasri107_o"
+      },
+      {
+        "id": 8655,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-27T19:49:10Z",
+        "notes": "Move to BOB"
+      },
+      {
+        "id": 8656,
+        "type": "expense",
+        "amount": 300.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-28T04:34:28Z",
+        "notes": "Fast Tag"
+      },
+      {
+        "id": 8657,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-28T06:27:30Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8658,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-28T06:52:51Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8659,
+        "type": "expense",
+        "amount": 105.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-28T09:22:59Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8660,
+        "type": "expense",
+        "amount": 155.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-28T09:32:33Z",
+        "notes": "Tea & Snacks"
+      },
+      {
+        "id": 8661,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-28T09:34:30Z",
+        "notes": "Car Petrol"
+      },
+      {
+        "id": 8662,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-28T09:34:50Z",
+        "notes": "Naval Palam"
+      },
+      {
+        "id": 8663,
+        "type": "expense",
+        "amount": 85.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-28T10:20:48Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8664,
+        "type": "expense",
+        "amount": 170.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-28T11:07:53Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 8665,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-28T11:09:07Z",
+        "notes": "Bananas"
+      },
+      {
+        "id": 8666,
+        "type": "expense",
+        "amount": 279.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-28T11:09:41Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 8667,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-28T12:14:21Z",
+        "notes": "Sugar Cane Juice"
+      },
+      {
+        "id": 8668,
+        "type": "expense",
+        "amount": 45.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-28T15:06:51Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8669,
+        "type": "expense",
+        "amount": 142.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-28T20:51:30Z",
+        "notes": "Snacks"
+      },
+      {
+        "id": 8670,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-29T06:38:50Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8671,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-29T08:20:52Z",
+        "notes": "Shanthi Childs Ear Piercing : Gave it to Santhosh & Pavadharani"
+      },
+      {
+        "id": 8672,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-29T08:22:19Z",
+        "notes": "God Photos & Other"
+      },
+      {
+        "id": 8673,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-29T09:14:43Z",
+        "notes": "Car Petrol"
+      },
+      {
+        "id": 8674,
+        "type": "expense",
+        "amount": 130.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-29T11:51:31Z",
+        "notes": "Shanthi Childs Ear Piercing : Tea & Vadai"
+      },
+      {
+        "id": 8675,
+        "type": "expense",
+        "amount": 98.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-29T11:53:31Z",
+        "notes": "Shanthi Childs Ear Piercing : Donated"
+      },
+      {
+        "id": 8676,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-29T11:54:35Z",
+        "notes": "Shanthi Childs Ear Piercing : Car Parking"
+      },
+      {
+        "id": 8677,
+        "type": "expense",
+        "amount": 350.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-29T11:56:40Z",
+        "notes": "Clothes For Chezhiyan"
+      },
+      {
+        "id": 8678,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2022-05-29T11:57:27Z",
+        "notes": "Gave it to Rajendran Uncle"
+      },
+      {
+        "id": 8679,
+        "type": "expense",
+        "amount": 75.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-29T16:24:29Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8680,
+        "type": "income",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2022-05-29T17:44:17Z",
+        "notes": "abinayasri107_o"
+      },
+      {
+        "id": 8681,
+        "type": "expense",
+        "amount": 966.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-30T10:46:03Z",
+        "notes": "Doctor Fee, 1st Teeth Cleaning & Tablets"
+      },
+      {
+        "id": 8682,
+        "type": "expense",
+        "amount": 13355.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-30T13:52:04Z",
+        "notes": "Amazon Pa"
+      },
+      {
+        "id": 8683,
+        "type": "income",
+        "amount": 13355.0,
+        "category_id": 3,
+        "source_id": 3,
+        "date": "2022-05-30T13:56:01Z",
+        "notes": "SBI Credit Card Bill Paid"
+      },
+      {
+        "id": 8684,
+        "type": "expense",
+        "amount": 350.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-30T17:24:03Z",
+        "notes": "Car Wash"
+      },
+      {
+        "id": 8685,
+        "type": "expense",
+        "amount": 12000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-30T18:21:16Z",
+        "notes": "Ms ABINAY"
+      },
+      {
+        "id": 8686,
+        "type": "expense",
+        "amount": 171.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2022-05-31T15:45:30Z",
+        "notes": "5th Service"
+      },
+      {
+        "id": 8687,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-31T15:54:25Z",
+        "notes": "2nd Teeth Cleaning"
+      },
+      {
+        "id": 8688,
+        "type": "expense",
+        "amount": 217.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-31T15:59:40Z",
+        "notes": "PRABU S/STATE B"
+      },
+      {
+        "id": 8689,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 12,
+        "date": "2022-05-31T17:16:48Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 8690,
+        "type": "expense",
+        "amount": 7000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-31T18:55:36Z",
+        "notes": "LKG - School Kit"
+      },
+      {
+        "id": 8691,
+        "type": "income",
+        "amount": 119576.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2022-05-31T20:47:44Z",
+        "notes": "May Month Salary"
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Groceries",
+        "type": "expense",
+        "icon": "cart",
+        "color": "#F97316"
+      },
+      {
+        "id": 2,
+        "name": "Rent",
+        "type": "expense",
+        "icon": "home-account",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "name": "Utilities",
+        "type": "expense",
+        "icon": "lightning-bolt",
+        "color": "#64748B"
+      },
+      {
+        "id": 4,
+        "name": "Salary",
+        "type": "income",
+        "icon": "cash-multiple",
+        "color": "#16A34A"
+      },
+      {
+        "id": 5,
+        "name": "Misc",
+        "type": "expense",
+        "icon": "dots-horizontal",
+        "color": "#9CA3AF"
+      },
+      {
+        "id": 6,
+        "name": "DTH",
+        "type": "expense",
+        "icon": "television-play",
+        "color": "#8B5CF6"
+      },
+      {
+        "id": 9,
+        "name": "Snacks",
+        "type": "expense",
+        "icon": "food-variant",
+        "color": "#FBBF24"
+      },
+      {
+        "id": 10,
+        "name": "Wallet Transfer",
+        "type": "expense",
+        "icon": "swap-horizontal",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "Mobile Recharge",
+        "type": "expense",
+        "icon": "cellphone",
+        "color": "#0EA5E9"
+      },
+      {
+        "id": 12,
+        "name": "Bike / Vehicle",
+        "type": "expense",
+        "icon": "motorbike",
+        "color": "#DC2626"
+      },
+      {
+        "id": 13,
+        "name": "Money Received",
+        "type": "income",
+        "icon": "arrow-down-bold-circle",
+        "color": "#10B981"
+      },
+      {
+        "id": 14,
+        "name": "Interest",
+        "type": "income",
+        "icon": "percent",
+        "color": "#22C55E"
+      },
+      {
+        "id": 15,
+        "name": "Money Given",
+        "type": "expense",
+        "icon": "arrow-up-bold-circle",
+        "color": "#EF4444"
+      },
+      {
+        "id": 16,
+        "name": "Food & Dining",
+        "type": "expense",
+        "icon": "silverware-fork-knife",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 17,
+        "name": "Family",
+        "type": "expense",
+        "icon": "account-group",
+        "color": "#F43F5E"
+      },
+      {
+        "id": 18,
+        "name": "Gifts",
+        "type": "expense",
+        "icon": "gift",
+        "color": "#EC4899"
+      },
+      {
+        "id": 19,
+        "name": "Savings",
+        "type": "expense",
+        "icon": "piggy-bank",
+        "color": "#059669"
+      },
+      {
+        "id": 20,
+        "name": "Loan / EMI",
+        "type": "expense",
+        "icon": "bank-transfer",
+        "color": "#B91C1C"
+      },
+      {
+        "id": 21,
+        "name": "Transport",
+        "type": "expense",
+        "icon": "bus",
+        "color": "#14B8A6"
+      },
+      {
+        "id": 22,
+        "name": "Entertainment",
+        "type": "expense",
+        "icon": "movie-open",
+        "color": "#7C3AED"
+      },
+      {
+        "id": 23,
+        "name": "Donations",
+        "type": "expense",
+        "icon": "hand-heart",
+        "color": "#22C55E"
+      },
+      {
+        "id": 24,
+        "name": "Home Improvement",
+        "type": "expense",
+        "icon": "hammer-wrench",
+        "color": "#A16207"
+      },
+      {
+        "id": 25,
+        "name": "Printing & Stationery",
+        "type": "expense",
+        "icon": "printer",
+        "color": "#6B7280"
+      },
+      {
+        "id": 26,
+        "name": "Bank Charges",
+        "type": "expense",
+        "icon": "bank",
+        "color": "#374151"
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "name": "Cash Spend",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "name": "Axis",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 3,
+        "name": "SBI Group",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 4,
+        "name": "Airtel Payments",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 5,
+        "name": "Paytm",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 6,
+        "name": "Unknown",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 7,
+        "name": "Vijaya",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 8,
+        "name": "Freecharge",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 9,
+        "name": "City Union",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 10,
+        "name": "MOBIKWIK",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "BOB",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 12,
+        "name": "HDFC",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 13,
+        "name": "Other",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      }
+    ],
+    "budgets": [],
+    "bills": []
+  }
+}

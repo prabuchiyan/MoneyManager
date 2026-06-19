@@ -1,0 +1,1569 @@
+{
+  "version": 1,
+  "timestamp": "2026-06-19T13:52:31.934259Z",
+  "data": {
+    "transactions": [
+      {
+        "id": 128,
+        "type": "expense",
+        "amount": 1378.0,
+        "category_id": 3,
+        "source_id": 2,
+        "date": "2017-07-01T03:28:01Z",
+        "notes": "Home SUN DIRECT TV PRIV"
+      },
+      {
+        "id": 129,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-01T06:24:56Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 130,
+        "type": "expense",
+        "amount": 45.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-01T13:12:43Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 131,
+        "type": "expense",
+        "amount": 155.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-01T23:30:36Z",
+        "notes": "Drinks"
+      },
+      {
+        "id": 132,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-01T23:30:49Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 133,
+        "type": "expense",
+        "amount": 349.0,
+        "category_id": 11,
+        "source_id": 2,
+        "date": "2017-07-02T00:09:07Z",
+        "notes": "Recharge Airtel"
+      },
+      {
+        "id": 134,
+        "type": "income",
+        "amount": 10.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2017-07-02T00:49:37Z",
+        "notes": "Get it From Sasi"
+      },
+      {
+        "id": 135,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-02T05:25:36Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 136,
+        "type": "expense",
+        "amount": 20000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-02T23:04:14Z",
+        "notes": "NEFT/MB/AXMB171841748349/Radha"
+      },
+      {
+        "id": 137,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-02T23:27:34Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 138,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-03T04:11:20Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 139,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-03T04:11:33Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 140,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-03T23:22:13Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 141,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-04T09:08:45Z",
+        "notes": "TPFT/NAVEEN G/911010059089849"
+      },
+      {
+        "id": 142,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-04T11:16:03Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 143,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-04T11:16:46Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 144,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-04T21:27:32Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 145,
+        "type": "expense",
+        "amount": 1448.0,
+        "category_id": 2,
+        "source_id": 2,
+        "date": "2017-07-05T03:33:45Z",
+        "notes": "Room Rent"
+      },
+      {
+        "id": 146,
+        "type": "expense",
+        "amount": 20000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-05T04:00:38Z",
+        "notes": "NEFT/MB/AXMB171862732554/Prabu S"
+      },
+      {
+        "id": 147,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-05T06:40:02Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 148,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-05T06:41:02Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 149,
+        "type": "income",
+        "amount": 21421.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-05T06:59:02Z",
+        "notes": "Unknown Sender"
+      },
+      {
+        "id": 150,
+        "type": "income",
+        "amount": 20000.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2017-07-05T07:51:08Z",
+        "notes": "null"
+      },
+      {
+        "id": 151,
+        "type": "expense",
+        "amount": 7000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-05T20:41:58Z",
+        "notes": "NEFT/MB/AXMB171872987998/Manjunatha"
+      },
+      {
+        "id": 152,
+        "type": "income",
+        "amount": 3000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-06T01:44:06Z",
+        "notes": "MOB/TPFT/NAVEEN G/911010059089849"
+      },
+      {
+        "id": 153,
+        "type": "income",
+        "amount": 2584.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-06T02:05:50Z",
+        "notes": "DINESHKUMAR M/Rent"
+      },
+      {
+        "id": 154,
+        "type": "income",
+        "amount": 20.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2017-07-06T04:45:04Z",
+        "notes": "Get it from Shufil"
+      },
+      {
+        "id": 155,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-06T04:46:14Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 156,
+        "type": "income",
+        "amount": 3000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-06T05:53:06Z",
+        "notes": "MOB/TPFT/RAVINDRANATH/333010100165617"
+      },
+      {
+        "id": 157,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-06T14:26:16Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 158,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-07T01:21:51Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 159,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 15,
+        "source_id": 2,
+        "date": "2017-07-07T06:54:21Z",
+        "notes": "Trip Amount Transfer Satish"
+      },
+      {
+        "id": 160,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-07T06:55:43Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 161,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-07T14:08:55Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 162,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 2,
+        "source_id": 1,
+        "date": "2017-07-08T02:18:28Z",
+        "notes": "Water"
+      },
+      {
+        "id": 163,
+        "type": "income",
+        "amount": 50.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2017-07-08T10:21:08Z",
+        "notes": "Get it From Deepak"
+      },
+      {
+        "id": 164,
+        "type": "income",
+        "amount": 30.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2017-07-08T10:21:37Z",
+        "notes": "Get it From Dinesh"
+      },
+      {
+        "id": 165,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-08T10:21:59Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 166,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-08T11:37:44Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 167,
+        "type": "expense",
+        "amount": 20000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-08T12:50:26Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 168,
+        "type": "expense",
+        "amount": 357.0,
+        "category_id": 2,
+        "source_id": 2,
+        "date": "2017-07-08T16:42:03Z",
+        "notes": "Room Rent : Electricity Bill"
+      },
+      {
+        "id": 169,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-08T22:17:42Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 170,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 15,
+        "source_id": 1,
+        "date": "2017-07-08T22:18:50Z",
+        "notes": "Give Back to Dinesh"
+      },
+      {
+        "id": 171,
+        "type": "expense",
+        "amount": 180.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-07-08T22:20:12Z",
+        "notes": "Bus : Bangalore to Salem"
+      },
+      {
+        "id": 172,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-09T04:06:53Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 173,
+        "type": "expense",
+        "amount": 20000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-07-09T05:32:33Z",
+        "notes": "Give to Mom"
+      },
+      {
+        "id": 174,
+        "type": "expense",
+        "amount": 20000.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2017-07-09T21:08:35Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 175,
+        "type": "expense",
+        "amount": 20000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-07-09T22:14:37Z",
+        "notes": "Give it to Mom"
+      },
+      {
+        "id": 176,
+        "type": "expense",
+        "amount": 10000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-07-09T22:21:36Z",
+        "notes": "Marriage Some Advance"
+      },
+      {
+        "id": 177,
+        "type": "expense",
+        "amount": 115.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-07-09T22:21:56Z",
+        "notes": "Bus : Salem to Pudukkottai"
+      },
+      {
+        "id": 178,
+        "type": "expense",
+        "amount": 5.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2017-07-09T23:54:29Z",
+        "notes": "Bike Parking in Bus Stand"
+      },
+      {
+        "id": 179,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2017-07-10T00:24:19Z",
+        "notes": "Cool Drinks"
+      },
+      {
+        "id": 180,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-10T00:25:17Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 181,
+        "type": "expense",
+        "amount": 15.0,
+        "category_id": 22,
+        "source_id": 1,
+        "date": "2017-07-10T00:26:31Z",
+        "notes": "Thanjavur Park"
+      },
+      {
+        "id": 182,
+        "type": "expense",
+        "amount": 86.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2017-07-10T00:27:15Z",
+        "notes": "Snacks with Abi"
+      },
+      {
+        "id": 183,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 18,
+        "source_id": 1,
+        "date": "2017-07-10T00:28:23Z",
+        "notes": "Flowers"
+      },
+      {
+        "id": 184,
+        "type": "expense",
+        "amount": 33.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-07-10T00:28:50Z",
+        "notes": "Bus : Thanjavur to Pudukkottai"
+      },
+      {
+        "id": 185,
+        "type": "expense",
+        "amount": 33.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-07-10T00:29:10Z",
+        "notes": "Bus : Pudukkottai to Trichy"
+      },
+      {
+        "id": 186,
+        "type": "expense",
+        "amount": 85.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-07-10T00:29:49Z",
+        "notes": "Bus : Trichy to Salem"
+      },
+      {
+        "id": 187,
+        "type": "expense",
+        "amount": 33.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-07-10T01:39:39Z",
+        "notes": "Bus : Pudukkottai to Thanjavur"
+      },
+      {
+        "id": 188,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 18,
+        "source_id": 1,
+        "date": "2017-07-10T01:39:54Z",
+        "notes": "Birthday Cake"
+      },
+      {
+        "id": 189,
+        "type": "expense",
+        "amount": 6200.0,
+        "category_id": 18,
+        "source_id": 2,
+        "date": "2017-07-10T04:20:11Z",
+        "notes": "JOYALUKKAS INDIA./THANJAYUR/JOYALUKKAS INDIA./Seq No 719113642856"
+      },
+      {
+        "id": 190,
+        "type": "expense",
+        "amount": 10000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-10T11:47:08Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 191,
+        "type": "expense",
+        "amount": 3500.0,
+        "category_id": 19,
+        "source_id": 2,
+        "date": "2017-07-10T14:29:59Z",
+        "notes": "RD Savings"
+      },
+      {
+        "id": 192,
+        "type": "expense",
+        "amount": 30000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-10T22:24:47Z",
+        "notes": "NEFT/MB/AXMB171924473888/Radha"
+      },
+      {
+        "id": 193,
+        "type": "expense",
+        "amount": 180.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-07-11T00:30:35Z",
+        "notes": "Bus : Salem to Bangalore"
+      },
+      {
+        "id": 194,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-11T04:17:12Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 195,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-11T04:18:08Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 196,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-11T06:25:48Z",
+        "notes": "TPFT/MOHAMMAD ISMAIL/916010048369166"
+      },
+      {
+        "id": 197,
+        "type": "income",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-07-11T14:25:53Z",
+        "notes": "Unknown Sender"
+      },
+      {
+        "id": 198,
+        "type": "expense",
+        "amount": 92.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2017-07-11T22:39:29Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 199,
+        "type": "expense",
+        "amount": 3.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2017-07-12T04:06:19Z",
+        "notes": "Bike Air"
+      },
+      {
+        "id": 200,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-12T04:18:24Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 201,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 15,
+        "source_id": 1,
+        "date": "2017-07-12T04:19:20Z",
+        "notes": "Give Back to Madhu"
+      },
+      {
+        "id": 202,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 12,
+        "source_id": 2,
+        "date": "2017-07-12T05:18:24Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 203,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-12T13:37:24Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 204,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-13T02:53:05Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 205,
+        "type": "expense",
+        "amount": 14142.19,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-13T03:05:26Z",
+        "notes": "CCPMT/L58FIDEE8345/530562XXXXXX8905/"
+      },
+      {
+        "id": 206,
+        "type": "income",
+        "amount": 14142.19,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-13T03:06:10Z",
+        "notes": "null"
+      },
+      {
+        "id": 207,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-13T04:07:48Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 208,
+        "type": "income",
+        "amount": 2.25,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-13T05:29:00Z",
+        "notes": "Petrol Surcharge"
+      },
+      {
+        "id": 209,
+        "type": "expense",
+        "amount": 6000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-13T07:56:13Z",
+        "notes": "TPFT/RAVINDRANATH/333010100165617"
+      },
+      {
+        "id": 210,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-13T13:47:40Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 211,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-13T14:31:57Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 212,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 15,
+        "source_id": 1,
+        "date": "2017-07-13T14:33:45Z",
+        "notes": "Give Back to Deepak"
+      },
+      {
+        "id": 213,
+        "type": "expense",
+        "amount": 13000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-14T01:51:43Z",
+        "notes": "TPFT/NAVEEN G/911010059089849"
+      },
+      {
+        "id": 214,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-14T09:11:34Z",
+        "notes": "TPFT/RAVINDRANATH/333010100165617"
+      },
+      {
+        "id": 215,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-14T14:29:59Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 216,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-07-15T04:43:39Z",
+        "notes": "Bus : Room to Office"
+      },
+      {
+        "id": 217,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-15T04:43:56Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 218,
+        "type": "expense",
+        "amount": 5537.0,
+        "category_id": 12,
+        "source_id": 2,
+        "date": "2017-07-15T09:23:23Z",
+        "notes": "EICHERS"
+      },
+      {
+        "id": 219,
+        "type": "expense",
+        "amount": 220.71,
+        "category_id": 11,
+        "source_id": 2,
+        "date": "2017-07-15T10:36:27Z",
+        "notes": "Recharge DTH"
+      },
+      {
+        "id": 220,
+        "type": "expense",
+        "amount": 15.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-07-15T12:38:30Z",
+        "notes": "Bus : Office to Room"
+      },
+      {
+        "id": 221,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2017-07-15T12:56:41Z",
+        "notes": "Evening Snacks"
+      },
+      {
+        "id": 222,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-15T12:59:15Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 223,
+        "type": "expense",
+        "amount": 300.0,
+        "category_id": 12,
+        "source_id": 2,
+        "date": "2017-07-16T04:51:25Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 224,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-16T10:50:14Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 225,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-16T10:59:13Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 226,
+        "type": "expense",
+        "amount": 25000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-16T21:13:04Z",
+        "notes": "NEFT/MB/AXMB171985938544/Radha"
+      },
+      {
+        "id": 227,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-16T23:48:24Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 228,
+        "type": "income",
+        "amount": 3000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-17T04:25:13Z",
+        "notes": "null"
+      },
+      {
+        "id": 229,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-18T01:32:38Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 230,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-18T04:12:22Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 231,
+        "type": "expense",
+        "amount": 190.0,
+        "category_id": 15,
+        "source_id": 1,
+        "date": "2017-07-18T04:14:42Z",
+        "notes": "Give Back to KD"
+      },
+      {
+        "id": 232,
+        "type": "income",
+        "amount": 20.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2017-07-18T13:40:17Z",
+        "notes": "Get it From Shufil"
+      },
+      {
+        "id": 233,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2017-07-18T13:41:48Z",
+        "notes": "Evening Snacks"
+      },
+      {
+        "id": 234,
+        "type": "income",
+        "amount": 167.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2017-07-18T14:42:26Z",
+        "notes": "null"
+      },
+      {
+        "id": 235,
+        "type": "expense",
+        "amount": 167.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-18T20:18:38Z",
+        "notes": "IMPS/P2A/720000524939/20164004282SBIN000"
+      },
+      {
+        "id": 236,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-19T03:57:37Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 237,
+        "type": "expense",
+        "amount": 15.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2017-07-19T13:59:06Z",
+        "notes": "Evening Snacks"
+      },
+      {
+        "id": 238,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-20T14:02:05Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 239,
+        "type": "expense",
+        "amount": 390.0,
+        "category_id": 2,
+        "source_id": 1,
+        "date": "2017-07-20T14:03:44Z",
+        "notes": "EB Deposit"
+      },
+      {
+        "id": 240,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-07-20T14:05:51Z",
+        "notes": "Taken by Dinesh"
+      },
+      {
+        "id": 241,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-20T14:07:20Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 242,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-20T14:08:15Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 243,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-21T05:44:03Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 244,
+        "type": "expense",
+        "amount": 70.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-21T05:45:01Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 245,
+        "type": "income",
+        "amount": 1.5,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-21T07:04:10Z",
+        "notes": "Petrol Surcharge"
+      },
+      {
+        "id": 246,
+        "type": "expense",
+        "amount": 45.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-21T14:22:24Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 247,
+        "type": "expense",
+        "amount": 55.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-21T15:38:47Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 248,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-22T05:00:05Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 249,
+        "type": "expense",
+        "amount": 300.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-23T07:08:58Z",
+        "notes": "Drinks"
+      },
+      {
+        "id": 250,
+        "type": "expense",
+        "amount": 69.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-24T13:41:30Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 251,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-24T13:42:33Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 252,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-24T13:46:14Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 253,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-24T14:33:30Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 254,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-25T12:03:51Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 255,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-25T12:06:10Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 256,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-25T12:08:30Z",
+        "notes": "Give Back to Naveen"
+      },
+      {
+        "id": 257,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2017-07-25T12:11:15Z",
+        "notes": "Evening Snacks"
+      },
+      {
+        "id": 258,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-26T12:25:32Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 259,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-26T12:27:03Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 260,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-07-27T00:31:18Z",
+        "notes": "Haircuts"
+      },
+      {
+        "id": 261,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-27T02:09:29Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 262,
+        "type": "expense",
+        "amount": 15.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-27T03:53:42Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 263,
+        "type": "expense",
+        "amount": 54.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-07-27T11:30:12Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 264,
+        "type": "income",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-07-29T04:24:47Z",
+        "notes": "Get it From Ravi"
+      },
+      {
+        "id": 265,
+        "type": "expense",
+        "amount": 1314.0,
+        "category_id": 22,
+        "source_id": 1,
+        "date": "2017-07-29T22:33:47Z",
+        "notes": "Shiradi Expenses"
+      },
+      {
+        "id": 266,
+        "type": "expense",
+        "amount": 399.0,
+        "category_id": 3,
+        "source_id": 2,
+        "date": "2017-07-30T22:58:58Z",
+        "notes": "AIRTEL PYMT-BILLDE"
+      },
+      {
+        "id": 267,
+        "type": "expense",
+        "amount": 399.0,
+        "category_id": 5,
+        "source_id": 4,
+        "date": "2017-07-31T06:31:00Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 268,
+        "type": "expense",
+        "amount": 743.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-07-31T14:29:59Z",
+        "notes": "To Aug"
+      },
+      {
+        "id": 269,
+        "type": "income",
+        "amount": 743.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-07-31T14:30:00Z",
+        "notes": "SELF"
+      },
+      {
+        "id": 270,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-07-31T14:53:23Z",
+        "notes": "Capital First Loan"
+      },
+      {
+        "id": 271,
+        "type": "income",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 5,
+        "date": "2017-07-31T14:53:29Z",
+        "notes": "PAYTM APP"
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Groceries",
+        "type": "expense",
+        "icon": "cart",
+        "color": "#F97316"
+      },
+      {
+        "id": 2,
+        "name": "Rent",
+        "type": "expense",
+        "icon": "home-account",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "name": "Utilities",
+        "type": "expense",
+        "icon": "lightning-bolt",
+        "color": "#64748B"
+      },
+      {
+        "id": 4,
+        "name": "Salary",
+        "type": "income",
+        "icon": "cash-multiple",
+        "color": "#16A34A"
+      },
+      {
+        "id": 5,
+        "name": "Misc",
+        "type": "expense",
+        "icon": "dots-horizontal",
+        "color": "#9CA3AF"
+      },
+      {
+        "id": 6,
+        "name": "DTH",
+        "type": "expense",
+        "icon": "television-play",
+        "color": "#8B5CF6"
+      },
+      {
+        "id": 9,
+        "name": "Snacks",
+        "type": "expense",
+        "icon": "food-variant",
+        "color": "#FBBF24"
+      },
+      {
+        "id": 10,
+        "name": "Wallet Transfer",
+        "type": "expense",
+        "icon": "swap-horizontal",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "Mobile Recharge",
+        "type": "expense",
+        "icon": "cellphone",
+        "color": "#0EA5E9"
+      },
+      {
+        "id": 12,
+        "name": "Bike / Vehicle",
+        "type": "expense",
+        "icon": "motorbike",
+        "color": "#DC2626"
+      },
+      {
+        "id": 13,
+        "name": "Money Received",
+        "type": "income",
+        "icon": "arrow-down-bold-circle",
+        "color": "#10B981"
+      },
+      {
+        "id": 14,
+        "name": "Interest",
+        "type": "income",
+        "icon": "percent",
+        "color": "#22C55E"
+      },
+      {
+        "id": 15,
+        "name": "Money Given",
+        "type": "expense",
+        "icon": "arrow-up-bold-circle",
+        "color": "#EF4444"
+      },
+      {
+        "id": 16,
+        "name": "Food & Dining",
+        "type": "expense",
+        "icon": "silverware-fork-knife",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 17,
+        "name": "Family",
+        "type": "expense",
+        "icon": "account-group",
+        "color": "#F43F5E"
+      },
+      {
+        "id": 18,
+        "name": "Gifts",
+        "type": "expense",
+        "icon": "gift",
+        "color": "#EC4899"
+      },
+      {
+        "id": 19,
+        "name": "Savings",
+        "type": "expense",
+        "icon": "piggy-bank",
+        "color": "#059669"
+      },
+      {
+        "id": 20,
+        "name": "Loan / EMI",
+        "type": "expense",
+        "icon": "bank-transfer",
+        "color": "#B91C1C"
+      },
+      {
+        "id": 21,
+        "name": "Transport",
+        "type": "expense",
+        "icon": "bus",
+        "color": "#14B8A6"
+      },
+      {
+        "id": 22,
+        "name": "Entertainment",
+        "type": "expense",
+        "icon": "movie-open",
+        "color": "#7C3AED"
+      },
+      {
+        "id": 23,
+        "name": "Donations",
+        "type": "expense",
+        "icon": "hand-heart",
+        "color": "#22C55E"
+      },
+      {
+        "id": 24,
+        "name": "Home Improvement",
+        "type": "expense",
+        "icon": "hammer-wrench",
+        "color": "#A16207"
+      },
+      {
+        "id": 25,
+        "name": "Printing & Stationery",
+        "type": "expense",
+        "icon": "printer",
+        "color": "#6B7280"
+      },
+      {
+        "id": 26,
+        "name": "Bank Charges",
+        "type": "expense",
+        "icon": "bank",
+        "color": "#374151"
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "name": "Cash Spend",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "name": "Axis",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 3,
+        "name": "SBI Group",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 4,
+        "name": "Airtel Payments",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 5,
+        "name": "Paytm",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 6,
+        "name": "Unknown",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 7,
+        "name": "Vijaya",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 8,
+        "name": "Freecharge",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 9,
+        "name": "City Union",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 10,
+        "name": "MOBIKWIK",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "BOB",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 12,
+        "name": "HDFC",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 13,
+        "name": "Other",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      }
+    ],
+    "budgets": [],
+    "bills": []
+  }
+}

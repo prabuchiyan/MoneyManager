@@ -1,0 +1,1344 @@
+{
+  "version": 1,
+  "timestamp": "2026-06-19T13:52:32.057758Z",
+  "data": {
+    "transactions": [
+      {
+        "id": 11440,
+        "type": "income",
+        "amount": 5200.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-01T00:00:00Z",
+        "notes": "SELF"
+      },
+      {
+        "id": 11441,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-01T12:33:31Z",
+        "notes": "Mom Hospital Visit: Breakfast"
+      },
+      {
+        "id": 11442,
+        "type": "expense",
+        "amount": 280.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-12-01T15:18:30Z",
+        "notes": "Biriyani Party"
+      },
+      {
+        "id": 11443,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-01T16:17:04Z",
+        "notes": "Mom Hospital Visit: Bike Petrol"
+      },
+      {
+        "id": 11444,
+        "type": "expense",
+        "amount": 509.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-01T21:39:56Z",
+        "notes": "Fried Chicken"
+      },
+      {
+        "id": 11445,
+        "type": "expense",
+        "amount": 280.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-12-01T23:59:59Z",
+        "notes": "Mom Hospital Visit: Lunch"
+      },
+      {
+        "id": 11446,
+        "type": "expense",
+        "amount": 509.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-01T23:59:59Z",
+        "notes": "Fried Chicken"
+      },
+      {
+        "id": 11447,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-02T10:36:59Z",
+        "notes": "Mom Hospital Visit: Dinner"
+      },
+      {
+        "id": 11448,
+        "type": "expense",
+        "amount": 250.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-02T10:37:54Z",
+        "notes": "Mom Hospital Visit: Tablets"
+      },
+      {
+        "id": 11449,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-02T10:40:37Z",
+        "notes": "Mom Hospital Visit: Snacks"
+      },
+      {
+        "id": 11450,
+        "type": "expense",
+        "amount": 652.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-12-02T12:13:00Z",
+        "notes": "Groceries From Dmart"
+      },
+      {
+        "id": 11451,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-02T14:48:10Z",
+        "notes": "December Month - 2024"
+      },
+      {
+        "id": 11452,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-02T16:25:04Z",
+        "notes": "Mom Hospital Visit: Breakfast"
+      },
+      {
+        "id": 11453,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-02T17:10:50Z",
+        "notes": "Mom Hospital Visit: Car Petrol"
+      },
+      {
+        "id": 11454,
+        "type": "expense",
+        "amount": 20966.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-12-02T18:44:40Z",
+        "notes": "Mom KMC Visit: Discharge Settlement"
+      },
+      {
+        "id": 11455,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-02T19:35:46Z",
+        "notes": "Mom KMC Visit: Snacks"
+      },
+      {
+        "id": 11456,
+        "type": "expense",
+        "amount": 280.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-02T21:48:20Z",
+        "notes": "Hospital Visit For Mom : Dinner"
+      },
+      {
+        "id": 11457,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-02T23:59:59Z",
+        "notes": "Mom Hospital Visit: Car Petrol"
+      },
+      {
+        "id": 11458,
+        "type": "expense",
+        "amount": 280.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-02T23:59:59Z",
+        "notes": "Hospital Visit For Mom : Dinner"
+      },
+      {
+        "id": 11459,
+        "type": "expense",
+        "amount": 507.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-12-03T15:22:06Z",
+        "notes": "Mom Hospital Visit: Bus: Pdkt to Bang"
+      },
+      {
+        "id": 11460,
+        "type": "expense",
+        "amount": 45000.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2024-12-03T20:51:44Z",
+        "notes": "Mr Solaimalai Nachi"
+      },
+      {
+        "id": 11461,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-04T11:36:22Z",
+        "notes": "Bananas"
+      },
+      {
+        "id": 11462,
+        "type": "expense",
+        "amount": 45000.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2024-12-04T11:47:50Z",
+        "notes": "Mr Solaimalai Nachi"
+      },
+      {
+        "id": 11463,
+        "type": "expense",
+        "amount": 45000.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2024-12-04T17:22:30Z",
+        "notes": "Mr Solaimalai Nachi"
+      },
+      {
+        "id": 11464,
+        "type": "income",
+        "amount": 5000.0,
+        "category_id": 13,
+        "source_id": 2,
+        "date": "2024-12-05T00:11:17Z",
+        "notes": "Agalya"
+      },
+      {
+        "id": 11465,
+        "type": "expense",
+        "amount": 1629.8,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-05T00:18:47Z",
+        "notes": "Minoxidil 5% For Myself"
+      },
+      {
+        "id": 11466,
+        "type": "expense",
+        "amount": 22000.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2024-12-05T09:59:35Z",
+        "notes": "Mr Solaimalai Nachi"
+      },
+      {
+        "id": 11467,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-05T11:38:16Z",
+        "notes": "Bang DTH Receiver Replacement"
+      },
+      {
+        "id": 11468,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2024-12-06T11:43:22Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 11469,
+        "type": "income",
+        "amount": 6.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-06T11:44:42Z",
+        "notes": "Converted to Cash"
+      },
+      {
+        "id": 11470,
+        "type": "expense",
+        "amount": 27.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-06T11:45:00Z",
+        "notes": "Milk"
+      },
+      {
+        "id": 11471,
+        "type": "expense",
+        "amount": 13800.0,
+        "category_id": 2,
+        "source_id": 2,
+        "date": "2024-12-06T16:38:16Z",
+        "notes": "December Month House Rent"
+      },
+      {
+        "id": 11472,
+        "type": "expense",
+        "amount": 576.45,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-12-06T20:37:46Z",
+        "notes": "Drinks: Spend"
+      },
+      {
+        "id": 11473,
+        "type": "income",
+        "amount": 50000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-07T14:39:34Z",
+        "notes": "Mr Solaim INDIAN BA"
+      },
+      {
+        "id": 11474,
+        "type": "income",
+        "amount": 50000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-07T14:42:33Z",
+        "notes": "Mr Solaim INDIAN BA"
+      },
+      {
+        "id": 11475,
+        "type": "expense",
+        "amount": 890.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-12-07T15:08:16Z",
+        "notes": "CASTLE REST BANGALORE"
+      },
+      {
+        "id": 11476,
+        "type": "income",
+        "amount": 50000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-07T23:59:59Z",
+        "notes": "Mr Solaim INDIAN BA"
+      },
+      {
+        "id": 11477,
+        "type": "income",
+        "amount": 50000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-07T23:59:59Z",
+        "notes": "Mr Solaim INDIAN BA"
+      },
+      {
+        "id": 11478,
+        "type": "expense",
+        "amount": 824.82,
+        "category_id": 11,
+        "source_id": 2,
+        "date": "2024-12-09T00:27:06Z",
+        "notes": "Postpaid Bill Paid For Myself"
+      },
+      {
+        "id": 11479,
+        "type": "income",
+        "amount": 12000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-09T05:20:19Z",
+        "notes": "Mr Solaim INDIAN BA"
+      },
+      {
+        "id": 11480,
+        "type": "expense",
+        "amount": 335.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-09T07:24:12Z",
+        "notes": "Cool Drinks & Snacks"
+      },
+      {
+        "id": 11481,
+        "type": "income",
+        "amount": 12000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-09T12:29:53Z",
+        "notes": "Mr Solaim INDIAN BA"
+      },
+      {
+        "id": 11482,
+        "type": "expense",
+        "amount": 3000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-09T12:49:37Z",
+        "notes": "amazon pay gift car"
+      },
+      {
+        "id": 11483,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-09T13:49:37Z",
+        "notes": "Mom KMC Post Visit: Checkup & Medicine"
+      },
+      {
+        "id": 11484,
+        "type": "expense",
+        "amount": 11000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-10T14:28:54Z",
+        "notes": "Gave it to Dad & Mom"
+      },
+      {
+        "id": 11485,
+        "type": "expense",
+        "amount": 11000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-10T23:59:59Z",
+        "notes": "Gave it to Parents"
+      },
+      {
+        "id": 11486,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-11T07:25:01Z",
+        "notes": "December Month - 2024"
+      },
+      {
+        "id": 11487,
+        "type": "expense",
+        "amount": 1300.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-12T13:39:12Z",
+        "notes": "Car Petrol"
+      },
+      {
+        "id": 11488,
+        "type": "expense",
+        "amount": 434.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-14T00:16:44Z",
+        "notes": "Treat: Cool Drinks"
+      },
+      {
+        "id": 11489,
+        "type": "expense",
+        "amount": 1470.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-14T00:19:38Z",
+        "notes": "Treat: Dinner"
+      },
+      {
+        "id": 11490,
+        "type": "expense",
+        "amount": 574.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-14T00:24:43Z",
+        "notes": "Groceries From Zepto"
+      },
+      {
+        "id": 11491,
+        "type": "expense",
+        "amount": 198.99,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-14T00:29:06Z",
+        "notes": "Pdkt Home DTH Recharge"
+      },
+      {
+        "id": 11492,
+        "type": "expense",
+        "amount": 987.26,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2024-12-14T15:33:31Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 11493,
+        "type": "expense",
+        "amount": 987.26,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2024-12-14T15:33:33Z",
+        "notes": "credpay.zepto@axisb"
+      },
+      {
+        "id": 11494,
+        "type": "expense",
+        "amount": 1210.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-12-14T19:50:58Z",
+        "notes": "Old Monk & Others"
+      },
+      {
+        "id": 11495,
+        "type": "expense",
+        "amount": 1470.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-12-14T19:58:44Z",
+        "notes": "CASTLE REST BANGALORE"
+      },
+      {
+        "id": 11496,
+        "type": "expense",
+        "amount": 1210.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-12-14T23:59:59Z",
+        "notes": "Drinks: Magic Moments"
+      },
+      {
+        "id": 11497,
+        "type": "income",
+        "amount": 5000.0,
+        "category_id": 13,
+        "source_id": 2,
+        "date": "2024-12-15T23:15:08Z",
+        "notes": "Abi"
+      },
+      {
+        "id": 11498,
+        "type": "expense",
+        "amount": 4885.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-16T17:39:37Z",
+        "notes": "Ms ABINAYA  S"
+      },
+      {
+        "id": 11499,
+        "type": "expense",
+        "amount": 2500.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2024-12-16T23:11:55Z",
+        "notes": "Agalya"
+      },
+      {
+        "id": 11500,
+        "type": "expense",
+        "amount": 2987.26,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-16T23:14:35Z",
+        "notes": "AXOMB"
+      },
+      {
+        "id": 11501,
+        "type": "expense",
+        "amount": 2385.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-16T23:40:19Z",
+        "notes": "December Month - 2024"
+      },
+      {
+        "id": 11502,
+        "type": "expense",
+        "amount": 4885.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-16T23:59:59Z",
+        "notes": "Ms ABINAYA  S"
+      },
+      {
+        "id": 11503,
+        "type": "income",
+        "amount": 2987.26,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2024-12-17T04:03:20Z",
+        "notes": "null"
+      },
+      {
+        "id": 11504,
+        "type": "expense",
+        "amount": 210.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2024-12-17T14:01:03Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 11505,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-19T12:22:48Z",
+        "notes": "4th Paid: Transport"
+      },
+      {
+        "id": 11506,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2024-12-20T04:54:51Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 11507,
+        "type": "expense",
+        "amount": 3000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-20T04:56:06Z",
+        "notes": "4th Paid: Service"
+      },
+      {
+        "id": 11508,
+        "type": "income",
+        "amount": 1500.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-20T04:56:39Z",
+        "notes": "Tata Car Accident Cover From Patti"
+      },
+      {
+        "id": 11509,
+        "type": "expense",
+        "amount": 559.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2024-12-20T05:01:50Z",
+        "notes": "Agalya"
+      },
+      {
+        "id": 11510,
+        "type": "expense",
+        "amount": 514.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-12-20T10:30:58Z",
+        "notes": "Groceries From Dmart - Cancelled"
+      },
+      {
+        "id": 11511,
+        "type": "expense",
+        "amount": 967.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-20T10:42:03Z",
+        "notes": "2nd Car Cover"
+      },
+      {
+        "id": 11512,
+        "type": "expense",
+        "amount": 9996.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-20T12:21:04Z",
+        "notes": "SBI Credit Card Bill Paid"
+      },
+      {
+        "id": 11513,
+        "type": "expense",
+        "amount": 7675.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-12-20T15:02:59Z",
+        "notes": "Gear Cable Replacement"
+      },
+      {
+        "id": 11514,
+        "type": "expense",
+        "amount": 967.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-20T22:40:14Z",
+        "notes": "Groceries From Amazon"
+      },
+      {
+        "id": 11515,
+        "type": "expense",
+        "amount": 7675.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-12-20T22:40:14Z",
+        "notes": "4th Paid: Service"
+      },
+      {
+        "id": 11516,
+        "type": "expense",
+        "amount": 514.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-12-20T22:40:14Z",
+        "notes": "Groceries From Dmart - Cancelled"
+      },
+      {
+        "id": 11517,
+        "type": "expense",
+        "amount": 9996.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-20T22:40:14Z",
+        "notes": "SBI Credit Card Bill Paid"
+      },
+      {
+        "id": 11518,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-21T03:11:50Z",
+        "notes": "Lunch: Tips"
+      },
+      {
+        "id": 11519,
+        "type": "income",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-21T03:15:56Z",
+        "notes": "Agalya"
+      },
+      {
+        "id": 11520,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 20,
+        "source_id": 1,
+        "date": "2024-12-21T03:19:53Z",
+        "notes": "Agalya"
+      },
+      {
+        "id": 11521,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-12-21T06:57:18Z",
+        "notes": "Car : Toll Gate 1"
+      },
+      {
+        "id": 11522,
+        "type": "expense",
+        "amount": 90.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-12-21T08:25:55Z",
+        "notes": "Car : Toll Gate 2"
+      },
+      {
+        "id": 11523,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-12-21T10:14:34Z",
+        "notes": "Car : Toll Gate 3"
+      },
+      {
+        "id": 11524,
+        "type": "expense",
+        "amount": 1160.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-12-21T12:36:26Z",
+        "notes": "Lunch : Biriyani & Chicken Tikka"
+      },
+      {
+        "id": 11525,
+        "type": "expense",
+        "amount": 95.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-12-21T12:43:11Z",
+        "notes": "Car : Toll Gate 4"
+      },
+      {
+        "id": 11526,
+        "type": "expense",
+        "amount": 1800.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-21T14:03:55Z",
+        "notes": "Car Petrol"
+      },
+      {
+        "id": 11527,
+        "type": "expense",
+        "amount": 1160.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-12-21T23:59:59Z",
+        "notes": "Lunch : Biriyani & Chicken Tikka"
+      },
+      {
+        "id": 11528,
+        "type": "expense",
+        "amount": 1800.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-21T23:59:59Z",
+        "notes": "Car Petrol"
+      },
+      {
+        "id": 11529,
+        "type": "expense",
+        "amount": 530.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-23T03:21:08Z",
+        "notes": "Thanjavur Visit: Dinner"
+      },
+      {
+        "id": 11530,
+        "type": "income",
+        "amount": 138117.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-24T05:10:49Z",
+        "notes": "Unknown Sender"
+      },
+      {
+        "id": 11531,
+        "type": "expense",
+        "amount": 10000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-24T13:36:19Z",
+        "notes": "PPF - Nov & Dec Month"
+      },
+      {
+        "id": 11532,
+        "type": "expense",
+        "amount": 55.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-12-24T18:53:09Z",
+        "notes": "Car : Toll Gate 5"
+      },
+      {
+        "id": 11533,
+        "type": "expense",
+        "amount": 1400.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-25T13:03:26Z",
+        "notes": "Kerala Trip: Spend 1"
+      },
+      {
+        "id": 11534,
+        "type": "expense",
+        "amount": 1400.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-25T23:59:59Z",
+        "notes": "Kerala Trip: Spend 1"
+      },
+      {
+        "id": 11535,
+        "type": "expense",
+        "amount": 1300.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-26T00:07:00Z",
+        "notes": "Kerala Trip: Spend 2"
+      },
+      {
+        "id": 11536,
+        "type": "expense",
+        "amount": 1300.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-26T07:16:16Z",
+        "notes": "Kerala Trip: Spend 2"
+      },
+      {
+        "id": 11537,
+        "type": "expense",
+        "amount": 465.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-26T09:18:36Z",
+        "notes": "Gear Cable Issue Fix"
+      },
+      {
+        "id": 11538,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-26T09:33:31Z",
+        "notes": "Kerala Trip: Spend 4"
+      },
+      {
+        "id": 11539,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-26T23:59:59Z",
+        "notes": "Kerala Trip: Spend 4"
+      },
+      {
+        "id": 11540,
+        "type": "expense",
+        "amount": 465.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-26T23:59:59Z",
+        "notes": "Kerala Trip: Spend 3"
+      },
+      {
+        "id": 11541,
+        "type": "expense",
+        "amount": 1073.2,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-27T15:13:13Z",
+        "notes": "Kerala Trip: Spend 5"
+      },
+      {
+        "id": 11542,
+        "type": "expense",
+        "amount": 1740.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-27T15:14:56Z",
+        "notes": "Kerala Trip: Spend 6"
+      },
+      {
+        "id": 11543,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-27T20:11:28Z",
+        "notes": "Ms ABINAYA  S"
+      },
+      {
+        "id": 11544,
+        "type": "expense",
+        "amount": 1740.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-27T20:11:29Z",
+        "notes": "Kerala Trip: Spend 6"
+      },
+      {
+        "id": 11545,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-27T23:59:59Z",
+        "notes": "December Month - 2024"
+      },
+      {
+        "id": 11546,
+        "type": "expense",
+        "amount": 349.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-28T09:39:33Z",
+        "notes": "Kerala Trip: Spend 8"
+      },
+      {
+        "id": 11547,
+        "type": "expense",
+        "amount": 336.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-28T12:59:06Z",
+        "notes": "Kerala Trip : Spend 7"
+      },
+      {
+        "id": 11548,
+        "type": "expense",
+        "amount": 1936.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2024-12-28T17:59:41Z",
+        "notes": "Dindigul Thalappakatti Chicken Biriyani"
+      },
+      {
+        "id": 11549,
+        "type": "income",
+        "amount": 1600.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-28T22:25:49Z",
+        "notes": "Converted to Cash"
+      },
+      {
+        "id": 11550,
+        "type": "expense",
+        "amount": 1936.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2024-12-28T23:17:18Z",
+        "notes": "Dindigul Thalappakatti Chicken Biriyani"
+      },
+      {
+        "id": 11551,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-29T22:26:55Z",
+        "notes": "Jagan Prabha Akka Pudhunanmai: Moi"
+      },
+      {
+        "id": 11552,
+        "type": "expense",
+        "amount": 4000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-30T09:36:09Z",
+        "notes": "Kerala Trip: Spend 9"
+      },
+      {
+        "id": 11553,
+        "type": "expense",
+        "amount": 474.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-30T14:39:47Z",
+        "notes": "Pdkt Shop Electricity"
+      },
+      {
+        "id": 11554,
+        "type": "expense",
+        "amount": 190.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-30T14:41:20Z",
+        "notes": "Pdkt Home Ground Floor Electricity"
+      },
+      {
+        "id": 11555,
+        "type": "income",
+        "amount": 157442.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-31T16:33:50Z",
+        "notes": "December Month"
+      },
+      {
+        "id": 11556,
+        "type": "expense",
+        "amount": 16444.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-31T19:41:18Z",
+        "notes": "SBI Credit Card Bill Paid"
+      },
+      {
+        "id": 11557,
+        "type": "expense",
+        "amount": 1619.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-12-31T23:59:59Z",
+        "notes": "To Jan"
+      },
+      {
+        "id": 11558,
+        "type": "expense",
+        "amount": 16444.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-12-31T23:59:59Z",
+        "notes": "SBI Credit Card Bill Paid"
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Groceries",
+        "type": "expense",
+        "icon": "cart",
+        "color": "#F97316"
+      },
+      {
+        "id": 2,
+        "name": "Rent",
+        "type": "expense",
+        "icon": "home-account",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "name": "Utilities",
+        "type": "expense",
+        "icon": "lightning-bolt",
+        "color": "#64748B"
+      },
+      {
+        "id": 4,
+        "name": "Salary",
+        "type": "income",
+        "icon": "cash-multiple",
+        "color": "#16A34A"
+      },
+      {
+        "id": 5,
+        "name": "Misc",
+        "type": "expense",
+        "icon": "dots-horizontal",
+        "color": "#9CA3AF"
+      },
+      {
+        "id": 6,
+        "name": "DTH",
+        "type": "expense",
+        "icon": "television-play",
+        "color": "#8B5CF6"
+      },
+      {
+        "id": 9,
+        "name": "Snacks",
+        "type": "expense",
+        "icon": "food-variant",
+        "color": "#FBBF24"
+      },
+      {
+        "id": 10,
+        "name": "Wallet Transfer",
+        "type": "expense",
+        "icon": "swap-horizontal",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "Mobile Recharge",
+        "type": "expense",
+        "icon": "cellphone",
+        "color": "#0EA5E9"
+      },
+      {
+        "id": 12,
+        "name": "Bike / Vehicle",
+        "type": "expense",
+        "icon": "motorbike",
+        "color": "#DC2626"
+      },
+      {
+        "id": 13,
+        "name": "Money Received",
+        "type": "income",
+        "icon": "arrow-down-bold-circle",
+        "color": "#10B981"
+      },
+      {
+        "id": 14,
+        "name": "Interest",
+        "type": "income",
+        "icon": "percent",
+        "color": "#22C55E"
+      },
+      {
+        "id": 15,
+        "name": "Money Given",
+        "type": "expense",
+        "icon": "arrow-up-bold-circle",
+        "color": "#EF4444"
+      },
+      {
+        "id": 16,
+        "name": "Food & Dining",
+        "type": "expense",
+        "icon": "silverware-fork-knife",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 17,
+        "name": "Family",
+        "type": "expense",
+        "icon": "account-group",
+        "color": "#F43F5E"
+      },
+      {
+        "id": 18,
+        "name": "Gifts",
+        "type": "expense",
+        "icon": "gift",
+        "color": "#EC4899"
+      },
+      {
+        "id": 19,
+        "name": "Savings",
+        "type": "expense",
+        "icon": "piggy-bank",
+        "color": "#059669"
+      },
+      {
+        "id": 20,
+        "name": "Loan / EMI",
+        "type": "expense",
+        "icon": "bank-transfer",
+        "color": "#B91C1C"
+      },
+      {
+        "id": 21,
+        "name": "Transport",
+        "type": "expense",
+        "icon": "bus",
+        "color": "#14B8A6"
+      },
+      {
+        "id": 22,
+        "name": "Entertainment",
+        "type": "expense",
+        "icon": "movie-open",
+        "color": "#7C3AED"
+      },
+      {
+        "id": 23,
+        "name": "Donations",
+        "type": "expense",
+        "icon": "hand-heart",
+        "color": "#22C55E"
+      },
+      {
+        "id": 24,
+        "name": "Home Improvement",
+        "type": "expense",
+        "icon": "hammer-wrench",
+        "color": "#A16207"
+      },
+      {
+        "id": 25,
+        "name": "Printing & Stationery",
+        "type": "expense",
+        "icon": "printer",
+        "color": "#6B7280"
+      },
+      {
+        "id": 26,
+        "name": "Bank Charges",
+        "type": "expense",
+        "icon": "bank",
+        "color": "#374151"
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "name": "Cash Spend",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "name": "Axis",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 3,
+        "name": "SBI Group",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 4,
+        "name": "Airtel Payments",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 5,
+        "name": "Paytm",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 6,
+        "name": "Unknown",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 7,
+        "name": "Vijaya",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 8,
+        "name": "Freecharge",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 9,
+        "name": "City Union",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 10,
+        "name": "MOBIKWIK",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "BOB",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 12,
+        "name": "HDFC",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 13,
+        "name": "Other",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      }
+    ],
+    "budgets": [],
+    "bills": []
+  }
+}

@@ -1,0 +1,1749 @@
+{
+  "version": 1,
+  "timestamp": "2026-06-19T13:52:31.986613Z",
+  "data": {
+    "transactions": [
+      {
+        "id": 4827,
+        "type": "income",
+        "amount": 131.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-01T00:00:00Z",
+        "notes": "SELF"
+      },
+      {
+        "id": 4828,
+        "type": "expense",
+        "amount": 832.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2020-01-01T08:44:53Z",
+        "notes": "Meghna Chicken Biriyani With Kabab"
+      },
+      {
+        "id": 4829,
+        "type": "expense",
+        "amount": 22.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-01T10:28:35Z",
+        "notes": "Milk"
+      },
+      {
+        "id": 4830,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-01T10:29:23Z",
+        "notes": "Fried Grams"
+      },
+      {
+        "id": 4831,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-01-01T10:30:11Z",
+        "notes": "Biscuits"
+      },
+      {
+        "id": 4832,
+        "type": "expense",
+        "amount": 12.0,
+        "category_id": 5,
+        "source_id": 5,
+        "date": "2020-01-01T11:53:10Z",
+        "notes": "null"
+      },
+      {
+        "id": 4833,
+        "type": "expense",
+        "amount": 831.4,
+        "category_id": 5,
+        "source_id": 5,
+        "date": "2020-01-01T12:23:20Z",
+        "notes": "Uber Eats"
+      },
+      {
+        "id": 4834,
+        "type": "expense",
+        "amount": 9450.0,
+        "category_id": 2,
+        "source_id": 2,
+        "date": "2020-01-01T13:02:34Z",
+        "notes": "December Month"
+      },
+      {
+        "id": 4835,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-02T19:33:40Z",
+        "notes": "Bananas"
+      },
+      {
+        "id": 4836,
+        "type": "expense",
+        "amount": 21.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-02T19:34:49Z",
+        "notes": "Milk"
+      },
+      {
+        "id": 4837,
+        "type": "income",
+        "amount": 250.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-02T20:37:33Z",
+        "notes": "Unknown Sender"
+      },
+      {
+        "id": 4838,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-03T10:21:38Z",
+        "notes": "Parotta & Kothu Parotta"
+      },
+      {
+        "id": 4839,
+        "type": "expense",
+        "amount": 160.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-01-03T10:22:24Z",
+        "notes": "Chips"
+      },
+      {
+        "id": 4840,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-03T10:23:15Z",
+        "notes": "Coke"
+      },
+      {
+        "id": 4841,
+        "type": "expense",
+        "amount": 1484.1,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-01-03T12:19:34Z",
+        "notes": "Converted to  Cash"
+      },
+      {
+        "id": 4842,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-01-03T12:24:45Z",
+        "notes": "Biscuits"
+      },
+      {
+        "id": 4843,
+        "type": "expense",
+        "amount": 386.73,
+        "category_id": 12,
+        "source_id": 2,
+        "date": "2020-01-03T13:24:54Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 4844,
+        "type": "expense",
+        "amount": 374.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-03T16:15:59Z",
+        "notes": "PRABU STransfer."
+      },
+      {
+        "id": 4845,
+        "type": "income",
+        "amount": 374.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-01-03T18:34:45Z",
+        "notes": "null"
+      },
+      {
+        "id": 4846,
+        "type": "expense",
+        "amount": 21.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-03T19:11:07Z",
+        "notes": "VENKATACH/Vijaya Ba"
+      },
+      {
+        "id": 4847,
+        "type": "expense",
+        "amount": 3.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2020-01-03T19:29:27Z",
+        "notes": "Bike Air"
+      },
+      {
+        "id": 4848,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-03T19:55:15Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 4849,
+        "type": "expense",
+        "amount": 2500.0,
+        "category_id": 19,
+        "source_id": 2,
+        "date": "2020-01-04T06:57:25Z",
+        "notes": "Recurring Deposit"
+      },
+      {
+        "id": 4850,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-04T09:23:06Z",
+        "notes": "Water Cane"
+      },
+      {
+        "id": 4851,
+        "type": "income",
+        "amount": 400.0,
+        "category_id": 5,
+        "source_id": 7,
+        "date": "2020-01-04T13:42:33Z",
+        "notes": "PRABU/UTIB"
+      },
+      {
+        "id": 4852,
+        "type": "expense",
+        "amount": 400.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-04T13:50:57Z",
+        "notes": "PRABU/Vijaya Ba/Tra"
+      },
+      {
+        "id": 4853,
+        "type": "expense",
+        "amount": 130.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-04T19:31:23Z",
+        "notes": "Haircut"
+      },
+      {
+        "id": 4854,
+        "type": "expense",
+        "amount": 250.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-05T10:04:05Z",
+        "notes": "Ms ABINAY/City Unio"
+      },
+      {
+        "id": 4855,
+        "type": "expense",
+        "amount": 80.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2020-01-05T16:07:14Z",
+        "notes": "Kushka"
+      },
+      {
+        "id": 4856,
+        "type": "income",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 7,
+        "date": "2020-01-05T17:06:07Z",
+        "notes": "PRABU/UTIB"
+      },
+      {
+        "id": 4857,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-05T17:08:05Z",
+        "notes": "PRABU/Vijaya Ba/Tra"
+      },
+      {
+        "id": 4858,
+        "type": "income",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-05T17:13:26Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 4859,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-05T17:14:14Z",
+        "notes": "Ms ABINAY/City Unio"
+      },
+      {
+        "id": 4860,
+        "type": "expense",
+        "amount": 5.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-05T17:45:41Z",
+        "notes": "Donation"
+      },
+      {
+        "id": 4861,
+        "type": "expense",
+        "amount": 925.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-05T17:46:06Z",
+        "notes": "Birthday Clothes for Eniyan"
+      },
+      {
+        "id": 4862,
+        "type": "expense",
+        "amount": 250.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-05T17:47:05Z",
+        "notes": "Clothes for Agalya"
+      },
+      {
+        "id": 4863,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-05T17:48:32Z",
+        "notes": "Handbag For Abi"
+      },
+      {
+        "id": 4864,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-01-05T17:50:18Z",
+        "notes": "Juice"
+      },
+      {
+        "id": 4865,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2020-01-05T17:51:35Z",
+        "notes": "Bike Parking in Shivaji Nagar Bus Stand"
+      },
+      {
+        "id": 4866,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-05T17:56:12Z",
+        "notes": "Napkins"
+      },
+      {
+        "id": 4867,
+        "type": "expense",
+        "amount": 5.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-05T17:57:02Z",
+        "notes": "Rest Room"
+      },
+      {
+        "id": 4868,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-01-05T17:59:18Z",
+        "notes": "Biscuits"
+      },
+      {
+        "id": 4869,
+        "type": "expense",
+        "amount": 25000.0,
+        "category_id": 19,
+        "source_id": 2,
+        "date": "2020-01-06T07:12:31Z",
+        "notes": "Recurring Deposit"
+      },
+      {
+        "id": 4870,
+        "type": "expense",
+        "amount": 477.0,
+        "category_id": 3,
+        "source_id": 5,
+        "date": "2020-01-06T12:16:26Z",
+        "notes": "BILLDESKutil"
+      },
+      {
+        "id": 4871,
+        "type": "expense",
+        "amount": 307.42,
+        "category_id": 21,
+        "source_id": 3,
+        "date": "2020-01-06T12:16:30Z",
+        "notes": "Bus : Bangalore to Pudukkottai"
+      },
+      {
+        "id": 4872,
+        "type": "expense",
+        "amount": 170.0,
+        "category_id": 21,
+        "source_id": 2,
+        "date": "2020-01-06T12:30:12Z",
+        "notes": "Bus : Bangalore to Pudukkottai"
+      },
+      {
+        "id": 4873,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-06T12:32:02Z",
+        "notes": "Vegetables"
+      },
+      {
+        "id": 4874,
+        "type": "expense",
+        "amount": 302.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-01-06T15:58:26Z",
+        "notes": "Bangalore Home Electricity"
+      },
+      {
+        "id": 4875,
+        "type": "income",
+        "amount": 15.0,
+        "category_id": 13,
+        "source_id": 2,
+        "date": "2020-01-06T17:07:28Z",
+        "notes": "Get it From Paytm"
+      },
+      {
+        "id": 4876,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 7,
+        "date": "2020-01-06T19:34:30Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 4877,
+        "type": "expense",
+        "amount": 21.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-06T19:36:37Z",
+        "notes": "VENKATACH/Vijaya Ba"
+      },
+      {
+        "id": 4878,
+        "type": "income",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-06T20:00:21Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 4879,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 7,
+        "date": "2020-01-06T20:00:55Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 4880,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-06T20:01:58Z",
+        "notes": "Vegetables"
+      },
+      {
+        "id": 4881,
+        "type": "income",
+        "amount": 9.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-01-07T15:18:29Z",
+        "notes": "Received From CRED"
+      },
+      {
+        "id": 4882,
+        "type": "income",
+        "amount": 1485.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-07T16:55:36Z",
+        "notes": "KATHIRESA/ICICI Ban"
+      },
+      {
+        "id": 4883,
+        "type": "expense",
+        "amount": 21.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-07T19:46:45Z",
+        "notes": "VENKATACH/Vijaya Ba"
+      },
+      {
+        "id": 4884,
+        "type": "expense",
+        "amount": 90.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-01-07T20:40:41Z",
+        "notes": "Shawarma Roll"
+      },
+      {
+        "id": 4885,
+        "type": "expense",
+        "amount": 21.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-08T20:43:44Z",
+        "notes": "Milk"
+      },
+      {
+        "id": 4886,
+        "type": "expense",
+        "amount": 70.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-08T20:44:47Z",
+        "notes": "Parotta & Idly"
+      },
+      {
+        "id": 4887,
+        "type": "expense",
+        "amount": 70.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-08T20:47:47Z",
+        "notes": "Vegetables"
+      },
+      {
+        "id": 4888,
+        "type": "expense",
+        "amount": 300.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-09T09:49:14Z",
+        "notes": "January - 01 - Wed - 2020"
+      },
+      {
+        "id": 4889,
+        "type": "income",
+        "amount": 12.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-01-09T16:13:34Z",
+        "notes": "Received From CRED"
+      },
+      {
+        "id": 4890,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-09T19:52:08Z",
+        "notes": "Curd"
+      },
+      {
+        "id": 4891,
+        "type": "expense",
+        "amount": 21.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-09T19:52:45Z",
+        "notes": "Milk"
+      },
+      {
+        "id": 4892,
+        "type": "income",
+        "amount": 2350.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2020-01-10T23:59:59Z",
+        "notes": "null"
+      },
+      {
+        "id": 4893,
+        "type": "expense",
+        "amount": 80.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2020-01-11T08:41:29Z",
+        "notes": "Auto : Bus Stand to Home"
+      },
+      {
+        "id": 4894,
+        "type": "expense",
+        "amount": 7000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-11T09:17:55Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 4895,
+        "type": "expense",
+        "amount": 260.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-11T10:37:58Z",
+        "notes": "Fruits For Mom"
+      },
+      {
+        "id": 4896,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-11T20:16:53Z",
+        "notes": "VETRIVEL /Karur Vys"
+      },
+      {
+        "id": 4897,
+        "type": "expense",
+        "amount": 5198.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-11T21:21:06Z",
+        "notes": "Prayed For Vilangiyamman Temple"
+      },
+      {
+        "id": 4898,
+        "type": "expense",
+        "amount": 2.7,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-11T23:36:38Z",
+        "notes": "18% on Charge"
+      },
+      {
+        "id": 4899,
+        "type": "expense",
+        "amount": 15.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-11T23:36:53Z",
+        "notes": "Consolidated Charges for A/c"
+      },
+      {
+        "id": 4900,
+        "type": "income",
+        "amount": 2350.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2020-01-11T23:59:59Z",
+        "notes": "null"
+      },
+      {
+        "id": 4901,
+        "type": "expense",
+        "amount": 300.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-12T10:38:50Z",
+        "notes": "Prawns"
+      },
+      {
+        "id": 4902,
+        "type": "expense",
+        "amount": 630.0,
+        "category_id": 22,
+        "source_id": 1,
+        "date": "2020-01-12T10:39:52Z",
+        "notes": "Movie : Darbar"
+      },
+      {
+        "id": 4903,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-12T10:41:57Z",
+        "notes": "Gave it To Shivani"
+      },
+      {
+        "id": 4904,
+        "type": "income",
+        "amount": 2350.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2020-01-12T23:59:59Z",
+        "notes": "null"
+      },
+      {
+        "id": 4905,
+        "type": "income",
+        "amount": 1000.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2020-01-13T19:02:42Z",
+        "notes": "Get it From Abi Parents"
+      },
+      {
+        "id": 4906,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2020-01-13T19:25:56Z",
+        "notes": "Bike Petrol For Dad"
+      },
+      {
+        "id": 4907,
+        "type": "expense",
+        "amount": 70.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2020-01-13T19:30:52Z",
+        "notes": "Auto : Home to Bus Stand"
+      },
+      {
+        "id": 4908,
+        "type": "income",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-13T19:40:51Z",
+        "notes": "VETRIVEL /Karur Vys"
+      },
+      {
+        "id": 4909,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-01-14T16:26:56Z",
+        "notes": "Gave it to Boopathi Office"
+      },
+      {
+        "id": 4910,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 5,
+        "date": "2020-01-14T16:28:09Z",
+        "notes": "null"
+      },
+      {
+        "id": 4911,
+        "type": "expense",
+        "amount": 88.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-01-14T23:01:24Z",
+        "notes": "Egg Sundal"
+      },
+      {
+        "id": 4912,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-14T23:05:44Z",
+        "notes": "Pongal : Sugarcane"
+      },
+      {
+        "id": 4913,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2020-01-15T04:59:24Z",
+        "notes": "Bus : Pudukkottai to Trichy"
+      },
+      {
+        "id": 4914,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-15T05:00:15Z",
+        "notes": "Dosa & Parotta"
+      },
+      {
+        "id": 4915,
+        "type": "expense",
+        "amount": 308.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2020-01-15T05:01:36Z",
+        "notes": "Bus : Trichy to Bangalore"
+      },
+      {
+        "id": 4916,
+        "type": "income",
+        "amount": 200.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2020-01-15T19:02:49Z",
+        "notes": "Get it From Parents"
+      },
+      {
+        "id": 4917,
+        "type": "expense",
+        "amount": 300.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-15T19:03:25Z",
+        "notes": "Pongal : Bike Petrol"
+      },
+      {
+        "id": 4918,
+        "type": "expense",
+        "amount": 350.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-15T19:04:09Z",
+        "notes": "Pongal : Biriyani"
+      },
+      {
+        "id": 4919,
+        "type": "expense",
+        "amount": 70.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-15T21:10:19Z",
+        "notes": "Pongal : Cool Drinks"
+      },
+      {
+        "id": 4920,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-16T06:35:32Z",
+        "notes": "Gold Chit - January Month"
+      },
+      {
+        "id": 4921,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-16T15:14:07Z",
+        "notes": "Tomato Rice"
+      },
+      {
+        "id": 4922,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-16T20:47:43Z",
+        "notes": "Parotta"
+      },
+      {
+        "id": 4923,
+        "type": "expense",
+        "amount": 598.0,
+        "category_id": 11,
+        "source_id": 3,
+        "date": "2020-01-17T09:15:59Z",
+        "notes": "Recharge For Agalya"
+      },
+      {
+        "id": 4924,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-17T13:48:42Z",
+        "notes": "Egg Fried Rice"
+      },
+      {
+        "id": 4925,
+        "type": "income",
+        "amount": 598.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-17T21:41:37Z",
+        "notes": "Converted to  Cash"
+      },
+      {
+        "id": 4926,
+        "type": "expense",
+        "amount": 32.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-17T23:15:44Z",
+        "notes": "Dosa & Chapathi"
+      },
+      {
+        "id": 4927,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-18T22:17:58Z",
+        "notes": "Eggs"
+      },
+      {
+        "id": 4928,
+        "type": "expense",
+        "amount": 97.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-18T22:18:06Z",
+        "notes": "Coke & Cigarette"
+      },
+      {
+        "id": 4929,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-19T22:24:16Z",
+        "notes": "Dosa"
+      },
+      {
+        "id": 4930,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-19T23:57:32Z",
+        "notes": "VIVEK V/INDUSIND /U"
+      },
+      {
+        "id": 4931,
+        "type": "income",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-19T23:58:32Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 4932,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-20T14:32:46Z",
+        "notes": "Meals"
+      },
+      {
+        "id": 4933,
+        "type": "expense",
+        "amount": 135.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-20T18:44:58Z",
+        "notes": "Junior Horlicks"
+      },
+      {
+        "id": 4934,
+        "type": "expense",
+        "amount": 55.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-20T23:37:44Z",
+        "notes": "Cooking Oil"
+      },
+      {
+        "id": 4935,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 11,
+        "source_id": 2,
+        "date": "2020-01-21T13:10:58Z",
+        "notes": "Recharge For Myself BSNL"
+      },
+      {
+        "id": 4936,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-21T21:20:14Z",
+        "notes": "Fruits Bowl"
+      },
+      {
+        "id": 4937,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-21T21:20:52Z",
+        "notes": "Idly With Omelette"
+      },
+      {
+        "id": 4938,
+        "type": "income",
+        "amount": 108044.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2020-01-22T07:17:05Z",
+        "notes": "null"
+      },
+      {
+        "id": 4939,
+        "type": "income",
+        "amount": 191.15,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-22T11:24:01Z",
+        "notes": "IOC Ref No5721805269"
+      },
+      {
+        "id": 4940,
+        "type": "income",
+        "amount": 288.15,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-22T11:24:02Z",
+        "notes": "IOC Ref No5721766219"
+      },
+      {
+        "id": 4941,
+        "type": "income",
+        "amount": 213.98,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-22T11:24:02Z",
+        "notes": "IOC Ref No5721747778"
+      },
+      {
+        "id": 4942,
+        "type": "income",
+        "amount": 373.27,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-22T11:24:03Z",
+        "notes": "IOC Ref No5721783913"
+      },
+      {
+        "id": 4943,
+        "type": "expense",
+        "amount": 717.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-22T14:10:11Z",
+        "notes": "INDIAN OIL CORPORATION"
+      },
+      {
+        "id": 4944,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-22T20:32:47Z",
+        "notes": "Meals"
+      },
+      {
+        "id": 4945,
+        "type": "expense",
+        "amount": 139.73,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2020-01-22T20:35:49Z",
+        "notes": "Chicken Biriyani"
+      },
+      {
+        "id": 4946,
+        "type": "expense",
+        "amount": 625.9,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-01-23T14:42:26Z",
+        "notes": "Pampers Order For Agalya"
+      },
+      {
+        "id": 4947,
+        "type": "expense",
+        "amount": 218.35,
+        "category_id": 12,
+        "source_id": 2,
+        "date": "2020-01-23T15:40:30Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 4948,
+        "type": "expense",
+        "amount": 682.5,
+        "category_id": 21,
+        "source_id": 3,
+        "date": "2020-01-23T16:10:30Z",
+        "notes": "Bus : Thanjavur to Bangalore"
+      },
+      {
+        "id": 4949,
+        "type": "expense",
+        "amount": 657.5,
+        "category_id": 21,
+        "source_id": 3,
+        "date": "2020-01-23T16:15:36Z",
+        "notes": "Bus : Thanjavur to Bangalore"
+      },
+      {
+        "id": 4950,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-23T16:35:39Z",
+        "notes": "Meals"
+      },
+      {
+        "id": 4951,
+        "type": "income",
+        "amount": 713.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-23T22:13:10Z",
+        "notes": "Ms ABINAY/City Unio"
+      },
+      {
+        "id": 4952,
+        "type": "expense",
+        "amount": 5.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2020-01-23T22:15:56Z",
+        "notes": "Bike Air"
+      },
+      {
+        "id": 4953,
+        "type": "expense",
+        "amount": 55.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-23T22:27:48Z",
+        "notes": "Podi Dosa With Kalakki"
+      },
+      {
+        "id": 4954,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-24T13:40:11Z",
+        "notes": "Vegetables Rice"
+      },
+      {
+        "id": 4955,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-01-24T21:59:48Z",
+        "notes": "Groundnuts"
+      },
+      {
+        "id": 4956,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-24T22:00:22Z",
+        "notes": "Kushka"
+      },
+      {
+        "id": 4957,
+        "type": "expense",
+        "amount": 400.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-25T12:17:21Z",
+        "notes": "Water Bill"
+      },
+      {
+        "id": 4958,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-25T15:24:35Z",
+        "notes": "Gas Delivery"
+      },
+      {
+        "id": 4959,
+        "type": "expense",
+        "amount": 190.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-25T15:25:00Z",
+        "notes": "Gas Tube Replace"
+      },
+      {
+        "id": 4960,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-25T15:25:38Z",
+        "notes": "Meals With Omelette"
+      },
+      {
+        "id": 4961,
+        "type": "income",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-25T16:17:52Z",
+        "notes": "VIVEK  V/INDUSIND /"
+      },
+      {
+        "id": 4962,
+        "type": "expense",
+        "amount": 2469.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-01-25T20:45:52Z",
+        "notes": "Old Monk & Bacardi"
+      },
+      {
+        "id": 4963,
+        "type": "income",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 7,
+        "date": "2020-01-26T10:54:58Z",
+        "notes": "PRABU/UTIB"
+      },
+      {
+        "id": 4964,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-26T11:00:01Z",
+        "notes": "PRABU STransfer."
+      },
+      {
+        "id": 4965,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-26T11:00:01Z",
+        "notes": "PRABU/Vijaya Ba/Tra"
+      },
+      {
+        "id": 4966,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-26T11:52:48Z",
+        "notes": "Gave it to Abi"
+      },
+      {
+        "id": 4967,
+        "type": "expense",
+        "amount": 700.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-26T12:42:02Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 4968,
+        "type": "expense",
+        "amount": 14.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-26T14:20:22Z",
+        "notes": "Water Cane"
+      },
+      {
+        "id": 4969,
+        "type": "expense",
+        "amount": 43.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-26T14:21:18Z",
+        "notes": "Vegetables"
+      },
+      {
+        "id": 4970,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-26T14:21:43Z",
+        "notes": "Curd"
+      },
+      {
+        "id": 4971,
+        "type": "expense",
+        "amount": 99.0,
+        "category_id": 11,
+        "source_id": 2,
+        "date": "2020-01-27T09:18:10Z",
+        "notes": "Recharge For Abi"
+      },
+      {
+        "id": 4972,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-27T19:54:44Z",
+        "notes": "Meals"
+      },
+      {
+        "id": 4973,
+        "type": "expense",
+        "amount": 55.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-27T21:32:34Z",
+        "notes": "Podi Dosa With Kalakki"
+      },
+      {
+        "id": 4974,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-28T11:06:05Z",
+        "notes": "Dosa with Vadai"
+      },
+      {
+        "id": 4975,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2020-01-28T13:27:01Z",
+        "notes": "Meals"
+      },
+      {
+        "id": 4976,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-01-29T11:40:46Z",
+        "notes": "Idly With Omelette"
+      },
+      {
+        "id": 4977,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2020-01-30T08:42:54Z",
+        "notes": "Bike Petrol For Sis"
+      },
+      {
+        "id": 4978,
+        "type": "income",
+        "amount": 58000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-30T19:47:51Z",
+        "notes": "January Month"
+      },
+      {
+        "id": 4979,
+        "type": "expense",
+        "amount": 346.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-31T00:15:41Z",
+        "notes": "Dad Birthday Dinner"
+      },
+      {
+        "id": 4980,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-31T08:29:02Z",
+        "notes": "Gave it to Rajendiran Uncle"
+      },
+      {
+        "id": 4981,
+        "type": "expense",
+        "amount": 230.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-31T08:32:23Z",
+        "notes": "Fruits & Mixture For Rajendiran Uncle"
+      },
+      {
+        "id": 4982,
+        "type": "expense",
+        "amount": 130.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-31T08:36:57Z",
+        "notes": "Mixture & Flowers For Seevarathinam Daughter Marriage"
+      },
+      {
+        "id": 4983,
+        "type": "expense",
+        "amount": 44.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-01-31T08:38:27Z",
+        "notes": "Pholi & Palkova"
+      },
+      {
+        "id": 4984,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2020-01-31T08:39:46Z",
+        "notes": "Bike Petrol For Sis"
+      },
+      {
+        "id": 4985,
+        "type": "expense",
+        "amount": 3284.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-01-31T13:53:44Z",
+        "notes": "Cred/Yes Bank /cred"
+      },
+      {
+        "id": 4986,
+        "type": "income",
+        "amount": 3284.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-01-31T17:15:53Z",
+        "notes": "SBI Credit Card Bill Paid"
+      },
+      {
+        "id": 4987,
+        "type": "income",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-31T23:46:01Z",
+        "notes": "Converted to Cash"
+      },
+      {
+        "id": 4988,
+        "type": "income",
+        "amount": 1500.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-31T23:53:51Z",
+        "notes": "Abi"
+      },
+      {
+        "id": 4989,
+        "type": "expense",
+        "amount": 455.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-31T23:55:29Z",
+        "notes": "Dinner & Cool Drinks"
+      },
+      {
+        "id": 4990,
+        "type": "expense",
+        "amount": 548.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-01-31T23:59:59Z",
+        "notes": "To Feb"
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Groceries",
+        "type": "expense",
+        "icon": "cart",
+        "color": "#F97316"
+      },
+      {
+        "id": 2,
+        "name": "Rent",
+        "type": "expense",
+        "icon": "home-account",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "name": "Utilities",
+        "type": "expense",
+        "icon": "lightning-bolt",
+        "color": "#64748B"
+      },
+      {
+        "id": 4,
+        "name": "Salary",
+        "type": "income",
+        "icon": "cash-multiple",
+        "color": "#16A34A"
+      },
+      {
+        "id": 5,
+        "name": "Misc",
+        "type": "expense",
+        "icon": "dots-horizontal",
+        "color": "#9CA3AF"
+      },
+      {
+        "id": 6,
+        "name": "DTH",
+        "type": "expense",
+        "icon": "television-play",
+        "color": "#8B5CF6"
+      },
+      {
+        "id": 9,
+        "name": "Snacks",
+        "type": "expense",
+        "icon": "food-variant",
+        "color": "#FBBF24"
+      },
+      {
+        "id": 10,
+        "name": "Wallet Transfer",
+        "type": "expense",
+        "icon": "swap-horizontal",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "Mobile Recharge",
+        "type": "expense",
+        "icon": "cellphone",
+        "color": "#0EA5E9"
+      },
+      {
+        "id": 12,
+        "name": "Bike / Vehicle",
+        "type": "expense",
+        "icon": "motorbike",
+        "color": "#DC2626"
+      },
+      {
+        "id": 13,
+        "name": "Money Received",
+        "type": "income",
+        "icon": "arrow-down-bold-circle",
+        "color": "#10B981"
+      },
+      {
+        "id": 14,
+        "name": "Interest",
+        "type": "income",
+        "icon": "percent",
+        "color": "#22C55E"
+      },
+      {
+        "id": 15,
+        "name": "Money Given",
+        "type": "expense",
+        "icon": "arrow-up-bold-circle",
+        "color": "#EF4444"
+      },
+      {
+        "id": 16,
+        "name": "Food & Dining",
+        "type": "expense",
+        "icon": "silverware-fork-knife",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 17,
+        "name": "Family",
+        "type": "expense",
+        "icon": "account-group",
+        "color": "#F43F5E"
+      },
+      {
+        "id": 18,
+        "name": "Gifts",
+        "type": "expense",
+        "icon": "gift",
+        "color": "#EC4899"
+      },
+      {
+        "id": 19,
+        "name": "Savings",
+        "type": "expense",
+        "icon": "piggy-bank",
+        "color": "#059669"
+      },
+      {
+        "id": 20,
+        "name": "Loan / EMI",
+        "type": "expense",
+        "icon": "bank-transfer",
+        "color": "#B91C1C"
+      },
+      {
+        "id": 21,
+        "name": "Transport",
+        "type": "expense",
+        "icon": "bus",
+        "color": "#14B8A6"
+      },
+      {
+        "id": 22,
+        "name": "Entertainment",
+        "type": "expense",
+        "icon": "movie-open",
+        "color": "#7C3AED"
+      },
+      {
+        "id": 23,
+        "name": "Donations",
+        "type": "expense",
+        "icon": "hand-heart",
+        "color": "#22C55E"
+      },
+      {
+        "id": 24,
+        "name": "Home Improvement",
+        "type": "expense",
+        "icon": "hammer-wrench",
+        "color": "#A16207"
+      },
+      {
+        "id": 25,
+        "name": "Printing & Stationery",
+        "type": "expense",
+        "icon": "printer",
+        "color": "#6B7280"
+      },
+      {
+        "id": 26,
+        "name": "Bank Charges",
+        "type": "expense",
+        "icon": "bank",
+        "color": "#374151"
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "name": "Cash Spend",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "name": "Axis",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 3,
+        "name": "SBI Group",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 4,
+        "name": "Airtel Payments",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 5,
+        "name": "Paytm",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 6,
+        "name": "Unknown",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 7,
+        "name": "Vijaya",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 8,
+        "name": "Freecharge",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 9,
+        "name": "City Union",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 10,
+        "name": "MOBIKWIK",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "BOB",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 12,
+        "name": "HDFC",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 13,
+        "name": "Other",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      }
+    ],
+    "budgets": [],
+    "bills": []
+  }
+}

@@ -1,0 +1,1416 @@
+{
+  "version": 1,
+  "timestamp": "2026-06-19T13:52:31.932713Z",
+  "data": {
+    "transactions": [
+      {
+        "id": 1,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-01T01:15:12Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 2,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-01T04:28:40Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 3,
+        "type": "expense",
+        "amount": 80.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2017-06-01T08:44:30Z",
+        "notes": "Snacks"
+      },
+      {
+        "id": 4,
+        "type": "expense",
+        "amount": 348.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-06-01T23:39:53Z",
+        "notes": "Old Monk"
+      },
+      {
+        "id": 5,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-02T01:21:03Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 6,
+        "type": "income",
+        "amount": 1000.0,
+        "category_id": 13,
+        "source_id": 2,
+        "date": "2017-06-02T02:14:18Z",
+        "notes": "Get it From Vivek"
+      },
+      {
+        "id": 7,
+        "type": "income",
+        "amount": 500.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2017-06-02T04:16:04Z",
+        "notes": "Get it From Dinesh"
+      },
+      {
+        "id": 8,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-02T04:18:16Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 9,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-06-02T05:35:01Z",
+        "notes": "Send Off"
+      },
+      {
+        "id": 10,
+        "type": "expense",
+        "amount": 7000.0,
+        "category_id": 18,
+        "source_id": 2,
+        "date": "2017-06-05T01:56:13Z",
+        "notes": "Engagement Ring"
+      },
+      {
+        "id": 11,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-05T04:29:29Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 12,
+        "type": "expense",
+        "amount": 300.0,
+        "category_id": 12,
+        "source_id": 2,
+        "date": "2017-06-05T05:50:57Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 13,
+        "type": "expense",
+        "amount": 3.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2017-06-05T11:50:11Z",
+        "notes": "Bike Air"
+      },
+      {
+        "id": 14,
+        "type": "expense",
+        "amount": 800.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-05T12:21:07Z",
+        "notes": "ATM Withdrawal ICICI Bank"
+      },
+      {
+        "id": 15,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-05T14:25:36Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 16,
+        "type": "income",
+        "amount": 7058.17,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2017-06-06T01:53:06Z",
+        "notes": "Available Balance"
+      },
+      {
+        "id": 17,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-06T04:07:21Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 18,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2017-06-06T13:07:02Z",
+        "notes": "Snacks"
+      },
+      {
+        "id": 19,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-06T13:07:30Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 20,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-07T02:14:18Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 21,
+        "type": "expense",
+        "amount": 15.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-07T03:58:17Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 22,
+        "type": "expense",
+        "amount": 1869.0,
+        "category_id": 2,
+        "source_id": 2,
+        "date": "2017-06-07T04:21:28Z",
+        "notes": "Room Rent"
+      },
+      {
+        "id": 23,
+        "type": "income",
+        "amount": 21421.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-07T06:23:32Z",
+        "notes": "Emart Salary"
+      },
+      {
+        "id": 24,
+        "type": "expense",
+        "amount": 7000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-07T06:30:31Z",
+        "notes": "NEFT/MB/AXMB171586028308/Manjunatha"
+      },
+      {
+        "id": 25,
+        "type": "expense",
+        "amount": 4869.0,
+        "category_id": 15,
+        "source_id": 2,
+        "date": "2017-06-07T07:30:55Z",
+        "notes": "Give Back to Dinesh"
+      },
+      {
+        "id": 26,
+        "type": "expense",
+        "amount": 965.0,
+        "category_id": 15,
+        "source_id": 2,
+        "date": "2017-06-07T07:36:30Z",
+        "notes": "Give Back to Satish"
+      },
+      {
+        "id": 27,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2017-06-07T08:50:00Z",
+        "notes": "Evening Snacks"
+      },
+      {
+        "id": 28,
+        "type": "expense",
+        "amount": 2631.0,
+        "category_id": 15,
+        "source_id": 2,
+        "date": "2017-06-07T12:33:53Z",
+        "notes": "Paid Room Rent to Dinesh"
+      },
+      {
+        "id": 29,
+        "type": "income",
+        "amount": 2000.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2017-06-07T23:32:24Z",
+        "notes": "Get it From Ramya"
+      },
+      {
+        "id": 30,
+        "type": "income",
+        "amount": 10000.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2017-06-07T23:48:07Z",
+        "notes": "Added Extra Money"
+      },
+      {
+        "id": 31,
+        "type": "income",
+        "amount": 2500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-08T03:41:47Z",
+        "notes": "Unknown Sender"
+      },
+      {
+        "id": 32,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-08T04:26:01Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 33,
+        "type": "income",
+        "amount": 2000.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2017-06-08T06:19:08Z",
+        "notes": "Get It From Ramya"
+      },
+      {
+        "id": 34,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 15,
+        "source_id": 2,
+        "date": "2017-06-08T23:30:24Z",
+        "notes": "Give it Back Santhosh"
+      },
+      {
+        "id": 35,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-09T00:40:13Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 36,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-09T03:43:41Z",
+        "notes": "ATM Withdrawal ICICI Bank"
+      },
+      {
+        "id": 37,
+        "type": "expense",
+        "amount": 800.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-06-09T03:57:24Z",
+        "notes": "Spend Money For Loan"
+      },
+      {
+        "id": 38,
+        "type": "expense",
+        "amount": 80.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-09T04:14:29Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 39,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2017-06-09T09:40:42Z",
+        "notes": "Evening Snacks"
+      },
+      {
+        "id": 40,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-09T15:20:48Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 41,
+        "type": "expense",
+        "amount": 130.51,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-09T22:14:40Z",
+        "notes": "Mi Mobile Service Tax"
+      },
+      {
+        "id": 42,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-10T03:19:18Z",
+        "notes": "TPFT/RAVINDRANATH/333010100165617"
+      },
+      {
+        "id": 43,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-10T09:48:53Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 44,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-10T21:28:30Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 45,
+        "type": "expense",
+        "amount": 43.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-11T04:34:59Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 46,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 2,
+        "source_id": 1,
+        "date": "2017-06-11T23:31:39Z",
+        "notes": "Water"
+      },
+      {
+        "id": 47,
+        "type": "income",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-12T10:18:44Z",
+        "notes": "MOB/TPFT/LAXMIKANT MATHU/915010060311720"
+      },
+      {
+        "id": 48,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-12T11:04:49Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 49,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 15,
+        "source_id": 1,
+        "date": "2017-06-12T11:05:05Z",
+        "notes": "Give Back to Naveen"
+      },
+      {
+        "id": 50,
+        "type": "expense",
+        "amount": 3500.0,
+        "category_id": 19,
+        "source_id": 2,
+        "date": "2017-06-12T14:29:59Z",
+        "notes": "RD Savings"
+      },
+      {
+        "id": 51,
+        "type": "expense",
+        "amount": 26.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-13T04:19:33Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 52,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-06-13T23:26:48Z",
+        "notes": "Saloon"
+      },
+      {
+        "id": 53,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-14T22:46:08Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 54,
+        "type": "expense",
+        "amount": 155.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-06-14T22:48:18Z",
+        "notes": "Bus : Bangalore to Salem"
+      },
+      {
+        "id": 55,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 18,
+        "source_id": 2,
+        "date": "2017-06-15T04:00:27Z",
+        "notes": "Engagement Ring"
+      },
+      {
+        "id": 56,
+        "type": "expense",
+        "amount": 9000.0,
+        "category_id": 18,
+        "source_id": 2,
+        "date": "2017-06-15T09:30:42Z",
+        "notes": "Engagement Ring"
+      },
+      {
+        "id": 57,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-15T10:29:21Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 58,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-15T10:29:35Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 59,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2017-06-15T10:29:45Z",
+        "notes": "Evening Snacks"
+      },
+      {
+        "id": 60,
+        "type": "expense",
+        "amount": 85.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-06-15T22:50:45Z",
+        "notes": "Bus : Salem to Trichy"
+      },
+      {
+        "id": 61,
+        "type": "expense",
+        "amount": 33.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-06-15T22:52:59Z",
+        "notes": "Bus : Trichy to Pudukkottai"
+      },
+      {
+        "id": 62,
+        "type": "expense",
+        "amount": 2.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-06-17T00:30:06Z",
+        "notes": "Cash Spend"
+      },
+      {
+        "id": 63,
+        "type": "expense",
+        "amount": 17.0,
+        "category_id": 25,
+        "source_id": 1,
+        "date": "2017-06-17T04:27:34Z",
+        "notes": "Xerox"
+      },
+      {
+        "id": 64,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-06-17T04:27:54Z",
+        "notes": "SIM Card"
+      },
+      {
+        "id": 65,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2017-06-17T13:21:05Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 66,
+        "type": "income",
+        "amount": 3500.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2017-06-17T22:30:34Z",
+        "notes": "Get It From Mom"
+      },
+      {
+        "id": 67,
+        "type": "expense",
+        "amount": 1859.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-06-17T22:31:16Z",
+        "notes": "Purchase Shirt"
+      },
+      {
+        "id": 68,
+        "type": "expense",
+        "amount": 880.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-06-17T22:31:50Z",
+        "notes": "Purchase Sandals"
+      },
+      {
+        "id": 69,
+        "type": "expense",
+        "amount": 24.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-06-17T22:32:23Z",
+        "notes": "Purchase Papaya"
+      },
+      {
+        "id": 70,
+        "type": "expense",
+        "amount": 800.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-06-17T22:32:46Z",
+        "notes": "Purchase Pant"
+      },
+      {
+        "id": 71,
+        "type": "expense",
+        "amount": 75.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2017-06-19T00:00:23Z",
+        "notes": "Juice"
+      },
+      {
+        "id": 72,
+        "type": "expense",
+        "amount": 58.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2017-06-19T00:01:26Z",
+        "notes": "Snacks"
+      },
+      {
+        "id": 73,
+        "type": "expense",
+        "amount": 226.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2017-06-19T00:01:37Z",
+        "notes": "Snacks For Abi"
+      },
+      {
+        "id": 74,
+        "type": "income",
+        "amount": 200.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2017-06-19T00:14:05Z",
+        "notes": "Get it From Engagement"
+      },
+      {
+        "id": 75,
+        "type": "expense",
+        "amount": 486.0,
+        "category_id": 22,
+        "source_id": 1,
+        "date": "2017-06-19T23:26:58Z",
+        "notes": "Spend With Abi"
+      },
+      {
+        "id": 76,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-06-19T23:28:44Z",
+        "notes": "Bus : Thanjavur to Pudukkottai"
+      },
+      {
+        "id": 77,
+        "type": "expense",
+        "amount": 33.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-06-19T23:29:37Z",
+        "notes": "Bus : Pudukkottai to Trichy"
+      },
+      {
+        "id": 78,
+        "type": "income",
+        "amount": 100.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2017-06-19T23:31:49Z",
+        "notes": "Get it From Mom"
+      },
+      {
+        "id": 79,
+        "type": "expense",
+        "amount": 240.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-06-19T23:33:14Z",
+        "notes": "Bus : Trichy to Bangalore"
+      },
+      {
+        "id": 80,
+        "type": "expense",
+        "amount": 5.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2017-06-20T00:10:30Z",
+        "notes": "Bike Parking in Bus Stand"
+      },
+      {
+        "id": 81,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 21,
+        "source_id": 1,
+        "date": "2017-06-20T00:11:02Z",
+        "notes": "Bus : Pudukkottai to Thanjavur"
+      },
+      {
+        "id": 82,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-20T04:22:42Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 83,
+        "type": "expense",
+        "amount": 510.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2017-06-20T08:16:28Z",
+        "notes": "Have Lunch With Abi"
+      },
+      {
+        "id": 84,
+        "type": "income",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-06-20T09:05:53Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 85,
+        "type": "expense",
+        "amount": 403.0,
+        "category_id": 2,
+        "source_id": 2,
+        "date": "2017-06-20T13:22:16Z",
+        "notes": "Electricity Bill"
+      },
+      {
+        "id": 86,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-20T23:34:12Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 87,
+        "type": "income",
+        "amount": 191100.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-22T08:51:06Z",
+        "notes": "null"
+      },
+      {
+        "id": 88,
+        "type": "expense",
+        "amount": 27.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-22T12:54:05Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 89,
+        "type": "expense",
+        "amount": 5.0,
+        "category_id": 25,
+        "source_id": 1,
+        "date": "2017-06-22T12:56:09Z",
+        "notes": "Xerox"
+      },
+      {
+        "id": 90,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-06-22T12:56:19Z",
+        "notes": "SIM Card"
+      },
+      {
+        "id": 91,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2017-06-22T12:57:28Z",
+        "notes": "Evening Snacks"
+      },
+      {
+        "id": 92,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-22T12:58:45Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 93,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-23T02:07:13Z",
+        "notes": "TPFT/RAMYA GUNASEKAR/915010060324085"
+      },
+      {
+        "id": 94,
+        "type": "expense",
+        "amount": 6995.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-23T03:12:15Z",
+        "notes": "NEFT/MB/AXMB171749809367/Aboo"
+      },
+      {
+        "id": 95,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-23T04:25:08Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 96,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-23T04:26:09Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 97,
+        "type": "income",
+        "amount": 15710.95,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-23T04:40:12Z",
+        "notes": "null"
+      },
+      {
+        "id": 98,
+        "type": "expense",
+        "amount": 15710.95,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-23T04:41:21Z",
+        "notes": "CCPMT/B2JJ8BN70607/530562XXXXXX8905/"
+      },
+      {
+        "id": 99,
+        "type": "expense",
+        "amount": 689.0,
+        "category_id": 2,
+        "source_id": 2,
+        "date": "2017-06-23T11:25:44Z",
+        "notes": "Room Rent : Recharge Internet"
+      },
+      {
+        "id": 100,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-23T12:14:14Z",
+        "notes": "TPFT/D SATHIYA NARAY/915010061841367"
+      },
+      {
+        "id": 101,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-23T21:29:00Z",
+        "notes": "IMPS/P2A/717500070249/057301507747ICIC00"
+      },
+      {
+        "id": 102,
+        "type": "expense",
+        "amount": 300.0,
+        "category_id": 12,
+        "source_id": 2,
+        "date": "2017-06-24T02:35:15Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 103,
+        "type": "expense",
+        "amount": 40.7,
+        "category_id": 22,
+        "source_id": 2,
+        "date": "2017-06-24T04:27:36Z",
+        "notes": "Movie : Vanamakan"
+      },
+      {
+        "id": 104,
+        "type": "expense",
+        "amount": 5.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2017-06-24T08:24:22Z",
+        "notes": "Bike Air"
+      },
+      {
+        "id": 105,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-24T08:54:57Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 106,
+        "type": "income",
+        "amount": 77.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-24T11:12:59Z",
+        "notes": "9.1501E+14"
+      },
+      {
+        "id": 107,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-24T13:45:50Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 108,
+        "type": "expense",
+        "amount": 3000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-24T14:11:45Z",
+        "notes": "TPFT/RAVINDRANATH/333010100165617"
+      },
+      {
+        "id": 109,
+        "type": "income",
+        "amount": 734.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2017-06-24T23:48:11Z",
+        "notes": "Unknown Sender"
+      },
+      {
+        "id": 110,
+        "type": "expense",
+        "amount": 734.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-24T23:48:14Z",
+        "notes": "Mr  PRABU  S"
+      },
+      {
+        "id": 111,
+        "type": "expense",
+        "amount": 215.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-25T02:07:24Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 112,
+        "type": "expense",
+        "amount": 210.0,
+        "category_id": 11,
+        "source_id": 2,
+        "date": "2017-06-25T05:19:24Z",
+        "notes": "Recharge BSNL"
+      },
+      {
+        "id": 113,
+        "type": "expense",
+        "amount": 30.76,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2017-06-25T14:29:59Z",
+        "notes": "SMS CHARGE"
+      },
+      {
+        "id": 114,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-26T01:50:01Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 115,
+        "type": "expense",
+        "amount": 33.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-26T04:59:57Z",
+        "notes": "Lunch : Fruit Bowl"
+      },
+      {
+        "id": 116,
+        "type": "expense",
+        "amount": 734.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-26T14:29:59Z",
+        "notes": "IMPS/P2A/717609289976/20164004282SBIN000"
+      },
+      {
+        "id": 117,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-26T20:54:03Z",
+        "notes": "NEFT/MB/AXMB171780027109/Santhosh"
+      },
+      {
+        "id": 118,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-27T02:40:11Z",
+        "notes": "TPFT/NAVEEN G/911010059089849"
+      },
+      {
+        "id": 119,
+        "type": "expense",
+        "amount": 114.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-27T10:01:10Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 120,
+        "type": "expense",
+        "amount": 70.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-28T04:30:04Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 121,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-29T11:24:35Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 122,
+        "type": "expense",
+        "amount": 22.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-29T11:32:22Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 123,
+        "type": "expense",
+        "amount": 43.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-29T11:36:06Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 124,
+        "type": "income",
+        "amount": 2.25,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2017-06-30T05:03:00Z",
+        "notes": "MERCH REFUND DT.05.06.2017/DISCOUNT ON F"
+      },
+      {
+        "id": 125,
+        "type": "expense",
+        "amount": 110.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2017-06-30T05:20:55Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 126,
+        "type": "expense",
+        "amount": 838.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-06-30T14:29:59Z",
+        "notes": "To Jul"
+      },
+      {
+        "id": 127,
+        "type": "income",
+        "amount": 838.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2017-06-30T14:30:00Z",
+        "notes": "SELF"
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Groceries",
+        "type": "expense",
+        "icon": "cart",
+        "color": "#F97316"
+      },
+      {
+        "id": 2,
+        "name": "Rent",
+        "type": "expense",
+        "icon": "home-account",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "name": "Utilities",
+        "type": "expense",
+        "icon": "lightning-bolt",
+        "color": "#64748B"
+      },
+      {
+        "id": 4,
+        "name": "Salary",
+        "type": "income",
+        "icon": "cash-multiple",
+        "color": "#16A34A"
+      },
+      {
+        "id": 5,
+        "name": "Misc",
+        "type": "expense",
+        "icon": "dots-horizontal",
+        "color": "#9CA3AF"
+      },
+      {
+        "id": 6,
+        "name": "DTH",
+        "type": "expense",
+        "icon": "television-play",
+        "color": "#8B5CF6"
+      },
+      {
+        "id": 9,
+        "name": "Snacks",
+        "type": "expense",
+        "icon": "food-variant",
+        "color": "#FBBF24"
+      },
+      {
+        "id": 10,
+        "name": "Wallet Transfer",
+        "type": "expense",
+        "icon": "swap-horizontal",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "Mobile Recharge",
+        "type": "expense",
+        "icon": "cellphone",
+        "color": "#0EA5E9"
+      },
+      {
+        "id": 12,
+        "name": "Bike / Vehicle",
+        "type": "expense",
+        "icon": "motorbike",
+        "color": "#DC2626"
+      },
+      {
+        "id": 13,
+        "name": "Money Received",
+        "type": "income",
+        "icon": "arrow-down-bold-circle",
+        "color": "#10B981"
+      },
+      {
+        "id": 14,
+        "name": "Interest",
+        "type": "income",
+        "icon": "percent",
+        "color": "#22C55E"
+      },
+      {
+        "id": 15,
+        "name": "Money Given",
+        "type": "expense",
+        "icon": "arrow-up-bold-circle",
+        "color": "#EF4444"
+      },
+      {
+        "id": 16,
+        "name": "Food & Dining",
+        "type": "expense",
+        "icon": "silverware-fork-knife",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 17,
+        "name": "Family",
+        "type": "expense",
+        "icon": "account-group",
+        "color": "#F43F5E"
+      },
+      {
+        "id": 18,
+        "name": "Gifts",
+        "type": "expense",
+        "icon": "gift",
+        "color": "#EC4899"
+      },
+      {
+        "id": 19,
+        "name": "Savings",
+        "type": "expense",
+        "icon": "piggy-bank",
+        "color": "#059669"
+      },
+      {
+        "id": 20,
+        "name": "Loan / EMI",
+        "type": "expense",
+        "icon": "bank-transfer",
+        "color": "#B91C1C"
+      },
+      {
+        "id": 21,
+        "name": "Transport",
+        "type": "expense",
+        "icon": "bus",
+        "color": "#14B8A6"
+      },
+      {
+        "id": 22,
+        "name": "Entertainment",
+        "type": "expense",
+        "icon": "movie-open",
+        "color": "#7C3AED"
+      },
+      {
+        "id": 23,
+        "name": "Donations",
+        "type": "expense",
+        "icon": "hand-heart",
+        "color": "#22C55E"
+      },
+      {
+        "id": 24,
+        "name": "Home Improvement",
+        "type": "expense",
+        "icon": "hammer-wrench",
+        "color": "#A16207"
+      },
+      {
+        "id": 25,
+        "name": "Printing & Stationery",
+        "type": "expense",
+        "icon": "printer",
+        "color": "#6B7280"
+      },
+      {
+        "id": 26,
+        "name": "Bank Charges",
+        "type": "expense",
+        "icon": "bank",
+        "color": "#374151"
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "name": "Cash Spend",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "name": "Axis",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 3,
+        "name": "SBI Group",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 4,
+        "name": "Airtel Payments",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 5,
+        "name": "Paytm",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 6,
+        "name": "Unknown",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 7,
+        "name": "Vijaya",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 8,
+        "name": "Freecharge",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 9,
+        "name": "City Union",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 10,
+        "name": "MOBIKWIK",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "BOB",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 12,
+        "name": "HDFC",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 13,
+        "name": "Other",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      }
+    ],
+    "budgets": [],
+    "bills": []
+  }
+}

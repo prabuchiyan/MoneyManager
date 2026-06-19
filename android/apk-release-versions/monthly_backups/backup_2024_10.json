@@ -1,0 +1,2001 @@
+{
+  "version": 1,
+  "timestamp": "2026-06-19T13:52:32.054050Z",
+  "data": {
+    "transactions": [
+      {
+        "id": 11093,
+        "type": "income",
+        "amount": 2912.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-01T00:00:00Z",
+        "notes": "SELF"
+      },
+      {
+        "id": 11094,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-01T09:37:14Z",
+        "notes": "Car : Fast Tag 1"
+      },
+      {
+        "id": 11095,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-01T09:46:05Z",
+        "notes": "Tea Break"
+      },
+      {
+        "id": 11096,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-01T09:52:56Z",
+        "notes": "Car : Fast Tag 6"
+      },
+      {
+        "id": 11097,
+        "type": "expense",
+        "amount": 1800.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-01T09:57:55Z",
+        "notes": "Car Petrol"
+      },
+      {
+        "id": 11098,
+        "type": "expense",
+        "amount": 220.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-01T10:00:22Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 11099,
+        "type": "income",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-01T10:00:44Z",
+        "notes": "Converted to Cash"
+      },
+      {
+        "id": 11100,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-01T13:43:31Z",
+        "notes": "Car : Fast Tag 2"
+      },
+      {
+        "id": 11101,
+        "type": "expense",
+        "amount": 90.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-01T15:23:48Z",
+        "notes": "Car : Fast Tag 3"
+      },
+      {
+        "id": 11102,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-01T16:44:24Z",
+        "notes": "Car : Fast Tag 4"
+      },
+      {
+        "id": 11103,
+        "type": "expense",
+        "amount": 95.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-01T17:41:57Z",
+        "notes": "Car : Fast Tag 5"
+      },
+      {
+        "id": 11104,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-02T09:40:36Z",
+        "notes": "Crackers From Hosur"
+      },
+      {
+        "id": 11105,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-02T22:29:33Z",
+        "notes": "Cool Drinks & Snacks"
+      },
+      {
+        "id": 11106,
+        "type": "expense",
+        "amount": 140.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-02T22:34:52Z",
+        "notes": "French Fries"
+      },
+      {
+        "id": 11107,
+        "type": "expense",
+        "amount": 160.0,
+        "category_id": 22,
+        "source_id": 1,
+        "date": "2024-10-02T22:38:36Z",
+        "notes": "Kalainger Park: Entry Ticket"
+      },
+      {
+        "id": 11108,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 22,
+        "source_id": 1,
+        "date": "2024-10-02T22:41:17Z",
+        "notes": "Kalainger Park: Indoor Games"
+      },
+      {
+        "id": 11109,
+        "type": "expense",
+        "amount": 530.0,
+        "category_id": 22,
+        "source_id": 1,
+        "date": "2024-10-02T22:45:26Z",
+        "notes": "Kalainger Park: Fast Food"
+      },
+      {
+        "id": 11110,
+        "type": "expense",
+        "amount": 240.0,
+        "category_id": 22,
+        "source_id": 1,
+        "date": "2024-10-02T22:47:42Z",
+        "notes": "Kalainger Park: Cool Drinks & Snacks"
+      },
+      {
+        "id": 11111,
+        "type": "expense",
+        "amount": 2590.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-03T07:19:43Z",
+        "notes": "Sony Charging Dock - Return"
+      },
+      {
+        "id": 11112,
+        "type": "expense",
+        "amount": 779.0,
+        "category_id": 12,
+        "source_id": 3,
+        "date": "2024-10-03T07:28:36Z",
+        "notes": "Helmet For Eniyan"
+      },
+      {
+        "id": 11113,
+        "type": "expense",
+        "amount": 375.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-03T07:30:19Z",
+        "notes": "Innerwear For Myself"
+      },
+      {
+        "id": 11114,
+        "type": "expense",
+        "amount": 365.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-03T07:32:53Z",
+        "notes": "Sensodyne Paste"
+      },
+      {
+        "id": 11115,
+        "type": "expense",
+        "amount": 199.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-03T07:35:49Z",
+        "notes": "Dual Controller Silicon Cover"
+      },
+      {
+        "id": 11116,
+        "type": "expense",
+        "amount": 324.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-03T07:37:10Z",
+        "notes": "Himalaya Baby Shampoo"
+      },
+      {
+        "id": 11117,
+        "type": "expense",
+        "amount": 155.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-03T07:38:50Z",
+        "notes": "Car Tires Stem Cover"
+      },
+      {
+        "id": 11118,
+        "type": "expense",
+        "amount": 149.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-03T07:40:41Z",
+        "notes": "Hair Oil Applier For Abi"
+      },
+      {
+        "id": 11119,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-03T08:07:04Z",
+        "notes": "Shivakasi Visit: Toll Gate 6"
+      },
+      {
+        "id": 11120,
+        "type": "expense",
+        "amount": 999.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-03T09:21:22Z",
+        "notes": "Samsung Charger For Akka"
+      },
+      {
+        "id": 11121,
+        "type": "expense",
+        "amount": 5469.79,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-03T23:25:14Z",
+        "notes": "Purchase From Amazon"
+      },
+      {
+        "id": 11122,
+        "type": "income",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-05T07:30:45Z",
+        "notes": "null"
+      },
+      {
+        "id": 11123,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-05T07:31:25Z",
+        "notes": "Shivakasi Visit: Toll Gate 10"
+      },
+      {
+        "id": 11124,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-05T07:49:09Z",
+        "notes": "Shivakasi Visit: Toll Gate 1"
+      },
+      {
+        "id": 11125,
+        "type": "expense",
+        "amount": 80.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-05T07:52:12Z",
+        "notes": "Shivakasi Visit: Toll Gate 2"
+      },
+      {
+        "id": 11126,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-05T07:53:50Z",
+        "notes": "GOOGLE INDIA DIGITA"
+      },
+      {
+        "id": 11127,
+        "type": "expense",
+        "amount": 105.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-05T08:56:33Z",
+        "notes": "Shivakasi Visit: Toll Gate 3"
+      },
+      {
+        "id": 11128,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-05T09:07:29Z",
+        "notes": "Shivakasi Visit: Toll Gate 4"
+      },
+      {
+        "id": 11129,
+        "type": "expense",
+        "amount": 132.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-05T09:11:07Z",
+        "notes": "Shivakasi Visit: Lunch"
+      },
+      {
+        "id": 11130,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-05T09:19:29Z",
+        "notes": "Shivakasi Visit: Toll Gate 5"
+      },
+      {
+        "id": 11131,
+        "type": "expense",
+        "amount": 600.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-05T09:19:44Z",
+        "notes": "Shivakasi Visit: Crackers"
+      },
+      {
+        "id": 11132,
+        "type": "expense",
+        "amount": 4800.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2024-10-05T09:28:53Z",
+        "notes": "Cousin"
+      },
+      {
+        "id": 11133,
+        "type": "expense",
+        "amount": 1500.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2024-10-05T09:30:28Z",
+        "notes": "Cousin"
+      },
+      {
+        "id": 11134,
+        "type": "expense",
+        "amount": 15200.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-05T15:05:20Z",
+        "notes": "Shivakasi Visit: Crackers"
+      },
+      {
+        "id": 11135,
+        "type": "expense",
+        "amount": 2680.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-05T15:45:53Z",
+        "notes": "Shivakasi Visit: Crackers"
+      },
+      {
+        "id": 11136,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-05T17:45:13Z",
+        "notes": "Shivakasi Visit: Toll Gate 7"
+      },
+      {
+        "id": 11137,
+        "type": "expense",
+        "amount": 55.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-05T19:06:11Z",
+        "notes": "Shivakasi Visit: Toll Gate 8"
+      },
+      {
+        "id": 11138,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-05T20:44:53Z",
+        "notes": "Shivakasi Visit: Toll Gate 9"
+      },
+      {
+        "id": 11139,
+        "type": "expense",
+        "amount": 1800.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-05T20:49:36Z",
+        "notes": "Shivakasi Visit: Car Petrol"
+      },
+      {
+        "id": 11140,
+        "type": "expense",
+        "amount": 7.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-07T08:30:04Z",
+        "notes": "Donated"
+      },
+      {
+        "id": 11141,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-07T20:59:28Z",
+        "notes": "Move to Axis"
+      },
+      {
+        "id": 11142,
+        "type": "expense",
+        "amount": 13800.0,
+        "category_id": 2,
+        "source_id": 2,
+        "date": "2024-10-08T08:32:13Z",
+        "notes": "October Month House Rent"
+      },
+      {
+        "id": 11143,
+        "type": "expense",
+        "amount": 40199.5,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-08T08:52:32Z",
+        "notes": "B"
+      },
+      {
+        "id": 11144,
+        "type": "income",
+        "amount": 40199.5,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2024-10-08T09:06:44Z",
+        "notes": "null"
+      },
+      {
+        "id": 11145,
+        "type": "income",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-08T09:20:32Z",
+        "notes": "Unknown Sender"
+      },
+      {
+        "id": 11146,
+        "type": "income",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-08T09:24:23Z",
+        "notes": "Unknown Sender"
+      },
+      {
+        "id": 11147,
+        "type": "expense",
+        "amount": 40000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2024-10-08T13:21:50Z",
+        "notes": "7th Gold Loan - 6th Payment"
+      },
+      {
+        "id": 11148,
+        "type": "expense",
+        "amount": 2650.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-08T20:51:13Z",
+        "notes": "Clothes For Our Nuclear Family"
+      },
+      {
+        "id": 11149,
+        "type": "expense",
+        "amount": 240.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-08T21:01:26Z",
+        "notes": "Clothes For Shivani"
+      },
+      {
+        "id": 11150,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2024-10-08T21:16:15Z",
+        "notes": "Padam Milk"
+      },
+      {
+        "id": 11151,
+        "type": "expense",
+        "amount": 55.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-09T08:35:12Z",
+        "notes": "Thanjavur Visit : Toll Gate 1"
+      },
+      {
+        "id": 11152,
+        "type": "expense",
+        "amount": 65.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-09T09:14:21Z",
+        "notes": "October Month - 2024"
+      },
+      {
+        "id": 11153,
+        "type": "expense",
+        "amount": 220.0,
+        "category_id": 11,
+        "source_id": 2,
+        "date": "2024-10-09T10:19:07Z",
+        "notes": "Postpaid Bill Paid For Myself"
+      },
+      {
+        "id": 11154,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-09T21:55:23Z",
+        "notes": "Clothes Dustbin"
+      },
+      {
+        "id": 11155,
+        "type": "expense",
+        "amount": 460.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-09T21:56:00Z",
+        "notes": "Rice 10kg"
+      },
+      {
+        "id": 11156,
+        "type": "expense",
+        "amount": 275.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-09T21:56:55Z",
+        "notes": "Sathu Maavu For Kids"
+      },
+      {
+        "id": 11157,
+        "type": "expense",
+        "amount": 199.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-09T22:00:52Z",
+        "notes": "Pdkt Home DTH Recharge"
+      },
+      {
+        "id": 11158,
+        "type": "expense",
+        "amount": 800.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-10T13:10:03Z",
+        "notes": "Teeth Cleaning"
+      },
+      {
+        "id": 11159,
+        "type": "income",
+        "amount": 13000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-10T13:11:52Z",
+        "notes": "Unknown Sender"
+      },
+      {
+        "id": 11160,
+        "type": "expense",
+        "amount": 70.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-10T21:52:51Z",
+        "notes": "Haircuts For Eniyan"
+      },
+      {
+        "id": 11161,
+        "type": "expense",
+        "amount": 1300.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-11T15:28:54Z",
+        "notes": "Karthik Machi Hosp Visit: Petrol"
+      },
+      {
+        "id": 11162,
+        "type": "expense",
+        "amount": 105.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-11T16:59:56Z",
+        "notes": "Karthik Machi Hosp Visit: Toll Gate 2"
+      },
+      {
+        "id": 11163,
+        "type": "expense",
+        "amount": 55.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-11T17:34:33Z",
+        "notes": "Karthik Machi Hosp Visit: Toll Gate 3"
+      },
+      {
+        "id": 11164,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-11T19:04:39Z",
+        "notes": "Karthik Machi Hosp Visit: Toll Gate 4"
+      },
+      {
+        "id": 11165,
+        "type": "expense",
+        "amount": 80.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-11T21:43:08Z",
+        "notes": "Karthik Machi Hosp Visit: Toll Gate 1"
+      },
+      {
+        "id": 11166,
+        "type": "expense",
+        "amount": 32.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-11T21:45:12Z",
+        "notes": "Karthik Machi Hosp Visit: Tea & Snacks"
+      },
+      {
+        "id": 11167,
+        "type": "income",
+        "amount": 200.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2024-10-11T21:51:20Z",
+        "notes": "Get it From Mom"
+      },
+      {
+        "id": 11168,
+        "type": "expense",
+        "amount": 70.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-11T21:52:54Z",
+        "notes": "Haircuts For Chezhiyan"
+      },
+      {
+        "id": 11169,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-11T21:53:09Z",
+        "notes": "October Month - 2024"
+      },
+      {
+        "id": 11170,
+        "type": "expense",
+        "amount": 650.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-12T11:10:06Z",
+        "notes": "Shivani Teeth Align: Fee & Others"
+      },
+      {
+        "id": 11171,
+        "type": "expense",
+        "amount": 1500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-12T11:10:42Z",
+        "notes": "Shivani Teeth Align: Clip Advance"
+      },
+      {
+        "id": 11172,
+        "type": "expense",
+        "amount": 2099.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-12T11:13:26Z",
+        "notes": "Gums Laser Cut & Tablet"
+      },
+      {
+        "id": 11173,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2024-10-12T14:12:54Z",
+        "notes": "Gave It to Jothi"
+      },
+      {
+        "id": 11174,
+        "type": "expense",
+        "amount": 4249.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-12T14:30:05Z",
+        "notes": "Teeth Cleaning - Total Payment"
+      },
+      {
+        "id": 11175,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-13T06:22:08Z",
+        "notes": "Toll Gate 1"
+      },
+      {
+        "id": 11176,
+        "type": "expense",
+        "amount": 1250.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-13T06:23:13Z",
+        "notes": "GOOGLE INDIA DIGITA"
+      },
+      {
+        "id": 11177,
+        "type": "expense",
+        "amount": 1822.5,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-13T06:57:39Z",
+        "notes": "Car Petrol"
+      },
+      {
+        "id": 11178,
+        "type": "income",
+        "amount": 500.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2024-10-13T07:17:39Z",
+        "notes": "Get it From Dad"
+      },
+      {
+        "id": 11179,
+        "type": "income",
+        "amount": 60.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2024-10-13T07:18:02Z",
+        "notes": "Get it From Mom"
+      },
+      {
+        "id": 11180,
+        "type": "expense",
+        "amount": 214.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-13T07:18:28Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 11181,
+        "type": "expense",
+        "amount": 86.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-13T08:19:01Z",
+        "notes": "Cough Syrup For Eniyan"
+      },
+      {
+        "id": 11182,
+        "type": "expense",
+        "amount": 54.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-13T08:19:25Z",
+        "notes": "Tooth Brush For Kids"
+      },
+      {
+        "id": 11183,
+        "type": "expense",
+        "amount": 95.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-13T08:21:02Z",
+        "notes": "Toll Gate 2"
+      },
+      {
+        "id": 11184,
+        "type": "expense",
+        "amount": 180.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-13T08:26:15Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 11185,
+        "type": "expense",
+        "amount": 27.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-13T08:26:50Z",
+        "notes": "Milk"
+      },
+      {
+        "id": 11186,
+        "type": "expense",
+        "amount": 199.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-13T08:38:30Z",
+        "notes": "Bang Home DTH Recharge"
+      },
+      {
+        "id": 11187,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-13T10:54:03Z",
+        "notes": "Toll Gate 3"
+      },
+      {
+        "id": 11188,
+        "type": "expense",
+        "amount": 90.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-13T12:24:06Z",
+        "notes": "Toll Gate 4"
+      },
+      {
+        "id": 11189,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-13T13:21:48Z",
+        "notes": "Toll Gate 5"
+      },
+      {
+        "id": 11190,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-13T13:41:48Z",
+        "notes": "Toll Gate 6"
+      },
+      {
+        "id": 11191,
+        "type": "expense",
+        "amount": 512.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-13T16:45:21Z",
+        "notes": "Pdkt Home Ground Floor Electricity"
+      },
+      {
+        "id": 11192,
+        "type": "expense",
+        "amount": 3000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-13T20:32:00Z",
+        "notes": "October Month - 2024"
+      },
+      {
+        "id": 11193,
+        "type": "expense",
+        "amount": 96.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-15T00:59:28Z",
+        "notes": "Cool Drinks"
+      },
+      {
+        "id": 11194,
+        "type": "income",
+        "amount": 10000.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2024-10-15T09:32:18Z",
+        "notes": "Cousin"
+      },
+      {
+        "id": 11195,
+        "type": "expense",
+        "amount": 11000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-15T09:54:57Z",
+        "notes": "Gave it to Parents"
+      },
+      {
+        "id": 11196,
+        "type": "expense",
+        "amount": 10000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-15T09:56:37Z",
+        "notes": "Gave it to Dad"
+      },
+      {
+        "id": 11197,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-15T09:56:52Z",
+        "notes": "Gave it to Mom"
+      },
+      {
+        "id": 11198,
+        "type": "expense",
+        "amount": 40000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-15T12:40:18Z",
+        "notes": "B"
+      },
+      {
+        "id": 11199,
+        "type": "income",
+        "amount": 40000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2024-10-15T13:18:09Z",
+        "notes": "null"
+      },
+      {
+        "id": 11200,
+        "type": "expense",
+        "amount": 40000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2024-10-15T13:43:35Z",
+        "notes": "7th Gold Loan - 7th Payment"
+      },
+      {
+        "id": 11201,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2024-10-15T13:55:58Z",
+        "notes": "Mr Agalya Solaimala"
+      },
+      {
+        "id": 11202,
+        "type": "expense",
+        "amount": 96.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-15T17:04:31Z",
+        "notes": "MORE BANGALORE"
+      },
+      {
+        "id": 11203,
+        "type": "expense",
+        "amount": 4974.45,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-17T08:59:17Z",
+        "notes": "P"
+      },
+      {
+        "id": 11204,
+        "type": "expense",
+        "amount": 204.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-17T09:58:04Z",
+        "notes": "Sensodyne Paste"
+      },
+      {
+        "id": 11205,
+        "type": "expense",
+        "amount": 3500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-17T11:05:48Z",
+        "notes": "Shivani Teeth Align: Clip Balance"
+      },
+      {
+        "id": 11206,
+        "type": "income",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-17T15:12:03Z",
+        "notes": "ATM Withdrawal - SBI to Other"
+      },
+      {
+        "id": 11207,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2024-10-17T15:12:31Z",
+        "notes": "Breakfast Idly Vada"
+      },
+      {
+        "id": 11208,
+        "type": "expense",
+        "amount": 110.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2024-10-17T15:13:21Z",
+        "notes": "Lunch: Kushka & Egg Burji"
+      },
+      {
+        "id": 11209,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-17T15:14:12Z",
+        "notes": "1st Std - Gum For Eniyan"
+      },
+      {
+        "id": 11210,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-17T17:24:01Z",
+        "notes": "PPF - October 2024"
+      },
+      {
+        "id": 11211,
+        "type": "income",
+        "amount": 5000.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2024-10-17T23:20:34Z",
+        "notes": "Abi"
+      },
+      {
+        "id": 11212,
+        "type": "income",
+        "amount": 4974.45,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-17T23:59:59Z",
+        "notes": "PRABU"
+      },
+      {
+        "id": 11213,
+        "type": "expense",
+        "amount": 160.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2024-10-18T00:13:35Z",
+        "notes": "Sweets From Dairy"
+      },
+      {
+        "id": 11214,
+        "type": "expense",
+        "amount": 180.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2024-10-18T15:14:58Z",
+        "notes": "Lunch: Andhra Meals"
+      },
+      {
+        "id": 11215,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-18T22:12:47Z",
+        "notes": "Bananas"
+      },
+      {
+        "id": 11216,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-19T00:15:48Z",
+        "notes": "Chips & Snacks"
+      },
+      {
+        "id": 11217,
+        "type": "expense",
+        "amount": 480.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-19T13:35:16Z",
+        "notes": "Old Monk & Others"
+      },
+      {
+        "id": 11218,
+        "type": "expense",
+        "amount": 1798.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-19T16:45:37Z",
+        "notes": "It takes two PS4"
+      },
+      {
+        "id": 11219,
+        "type": "expense",
+        "amount": 360.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-19T23:55:57Z",
+        "notes": "Kushka & Kabab"
+      },
+      {
+        "id": 11220,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-19T23:56:18Z",
+        "notes": "Cool Drinks"
+      },
+      {
+        "id": 11221,
+        "type": "expense",
+        "amount": 480.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-19T23:59:59Z",
+        "notes": "Imperial Blue"
+      },
+      {
+        "id": 11222,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-20T23:41:24Z",
+        "notes": "October Month - 2024"
+      },
+      {
+        "id": 11223,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-21T23:57:56Z",
+        "notes": "Eggs"
+      },
+      {
+        "id": 11224,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-21T23:58:22Z",
+        "notes": "Tomatoes"
+      },
+      {
+        "id": 11225,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2024-10-22T00:52:57Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 11226,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-22T12:16:30Z",
+        "notes": "Mrs S Shanthi"
+      },
+      {
+        "id": 11227,
+        "type": "expense",
+        "amount": 210.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2024-10-22T20:50:07Z",
+        "notes": "3 No's Egg Roll"
+      },
+      {
+        "id": 11228,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-23T00:00:43Z",
+        "notes": "Mint & Coriander Leaves"
+      },
+      {
+        "id": 11229,
+        "type": "expense",
+        "amount": 583.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-23T23:51:13Z",
+        "notes": "Pdkt Shop Electricity"
+      },
+      {
+        "id": 11230,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-24T11:33:02Z",
+        "notes": "1st Std - Collected in School"
+      },
+      {
+        "id": 11231,
+        "type": "expense",
+        "amount": 350.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-24T11:33:51Z",
+        "notes": "Bike Repair"
+      },
+      {
+        "id": 11232,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-24T23:36:16Z",
+        "notes": "1st Std - Bought Diwali Sweets"
+      },
+      {
+        "id": 11233,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-24T23:36:22Z",
+        "notes": "Bananas"
+      },
+      {
+        "id": 11234,
+        "type": "expense",
+        "amount": 1142.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2024-10-25T07:14:16Z",
+        "notes": "Dinner: Castel Restaurant"
+      },
+      {
+        "id": 11235,
+        "type": "expense",
+        "amount": 2078.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-25T19:38:13Z",
+        "notes": "Car Petrol"
+      },
+      {
+        "id": 11236,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-25T19:38:49Z",
+        "notes": "Car Air"
+      },
+      {
+        "id": 11237,
+        "type": "expense",
+        "amount": 1142.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-25T22:02:59Z",
+        "notes": "CASTLE REST BANGALORE"
+      },
+      {
+        "id": 11238,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2024-10-25T23:16:51Z",
+        "notes": "Dinner : Tips"
+      },
+      {
+        "id": 11239,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-26T09:53:37Z",
+        "notes": "Car : Toll Gate 2"
+      },
+      {
+        "id": 11240,
+        "type": "expense",
+        "amount": 90.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-26T11:22:25Z",
+        "notes": "Car : Toll Gate 3"
+      },
+      {
+        "id": 11241,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-26T12:17:21Z",
+        "notes": "Car : Toll Gate 4"
+      },
+      {
+        "id": 11242,
+        "type": "expense",
+        "amount": 95.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-26T12:56:46Z",
+        "notes": "Car : Toll Gate 5"
+      },
+      {
+        "id": 11243,
+        "type": "expense",
+        "amount": 1013.8,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-26T17:34:58Z",
+        "notes": "Thanjavur Visit: Car Petrol"
+      },
+      {
+        "id": 11244,
+        "type": "expense",
+        "amount": 80.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-26T20:34:49Z",
+        "notes": "Thanjavur Visit : Toll Gate 1"
+      },
+      {
+        "id": 11245,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-26T23:21:38Z",
+        "notes": "Car : Toll Gate 1"
+      },
+      {
+        "id": 11246,
+        "type": "expense",
+        "amount": 217.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-26T23:29:42Z",
+        "notes": "Lunch"
+      },
+      {
+        "id": 11247,
+        "type": "expense",
+        "amount": 300.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-27T21:53:39Z",
+        "notes": "Mrs PANDIMEENAL SOL"
+      },
+      {
+        "id": 11248,
+        "type": "expense",
+        "amount": 55.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-27T22:27:04Z",
+        "notes": "Thanjavur Visit : Toll Gate 2"
+      },
+      {
+        "id": 11249,
+        "type": "expense",
+        "amount": 2517.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-28T14:55:36Z",
+        "notes": "Clothes For Eniyan & Chezhiyan"
+      },
+      {
+        "id": 11250,
+        "type": "expense",
+        "amount": 1613.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-28T15:33:55Z",
+        "notes": "Clothes For Myself"
+      },
+      {
+        "id": 11251,
+        "type": "expense",
+        "amount": 2041.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-28T16:04:45Z",
+        "notes": "Clothes For Abi"
+      },
+      {
+        "id": 11252,
+        "type": "expense",
+        "amount": 203.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-28T16:12:43Z",
+        "notes": "Clothes For Neighbour"
+      },
+      {
+        "id": 11253,
+        "type": "expense",
+        "amount": 230.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-10-28T19:33:53Z",
+        "notes": "JANAPIRIYAA PUDUKKOTTAI"
+      },
+      {
+        "id": 11254,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-28T20:26:29Z",
+        "notes": "Teeth Cleaning"
+      },
+      {
+        "id": 11255,
+        "type": "income",
+        "amount": 5000.0,
+        "category_id": 20,
+        "source_id": 1,
+        "date": "2024-10-28T21:39:57Z",
+        "notes": "Jothi"
+      },
+      {
+        "id": 11256,
+        "type": "expense",
+        "amount": 230.0,
+        "category_id": 9,
+        "source_id": 2,
+        "date": "2024-10-28T22:15:22Z",
+        "notes": "Rasagulla"
+      },
+      {
+        "id": 11257,
+        "type": "expense",
+        "amount": 700.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-29T11:42:28Z",
+        "notes": "Teeth Cleaning & X-ray"
+      },
+      {
+        "id": 11258,
+        "type": "expense",
+        "amount": 106.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-29T20:30:00Z",
+        "notes": "Gums Gel"
+      },
+      {
+        "id": 11259,
+        "type": "expense",
+        "amount": 250.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2024-10-29T20:31:16Z",
+        "notes": "Kousha & Autho"
+      },
+      {
+        "id": 11260,
+        "type": "income",
+        "amount": 153995.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-30T17:26:22Z",
+        "notes": "BRIL"
+      },
+      {
+        "id": 11261,
+        "type": "income",
+        "amount": 9900.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2024-10-30T21:14:41Z",
+        "notes": "prabuchiyan-3 o"
+      },
+      {
+        "id": 11262,
+        "type": "expense",
+        "amount": 9900.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-30T21:14:42Z",
+        "notes": "PRABU"
+      },
+      {
+        "id": 11263,
+        "type": "expense",
+        "amount": 9500.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2024-10-30T21:17:14Z",
+        "notes": "ATM Withdrawal"
+      },
+      {
+        "id": 11264,
+        "type": "expense",
+        "amount": 260.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-30T22:13:00Z",
+        "notes": "Mohamed Marjik M"
+      },
+      {
+        "id": 11265,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-30T23:20:55Z",
+        "notes": "October Month - 2024"
+      },
+      {
+        "id": 11266,
+        "type": "income",
+        "amount": 2100.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2024-10-30T23:21:22Z",
+        "notes": "Get it From Mom"
+      },
+      {
+        "id": 11267,
+        "type": "expense",
+        "amount": 10400.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-30T23:21:44Z",
+        "notes": "Kolusu For Mom"
+      },
+      {
+        "id": 11268,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-30T23:25:40Z",
+        "notes": "Rain Coat For Eniyan"
+      },
+      {
+        "id": 11269,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-30T23:30:01Z",
+        "notes": "Floor Mats"
+      },
+      {
+        "id": 11270,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-30T23:32:38Z",
+        "notes": "Tea"
+      },
+      {
+        "id": 11271,
+        "type": "expense",
+        "amount": 320.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-30T23:33:22Z",
+        "notes": "Bedsheet"
+      },
+      {
+        "id": 11272,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-30T23:35:33Z",
+        "notes": "Pillows"
+      },
+      {
+        "id": 11273,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-30T23:37:49Z",
+        "notes": "Umbrella"
+      },
+      {
+        "id": 11274,
+        "type": "expense",
+        "amount": 550.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-30T23:59:59Z",
+        "notes": "T-shirts & Shorts"
+      },
+      {
+        "id": 11275,
+        "type": "expense",
+        "amount": 260.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-30T23:59:59Z",
+        "notes": "Slippers For Chezhiyan"
+      },
+      {
+        "id": 11276,
+        "type": "expense",
+        "amount": 9900.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-10-30T23:59:59Z",
+        "notes": "PRABU"
+      },
+      {
+        "id": 11277,
+        "type": "expense",
+        "amount": 639.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-31T17:16:40Z",
+        "notes": "Mutton Biryani & Tandoori"
+      },
+      {
+        "id": 11278,
+        "type": "income",
+        "amount": 500.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2024-10-31T23:39:13Z",
+        "notes": "Get it From Mom"
+      },
+      {
+        "id": 11279,
+        "type": "income",
+        "amount": 200.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2024-10-31T23:39:45Z",
+        "notes": "Collected From Kids"
+      },
+      {
+        "id": 11280,
+        "type": "expense",
+        "amount": 800.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-31T23:39:59Z",
+        "notes": "Drinks: Royal Challenge"
+      },
+      {
+        "id": 11281,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-31T23:44:13Z",
+        "notes": "Tips"
+      },
+      {
+        "id": 11282,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-31T23:45:57Z",
+        "notes": "Snacks"
+      },
+      {
+        "id": 11283,
+        "type": "expense",
+        "amount": 244.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-10-31T23:59:59Z",
+        "notes": "To Nov"
+      },
+      {
+        "id": 11284,
+        "type": "expense",
+        "amount": 639.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-10-31T23:59:59Z",
+        "notes": "Mutton Biryani & Tandoori"
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Groceries",
+        "type": "expense",
+        "icon": "cart",
+        "color": "#F97316"
+      },
+      {
+        "id": 2,
+        "name": "Rent",
+        "type": "expense",
+        "icon": "home-account",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "name": "Utilities",
+        "type": "expense",
+        "icon": "lightning-bolt",
+        "color": "#64748B"
+      },
+      {
+        "id": 4,
+        "name": "Salary",
+        "type": "income",
+        "icon": "cash-multiple",
+        "color": "#16A34A"
+      },
+      {
+        "id": 5,
+        "name": "Misc",
+        "type": "expense",
+        "icon": "dots-horizontal",
+        "color": "#9CA3AF"
+      },
+      {
+        "id": 6,
+        "name": "DTH",
+        "type": "expense",
+        "icon": "television-play",
+        "color": "#8B5CF6"
+      },
+      {
+        "id": 9,
+        "name": "Snacks",
+        "type": "expense",
+        "icon": "food-variant",
+        "color": "#FBBF24"
+      },
+      {
+        "id": 10,
+        "name": "Wallet Transfer",
+        "type": "expense",
+        "icon": "swap-horizontal",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "Mobile Recharge",
+        "type": "expense",
+        "icon": "cellphone",
+        "color": "#0EA5E9"
+      },
+      {
+        "id": 12,
+        "name": "Bike / Vehicle",
+        "type": "expense",
+        "icon": "motorbike",
+        "color": "#DC2626"
+      },
+      {
+        "id": 13,
+        "name": "Money Received",
+        "type": "income",
+        "icon": "arrow-down-bold-circle",
+        "color": "#10B981"
+      },
+      {
+        "id": 14,
+        "name": "Interest",
+        "type": "income",
+        "icon": "percent",
+        "color": "#22C55E"
+      },
+      {
+        "id": 15,
+        "name": "Money Given",
+        "type": "expense",
+        "icon": "arrow-up-bold-circle",
+        "color": "#EF4444"
+      },
+      {
+        "id": 16,
+        "name": "Food & Dining",
+        "type": "expense",
+        "icon": "silverware-fork-knife",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 17,
+        "name": "Family",
+        "type": "expense",
+        "icon": "account-group",
+        "color": "#F43F5E"
+      },
+      {
+        "id": 18,
+        "name": "Gifts",
+        "type": "expense",
+        "icon": "gift",
+        "color": "#EC4899"
+      },
+      {
+        "id": 19,
+        "name": "Savings",
+        "type": "expense",
+        "icon": "piggy-bank",
+        "color": "#059669"
+      },
+      {
+        "id": 20,
+        "name": "Loan / EMI",
+        "type": "expense",
+        "icon": "bank-transfer",
+        "color": "#B91C1C"
+      },
+      {
+        "id": 21,
+        "name": "Transport",
+        "type": "expense",
+        "icon": "bus",
+        "color": "#14B8A6"
+      },
+      {
+        "id": 22,
+        "name": "Entertainment",
+        "type": "expense",
+        "icon": "movie-open",
+        "color": "#7C3AED"
+      },
+      {
+        "id": 23,
+        "name": "Donations",
+        "type": "expense",
+        "icon": "hand-heart",
+        "color": "#22C55E"
+      },
+      {
+        "id": 24,
+        "name": "Home Improvement",
+        "type": "expense",
+        "icon": "hammer-wrench",
+        "color": "#A16207"
+      },
+      {
+        "id": 25,
+        "name": "Printing & Stationery",
+        "type": "expense",
+        "icon": "printer",
+        "color": "#6B7280"
+      },
+      {
+        "id": 26,
+        "name": "Bank Charges",
+        "type": "expense",
+        "icon": "bank",
+        "color": "#374151"
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "name": "Cash Spend",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "name": "Axis",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 3,
+        "name": "SBI Group",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 4,
+        "name": "Airtel Payments",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 5,
+        "name": "Paytm",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 6,
+        "name": "Unknown",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 7,
+        "name": "Vijaya",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 8,
+        "name": "Freecharge",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 9,
+        "name": "City Union",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 10,
+        "name": "MOBIKWIK",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "BOB",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 12,
+        "name": "HDFC",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 13,
+        "name": "Other",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      }
+    ],
+    "budgets": [],
+    "bills": []
+  }
+}

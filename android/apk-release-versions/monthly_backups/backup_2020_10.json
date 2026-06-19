@@ -1,0 +1,1290 @@
+{
+  "version": 1,
+  "timestamp": "2026-06-19T13:52:31.997617Z",
+  "data": {
+    "transactions": [
+      {
+        "id": 6074,
+        "type": "income",
+        "amount": 3602.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-01T00:00:00Z",
+        "notes": "SELF"
+      },
+      {
+        "id": 6075,
+        "type": "expense",
+        "amount": 14000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-01T11:08:53Z",
+        "notes": "Ms ABINAY/Indian Ba"
+      },
+      {
+        "id": 6076,
+        "type": "expense",
+        "amount": 9.0,
+        "category_id": 25,
+        "source_id": 1,
+        "date": "2020-10-01T13:19:43Z",
+        "notes": "Certificate Xerox"
+      },
+      {
+        "id": 6077,
+        "type": "expense",
+        "amount": 4974.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-01T13:25:06Z",
+        "notes": "Post Office Deposit"
+      },
+      {
+        "id": 6078,
+        "type": "income",
+        "amount": 4000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-01T13:26:07Z",
+        "notes": "ATM Withdrawal - Indian Card - TNMB"
+      },
+      {
+        "id": 6079,
+        "type": "income",
+        "amount": 8.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-01T13:58:45Z",
+        "notes": "Received From Cred"
+      },
+      {
+        "id": 6080,
+        "type": "income",
+        "amount": 9.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-01T13:58:48Z",
+        "notes": "Received From Cred"
+      },
+      {
+        "id": 6081,
+        "type": "income",
+        "amount": 12.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-01T13:58:54Z",
+        "notes": "Received From Cred"
+      },
+      {
+        "id": 6082,
+        "type": "expense",
+        "amount": 6000.0,
+        "category_id": 19,
+        "source_id": 2,
+        "date": "2020-10-01T19:47:49Z",
+        "notes": "Shivani RD"
+      },
+      {
+        "id": 6083,
+        "type": "expense",
+        "amount": 7000.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-02T17:58:00Z",
+        "notes": "Ceiling Fans"
+      },
+      {
+        "id": 6084,
+        "type": "expense",
+        "amount": 420.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2020-10-02T23:55:17Z",
+        "notes": "Shawarma & BBQ Chicken For Dinner"
+      },
+      {
+        "id": 6085,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 9,
+        "source_id": 2,
+        "date": "2020-10-03T14:09:40Z",
+        "notes": "Chips & Sweets"
+      },
+      {
+        "id": 6086,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-04T10:41:04Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 6087,
+        "type": "expense",
+        "amount": 25.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-04T15:18:41Z",
+        "notes": "Bang Home DTH Recharge"
+      },
+      {
+        "id": 6088,
+        "type": "income",
+        "amount": 10000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-05T09:59:19Z",
+        "notes": "ATM Withdrawal - Indian Card - Other"
+      },
+      {
+        "id": 6089,
+        "type": "expense",
+        "amount": 10000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-05T10:00:33Z",
+        "notes": "Gave it to Dad"
+      },
+      {
+        "id": 6090,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-05T12:37:48Z",
+        "notes": "Doctor Fees"
+      },
+      {
+        "id": 6091,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-05T12:38:53Z",
+        "notes": "Tablets"
+      },
+      {
+        "id": 6092,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-05T12:40:07Z",
+        "notes": "Teeth Cleaning Advance"
+      },
+      {
+        "id": 6093,
+        "type": "expense",
+        "amount": 172.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-10-05T20:31:18Z",
+        "notes": "Snacks From Bakery"
+      },
+      {
+        "id": 6094,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-10-05T20:31:41Z",
+        "notes": "Snacks for Akka Family"
+      },
+      {
+        "id": 6095,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-05T20:35:54Z",
+        "notes": "Jacket Stitching Balance For Abi"
+      },
+      {
+        "id": 6096,
+        "type": "expense",
+        "amount": 24.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-10-06T09:45:10Z",
+        "notes": "Cool Drinks"
+      },
+      {
+        "id": 6097,
+        "type": "expense",
+        "amount": 90.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-06T09:45:19Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 6098,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-10-06T13:49:18Z",
+        "notes": "Chocolates For Akka Family"
+      },
+      {
+        "id": 6099,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-10-06T13:49:38Z",
+        "notes": "Chocolate For Son"
+      },
+      {
+        "id": 6100,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-06T15:28:03Z",
+        "notes": "ALPHONES /Karur Vys"
+      },
+      {
+        "id": 6101,
+        "type": "expense",
+        "amount": 75.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-07T14:54:51Z",
+        "notes": "Ice Cream"
+      },
+      {
+        "id": 6102,
+        "type": "expense",
+        "amount": 643.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-08T12:32:35Z",
+        "notes": "singapore shopping mal"
+      },
+      {
+        "id": 6103,
+        "type": "expense",
+        "amount": 305.0,
+        "category_id": 11,
+        "source_id": 2,
+        "date": "2020-10-08T13:10:23Z",
+        "notes": "Recharge for ABI"
+      },
+      {
+        "id": 6104,
+        "type": "expense",
+        "amount": 600.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-08T14:12:00Z",
+        "notes": "1st Teeth Cleaning"
+      },
+      {
+        "id": 6105,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-08T14:29:58Z",
+        "notes": "Tablets"
+      },
+      {
+        "id": 6106,
+        "type": "expense",
+        "amount": 394.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-08T14:46:18Z",
+        "notes": "Soap, Conditioner, Tooth Powder & Yippe"
+      },
+      {
+        "id": 6107,
+        "type": "expense",
+        "amount": 69.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-08T14:46:48Z",
+        "notes": "Crack Cream"
+      },
+      {
+        "id": 6108,
+        "type": "expense",
+        "amount": 49.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-08T14:47:15Z",
+        "notes": "Odomos"
+      },
+      {
+        "id": 6109,
+        "type": "expense",
+        "amount": 131.0,
+        "category_id": 9,
+        "source_id": 3,
+        "date": "2020-10-08T14:47:36Z",
+        "notes": "Snacks From Super Market"
+      },
+      {
+        "id": 6110,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-09T23:51:28Z",
+        "notes": "Fried Rice Mix"
+      },
+      {
+        "id": 6111,
+        "type": "expense",
+        "amount": 110.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2020-10-10T12:12:47Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 6112,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-10T12:13:20Z",
+        "notes": "Tender Coconut"
+      },
+      {
+        "id": 6113,
+        "type": "expense",
+        "amount": 498.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-10T18:47:12Z",
+        "notes": "Amazon Shopping"
+      },
+      {
+        "id": 6114,
+        "type": "expense",
+        "amount": 149.0,
+        "category_id": 11,
+        "source_id": 3,
+        "date": "2020-10-10T18:54:00Z",
+        "notes": "Temper Glass For My Mobile"
+      },
+      {
+        "id": 6115,
+        "type": "expense",
+        "amount": 119.0,
+        "category_id": 11,
+        "source_id": 3,
+        "date": "2020-10-10T18:54:21Z",
+        "notes": "Temper Glass For Abi Mobile"
+      },
+      {
+        "id": 6116,
+        "type": "expense",
+        "amount": 230.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-10T18:54:48Z",
+        "notes": "Mouthwash"
+      },
+      {
+        "id": 6117,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-10-11T14:23:59Z",
+        "notes": "Snacks For Akka Family"
+      },
+      {
+        "id": 6118,
+        "type": "expense",
+        "amount": 649.0,
+        "category_id": 16,
+        "source_id": 3,
+        "date": "2020-10-12T19:16:33Z",
+        "notes": "KFC Chicken"
+      },
+      {
+        "id": 6119,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-12T20:23:25Z",
+        "notes": "Added to Amazon Wallet"
+      },
+      {
+        "id": 6120,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-10-12T20:24:04Z",
+        "notes": "Shawarma"
+      },
+      {
+        "id": 6121,
+        "type": "income",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-13T09:59:19Z",
+        "notes": "Convert to Cash"
+      },
+      {
+        "id": 6122,
+        "type": "expense",
+        "amount": 450.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-13T11:57:13Z",
+        "notes": "2nd Teeth Cleaning"
+      },
+      {
+        "id": 6123,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-13T11:59:01Z",
+        "notes": "Teeth Medicine"
+      },
+      {
+        "id": 6124,
+        "type": "expense",
+        "amount": 948.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-13T19:58:46Z",
+        "notes": "Clothes For Eniyan"
+      },
+      {
+        "id": 6125,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-14T18:33:55Z",
+        "notes": "Hair Cut For Eniyan"
+      },
+      {
+        "id": 6126,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-10-14T18:35:04Z",
+        "notes": "Juice"
+      },
+      {
+        "id": 6127,
+        "type": "expense",
+        "amount": 110.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-16T09:35:56Z",
+        "notes": "Thanjavur Visit : Bike Petrol"
+      },
+      {
+        "id": 6128,
+        "type": "expense",
+        "amount": 190.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-16T09:43:31Z",
+        "notes": "Thanjavur Visit : Sweets"
+      },
+      {
+        "id": 6129,
+        "type": "income",
+        "amount": 1500.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-16T22:30:07Z",
+        "notes": "Convert to Cash"
+      },
+      {
+        "id": 6130,
+        "type": "expense",
+        "amount": 2839.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-17T09:08:05Z",
+        "notes": "Ms ABINAY/Indian Ba"
+      },
+      {
+        "id": 6131,
+        "type": "expense",
+        "amount": 70.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-17T09:44:36Z",
+        "notes": "Thanjavur Visit : Vadai"
+      },
+      {
+        "id": 6132,
+        "type": "income",
+        "amount": 126060.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2020-10-17T12:42:28Z",
+        "notes": "null"
+      },
+      {
+        "id": 6133,
+        "type": "income",
+        "amount": 126060.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2020-10-17T12:42:30Z",
+        "notes": "null"
+      },
+      {
+        "id": 6134,
+        "type": "expense",
+        "amount": 19.0,
+        "category_id": 11,
+        "source_id": 3,
+        "date": "2020-10-18T09:33:30Z",
+        "notes": "Recharge for Abi Mom"
+      },
+      {
+        "id": 6135,
+        "type": "expense",
+        "amount": 400.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-18T10:08:40Z",
+        "notes": "Doctor Consulting Fee for Abi"
+      },
+      {
+        "id": 6136,
+        "type": "expense",
+        "amount": 140.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-18T14:49:53Z",
+        "notes": "Thanjavur Visit : Bike Petrol"
+      },
+      {
+        "id": 6137,
+        "type": "expense",
+        "amount": 219.0,
+        "category_id": 11,
+        "source_id": 3,
+        "date": "2020-10-18T17:48:34Z",
+        "notes": "Recharge for Abi Mom"
+      },
+      {
+        "id": 6138,
+        "type": "expense",
+        "amount": 501.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-18T17:55:27Z",
+        "notes": "Vetri Brother Marriage"
+      },
+      {
+        "id": 6139,
+        "type": "expense",
+        "amount": 1.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-18T17:56:07Z",
+        "notes": "Gave it to Friend"
+      },
+      {
+        "id": 6140,
+        "type": "expense",
+        "amount": 17.7,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-18T21:05:27Z",
+        "notes": "SMS CHARGE"
+      },
+      {
+        "id": 6141,
+        "type": "expense",
+        "amount": 400.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-19T00:33:47Z",
+        "notes": "Doctor Consulting Fee for Myself"
+      },
+      {
+        "id": 6142,
+        "type": "expense",
+        "amount": 727.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-19T00:43:12Z",
+        "notes": "Clothes For Mom"
+      },
+      {
+        "id": 6143,
+        "type": "income",
+        "amount": 3500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-19T18:04:01Z",
+        "notes": "Ms ABINAY/Indian Ba"
+      },
+      {
+        "id": 6144,
+        "type": "expense",
+        "amount": 2294.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-19T18:09:14Z",
+        "notes": "Medicine"
+      },
+      {
+        "id": 6145,
+        "type": "expense",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-19T18:58:20Z",
+        "notes": "Gold Chit - September Month + Closed"
+      },
+      {
+        "id": 6146,
+        "type": "expense",
+        "amount": 680.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-19T20:16:36Z",
+        "notes": "Closed Gold Chit & Purchased"
+      },
+      {
+        "id": 6147,
+        "type": "expense",
+        "amount": 110.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-19T20:39:56Z",
+        "notes": "Thanjavur Visit : Mushroom"
+      },
+      {
+        "id": 6148,
+        "type": "expense",
+        "amount": 2528.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-20T19:45:21Z",
+        "notes": "Purchased in Thanjavur"
+      },
+      {
+        "id": 6149,
+        "type": "income",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-21T09:34:08Z",
+        "notes": "Converted to Cash"
+      },
+      {
+        "id": 6150,
+        "type": "expense",
+        "amount": 418.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-21T13:31:05Z",
+        "notes": "Medicine For Abi"
+      },
+      {
+        "id": 6151,
+        "type": "expense",
+        "amount": 1052.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-21T13:31:39Z",
+        "notes": "Medicine For Myself"
+      },
+      {
+        "id": 6152,
+        "type": "expense",
+        "amount": 1470.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-21T16:38:31Z",
+        "notes": "Medicine"
+      },
+      {
+        "id": 6153,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-21T19:44:36Z",
+        "notes": "Thanjavur Visit : Bike Petrol"
+      },
+      {
+        "id": 6154,
+        "type": "expense",
+        "amount": 3.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-21T19:45:15Z",
+        "notes": "Thanjavur Visit : Bike Air"
+      },
+      {
+        "id": 6155,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-21T19:49:31Z",
+        "notes": "Thanjavur Visit : Cool Drinks & Tea"
+      },
+      {
+        "id": 6156,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-22T09:42:27Z",
+        "notes": "Cool Drinks & Chocolate"
+      },
+      {
+        "id": 6157,
+        "type": "expense",
+        "amount": 528.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-22T20:33:33Z",
+        "notes": "Drinks Food"
+      },
+      {
+        "id": 6158,
+        "type": "expense",
+        "amount": 397.0,
+        "category_id": 11,
+        "source_id": 3,
+        "date": "2020-10-24T09:02:24Z",
+        "notes": "Recharge For Myself Airtel"
+      },
+      {
+        "id": 6159,
+        "type": "income",
+        "amount": 940.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2020-10-24T16:51:03Z",
+        "notes": "Vivek"
+      },
+      {
+        "id": 6160,
+        "type": "expense",
+        "amount": 230.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-24T18:09:55Z",
+        "notes": "Pdkt Home DTH Recharge"
+      },
+      {
+        "id": 6161,
+        "type": "income",
+        "amount": 560.0,
+        "category_id": 20,
+        "source_id": 1,
+        "date": "2020-10-24T18:16:53Z",
+        "notes": "Vivek"
+      },
+      {
+        "id": 6162,
+        "type": "expense",
+        "amount": 560.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-24T21:14:23Z",
+        "notes": "Saree For Abi"
+      },
+      {
+        "id": 6163,
+        "type": "expense",
+        "amount": 12.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-24T21:16:37Z",
+        "notes": "Cup Ice"
+      },
+      {
+        "id": 6164,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2020-10-25T20:44:36Z",
+        "notes": "Chips For Akka Family"
+      },
+      {
+        "id": 6165,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-27T20:43:21Z",
+        "notes": "Milk"
+      },
+      {
+        "id": 6166,
+        "type": "income",
+        "amount": 25000.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2020-10-27T20:47:38Z",
+        "notes": "Bike Subsidy"
+      },
+      {
+        "id": 6167,
+        "type": "expense",
+        "amount": 25000.0,
+        "category_id": 20,
+        "source_id": 1,
+        "date": "2020-10-27T20:48:16Z",
+        "notes": "Agalya"
+      },
+      {
+        "id": 6168,
+        "type": "income",
+        "amount": 3000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-28T23:24:37Z",
+        "notes": "Cousin"
+      },
+      {
+        "id": 6169,
+        "type": "expense",
+        "amount": 1130.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-28T23:29:32Z",
+        "notes": "Sasi Bro Marriage : Drinks & Snacks"
+      },
+      {
+        "id": 6170,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 2,
+        "source_id": 2,
+        "date": "2020-10-29T10:28:00Z",
+        "notes": "Rental Agreement"
+      },
+      {
+        "id": 6171,
+        "type": "expense",
+        "amount": 1020.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-29T23:27:36Z",
+        "notes": "Sasi Bro Marriage : Bike Petrol"
+      },
+      {
+        "id": 6172,
+        "type": "expense",
+        "amount": 380.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-30T16:26:20Z",
+        "notes": "Pdkt Home First Floor Electricity"
+      },
+      {
+        "id": 6173,
+        "type": "income",
+        "amount": 5.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-31T01:33:07Z",
+        "notes": "GOOGLEPAY/Axis Bank."
+      },
+      {
+        "id": 6174,
+        "type": "income",
+        "amount": 5.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-31T01:33:10Z",
+        "notes": "GOOGLEPAY/Axis Bank."
+      },
+      {
+        "id": 6175,
+        "type": "expense",
+        "amount": 193.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-31T06:34:13Z",
+        "notes": "Hospital Visit For Mom : Tablets"
+      },
+      {
+        "id": 6176,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2020-10-31T06:34:42Z",
+        "notes": "Hospital Visit For Mom : Admission Fee"
+      },
+      {
+        "id": 6177,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-31T07:32:01Z",
+        "notes": "Hospital Visit For Mom : Auto"
+      },
+      {
+        "id": 6178,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-31T07:34:48Z",
+        "notes": "Hospital Visit For Mom : Consulting Token"
+      },
+      {
+        "id": 6179,
+        "type": "income",
+        "amount": 70000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-31T10:21:52Z",
+        "notes": "October Month"
+      },
+      {
+        "id": 6180,
+        "type": "expense",
+        "amount": 15036.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-31T14:47:18Z",
+        "notes": "CredClub/ICICI Ban/"
+      },
+      {
+        "id": 6181,
+        "type": "expense",
+        "amount": 4000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2020-10-31T15:40:43Z",
+        "notes": "Vivek"
+      },
+      {
+        "id": 6182,
+        "type": "income",
+        "amount": 6.0,
+        "category_id": 13,
+        "source_id": 2,
+        "date": "2020-10-31T15:40:45Z",
+        "notes": "Get it From Tez"
+      },
+      {
+        "id": 6183,
+        "type": "income",
+        "amount": 5.0,
+        "category_id": 13,
+        "source_id": 2,
+        "date": "2020-10-31T15:43:23Z",
+        "notes": "Get it From Tez"
+      },
+      {
+        "id": 6184,
+        "type": "income",
+        "amount": 5.0,
+        "category_id": 13,
+        "source_id": 2,
+        "date": "2020-10-31T15:44:05Z",
+        "notes": "Get it From Tez"
+      },
+      {
+        "id": 6185,
+        "type": "expense",
+        "amount": 700.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-31T21:12:48Z",
+        "notes": "Hospital Visit For Mom : Medicine"
+      },
+      {
+        "id": 6186,
+        "type": "expense",
+        "amount": 33.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2020-10-31T23:59:59Z",
+        "notes": "To Nov"
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Groceries",
+        "type": "expense",
+        "icon": "cart",
+        "color": "#F97316"
+      },
+      {
+        "id": 2,
+        "name": "Rent",
+        "type": "expense",
+        "icon": "home-account",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "name": "Utilities",
+        "type": "expense",
+        "icon": "lightning-bolt",
+        "color": "#64748B"
+      },
+      {
+        "id": 4,
+        "name": "Salary",
+        "type": "income",
+        "icon": "cash-multiple",
+        "color": "#16A34A"
+      },
+      {
+        "id": 5,
+        "name": "Misc",
+        "type": "expense",
+        "icon": "dots-horizontal",
+        "color": "#9CA3AF"
+      },
+      {
+        "id": 6,
+        "name": "DTH",
+        "type": "expense",
+        "icon": "television-play",
+        "color": "#8B5CF6"
+      },
+      {
+        "id": 9,
+        "name": "Snacks",
+        "type": "expense",
+        "icon": "food-variant",
+        "color": "#FBBF24"
+      },
+      {
+        "id": 10,
+        "name": "Wallet Transfer",
+        "type": "expense",
+        "icon": "swap-horizontal",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "Mobile Recharge",
+        "type": "expense",
+        "icon": "cellphone",
+        "color": "#0EA5E9"
+      },
+      {
+        "id": 12,
+        "name": "Bike / Vehicle",
+        "type": "expense",
+        "icon": "motorbike",
+        "color": "#DC2626"
+      },
+      {
+        "id": 13,
+        "name": "Money Received",
+        "type": "income",
+        "icon": "arrow-down-bold-circle",
+        "color": "#10B981"
+      },
+      {
+        "id": 14,
+        "name": "Interest",
+        "type": "income",
+        "icon": "percent",
+        "color": "#22C55E"
+      },
+      {
+        "id": 15,
+        "name": "Money Given",
+        "type": "expense",
+        "icon": "arrow-up-bold-circle",
+        "color": "#EF4444"
+      },
+      {
+        "id": 16,
+        "name": "Food & Dining",
+        "type": "expense",
+        "icon": "silverware-fork-knife",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 17,
+        "name": "Family",
+        "type": "expense",
+        "icon": "account-group",
+        "color": "#F43F5E"
+      },
+      {
+        "id": 18,
+        "name": "Gifts",
+        "type": "expense",
+        "icon": "gift",
+        "color": "#EC4899"
+      },
+      {
+        "id": 19,
+        "name": "Savings",
+        "type": "expense",
+        "icon": "piggy-bank",
+        "color": "#059669"
+      },
+      {
+        "id": 20,
+        "name": "Loan / EMI",
+        "type": "expense",
+        "icon": "bank-transfer",
+        "color": "#B91C1C"
+      },
+      {
+        "id": 21,
+        "name": "Transport",
+        "type": "expense",
+        "icon": "bus",
+        "color": "#14B8A6"
+      },
+      {
+        "id": 22,
+        "name": "Entertainment",
+        "type": "expense",
+        "icon": "movie-open",
+        "color": "#7C3AED"
+      },
+      {
+        "id": 23,
+        "name": "Donations",
+        "type": "expense",
+        "icon": "hand-heart",
+        "color": "#22C55E"
+      },
+      {
+        "id": 24,
+        "name": "Home Improvement",
+        "type": "expense",
+        "icon": "hammer-wrench",
+        "color": "#A16207"
+      },
+      {
+        "id": 25,
+        "name": "Printing & Stationery",
+        "type": "expense",
+        "icon": "printer",
+        "color": "#6B7280"
+      },
+      {
+        "id": 26,
+        "name": "Bank Charges",
+        "type": "expense",
+        "icon": "bank",
+        "color": "#374151"
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "name": "Cash Spend",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "name": "Axis",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 3,
+        "name": "SBI Group",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 4,
+        "name": "Airtel Payments",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 5,
+        "name": "Paytm",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 6,
+        "name": "Unknown",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 7,
+        "name": "Vijaya",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 8,
+        "name": "Freecharge",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 9,
+        "name": "City Union",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 10,
+        "name": "MOBIKWIK",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "BOB",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 12,
+        "name": "HDFC",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 13,
+        "name": "Other",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      }
+    ],
+    "budgets": [],
+    "bills": []
+  }
+}

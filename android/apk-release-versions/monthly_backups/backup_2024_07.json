@@ -1,0 +1,1344 @@
+{
+  "version": 1,
+  "timestamp": "2026-06-19T13:52:32.051416Z",
+  "data": {
+    "transactions": [
+      {
+        "id": 10745,
+        "type": "income",
+        "amount": 6340.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-01T00:00:00Z",
+        "notes": "SELF"
+      },
+      {
+        "id": 10746,
+        "type": "expense",
+        "amount": 1500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-01T00:01:40Z",
+        "notes": "July Month - 2024"
+      },
+      {
+        "id": 10747,
+        "type": "income",
+        "amount": 32.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-01T10:34:07Z",
+        "notes": "Converted to Cash"
+      },
+      {
+        "id": 10748,
+        "type": "expense",
+        "amount": 1.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-01T10:34:30Z",
+        "notes": "July Month - 2024"
+      },
+      {
+        "id": 10749,
+        "type": "expense",
+        "amount": 13653.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-01T10:40:04Z",
+        "notes": "SBI Credit Card Bill Paid"
+      },
+      {
+        "id": 10750,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-01T10:48:07Z",
+        "notes": "Birthday Cake"
+      },
+      {
+        "id": 10751,
+        "type": "expense",
+        "amount": 17000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-01T12:02:05Z",
+        "notes": "Pre Kg: Term Fee Final Payment"
+      },
+      {
+        "id": 10752,
+        "type": "expense",
+        "amount": 230.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-01T13:52:34Z",
+        "notes": "Fast Food"
+      },
+      {
+        "id": 10753,
+        "type": "expense",
+        "amount": 230.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-01T13:53:33Z",
+        "notes": "Pre Kg: Dress"
+      },
+      {
+        "id": 10754,
+        "type": "expense",
+        "amount": 311.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-01T13:55:15Z",
+        "notes": "July Month - 2024"
+      },
+      {
+        "id": 10755,
+        "type": "expense",
+        "amount": 40000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-02T10:43:06Z",
+        "notes": "Other Usage"
+      },
+      {
+        "id": 10756,
+        "type": "expense",
+        "amount": 10000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-02T10:46:26Z",
+        "notes": "18466016457/B"
+      },
+      {
+        "id": 10757,
+        "type": "income",
+        "amount": 10000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2024-07-02T11:09:03Z",
+        "notes": "null"
+      },
+      {
+        "id": 10758,
+        "type": "expense",
+        "amount": 10000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2024-07-02T12:12:36Z",
+        "notes": "7th Gold Loan - 1st Payment"
+      },
+      {
+        "id": 10759,
+        "type": "expense",
+        "amount": 550.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-07-02T23:57:10Z",
+        "notes": "Groceries From Dmart"
+      },
+      {
+        "id": 10760,
+        "type": "expense",
+        "amount": 10000.0,
+        "category_id": 15,
+        "source_id": 2,
+        "date": "2024-07-03T07:48:30Z",
+        "notes": "Give Back to Vinoth"
+      },
+      {
+        "id": 10761,
+        "type": "expense",
+        "amount": 13000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-03T07:49:24Z",
+        "notes": "Gave it to Dad"
+      },
+      {
+        "id": 10762,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-03T07:49:46Z",
+        "notes": "Gave it to Mom"
+      },
+      {
+        "id": 10763,
+        "type": "expense",
+        "amount": 20000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-03T10:10:09Z",
+        "notes": "Unknown Receiver"
+      },
+      {
+        "id": 10764,
+        "type": "expense",
+        "amount": 24000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-03T16:50:43Z",
+        "notes": "Gave it to Parents"
+      },
+      {
+        "id": 10765,
+        "type": "expense",
+        "amount": 20000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2024-07-03T16:53:41Z",
+        "notes": "7th Gold Loan - 2nd Payment"
+      },
+      {
+        "id": 10766,
+        "type": "income",
+        "amount": 5000.0,
+        "category_id": 20,
+        "source_id": 2,
+        "date": "2024-07-04T23:17:30Z",
+        "notes": "Abi"
+      },
+      {
+        "id": 10767,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-05T16:19:50Z",
+        "notes": "Car : Fast Tag 2"
+      },
+      {
+        "id": 10768,
+        "type": "expense",
+        "amount": 90.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-05T18:11:32Z",
+        "notes": "Car : Fast Tag 3"
+      },
+      {
+        "id": 10769,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-05T19:14:33Z",
+        "notes": "Car : Fast Tag 4"
+      },
+      {
+        "id": 10770,
+        "type": "expense",
+        "amount": 525.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-07-05T21:43:01Z",
+        "notes": "Dinner"
+      },
+      {
+        "id": 10771,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-05T23:45:05Z",
+        "notes": "Car : Fast Tag 1"
+      },
+      {
+        "id": 10772,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-05T23:48:25Z",
+        "notes": "Car : Fast Tag 5"
+      },
+      {
+        "id": 10773,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-05T23:50:56Z",
+        "notes": "Dinner Tips"
+      },
+      {
+        "id": 10774,
+        "type": "expense",
+        "amount": 13800.0,
+        "category_id": 2,
+        "source_id": 2,
+        "date": "2024-07-06T11:11:38Z",
+        "notes": "June Month House Rent"
+      },
+      {
+        "id": 10775,
+        "type": "expense",
+        "amount": 320.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-06T22:37:41Z",
+        "notes": "Washing Stool"
+      },
+      {
+        "id": 10776,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-07T10:02:44Z",
+        "notes": "Toll Gate 1"
+      },
+      {
+        "id": 10777,
+        "type": "expense",
+        "amount": 95.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-07T13:37:10Z",
+        "notes": "Toll Gate 2"
+      },
+      {
+        "id": 10778,
+        "type": "expense",
+        "amount": 90.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-07T16:46:53Z",
+        "notes": "Toll Gate 4"
+      },
+      {
+        "id": 10779,
+        "type": "expense",
+        "amount": 35.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-07T17:58:38Z",
+        "notes": "Toll Gate 5"
+      },
+      {
+        "id": 10780,
+        "type": "income",
+        "amount": 100.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2024-07-07T22:38:53Z",
+        "notes": "Get it From Mom"
+      },
+      {
+        "id": 10781,
+        "type": "expense",
+        "amount": 120.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-07T23:53:07Z",
+        "notes": "Toll Gate 3"
+      },
+      {
+        "id": 10782,
+        "type": "expense",
+        "amount": 60.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-07T23:54:26Z",
+        "notes": "Toll Gate 6"
+      },
+      {
+        "id": 10783,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-08T15:38:11Z",
+        "notes": "Mrs S Shanthi"
+      },
+      {
+        "id": 10784,
+        "type": "expense",
+        "amount": 4000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-09T07:46:21Z",
+        "notes": "July Month - 2024"
+      },
+      {
+        "id": 10785,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-10T00:12:30Z",
+        "notes": "Chocolates"
+      },
+      {
+        "id": 10786,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-10T00:15:50Z",
+        "notes": "Dinner: Nahdi Mandi - Tips"
+      },
+      {
+        "id": 10787,
+        "type": "expense",
+        "amount": 0.01,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-10T18:26:44Z",
+        "notes": "PLUXEE INDI"
+      },
+      {
+        "id": 10788,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-10T19:49:24Z",
+        "notes": "BIG BASKET"
+      },
+      {
+        "id": 10789,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-10T19:52:28Z",
+        "notes": "BIG BASKET"
+      },
+      {
+        "id": 10790,
+        "type": "expense",
+        "amount": 1817.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-07-10T22:06:21Z",
+        "notes": "Dinner: Nahdi Mandi Restaurant"
+      },
+      {
+        "id": 10791,
+        "type": "expense",
+        "amount": 1182.36,
+        "category_id": 11,
+        "source_id": 2,
+        "date": "2024-07-11T00:20:57Z",
+        "notes": "Postpaid Bill Paid For Myself"
+      },
+      {
+        "id": 10792,
+        "type": "expense",
+        "amount": 555.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-07-12T12:29:20Z",
+        "notes": "3 Beer"
+      },
+      {
+        "id": 10793,
+        "type": "income",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-12T12:29:49Z",
+        "notes": "Converted to Cash"
+      },
+      {
+        "id": 10794,
+        "type": "expense",
+        "amount": 210.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-12T12:30:54Z",
+        "notes": "Kushka & Chicken Kabab"
+      },
+      {
+        "id": 10795,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-12T12:43:49Z",
+        "notes": "Chips"
+      },
+      {
+        "id": 10796,
+        "type": "expense",
+        "amount": 62.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2024-07-12T12:45:22Z",
+        "notes": "Snacks From Jodhpur"
+      },
+      {
+        "id": 10797,
+        "type": "expense",
+        "amount": 5000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-12T14:44:25Z",
+        "notes": "PPF - July 2024"
+      },
+      {
+        "id": 10798,
+        "type": "expense",
+        "amount": 565.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-07-12T17:08:11Z",
+        "notes": "3 Beer"
+      },
+      {
+        "id": 10799,
+        "type": "expense",
+        "amount": 565.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-07-12T23:59:59Z",
+        "notes": "3 Beer"
+      },
+      {
+        "id": 10800,
+        "type": "expense",
+        "amount": 799.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-07-13T11:45:03Z",
+        "notes": "1st Std - School Shoe From Bata"
+      },
+      {
+        "id": 10801,
+        "type": "expense",
+        "amount": 150.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2024-07-13T14:36:50Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 10802,
+        "type": "expense",
+        "amount": 250.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-13T14:49:49Z",
+        "notes": "RED BUCKET  BANGALORE"
+      },
+      {
+        "id": 10803,
+        "type": "income",
+        "amount": 250.0,
+        "category_id": 20,
+        "source_id": 1,
+        "date": "2024-07-14T00:01:10Z",
+        "notes": "Cousin"
+      },
+      {
+        "id": 10804,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 22,
+        "source_id": 1,
+        "date": "2024-07-14T00:02:09Z",
+        "notes": "Movie: Indian 2: Ticket"
+      },
+      {
+        "id": 10805,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 22,
+        "source_id": 1,
+        "date": "2024-07-14T00:02:41Z",
+        "notes": "Movie: Indian 2: Snacks"
+      },
+      {
+        "id": 10806,
+        "type": "income",
+        "amount": 30.0,
+        "category_id": 20,
+        "source_id": 1,
+        "date": "2024-07-14T00:03:28Z",
+        "notes": "Cousin"
+      },
+      {
+        "id": 10807,
+        "type": "expense",
+        "amount": 50.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-14T00:04:09Z",
+        "notes": "1st Std - Chart, Sketch & Stickers"
+      },
+      {
+        "id": 10808,
+        "type": "expense",
+        "amount": 20.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-14T00:05:22Z",
+        "notes": "Pre Kg: Ice Sticks"
+      },
+      {
+        "id": 10809,
+        "type": "expense",
+        "amount": 200.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2024-07-14T00:06:45Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 10810,
+        "type": "income",
+        "amount": 1550.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2024-07-14T00:08:10Z",
+        "notes": "Get it From Vivek"
+      },
+      {
+        "id": 10811,
+        "type": "expense",
+        "amount": 1550.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-14T00:08:57Z",
+        "notes": "9th Paid Service - Oil & Filter Change"
+      },
+      {
+        "id": 10812,
+        "type": "income",
+        "amount": 20000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-16T12:14:14Z",
+        "notes": "Mr Agalya Indian Ba"
+      },
+      {
+        "id": 10813,
+        "type": "income",
+        "amount": 15000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-16T12:14:34Z",
+        "notes": "Mr Agalya Indian Ba"
+      },
+      {
+        "id": 10814,
+        "type": "income",
+        "amount": 4500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-16T16:33:26Z",
+        "notes": "Brillio Internet Reimbursement"
+      },
+      {
+        "id": 10815,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2024-07-16T23:23:42Z",
+        "notes": "Breakfast: Idly Vadai"
+      },
+      {
+        "id": 10816,
+        "type": "expense",
+        "amount": 30000.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-18T10:35:17Z",
+        "notes": "B"
+      },
+      {
+        "id": 10817,
+        "type": "income",
+        "amount": 30000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2024-07-18T11:06:11Z",
+        "notes": "Unknown Sender"
+      },
+      {
+        "id": 10818,
+        "type": "expense",
+        "amount": 30000.0,
+        "category_id": 5,
+        "source_id": 11,
+        "date": "2024-07-18T12:48:11Z",
+        "notes": "7th Gold Loan - 3rd Payment"
+      },
+      {
+        "id": 10819,
+        "type": "expense",
+        "amount": 400.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-07-19T12:09:50Z",
+        "notes": "Old Monk"
+      },
+      {
+        "id": 10820,
+        "type": "expense",
+        "amount": 980.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-19T14:20:56Z",
+        "notes": "RED BUCKET  BANGALORE"
+      },
+      {
+        "id": 10821,
+        "type": "expense",
+        "amount": 180.0,
+        "category_id": 12,
+        "source_id": 1,
+        "date": "2024-07-19T23:11:55Z",
+        "notes": "Bike Petrol"
+      },
+      {
+        "id": 10822,
+        "type": "expense",
+        "amount": 700.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-20T06:30:54Z",
+        "notes": "Yelagiri Visit: Lunch"
+      },
+      {
+        "id": 10823,
+        "type": "expense",
+        "amount": 336.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-20T06:33:50Z",
+        "notes": "Yelagiri Visit: Spend Cash"
+      },
+      {
+        "id": 10824,
+        "type": "income",
+        "amount": 2000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-20T08:23:42Z",
+        "notes": "Converted to Cash"
+      },
+      {
+        "id": 10825,
+        "type": "expense",
+        "amount": 275.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-20T09:49:24Z",
+        "notes": "Yelagiri Visit: Breakfast"
+      },
+      {
+        "id": 10826,
+        "type": "expense",
+        "amount": 567.0,
+        "category_id": 16,
+        "source_id": 3,
+        "date": "2024-07-20T21:52:38Z",
+        "notes": "Chicken Tandoori"
+      },
+      {
+        "id": 10827,
+        "type": "expense",
+        "amount": 95.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-20T22:49:20Z",
+        "notes": "Yelagiri Visit: Dinner"
+      },
+      {
+        "id": 10828,
+        "type": "income",
+        "amount": 300.0,
+        "category_id": 13,
+        "source_id": 1,
+        "date": "2024-07-20T23:41:06Z",
+        "notes": "Get it From Vivek"
+      },
+      {
+        "id": 10829,
+        "type": "expense",
+        "amount": 300.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-20T23:41:34Z",
+        "notes": "Socks"
+      },
+      {
+        "id": 10830,
+        "type": "expense",
+        "amount": 567.0,
+        "category_id": 5,
+        "source_id": 3,
+        "date": "2024-07-20T23:59:59Z",
+        "notes": "Yelagiri Visit: Dinner"
+      },
+      {
+        "id": 10831,
+        "type": "expense",
+        "amount": 515.42,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-21T06:39:26Z",
+        "notes": "Groceries From Zepto"
+      },
+      {
+        "id": 10832,
+        "type": "expense",
+        "amount": 515.42,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-21T11:37:26Z",
+        "notes": "ZEPTO"
+      },
+      {
+        "id": 10833,
+        "type": "income",
+        "amount": 2300.0,
+        "category_id": 20,
+        "source_id": 1,
+        "date": "2024-07-22T23:36:22Z",
+        "notes": "Cousin"
+      },
+      {
+        "id": 10834,
+        "type": "expense",
+        "amount": 2300.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-22T23:37:06Z",
+        "notes": "Joining & 3 Months Fees"
+      },
+      {
+        "id": 10835,
+        "type": "expense",
+        "amount": 1000.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-23T06:35:05Z",
+        "notes": "July Month - 2024"
+      },
+      {
+        "id": 10836,
+        "type": "expense",
+        "amount": 220.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2024-07-24T02:20:17Z",
+        "notes": "Lunch: Chicken Biryani"
+      },
+      {
+        "id": 10837,
+        "type": "income",
+        "amount": 134649.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-24T04:34:54Z",
+        "notes": "Unknown Sender"
+      },
+      {
+        "id": 10838,
+        "type": "expense",
+        "amount": 349.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-24T08:42:28Z",
+        "notes": "1st Std - Eniyan Sports Tshirt"
+      },
+      {
+        "id": 10839,
+        "type": "expense",
+        "amount": 220.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-24T15:43:27Z",
+        "notes": "RED BUCKET  BANGALORE"
+      },
+      {
+        "id": 10840,
+        "type": "expense",
+        "amount": 140.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-26T11:55:58Z",
+        "notes": "Medicine For Chezhiyan"
+      },
+      {
+        "id": 10841,
+        "type": "expense",
+        "amount": 180.0,
+        "category_id": 16,
+        "source_id": 3,
+        "date": "2024-07-26T14:11:28Z",
+        "notes": "Lunch: Andhra Meals"
+      },
+      {
+        "id": 10842,
+        "type": "expense",
+        "amount": 29.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-26T20:03:26Z",
+        "notes": "BIG BASKET"
+      },
+      {
+        "id": 10843,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-26T20:05:07Z",
+        "notes": "BIG BASKET"
+      },
+      {
+        "id": 10844,
+        "type": "expense",
+        "amount": 30.0,
+        "category_id": 5,
+        "source_id": 6,
+        "date": "2024-07-26T20:06:39Z",
+        "notes": "BIG BASKET"
+      },
+      {
+        "id": 10845,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-26T23:28:24Z",
+        "notes": "Gave to Vivek"
+      },
+      {
+        "id": 10846,
+        "type": "expense",
+        "amount": 180.0,
+        "category_id": 16,
+        "source_id": 3,
+        "date": "2024-07-26T23:59:59Z",
+        "notes": "Lunch: Andhra Meals"
+      },
+      {
+        "id": 10847,
+        "type": "expense",
+        "amount": 80.0,
+        "category_id": 9,
+        "source_id": 1,
+        "date": "2024-07-27T12:06:46Z",
+        "notes": "Snacks From Jodhpur"
+      },
+      {
+        "id": 10848,
+        "type": "expense",
+        "amount": 912.5,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-28T02:28:22Z",
+        "notes": "Yelagiri Visit: Settlement"
+      },
+      {
+        "id": 10849,
+        "type": "expense",
+        "amount": 1495.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-28T11:42:03Z",
+        "notes": "Ms ABINAYA  S"
+      },
+      {
+        "id": 10850,
+        "type": "expense",
+        "amount": 995.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-28T11:44:09Z",
+        "notes": "July Month - 2024"
+      },
+      {
+        "id": 10851,
+        "type": "income",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-28T23:24:43Z",
+        "notes": "Converted to Cash"
+      },
+      {
+        "id": 10852,
+        "type": "expense",
+        "amount": 450.0,
+        "category_id": 22,
+        "source_id": 1,
+        "date": "2024-07-28T23:25:16Z",
+        "notes": "Movie : Deadpool & Wolverine"
+      },
+      {
+        "id": 10853,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-28T23:26:42Z",
+        "notes": "Nails For Rat Trap"
+      },
+      {
+        "id": 10854,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 20,
+        "source_id": 1,
+        "date": "2024-07-30T08:41:31Z",
+        "notes": "Vivek"
+      },
+      {
+        "id": 10855,
+        "type": "expense",
+        "amount": 1234.8,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-30T08:49:03Z",
+        "notes": "Car Petrol"
+      },
+      {
+        "id": 10856,
+        "type": "expense",
+        "amount": 40.0,
+        "category_id": 16,
+        "source_id": 1,
+        "date": "2024-07-30T08:49:34Z",
+        "notes": "Breakfast"
+      },
+      {
+        "id": 10857,
+        "type": "expense",
+        "amount": 10.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-30T08:50:48Z",
+        "notes": "Bananas"
+      },
+      {
+        "id": 10858,
+        "type": "expense",
+        "amount": 95.0,
+        "category_id": 16,
+        "source_id": 2,
+        "date": "2024-07-30T14:21:07Z",
+        "notes": "Lunch: Paneer Fried Rice"
+      },
+      {
+        "id": 10859,
+        "type": "expense",
+        "amount": 600.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-31T08:21:22Z",
+        "notes": "July Month - 2024"
+      },
+      {
+        "id": 10860,
+        "type": "expense",
+        "amount": 100.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-31T09:11:42Z",
+        "notes": "Amazon Pay Balance"
+      },
+      {
+        "id": 10861,
+        "type": "expense",
+        "amount": 500.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-31T09:20:30Z",
+        "notes": "Amazon Pay Balance"
+      },
+      {
+        "id": 10862,
+        "type": "income",
+        "amount": 159188.0,
+        "category_id": 5,
+        "source_id": 2,
+        "date": "2024-07-31T15:35:34Z",
+        "notes": "BRIL"
+      },
+      {
+        "id": 10863,
+        "type": "expense",
+        "amount": 77.0,
+        "category_id": 5,
+        "source_id": 1,
+        "date": "2024-07-31T23:59:59Z",
+        "notes": "To Aug"
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Groceries",
+        "type": "expense",
+        "icon": "cart",
+        "color": "#F97316"
+      },
+      {
+        "id": 2,
+        "name": "Rent",
+        "type": "expense",
+        "icon": "home-account",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "name": "Utilities",
+        "type": "expense",
+        "icon": "lightning-bolt",
+        "color": "#64748B"
+      },
+      {
+        "id": 4,
+        "name": "Salary",
+        "type": "income",
+        "icon": "cash-multiple",
+        "color": "#16A34A"
+      },
+      {
+        "id": 5,
+        "name": "Misc",
+        "type": "expense",
+        "icon": "dots-horizontal",
+        "color": "#9CA3AF"
+      },
+      {
+        "id": 6,
+        "name": "DTH",
+        "type": "expense",
+        "icon": "television-play",
+        "color": "#8B5CF6"
+      },
+      {
+        "id": 9,
+        "name": "Snacks",
+        "type": "expense",
+        "icon": "food-variant",
+        "color": "#FBBF24"
+      },
+      {
+        "id": 10,
+        "name": "Wallet Transfer",
+        "type": "expense",
+        "icon": "swap-horizontal",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "Mobile Recharge",
+        "type": "expense",
+        "icon": "cellphone",
+        "color": "#0EA5E9"
+      },
+      {
+        "id": 12,
+        "name": "Bike / Vehicle",
+        "type": "expense",
+        "icon": "motorbike",
+        "color": "#DC2626"
+      },
+      {
+        "id": 13,
+        "name": "Money Received",
+        "type": "income",
+        "icon": "arrow-down-bold-circle",
+        "color": "#10B981"
+      },
+      {
+        "id": 14,
+        "name": "Interest",
+        "type": "income",
+        "icon": "percent",
+        "color": "#22C55E"
+      },
+      {
+        "id": 15,
+        "name": "Money Given",
+        "type": "expense",
+        "icon": "arrow-up-bold-circle",
+        "color": "#EF4444"
+      },
+      {
+        "id": 16,
+        "name": "Food & Dining",
+        "type": "expense",
+        "icon": "silverware-fork-knife",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 17,
+        "name": "Family",
+        "type": "expense",
+        "icon": "account-group",
+        "color": "#F43F5E"
+      },
+      {
+        "id": 18,
+        "name": "Gifts",
+        "type": "expense",
+        "icon": "gift",
+        "color": "#EC4899"
+      },
+      {
+        "id": 19,
+        "name": "Savings",
+        "type": "expense",
+        "icon": "piggy-bank",
+        "color": "#059669"
+      },
+      {
+        "id": 20,
+        "name": "Loan / EMI",
+        "type": "expense",
+        "icon": "bank-transfer",
+        "color": "#B91C1C"
+      },
+      {
+        "id": 21,
+        "name": "Transport",
+        "type": "expense",
+        "icon": "bus",
+        "color": "#14B8A6"
+      },
+      {
+        "id": 22,
+        "name": "Entertainment",
+        "type": "expense",
+        "icon": "movie-open",
+        "color": "#7C3AED"
+      },
+      {
+        "id": 23,
+        "name": "Donations",
+        "type": "expense",
+        "icon": "hand-heart",
+        "color": "#22C55E"
+      },
+      {
+        "id": 24,
+        "name": "Home Improvement",
+        "type": "expense",
+        "icon": "hammer-wrench",
+        "color": "#A16207"
+      },
+      {
+        "id": 25,
+        "name": "Printing & Stationery",
+        "type": "expense",
+        "icon": "printer",
+        "color": "#6B7280"
+      },
+      {
+        "id": 26,
+        "name": "Bank Charges",
+        "type": "expense",
+        "icon": "bank",
+        "color": "#374151"
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "name": "Cash Spend",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "name": "Axis",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 3,
+        "name": "SBI Group",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 4,
+        "name": "Airtel Payments",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 5,
+        "name": "Paytm",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 6,
+        "name": "Unknown",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 7,
+        "name": "Vijaya",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 8,
+        "name": "Freecharge",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 9,
+        "name": "City Union",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 10,
+        "name": "MOBIKWIK",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "BOB",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 12,
+        "name": "HDFC",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 13,
+        "name": "Other",
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1"
+      }
+    ],
+    "budgets": [],
+    "bills": []
+  }
+}
