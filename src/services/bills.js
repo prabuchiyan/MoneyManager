@@ -64,14 +64,17 @@ export async function createBill({
   auto_pay = 0,
   notes = null,
   attachment_url = null,
+  paid_at = null,
+  is_paid = 0,
+  linked_transaction_id = null,
 }) {
   const ts = nowIso();
   const res = await executeSql(
     `INSERT INTO bills (
       name, amount, due_date, status, is_recurring, recurrence_type, recurrence_interval,
       recurrence_end_date, category_id, source_id, reminder_days_before, auto_pay,
-      notes, attachment_url, created_at, updated_at
-    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+      notes, attachment_url, paid_at, is_paid, linked_transaction_id, created_at, updated_at
+    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
     [
       name,
       amount,
@@ -87,6 +90,9 @@ export async function createBill({
       auto_pay ? 1 : 0,
       notes,
       attachment_url,
+      paid_at,
+      is_paid ? 1 : 0,
+      linked_transaction_id,
       ts,
       ts,
     ]
@@ -423,6 +429,9 @@ export async function updateBill(id, fields) {
     notes: fields.notes !== undefined ? fields.notes : existing.notes,
     attachment_url: fields.attachment_url !== undefined ? fields.attachment_url : existing.attachment_url,
     is_paid: fields.is_paid !== undefined ? (fields.is_paid ? 1 : 0) : existing.is_paid,
+    paid_at: fields.paid_at !== undefined ? fields.paid_at : existing.paid_at,
+    last_reminded_at: fields.last_reminded_at !== undefined ? fields.last_reminded_at : existing.last_reminded_at,
+    linked_transaction_id: fields.linked_transaction_id !== undefined ? fields.linked_transaction_id : existing.linked_transaction_id,
   };
   console.log('Updating bill', id, merged);
 
@@ -431,7 +440,7 @@ export async function updateBill(id, fields) {
     `UPDATE bills SET name = ?, amount = ?, due_date = ?, status = ?, is_recurring = ?, recurrence_type = ?,
       recurrence_interval = ?, recurrence_end_date = ?, category_id = ?, source_id = ?,
       reminder_days_before = ?, auto_pay = ?, notes = ?, attachment_url = ?, is_paid = ?,
-      updated_at = ? WHERE id = ?`,
+      paid_at = ?, last_reminded_at = ?, linked_transaction_id = ?, updated_at = ? WHERE id = ?`,
     [
       merged.name,
       merged.amount,
@@ -448,6 +457,9 @@ export async function updateBill(id, fields) {
       merged.notes,
       merged.attachment_url,
       merged.is_paid,
+      merged.paid_at,
+      merged.last_reminded_at,
+      merged.linked_transaction_id,
       updatedAt,
       id,
     ]

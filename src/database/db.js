@@ -59,32 +59,45 @@ function createWebExecuteSql() {
       return { insertId: obj.id, rows: makeRows([]) };
     }
 
-    // SELECT * FROM table [WHERE ...] [ORDER BY ...] [LIMIT ?]
+    // SELECT [cols] FROM table [WHERE ...] [ORDER BY ...] [LIMIT ?]
     if (l.startsWith('select')) {
-      const m = s.match(/select\s+\*\s+from\s+([a-zA-Z0-9_]+)/i);
+      const m = s.match(/select\s+(.+?)\s+from\s+([a-zA-Z0-9_]+)/i);
       if (!m) throw new Error('Unsupported SELECT SQL: ' + sql);
-      const table = m[1];
+      const colsStr = m[1].trim();
+      const table = m[2];
       let rows = readTable(table);
 
       // WHERE id = ? or other simple equality conditions chained with AND
       const whereMatch = s.match(/where\s+(.+?)(order by|limit|$)/i);
       if (whereMatch) {
         const cond = whereMatch[1].trim();
-        // support simple 'id = ?' or 'is_active=1'
-        const eqMatch = cond.match(/([a-zA-Z0-9_]+)\s*=\s*\?/);
-        if (eqMatch) {
-          const col = eqMatch[1];
-          const val = params.shift();
-          rows = rows.filter(r => String(r[col]) === String(val));
-        } else {
-          // support literal conditions like is_active=1
-          const litMatch = cond.match(/([a-zA-Z0-9_]+)\s*=\s*([0-9]+)/);
-          if (litMatch) {
-            const col = litMatch[1];
-            const val = litMatch[2];
+        const parts = cond.split(/\s+and\s+/i);
+        
+        for (const p of parts) {
+          const eqMatch = p.match(/([a-zA-Z0-9_]+)\s*=\s*\?/);
+          if (eqMatch) {
+            const col = eqMatch[1];
+            const val = params.shift();
             rows = rows.filter(r => String(r[col]) === String(val));
+          } else {
+            const litMatch = p.match(/([a-zA-Z0-9_]+)\s*=\s*['"]?([^'"\s]+)['"]?/);
+            if (litMatch) {
+              const col = litMatch[1];
+              const val = litMatch[2];
+              rows = rows.filter(r => String(r[col]) === String(val));
+            }
           }
         }
+      }
+
+      // Projection (selecting specific columns)
+      if (colsStr !== '*') {
+        const cols = colsStr.split(',').map(c => c.trim().split(/\s+/).pop()); // handle table.col or col as alias
+        rows = rows.map(r => {
+          const projected = {};
+          cols.forEach(c => projected[c] = r[c]);
+          return projected;
+        });
       }
 
       // ORDER BY date DESC or name

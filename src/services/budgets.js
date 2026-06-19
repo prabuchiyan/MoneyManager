@@ -62,4 +62,12 @@ export async function deleteBudget(id) {
   await executeSql(`DELETE FROM budgets WHERE id = ?`, [id]);
 }
 
-export default { createBudget, getBudgetsForMonth, updateBudget, deleteBudget };
+export async function getBudgets() {
+  const res = await executeSql(`SELECT * FROM budgets`, []);
+  const rows = [];
+  for (let i = 0; i < res.rows.length; i++) rows.push(res.rows.item(i));
+  return rows;
+}
+
+export default { createBudget, getBudgetsForMonth, updateBudget, deleteBudget, getBudgets };
+

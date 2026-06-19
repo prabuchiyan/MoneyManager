@@ -14,6 +14,7 @@ import BudgetsScreen from './src/screens/BudgetsScreen';
 import ReportsScreen from './src/screens/ReportsScreen';
 import BillsScreen from './src/screens/BillsScreen';
 import BillDetailScreen from './src/screens/BillDetailScreen';
+import BackupScreen from './src/screens/BackupScreen';
 import { initDB } from './src/database/init';
 import { runBillMaintenance } from './src/services/bills';
 import { Provider as PaperProvider, DefaultTheme as PaperDefaultTheme } from 'react-native-paper';
@@ -59,8 +60,8 @@ export default function App() {
   if (!ready) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Image 
-          source={require('./assets/logo.png')} 
+        <Image
+          source={require('./assets/logo.png')}
           style={{ width: 100, height: 100, marginBottom: 20 }}
           resizeMode="contain"
         />
@@ -83,7 +84,22 @@ export default function App() {
       >
         <NavigationContainer>
           <Stack.Navigator>
-            <Stack.Screen name="Dashboard" component={HomeScreen} />
+            <Stack.Screen
+              name="Dashboard"
+              component={HomeScreen}
+              options={({ navigation }) => ({
+                headerRight: () => (
+                  <MaterialCommunityIcons
+                    name="database-sync"
+                    size={24}
+                    color={Colors.primary}
+                    onPress={() => navigation.navigate('Backup')}
+                    style={{ marginRight: 10 }}
+                  />
+                )
+              })}
+            />
+
             <Stack.Screen name="Transactions" component={TransactionsScreen} />
             <Stack.Screen name="TransactionAdd" component={TransactionAddScreen} options={{ title: 'Add Transaction' }} />
             <Stack.Screen name="Categories" component={CategoriesScreen} />
@@ -94,6 +110,7 @@ export default function App() {
             <Stack.Screen name="Budgets" component={BudgetsScreen} />
             <Stack.Screen name="Bills" component={BillsScreen} options={{ title: 'Bills' }} />
             <Stack.Screen name="BillDetail" component={BillDetailScreen} options={{ title: 'Bill Details' }} />
+            <Stack.Screen name="Backup" component={BackupScreen} options={{ title: 'Backup & Restore' }} />
           </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>
