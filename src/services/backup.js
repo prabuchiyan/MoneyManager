@@ -112,11 +112,18 @@ export async function pickBackupFile() {
 }
 
 async function clearAllTables() {
-  const tables = ['transactions', 'budgets', 'bills', 'categories', 'sources'];
-  for (const table of tables) {
-    await executeSql(`DELETE FROM ${table}`);
-    // Optional: Reset autoincrement
-    await executeSql(`DELETE FROM sqlite_sequence WHERE name = ?`, [table]);
+  const tables = ['transactions', 'bills', 'budgets', 'categories', 'sources'];
+
+  try {
+    for (const table of tables) {
+      await executeSql(`DELETE FROM ${table}`);
+
+      if (Platform.OS !== 'web') {
+        await executeSql(`DELETE FROM sqlite_sequence WHERE name = ?`, [table]);
+      }
+    }
+  } catch (e) {
+    console.error('Clear DB failed', e);
   }
 }
 
@@ -169,7 +176,7 @@ export async function restoreBackup(backupData, mode = 'replace') {
           continue;
         }
       }
-      const billToCreate = { 
+      const billToCreate = {
         ...bill,
         category_id: categoryMap[bill.category_id] || null,
         source_id: sourceMap[bill.source_id] || null

@@ -98,14 +98,52 @@ export async function initDB() {
       const cats = await executeSql('SELECT * FROM categories', []);
       if (cats.rows.length === 0) {
         const defaultCats = [
-          ['Groceries','expense'],
-          ['Rent','expense'],
-          ['Utilities','expense'],
-          ['Salary','income'],
-          ['Misc','expense']
+          // 💰 Income
+          ['Salary', 'income', 'cash-multiple', '#16A34A'],
+          ['Interest', 'income', 'percent', '#22C55E'],
+          ['Money Received', 'income', 'arrow-down-bold-circle', '#10B981'],
+
+          // 🔁 Transfers / Lending
+          ['Money Given', 'expense', 'arrow-up-bold-circle', '#EF4444'],
+          ['Wallet Transfer', 'expense', 'swap-horizontal', '#6366F1'],
+
+          // 🍔 Food
+          ['Food & Dining', 'expense', 'silverware-fork-knife', '#F59E0B'],
+          ['Snacks', 'expense', 'food-variant', '#FBBF24'],
+
+          // 🏠 Living
+          ['Rent', 'expense', 'home-account', '#3B82F6'],
+          ['Groceries', 'expense', 'cart', '#F97316'],
+          ['Utilities', 'expense', 'lightning-bolt', '#64748B'],
+          ['Home Improvement', 'expense', 'hammer-wrench', '#A16207'],
+
+          // 📱 Bills & Services
+          ['Mobile Recharge', 'expense', 'cellphone', '#0EA5E9'],
+          ['DTH', 'expense', 'television-play', '#8B5CF6'],
+          ['Printing & Stationery', 'expense', 'printer', '#6B7280'],
+
+          // 🚗 Transport
+          ['Transport', 'expense', 'bus', '#14B8A6'],
+          ['Bike / Vehicle', 'expense', 'motorbike', '#DC2626'],
+
+          // 🎁 Social
+          ['Gifts', 'expense', 'gift', '#EC4899'],
+          ['Family', 'expense', 'account-group', '#F43F5E'],
+          ['Donations', 'expense', 'hand-heart', '#22C55E'],
+
+          // 🎉 Lifestyle
+          ['Entertainment', 'expense', 'movie-open', '#7C3AED'],
+          ['Savings', 'expense', 'piggy-bank', '#059669'],
+          ['Loan / EMI', 'expense', 'bank-transfer', '#B91C1C'],
+          ['Bank Charges', 'expense', 'bank', '#374151'],
+          ['Misc', 'expense', 'dots-horizontal', '#9CA3AF'],
         ];
+
         for (const c of defaultCats) {
-          await executeSql('INSERT INTO categories (name, type) VALUES (?,?)', c);
+          await executeSql(
+            'INSERT INTO categories (name, type, icon, color) VALUES (?,?,?,?)',
+            c
+          );
         }
       }
     } catch (e) {
@@ -115,7 +153,7 @@ export async function initDB() {
     try {
       const src = await executeSql('SELECT * FROM sources', []);
       if (src.rows.length === 0) {
-        const defaults = [ ['Cash', null, 0], ['Bank', null, 0] ];
+        const defaults = [['Cash', null, 0], ['Bank', null, 0]];
         for (const s of defaults) {
           await executeSql('INSERT INTO sources (name, type, initial_balance) VALUES (?,?,?)', s);
         }

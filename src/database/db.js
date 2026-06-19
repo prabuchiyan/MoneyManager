@@ -46,12 +46,12 @@ function createWebExecuteSql() {
       const m = s.match(/insert into\s+([a-zA-Z0-9_]+)\s*\(([^)]+)\)\s*values\s*\(([^)]+)\)/i);
       if (!m) throw new Error('Unsupported INSERT SQL: ' + sql);
       const table = m[1];
-      const cols = m[2].split(',').map(c=>c.trim());
+      const cols = m[2].split(',').map(c => c.trim());
       const rows = readTable(table);
       const metaKey = prefix + table + '_meta';
       const meta = JSON.parse(localStorage.getItem(metaKey) || '{"nextId":1}');
       const obj = {};
-      for (let i=0;i<cols.length;i++) obj[cols[i]] = params[i] !== undefined ? params[i] : null;
+      for (let i = 0; i < cols.length; i++) obj[cols[i]] = params[i] !== undefined ? params[i] : null;
       obj.id = meta.nextId++;
       rows.push(obj);
       writeTable(table, rows);
@@ -72,7 +72,7 @@ function createWebExecuteSql() {
       if (whereMatch) {
         const cond = whereMatch[1].trim();
         const parts = cond.split(/\s+and\s+/i);
-        
+
         for (const p of parts) {
           const eqMatch = p.match(/([a-zA-Z0-9_]+)\s*=\s*\?/);
           if (eqMatch) {
@@ -105,12 +105,12 @@ function createWebExecuteSql() {
       if (orderMatch) {
         const ord = orderMatch[1].trim();
         // simple support: 'date desc' or 'name'
-        const parts = ord.split(',').map(p=>p.trim());
-        rows.sort((a,b)=>{
+        const parts = ord.split(',').map(p => p.trim());
+        rows.sort((a, b) => {
           for (const p of parts) {
             const seg = p.split(/\s+/);
             const col = seg[0];
-            const dir = (seg[1]||'').toLowerCase();
+            const dir = (seg[1] || '').toLowerCase();
             const A = a[col]; const B = b[col];
             if (A == null && B != null) return 1;
             if (A != null && B == null) return -1;
@@ -144,7 +144,7 @@ function createWebExecuteSql() {
       const setClause = m[2];
       const where = m[3];
       const rows = readTable(table);
-      const assignments = setClause.split(',').map(p=>p.trim());
+      const assignments = setClause.split(',').map(p => p.trim());
       // assume params are in order
       let pIndex = 0;
       const updates = {};
@@ -172,18 +172,32 @@ function createWebExecuteSql() {
 
     // DELETE FROM table WHERE id = ?
     if (l.startsWith('delete')) {
-      const m = s.match(/delete from\s+([a-zA-Z0-9_]+)\s+where\s+(.+)/i);
+      const m = s.match(/delete from\s+([a-zA-Z0-9_]+)(\s+where\s+(.+))?/i);
       if (!m) throw new Error('Unsupported DELETE SQL: ' + sql);
+
       const table = m[1];
-      const where = m[2];
-      const rows = readTable(table);
+      const where = m[3]; // optional
+      let rows = readTable(table);
+
+      // ✅ Case 1: DELETE FROM table (clear all)
+      if (!where) {
+        writeTable(table, []);
+        return { rowsAffected: rows.length, rows: makeRows([]) };
+      }
+
+      // ✅ Case 2: DELETE WHERE id = ?
       const idMatch = where.match(/id\s*=\s*\?/i);
       if (idMatch) {
         const id = params[0];
         const filtered = rows.filter(r => String(r.id) !== String(id));
         writeTable(table, filtered);
-        return { rowsAffected: rows.length - filtered.length, rows: makeRows([]) };
+        return {
+          rowsAffected: rows.length - filtered.length,
+          rows: makeRows([])
+        };
       }
+
+      // fallback
       writeTable(table, rows);
       return { rows: makeRows([]) };
     }
