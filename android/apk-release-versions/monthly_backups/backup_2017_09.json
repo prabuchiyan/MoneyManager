@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "timestamp": "2026-06-20T07:02:45.035292Z",
+  "timestamp": "2026-06-20T07:56:18.160907Z",
   "data": {
     "transactions": [
       {
         "id": 1,
         "type": "expense",
         "amount": 20.0,
-        "category_id": 5,
+        "category_id": 15,
         "source_id": 1,
         "date": "2017-09-01T04:39:45Z",
         "notes": "Bus : Room to Office"
@@ -16,7 +16,7 @@
         "id": 2,
         "type": "expense",
         "amount": 150.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-01T04:40:28Z",
         "notes": "Lunch"
@@ -25,7 +25,7 @@
         "id": 3,
         "type": "expense",
         "amount": 10.0,
-        "category_id": 5,
+        "category_id": 7,
         "source_id": 1,
         "date": "2017-09-01T14:11:51Z",
         "notes": "Evening Snacks"
@@ -34,7 +34,7 @@
         "id": 4,
         "type": "expense",
         "amount": 20.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-01T14:12:26Z",
         "notes": "Dinner"
@@ -43,8 +43,8 @@
         "id": 5,
         "type": "expense",
         "amount": 1000.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 27,
+        "source_id": 4,
         "date": "2017-09-02T02:21:52Z",
         "notes": "Marriage Blazer"
       },
@@ -52,8 +52,8 @@
         "id": 6,
         "type": "expense",
         "amount": 1700.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-02T04:49:57Z",
         "notes": "ATM Withdrawal"
       },
@@ -61,7 +61,7 @@
         "id": 7,
         "type": "expense",
         "amount": 2700.0,
-        "category_id": 5,
+        "category_id": 27,
         "source_id": 1,
         "date": "2017-09-02T09:16:20Z",
         "notes": "Marriage Facial"
@@ -70,8 +70,8 @@
         "id": 8,
         "type": "expense",
         "amount": 600.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 34,
+        "source_id": 4,
         "date": "2017-09-02T09:49:27Z",
         "notes": "Honeymoon Wine"
       },
@@ -79,8 +79,8 @@
         "id": 9,
         "type": "expense",
         "amount": 3162.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 27,
+        "source_id": 4,
         "date": "2017-09-02T09:49:47Z",
         "notes": "Marriage Treat"
       },
@@ -88,7 +88,7 @@
         "id": 10,
         "type": "expense",
         "amount": 7000.0,
-        "category_id": 5,
+        "category_id": 27,
         "source_id": 1,
         "date": "2017-09-05T02:46:47Z",
         "notes": "Marriage Decorations"
@@ -97,7 +97,7 @@
         "id": 11,
         "type": "expense",
         "amount": 10000.0,
-        "category_id": 5,
+        "category_id": 27,
         "source_id": 1,
         "date": "2017-09-05T02:46:57Z",
         "notes": "Marriage Spend All"
@@ -106,7 +106,7 @@
         "id": 12,
         "type": "income",
         "amount": 17000.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-05T02:49:14Z",
         "notes": "Get it From Vivek"
@@ -115,8 +115,8 @@
         "id": 13,
         "type": "expense",
         "amount": 4917.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 22,
+        "source_id": 4,
         "date": "2017-09-05T06:37:50Z",
         "notes": "Personal Loan EMI"
       },
@@ -124,8 +124,8 @@
         "id": 14,
         "type": "income",
         "amount": 27543.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 1,
+        "source_id": 4,
         "date": "2017-09-05T06:53:57Z",
         "notes": "Unknown Sender"
       },
@@ -133,7 +133,7 @@
         "id": 15,
         "type": "expense",
         "amount": 10000.0,
-        "category_id": 5,
+        "category_id": 27,
         "source_id": 1,
         "date": "2017-09-06T04:51:35Z",
         "notes": "Wedding Photos And Videos"
@@ -142,8 +142,8 @@
         "id": 16,
         "type": "expense",
         "amount": 10000.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-06T04:51:35Z",
         "notes": "ATM Withdrawal"
       },
@@ -151,7 +151,7 @@
         "id": 17,
         "type": "expense",
         "amount": 10000.0,
-        "category_id": 5,
+        "category_id": 27,
         "source_id": 1,
         "date": "2017-09-06T04:55:51Z",
         "notes": "Wedding Photos And Videos"
@@ -160,8 +160,8 @@
         "id": 18,
         "type": "expense",
         "amount": 10000.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-06T04:55:51Z",
         "notes": "ATM Withdrawal"
       },
@@ -169,7 +169,7 @@
         "id": 19,
         "type": "expense",
         "amount": 5000.0,
-        "category_id": 5,
+        "category_id": 27,
         "source_id": 1,
         "date": "2017-09-06T04:56:55Z",
         "notes": "Wedding Photos And Videos"
@@ -178,8 +178,8 @@
         "id": 20,
         "type": "expense",
         "amount": 5000.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-06T04:56:55Z",
         "notes": "ATM Withdrawal"
       },
@@ -187,7 +187,7 @@
         "id": 21,
         "type": "income",
         "amount": 200.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-08T02:15:22Z",
         "notes": "Get it From Abi"
@@ -196,7 +196,7 @@
         "id": 22,
         "type": "expense",
         "amount": 75.0,
-        "category_id": 5,
+        "category_id": 17,
         "source_id": 1,
         "date": "2017-09-08T02:31:50Z",
         "notes": "Ice Cream For Darlings"
@@ -205,8 +205,8 @@
         "id": 23,
         "type": "expense",
         "amount": 460.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 17,
+        "source_id": 4,
         "date": "2017-09-08T03:44:06Z",
         "notes": "Henry Marriage Gift"
       },
@@ -214,7 +214,7 @@
         "id": 24,
         "type": "income",
         "amount": 200.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-09T02:34:27Z",
         "notes": "Get it From Mom"
@@ -223,7 +223,7 @@
         "id": 25,
         "type": "expense",
         "amount": 155.0,
-        "category_id": 5,
+        "category_id": 17,
         "source_id": 1,
         "date": "2017-09-09T02:37:22Z",
         "notes": "Sweets For Anni"
@@ -232,7 +232,7 @@
         "id": 26,
         "type": "expense",
         "amount": 50.0,
-        "category_id": 5,
+        "category_id": 16,
         "source_id": 1,
         "date": "2017-09-09T02:38:15Z",
         "notes": "Petrol"
@@ -241,7 +241,7 @@
         "id": 27,
         "type": "expense",
         "amount": 120.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-09T02:43:26Z",
         "notes": "Machan Bike Repair"
@@ -250,7 +250,7 @@
         "id": 28,
         "type": "income",
         "amount": 20000.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-09T02:44:47Z",
         "notes": "Get it From Dad"
@@ -259,8 +259,8 @@
         "id": 29,
         "type": "expense",
         "amount": 963.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 29,
+        "source_id": 4,
         "date": "2017-09-09T12:16:56Z",
         "notes": "Honeymoon Clothes"
       },
@@ -268,7 +268,7 @@
         "id": 30,
         "type": "expense",
         "amount": 20.0,
-        "category_id": 5,
+        "category_id": 16,
         "source_id": 1,
         "date": "2017-09-10T02:39:16Z",
         "notes": "Bike Parking in Theatre"
@@ -277,7 +277,7 @@
         "id": 31,
         "type": "income",
         "amount": 1000.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-10T02:45:29Z",
         "notes": "Get it From Abi"
@@ -286,7 +286,7 @@
         "id": 32,
         "type": "income",
         "amount": 200.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-10T02:47:20Z",
         "notes": "Get it From Mom"
@@ -295,7 +295,7 @@
         "id": 33,
         "type": "expense",
         "amount": 64.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-10T02:48:03Z",
         "notes": "Bus : Pudukkottai to Trichy"
@@ -304,7 +304,7 @@
         "id": 34,
         "type": "expense",
         "amount": 10.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-10T02:49:00Z",
         "notes": "Auto : Bus Stand to Junction"
@@ -313,7 +313,7 @@
         "id": 35,
         "type": "expense",
         "amount": 24.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-10T02:49:38Z",
         "notes": "Coffee"
@@ -322,7 +322,7 @@
         "id": 36,
         "type": "expense",
         "amount": 10.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-10T02:50:16Z",
         "notes": "Coffee"
@@ -331,7 +331,7 @@
         "id": 37,
         "type": "expense",
         "amount": 50.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-10T02:50:37Z",
         "notes": "Breakfast"
@@ -340,7 +340,7 @@
         "id": 38,
         "type": "expense",
         "amount": 36.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-10T05:11:29Z",
         "notes": "Lunch"
@@ -349,7 +349,7 @@
         "id": 39,
         "type": "expense",
         "amount": 50.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-10T13:00:56Z",
         "notes": "Pani Poori"
@@ -358,7 +358,7 @@
         "id": 40,
         "type": "expense",
         "amount": 1620.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-10T13:01:57Z",
         "notes": "Hotel Room"
@@ -367,7 +367,7 @@
         "id": 41,
         "type": "expense",
         "amount": 220.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-10T13:03:28Z",
         "notes": "Dinner"
@@ -376,7 +376,7 @@
         "id": 42,
         "type": "expense",
         "amount": 240.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-10T13:04:21Z",
         "notes": "Halwa & Chips"
@@ -385,7 +385,7 @@
         "id": 43,
         "type": "expense",
         "amount": 120.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-10T13:06:54Z",
         "notes": "Shawl"
@@ -394,8 +394,8 @@
         "id": 44,
         "type": "income",
         "amount": 21402.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 21,
+        "source_id": 4,
         "date": "2017-09-10T20:18:51Z",
         "notes": "RD Closed"
       },
@@ -403,8 +403,8 @@
         "id": 45,
         "type": "expense",
         "amount": 2187.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-11T02:22:38Z",
         "notes": "Room Rent"
       },
@@ -412,7 +412,7 @@
         "id": 46,
         "type": "expense",
         "amount": 60.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-11T23:24:37Z",
         "notes": "Dam Entry Fees"
@@ -421,7 +421,7 @@
         "id": 47,
         "type": "expense",
         "amount": 140.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-11T23:25:01Z",
         "notes": "Fish Spa"
@@ -430,7 +430,7 @@
         "id": 48,
         "type": "expense",
         "amount": 50.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-11T23:25:38Z",
         "notes": "Honey Gooseberry"
@@ -439,7 +439,7 @@
         "id": 49,
         "type": "expense",
         "amount": 50.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-11T23:26:10Z",
         "notes": "Corn & Water"
@@ -448,7 +448,7 @@
         "id": 50,
         "type": "expense",
         "amount": 90.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-11T23:27:01Z",
         "notes": "Meenmutty Falls Entry & Parking"
@@ -457,7 +457,7 @@
         "id": 51,
         "type": "expense",
         "amount": 60.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-11T23:33:56Z",
         "notes": "Karlad Lake Entry Fees"
@@ -466,7 +466,7 @@
         "id": 52,
         "type": "expense",
         "amount": 340.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-11T23:34:16Z",
         "notes": "Lunch"
@@ -475,7 +475,7 @@
         "id": 53,
         "type": "expense",
         "amount": 230.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-11T23:36:02Z",
         "notes": "Kayaking Boating"
@@ -484,7 +484,7 @@
         "id": 54,
         "type": "expense",
         "amount": 2200.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-11T23:36:41Z",
         "notes": "Cab Hire"
@@ -493,7 +493,7 @@
         "id": 55,
         "type": "expense",
         "amount": 270.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-12T00:37:42Z",
         "notes": "Coffee & Tea Powder"
@@ -502,8 +502,8 @@
         "id": 56,
         "type": "expense",
         "amount": 15.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 7,
         "date": "2017-09-12T20:49:13Z",
         "notes": "Unknown Receiver"
       },
@@ -511,7 +511,7 @@
         "id": 57,
         "type": "expense",
         "amount": 136.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-12T22:23:20Z",
         "notes": "Dinner"
@@ -520,7 +520,7 @@
         "id": 58,
         "type": "expense",
         "amount": 13500.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-13T03:37:33Z",
         "notes": "Resort Balance Amount"
@@ -529,7 +529,7 @@
         "id": 59,
         "type": "expense",
         "amount": 90.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-13T05:31:11Z",
         "notes": "Erutumukku water Falls Entry And Parking"
@@ -538,7 +538,7 @@
         "id": 60,
         "type": "expense",
         "amount": 850.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-13T07:19:09Z",
         "notes": "Hotel Room"
@@ -547,8 +547,8 @@
         "id": 61,
         "type": "expense",
         "amount": 3000.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-13T22:43:06Z",
         "notes": "NEFT/MB/AXMB172579820347/Prabu S"
       },
@@ -556,8 +556,8 @@
         "id": 62,
         "type": "income",
         "amount": 3000.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 7,
         "date": "2017-09-13T23:09:19Z",
         "notes": "null"
       },
@@ -565,8 +565,8 @@
         "id": 63,
         "type": "expense",
         "amount": 3000.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 7,
         "date": "2017-09-14T00:08:27Z",
         "notes": "ATM Withdrawal"
       },
@@ -574,7 +574,7 @@
         "id": 64,
         "type": "expense",
         "amount": 480.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-14T00:44:08Z",
         "notes": "Halwa & Chips"
@@ -583,7 +583,7 @@
         "id": 65,
         "type": "expense",
         "amount": 170.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-14T00:44:32Z",
         "notes": "Breakfast"
@@ -592,7 +592,7 @@
         "id": 66,
         "type": "expense",
         "amount": 50.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-14T01:54:38Z",
         "notes": "Auto"
@@ -601,7 +601,7 @@
         "id": 67,
         "type": "expense",
         "amount": 65.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-14T01:55:37Z",
         "notes": "Dinner"
@@ -610,7 +610,7 @@
         "id": 68,
         "type": "expense",
         "amount": 66.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-14T01:57:09Z",
         "notes": "Bus : Trichy to Pudukkottai"
@@ -619,8 +619,8 @@
         "id": 69,
         "type": "expense",
         "amount": 190.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 10,
+        "source_id": 4,
         "date": "2017-09-14T18:47:25Z",
         "notes": "Recharge to Abi"
       },
@@ -628,7 +628,7 @@
         "id": 70,
         "type": "expense",
         "amount": 5.0,
-        "category_id": 5,
+        "category_id": 16,
         "source_id": 1,
         "date": "2017-09-14T20:42:13Z",
         "notes": "Bike Parking in Bus Stand"
@@ -637,7 +637,7 @@
         "id": 71,
         "type": "expense",
         "amount": 60.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-14T20:44:09Z",
         "notes": "Sweets"
@@ -646,7 +646,7 @@
         "id": 72,
         "type": "expense",
         "amount": 100.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-14T20:45:05Z",
         "notes": "Suthi Pottathukku"
@@ -655,7 +655,7 @@
         "id": 73,
         "type": "expense",
         "amount": 165.0,
-        "category_id": 5,
+        "category_id": 15,
         "source_id": 1,
         "date": "2017-09-14T20:46:40Z",
         "notes": "Bus : Thanjavur to Pudukkottai"
@@ -664,7 +664,7 @@
         "id": 74,
         "type": "expense",
         "amount": 18.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-14T20:47:29Z",
         "notes": "Cool Drinks"
@@ -673,7 +673,7 @@
         "id": 75,
         "type": "expense",
         "amount": 100.0,
-        "category_id": 5,
+        "category_id": 34,
         "source_id": 1,
         "date": "2017-09-15T01:57:39Z",
         "notes": "Auto"
@@ -682,8 +682,8 @@
         "id": 76,
         "type": "expense",
         "amount": 705.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 29,
+        "source_id": 4,
         "date": "2017-09-16T03:57:33Z",
         "notes": "Jackets and inner For Abi"
       },
@@ -691,7 +691,7 @@
         "id": 77,
         "type": "income",
         "amount": 880.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-16T06:44:17Z",
         "notes": "Get it From Thali Pirichu Potta Function"
@@ -700,7 +700,7 @@
         "id": 78,
         "type": "expense",
         "amount": 269.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-16T06:46:35Z",
         "notes": "Household Things"
@@ -709,7 +709,7 @@
         "id": 79,
         "type": "expense",
         "amount": 1000.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-16T09:14:12Z",
         "notes": "Gave it to Abi"
@@ -718,7 +718,7 @@
         "id": 80,
         "type": "expense",
         "amount": 77.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-17T09:14:47Z",
         "notes": "Breakfast"
@@ -727,7 +727,7 @@
         "id": 81,
         "type": "expense",
         "amount": 300.0,
-        "category_id": 5,
+        "category_id": 27,
         "source_id": 1,
         "date": "2017-09-17T09:16:06Z",
         "notes": "Camera & Video Coverage"
@@ -736,7 +736,7 @@
         "id": 82,
         "type": "expense",
         "amount": 25.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-19T12:10:49Z",
         "notes": "Snacks Spend"
@@ -745,7 +745,7 @@
         "id": 83,
         "type": "income",
         "amount": 30000.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-20T05:04:54Z",
         "notes": "Get it From Dad"
@@ -754,7 +754,7 @@
         "id": 84,
         "type": "income",
         "amount": 130.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-20T13:47:58Z",
         "notes": "Get it From Mom"
@@ -763,7 +763,7 @@
         "id": 85,
         "type": "expense",
         "amount": 33.0,
-        "category_id": 5,
+        "category_id": 15,
         "source_id": 1,
         "date": "2017-09-20T13:48:30Z",
         "notes": "Bus : Pudukkottai to Trichy"
@@ -772,7 +772,7 @@
         "id": 86,
         "type": "expense",
         "amount": 10.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-20T13:49:48Z",
         "notes": "Dinner"
@@ -781,7 +781,7 @@
         "id": 87,
         "type": "expense",
         "amount": 235.0,
-        "category_id": 5,
+        "category_id": 15,
         "source_id": 1,
         "date": "2017-09-20T13:51:22Z",
         "notes": "Bus : Trichy to Bangalore"
@@ -790,7 +790,7 @@
         "id": 88,
         "type": "expense",
         "amount": 90.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-20T13:52:36Z",
         "notes": "Bike Petrol Dad"
@@ -799,7 +799,7 @@
         "id": 89,
         "type": "expense",
         "amount": 50.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-20T13:53:44Z",
         "notes": "Mobile Screen Card"
@@ -808,8 +808,8 @@
         "id": 90,
         "type": "expense",
         "amount": 300.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 16,
+        "source_id": 4,
         "date": "2017-09-21T04:54:07Z",
         "notes": "Petrol"
       },
@@ -817,7 +817,7 @@
         "id": 91,
         "type": "expense",
         "amount": 35.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-21T13:54:21Z",
         "notes": "Breakfast"
@@ -826,7 +826,7 @@
         "id": 92,
         "type": "expense",
         "amount": 130.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-21T13:54:52Z",
         "notes": "Lunch"
@@ -835,7 +835,7 @@
         "id": 93,
         "type": "expense",
         "amount": 5.0,
-        "category_id": 5,
+        "category_id": 16,
         "source_id": 1,
         "date": "2017-09-21T13:56:33Z",
         "notes": "Bike Air"
@@ -844,7 +844,7 @@
         "id": 94,
         "type": "expense",
         "amount": 190.0,
-        "category_id": 5,
+        "category_id": 27,
         "source_id": 1,
         "date": "2017-09-21T13:58:08Z",
         "notes": "Sweets"
@@ -853,7 +853,7 @@
         "id": 95,
         "type": "expense",
         "amount": 40.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-21T13:59:07Z",
         "notes": "Dinner"
@@ -862,8 +862,8 @@
         "id": 96,
         "type": "expense",
         "amount": 2500.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 21,
+        "source_id": 4,
         "date": "2017-09-21T21:47:29Z",
         "notes": "Recurring Deposit"
       },
@@ -871,8 +871,8 @@
         "id": 97,
         "type": "expense",
         "amount": 33.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-21T22:19:58Z",
         "notes": "Mr  PRABU  S"
       },
@@ -880,8 +880,8 @@
         "id": 98,
         "type": "income",
         "amount": 33.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 7,
         "date": "2017-09-21T22:20:00Z",
         "notes": "null"
       },
@@ -889,8 +889,8 @@
         "id": 99,
         "type": "expense",
         "amount": 33.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-21T22:20:53Z",
         "notes": "IMPS/P2A/726507171644/20164004282SBIN000"
       },
@@ -898,7 +898,7 @@
         "id": 100,
         "type": "expense",
         "amount": 9.0,
-        "category_id": 5,
+        "category_id": 7,
         "source_id": 1,
         "date": "2017-09-22T02:52:38Z",
         "notes": "Evening Snacks"
@@ -907,7 +907,7 @@
         "id": 101,
         "type": "expense",
         "amount": 30.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-22T02:53:28Z",
         "notes": "Lotto Game"
@@ -916,8 +916,8 @@
         "id": 102,
         "type": "expense",
         "amount": 1808.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-22T03:51:26Z",
         "notes": "Purchased UPS"
       },
@@ -925,7 +925,7 @@
         "id": 103,
         "type": "expense",
         "amount": 20.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-22T03:54:59Z",
         "notes": "Breakfast"
@@ -934,8 +934,8 @@
         "id": 104,
         "type": "income",
         "amount": 9000.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 3,
         "date": "2017-09-22T06:40:48Z",
         "notes": "PAYTM APP"
       },
@@ -943,8 +943,8 @@
         "id": 105,
         "type": "expense",
         "amount": 9000.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-22T06:47:18Z",
         "notes": "Gave it to Ravi"
       },
@@ -952,8 +952,8 @@
         "id": 106,
         "type": "expense",
         "amount": 140.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-23T08:36:46Z",
         "notes": "Paste"
       },
@@ -961,7 +961,7 @@
         "id": 107,
         "type": "expense",
         "amount": 40.0,
-        "category_id": 5,
+        "category_id": 7,
         "source_id": 1,
         "date": "2017-09-23T13:44:09Z",
         "notes": "Evening Snacks"
@@ -970,7 +970,7 @@
         "id": 108,
         "type": "expense",
         "amount": 200.0,
-        "category_id": 5,
+        "category_id": 26,
         "source_id": 1,
         "date": "2017-09-23T13:44:28Z",
         "notes": "Drinks & Dinner"
@@ -979,7 +979,7 @@
         "id": 109,
         "type": "expense",
         "amount": 50.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-24T04:59:30Z",
         "notes": "Breakfast"
@@ -988,7 +988,7 @@
         "id": 110,
         "type": "expense",
         "amount": 5000.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-24T05:02:31Z",
         "notes": "Room Advance"
@@ -997,7 +997,7 @@
         "id": 111,
         "type": "expense",
         "amount": 200.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-24T05:07:23Z",
         "notes": "Rental Agreement"
@@ -1006,7 +1006,7 @@
         "id": 112,
         "type": "expense",
         "amount": 95.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-24T13:56:09Z",
         "notes": "Dinner"
@@ -1015,7 +1015,7 @@
         "id": 113,
         "type": "expense",
         "amount": 30.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-25T11:45:44Z",
         "notes": "Breakfast"
@@ -1024,7 +1024,7 @@
         "id": 114,
         "type": "expense",
         "amount": 45.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-25T11:46:05Z",
         "notes": "Lunch"
@@ -1033,7 +1033,7 @@
         "id": 115,
         "type": "expense",
         "amount": 10.0,
-        "category_id": 5,
+        "category_id": 7,
         "source_id": 1,
         "date": "2017-09-25T11:48:21Z",
         "notes": "Evening Snacks"
@@ -1042,7 +1042,7 @@
         "id": 116,
         "type": "expense",
         "amount": 40.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-25T11:49:16Z",
         "notes": "Dinner"
@@ -1051,7 +1051,7 @@
         "id": 117,
         "type": "income",
         "amount": 1000.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-25T11:49:25Z",
         "notes": "Get it From Naveen"
@@ -1060,8 +1060,8 @@
         "id": 118,
         "type": "income",
         "amount": 1350.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-25T11:56:42Z",
         "notes": "null"
       },
@@ -1069,8 +1069,8 @@
         "id": 119,
         "type": "income",
         "amount": 17236.97,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-25T12:00:05Z",
         "notes": "null"
       },
@@ -1078,8 +1078,8 @@
         "id": 120,
         "type": "expense",
         "amount": 17236.97,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-25T12:01:21Z",
         "notes": "Credi Card Bill Paid"
       },
@@ -1087,7 +1087,7 @@
         "id": 121,
         "type": "expense",
         "amount": 35.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-26T01:28:26Z",
         "notes": "Breakfast"
@@ -1096,7 +1096,7 @@
         "id": 122,
         "type": "expense",
         "amount": 10.0,
-        "category_id": 5,
+        "category_id": 7,
         "source_id": 1,
         "date": "2017-09-26T01:49:50Z",
         "notes": "Evening Snacks"
@@ -1105,7 +1105,7 @@
         "id": 123,
         "type": "expense",
         "amount": 60.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-26T12:24:21Z",
         "notes": "Dinner"
@@ -1114,7 +1114,7 @@
         "id": 124,
         "type": "expense",
         "amount": 30.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-27T01:50:57Z",
         "notes": "Breakfast"
@@ -1123,7 +1123,7 @@
         "id": 125,
         "type": "expense",
         "amount": 25.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-27T04:09:28Z",
         "notes": "Lunch"
@@ -1132,7 +1132,7 @@
         "id": 126,
         "type": "expense",
         "amount": 6.0,
-        "category_id": 5,
+        "category_id": 7,
         "source_id": 1,
         "date": "2017-09-27T12:02:44Z",
         "notes": "Evening Snacks"
@@ -1141,7 +1141,7 @@
         "id": 127,
         "type": "expense",
         "amount": 50.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-27T12:03:16Z",
         "notes": "Dinner"
@@ -1150,8 +1150,8 @@
         "id": 128,
         "type": "income",
         "amount": 2.25,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-27T12:05:09Z",
         "notes": "Petrol Surcharge"
       },
@@ -1159,7 +1159,7 @@
         "id": 129,
         "type": "expense",
         "amount": 35.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-28T02:39:35Z",
         "notes": "Breakfast"
@@ -1168,7 +1168,7 @@
         "id": 130,
         "type": "expense",
         "amount": 500.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-28T13:14:44Z",
         "notes": "Room Shifting"
@@ -1177,7 +1177,7 @@
         "id": 131,
         "type": "expense",
         "amount": 100.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-28T13:15:53Z",
         "notes": "Give back to Sasi"
@@ -1186,7 +1186,7 @@
         "id": 132,
         "type": "expense",
         "amount": 185.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-28T13:19:33Z",
         "notes": "Bucket & Mug"
@@ -1195,7 +1195,7 @@
         "id": 133,
         "type": "expense",
         "amount": 20.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-28T13:20:35Z",
         "notes": "Dinner"
@@ -1204,7 +1204,7 @@
         "id": 134,
         "type": "expense",
         "amount": 15.0,
-        "category_id": 5,
+        "category_id": 15,
         "source_id": 1,
         "date": "2017-09-29T01:28:19Z",
         "notes": "Bus : Room to Office"
@@ -1213,7 +1213,7 @@
         "id": 135,
         "type": "expense",
         "amount": 30.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-29T02:03:47Z",
         "notes": "Breakfast"
@@ -1222,7 +1222,7 @@
         "id": 136,
         "type": "expense",
         "amount": 100.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-29T02:31:21Z",
         "notes": "Gave it to Naveen"
@@ -1231,7 +1231,7 @@
         "id": 137,
         "type": "expense",
         "amount": 30.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-29T04:50:08Z",
         "notes": "Lunch"
@@ -1240,7 +1240,7 @@
         "id": 138,
         "type": "expense",
         "amount": 180.0,
-        "category_id": 5,
+        "category_id": 15,
         "source_id": 1,
         "date": "2017-09-29T14:22:41Z",
         "notes": "Bus : Bangalore to Salem"
@@ -1249,7 +1249,7 @@
         "id": 139,
         "type": "expense",
         "amount": 50.0,
-        "category_id": 5,
+        "category_id": 6,
         "source_id": 1,
         "date": "2017-09-29T14:23:20Z",
         "notes": "Dinner"
@@ -1258,8 +1258,8 @@
         "id": 140,
         "type": "income",
         "amount": 4920.0,
-        "category_id": 5,
-        "source_id": 1,
+        "category_id": 24,
+        "source_id": 4,
         "date": "2017-09-29T14:29:59Z",
         "notes": "Get it From Dinesh"
       },
@@ -1267,7 +1267,7 @@
         "id": 141,
         "type": "expense",
         "amount": 115.0,
-        "category_id": 5,
+        "category_id": 15,
         "source_id": 1,
         "date": "2017-09-29T14:39:59Z",
         "notes": "Bus : Salem to Pudukkottai"
@@ -1276,7 +1276,7 @@
         "id": 142,
         "type": "expense",
         "amount": 24567.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-30T14:29:59Z",
         "notes": "To Oct"
@@ -1285,7 +1285,7 @@
         "id": 143,
         "type": "income",
         "amount": 24567.0,
-        "category_id": 5,
+        "category_id": 24,
         "source_id": 1,
         "date": "2017-09-30T14:30:00Z",
         "notes": "SELF"
@@ -1617,7 +1617,143 @@
         "created_at": "2026-06-19 16:03:07"
       }
     ],
-    "sources": [],
+    "sources": [
+      {
+        "id": 8,
+        "name": "Airtel Payments",
+        "type": null,
+        "initial_balance": 0,
+        "is_active": 1,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 6,
+        "name": "Axis",
+        "type": null,
+        "initial_balance": 0,
+        "is_active": 1,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 4,
+        "name": "Axis Bank",
+        "type": null,
+        "initial_balance": 0,
+        "is_active": 1,
+        "icon": "bank",
+        "color": "#DC2626"
+      },
+      {
+        "id": 14,
+        "name": "BOB",
+        "type": null,
+        "initial_balance": 0,
+        "is_active": 1,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "name": "Bank",
+        "type": null,
+        "initial_balance": 0,
+        "is_active": 1,
+        "icon": null,
+        "color": null
+      },
+      {
+        "id": 1,
+        "name": "Cash",
+        "type": null,
+        "initial_balance": 0,
+        "is_active": 1,
+        "icon": "cash",
+        "color": "#A3E635"
+      },
+      {
+        "id": 5,
+        "name": "Cash Spend",
+        "type": null,
+        "initial_balance": 0,
+        "is_active": 1,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 12,
+        "name": "City Union",
+        "type": null,
+        "initial_balance": 0,
+        "is_active": 1,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 11,
+        "name": "Freecharge",
+        "type": null,
+        "initial_balance": 0,
+        "is_active": 1,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 15,
+        "name": "HDFC",
+        "type": null,
+        "initial_balance": 0,
+        "is_active": 1,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 13,
+        "name": "MOBIKWIK",
+        "type": null,
+        "initial_balance": 0,
+        "is_active": 1,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 16,
+        "name": "Other",
+        "type": null,
+        "initial_balance": 0,
+        "is_active": 1,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 3,
+        "name": "Paytm",
+        "type": null,
+        "initial_balance": 0,
+        "is_active": 1,
+        "icon": "wallet",
+        "color": "#FBBF24"
+      },
+      {
+        "id": 7,
+        "name": "SBI Group",
+        "type": null,
+        "initial_balance": 0,
+        "is_active": 1,
+        "icon": "bank",
+        "color": "#6366F1"
+      },
+      {
+        "id": 9,
+        "name": "Unknown",
+        "type": null,
+        "initial_balance": 0,
+        "is_active": 1,
+        "icon": "bank",
+        "color": "#6366F1"
+      }
+    ],
     "budgets": [],
     "bills": []
   }
