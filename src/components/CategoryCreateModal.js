@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Modal } from 'react-native';
+import { View, Text, TouchableOpacity, Modal, StyleSheet } from 'react-native';
 import { TextInput as PaperInput, Button as PaperButton, Avatar } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Card from './Card';
 import IconButton from './IconButton';
 import IconPicker from './IconPicker';
-import ColorPickerModal from './ColorPickerModal'; // Assuming this is a custom component
+import ColorPickerModal from './ColorPickerModal';
 import { createCategory, updateCategory } from '../services/categories';
 import { Spacing } from './Theme';
 
 export default function CategoryCreateModal({ visible, onClose, onCategoryCreated, onSave, editData, currentType = 'expense' }) {
+  const [action, setAction] = useState('');
   const [name, setName] = useState('');
   const [type, setType] = useState(currentType);
   const [selectedIcon, setSelectedIcon] = useState('tag');
@@ -22,11 +23,13 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
   useEffect(() => {
     if (visible) {
       if (editData) {
+        setAction('Edit Category');
         setName(editData.name || '');
         setType(editData.type || 'expense');
         setSelectedIcon(editData.icon || 'tag');
         setSelectedColor(editData.color || '#4B7CF3');
       } else {
+        setAction('Create New Category');
         setName('');
         setType(currentType);
         setSelectedIcon('tag');
@@ -111,7 +114,7 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'center', padding: Spacing.m }}>
         <Card style={{ padding: Spacing.m }}>
-          <Text style={{ fontSize: 18, fontWeight: '600', marginBottom: Spacing.m }}>Create New Category</Text>
+          <Text style={{ fontSize: 18, fontWeight: '600', marginBottom: Spacing.m }}>{action}</Text>
 
           <PaperInput
             label="Category Name"
@@ -142,14 +145,7 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
           <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: Spacing.m }}>
             <TouchableOpacity
               onPress={() => setShowIconPicker(true)}
-              style={{
-                padding: Spacing.s,
-                borderRadius: 8,
-                backgroundColor: '#fff',
-                borderWidth: 1,
-                borderColor: '#eee',
-                marginRight: Spacing.s,
-              }}
+              style={[styles.iconSelector, { backgroundColor: (selectedColor || Colors.primary) + '20' }]}
             >
               <MaterialCommunityIcons name={selectedIcon} size={22} color={selectedColor} />
             </TouchableOpacity>
@@ -182,3 +178,16 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
     </Modal>
   );
 }
+
+const styles = StyleSheet.create({
+  iconSelector: {
+    width: 48,
+    height: 48,
+    borderRadius: 12,
+    backgroundColor: '#f5f5f5',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#eee',
+  },
+});
