@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, ScrollView, TouchableOpacity, Animated } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Animated } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 import { getTotalBalance, getCategorySpending, getMonthlyTrends, getSourceBalances } from '../services/reports';
 import { getBudgetsWithRemaining } from '../services/budgets';
@@ -10,11 +10,11 @@ import { getSources } from '../services/sources';
 import ConfirmDialog from '../components/ConfirmDialog';
 import { getCategories, softDeleteCategory } from '../services/categories';
 import { Avatar, Button as PaperButton } from 'react-native-paper';
-import Header from '../components/Header';
 import events from '../services/events';
 import Card from '../components/Card';
 import FAB from '../components/FAB';
 import { Colors, Spacing } from '../components/Theme';
+import BottomStatsBar from '../components/BottomStatsBar';
 
 function daysRemainingInMonth() {
   const now = new Date();
@@ -257,7 +257,12 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={{ flex: 1, backgroundColor: Colors.background }}>
-      <ScrollView contentContainerStyle={{ padding: Spacing.m }}>
+      <ScrollView
+        contentContainerStyle={{
+          padding: Spacing.m,
+          paddingBottom: 120
+        }}
+      >
         <Card>
           {budgets.length ? (
             <>
@@ -289,59 +294,6 @@ export default function HomeScreen({ navigation }) {
               </View>
             </View>
           )}
-
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginTop: 12
-            }}
-          >
-            <TouchableOpacity
-              style={{ flex: 1, alignItems: 'center' }}
-              onPress={() => navigation.navigate('SourcesDashboard')}
-            >
-              <View style={{ flex: 1, alignItems: 'center' }}>
-                <Text style={{ fontSize: 12, color: Colors.muted }}>
-                  Balance
-                </Text>
-                <Text style={{ fontSize: 16, fontWeight: '700', color: Colors.text }}>
-                  ₹{totalBalance.toLocaleString('en-IN')}
-                </Text>
-              </View>
-            </TouchableOpacity>
-
-            <View style={{ width: 1, backgroundColor: '#eee' }} />
-
-            <TouchableOpacity
-              style={{ flex: 1, alignItems: 'center' }}
-              onPress={() => navigation.navigate('Bills')}
-            >
-              <Text style={{ fontSize: 16, fontWeight: '700', color: '#FF9800' }}>
-                ₹{billsSummary?.upcoming7?.toLocaleString('en-IN') || 0}
-              </Text>
-
-              <Text style={{ fontSize: 11, color: Colors.muted }}>
-                {billsSummary?.dueThisMonthCount || 0} Bill Due
-              </Text>
-            </TouchableOpacity>
-
-            <View style={{ width: 1, backgroundColor: '#eee' }} />
-            <TouchableOpacity
-              style={{ flex: 1, alignItems: 'center' }}
-              onPress={() => navigation.navigate('Reports')}
-            >
-              <View style={{ flex: 1, alignItems: 'center' }}>
-                <Text style={{ fontSize: 12, color: Colors.muted }}>
-                  Spend
-                </Text>
-                <Text style={{ fontSize: 16, fontWeight: '700', color: '#E46A6A' }}>
-                  ₹{totalMonthlySpend.toLocaleString('en-IN')}
-                </Text>
-              </View>
-            </TouchableOpacity>
-
-          </View>
         </Card>
 
         <Card>
@@ -585,9 +537,22 @@ export default function HomeScreen({ navigation }) {
           )) : <Text style={{ color: Colors.muted }}>No trend data</Text>}
         </Card>
       </ScrollView>
-
-      <FAB onPress={() => navigation.navigate('TransactionAdd')} />
-
+      <BottomStatsBar
+        navigation={navigation}
+        totalBalance={totalBalance}
+        billsSummary={billsSummary}
+        totalMonthlySpend={totalMonthlySpend}
+      />
+      <FAB
+        onPress={() => navigation.navigate('TransactionAdd')}
+        style={{
+          position: 'absolute',
+          bottom: 70,
+          right: 20,
+          zIndex: 20,
+          elevation: 20
+        }}
+      />
       <ConfirmDialog visible={confirmVisibleTx} title="Delete Transaction" message={confirmTxMessage} onCancel={() => { setConfirmVisibleTx(false); setConfirmTxId(null); }} onConfirm={async () => { if (confirmTxId) { await deleteTransaction(confirmTxId); } setConfirmVisibleTx(false); setConfirmTxId(null); load(); }} />
     </View>
   );

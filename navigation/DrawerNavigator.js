@@ -65,7 +65,7 @@ function CustomDrawerContent(props) {
         </View>
         <View style={styles.headerTextContainer}>
           <Text style={styles.appName}>Money Manager</Text>
-          <Text style={styles.appVersion}>v1.11.0</Text>
+          <Text style={styles.appVersion}>v2.0</Text>
         </View>
       </View>
 
@@ -164,15 +164,15 @@ export default function DrawerNavigator() {
         component={HomeScreen}
         options={({ navigation }) => ({
           title: 'Money Manager',
-          headerRight: () => (
-            <MaterialCommunityIcons
-              name="database-sync"
-              size={24}
-              color={Colors.primary || '#4B7CF3'}
-              onPress={() => navigation.navigate('Backup')}
-              style={{ marginRight: 16 }}
-            />
-          ),
+          // headerRight: () => (
+          //   <MaterialCommunityIcons
+          //     name="database-sync"
+          //     size={24}
+          //     color={Colors.primary || '#4B7CF3'}
+          //     onPress={() => navigation.navigate('Backup')}
+          //     style={{ marginRight: 16 }}
+          //   />
+          // ),
         })}
       />
       <Drawer.Screen name="Transactions" component={TransactionsScreen} />
