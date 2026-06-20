@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { createDrawerNavigator, DrawerContentScrollView } from '@react-navigation/drawer';
 import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -58,11 +58,14 @@ function CustomDrawerContent(props) {
       {/* Drawer Header */}
       <View style={[styles.headerContainer, { paddingTop: insets.top + 20 }]}>
         <View style={styles.avatarContainer}>
-          <MaterialCommunityIcons name="wallet-giftcard" size={32} color="#fff" />
+          <Image
+            source={require('../assets/logo.png')}
+            style={{ width: 56, height: 56, resizeMode: 'contain' }}
+          />
         </View>
         <View style={styles.headerTextContainer}>
           <Text style={styles.appName}>Money Manager</Text>
-          <Text style={styles.appVersion}>v1.0.0</Text>
+          <Text style={styles.appVersion}>v1.11.0</Text>
         </View>
       </View>
 
@@ -156,9 +159,9 @@ export default function DrawerNavigator() {
         ),
       })}
     >
-      <Drawer.Screen 
-        name="Dashboard" 
-        component={HomeScreen} 
+      <Drawer.Screen
+        name="Dashboard"
+        component={HomeScreen}
         options={({ navigation }) => ({
           title: 'Money Manager',
           headerRight: () => (
