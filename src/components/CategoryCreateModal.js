@@ -6,10 +6,10 @@ import Card from './Card';
 import IconButton from './IconButton';
 import IconPicker from './IconPicker';
 import ColorPickerModal from './ColorPickerModal'; // Assuming this is a custom component
-import { createCategory } from '../services/categories';
+import { createCategory, updateCategory } from '../services/categories';
 import { Spacing } from './Theme';
 
-export default function CategoryCreateModal({ visible, onClose, onCategoryCreated, currentType = 'expense' }) {
+export default function CategoryCreateModal({ visible, onClose, onCategoryCreated, onSave, editData, currentType = 'expense' }) {
   const [name, setName] = useState('');
   const [type, setType] = useState(currentType);
   const [selectedIcon, setSelectedIcon] = useState('tag');
@@ -21,13 +21,20 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
   // Reset form when modal opens
   useEffect(() => {
     if (visible) {
-      setName('');
-      setType(currentType);
-      setSelectedIcon('tag');
-      setSelectedColor('#4B7CF3');
+      if (editData) {
+        setName(editData.name || '');
+        setType(editData.type || 'expense');
+        setSelectedIcon(editData.icon || 'tag');
+        setSelectedColor(editData.color || '#4B7CF3');
+      } else {
+        setName('');
+        setType(currentType);
+        setSelectedIcon('tag');
+        setSelectedColor('#4B7CF3');
+      }
       setNameError(false);
     }
-  }, [visible, currentType]);
+  }, [visible, editData, currentType]);
 
   // Simple icon suggestion based on name, similar to CategoriesScreen
   function suggestIconForText(text) {
@@ -59,8 +66,10 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
   }
 
   useEffect(() => {
-    setSelectedIcon(suggestIconForText(name));
-  }, [name]);
+    if (!editData) {
+      setSelectedIcon(suggestIconForText(name));
+    }
+  }, [name, editData]);
 
   const handleCreateCategory = async () => {
     if (!name.trim()) {
@@ -70,18 +79,31 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
     setNameError(false);
 
     try {
-      const newCategory = await createCategory({
-        name: name.trim(),
-        type,
-        icon: selectedIcon,
-        color: selectedColor,
-      });
-      onCategoryCreated(newCategory);
+      if (editData && editData.id) {
+        await updateCategory(editData.id, {
+          name: name.trim(),
+          type,
+          icon: selectedIcon,
+          color: selectedColor,
+          is_active: editData.is_active !== undefined ? editData.is_active : 1,
+        });
+        if (onSave) onSave({ id: editData.id, name: name.trim(), type, icon: selectedIcon, color: selectedColor });
+        if (onCategoryCreated) onCategoryCreated({ id: editData.id, name: name.trim(), type, icon: selectedIcon, color: selectedColor });
+      } else {
+        const newCategory = await createCategory({
+          name: name.trim(),
+          type,
+          icon: selectedIcon,
+          color: selectedColor,
+        });
+        const categoryResult = { id: newCategory, name: name.trim(), type, icon: selectedIcon, color: selectedColor };
+        if (onCategoryCreated) onCategoryCreated(categoryResult);
+        if (onSave) onSave(categoryResult);
+      }
       onClose();
     } catch (error) {
-      console.error('Error creating category:', error);
-      // Optionally show an alert or toast to the user
-      alert('Failed to create category. Please try again.');
+      console.error('Error saving category:', error);
+      alert('Failed to save category. Please try again.');
     }
   };
 
@@ -132,7 +154,7 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
               <MaterialCommunityIcons name={selectedIcon} size={22} color={selectedColor} />
             </TouchableOpacity>
             <IconButton label="Icon" icon="image" onPress={() => setShowIconPicker(true)} />
-            <IconButton label="Color" icon="palette" onPress={() => setShowColorPicker(true)} />
+            <IconButton label="Color" icon="droplet" onPress={() => setShowColorPicker(true)} />
           </View>
 
           <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>

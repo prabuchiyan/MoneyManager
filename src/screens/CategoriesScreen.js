@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, TextInput, TouchableOpacity, ScrollView, Modal } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TextInput as PaperTextInput, Button as PaperButton, Chip, Avatar } from 'react-native-paper';
@@ -10,10 +10,13 @@ import { createCategory, getCategories, softDeleteCategory, updateCategory } fro
 import Card from '../components/Card';
 import IconButton from '../components/IconButton';
 import { Spacing } from '../components/Theme';
+import CategoryCreateModal from '../components/CategoryCreateModal';
 
 export default function CategoriesScreen({ route }) {
   const [items, setItems] = useState([]);
   const [name, setName] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [editCategory, setEditCategory] = useState(null);
   const [type, setType] = useState('expense');
   const [editingId, setEditingId] = useState(null);
   const [editName, setEditName] = useState('');
@@ -26,13 +29,8 @@ export default function CategoriesScreen({ route }) {
   const [showIconPickerForEdit, setShowIconPickerForEdit] = useState(false);
   const [userPickedIconAdd, setUserPickedIconAdd] = useState(false);
   const [userPickedIconEdit, setUserPickedIconEdit] = useState(false);
-
-  const EXTENDED_COLORS = ['#4B7CF3', '#3B82F6', '#2563EB', '#6366F1', '#8B5CF6', '#A78BFA', '#F97316', '#FB923C', '#F59E0B', '#FBBF24', '#16A34A', '#22C55E', '#A3E635', '#84CC16', '#DC2626', '#EF4444', '#F43F5E', '#DB2777', '#0EA5A4', '#14B8A6', '#06B6D4', '#0891B2', '#334155', '#475569', '#64748B'];
-
   const [showColorPickerForAdd, setShowColorPickerForAdd] = useState(false);
   const [showColorPickerForEdit, setShowColorPickerForEdit] = useState(false);
-  const [customColorInputAdd, setCustomColorInputAdd] = useState('');
-  const [customColorInputEdit, setCustomColorInputEdit] = useState('');
   const [confirmVisible, setConfirmVisible] = useState(false);
   const [confirmTargetId, setConfirmTargetId] = useState(null);
   const [confirmMessage, setConfirmMessage] = useState('Are you sure you want to delete this item?');
@@ -180,32 +178,6 @@ export default function CategoriesScreen({ route }) {
 
   return (
     <View style={{ flex: 1 }}>
-      <Card style={{ margin: Spacing.m }}>
-        <Text style={{ fontSize: 18, marginBottom: 8 }}>Categories</Text>
-        <PaperTextInput label="Name" value={name} onChangeText={handleNameChange} mode="outlined" style={{ marginBottom: 8 }} />
-        <View style={{ flexDirection: 'row', marginBottom: 8 }}>
-          <View style={{ flexDirection: 'row' }}>
-            <Chip mode="outlined" selected={type === 'income'} onPress={() => setType('income')} style={{ marginRight: 8 }}>Income</Chip>
-            <Chip mode="outlined" selected={type === 'expense'} onPress={() => setType('expense')}>Expense</Chip>
-          </View>
-        </View>
-        <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 8 }}>
-          <TouchableOpacity onPress={() => setShowIconPickerForAdd(true)} style={{ padding: 8, borderRadius: 8, backgroundColor: '#fff', borderWidth: 1, borderColor: '#eee' }}>
-            <MaterialCommunityIcons name={selectedIcon} size={22} color={selectedColor} />
-          </TouchableOpacity>
-          <View />
-          <IconButton label="Colors" icon="droplet" onPress={() => setShowColorPickerForAdd(true)} />
-          <IconButton label="Icon" icon="image" onPress={() => setShowIconPickerForAdd(true)} />
-          <View />
-        </View>
-        <View style={{ flexDirection: 'row', marginBottom: 8 }}>
-          <View style={{ flexDirection: 'right' }}>
-            <PaperButton mode="contained" onPress={add} style={{ alignSelf: 'flex-start' }}>
-              Add Category
-            </PaperButton>
-          </View>
-        </View>
-      </Card>
 
       <FlatList
         data={items}
@@ -287,7 +259,7 @@ export default function CategoriesScreen({ route }) {
             ) : (
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
 
-                <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+                <TouchableOpacity onPress={() => { setEditCategory(item); setShowModal(true); }} style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
                   <Avatar.Icon
                     size={36}
                     icon={item.icon || 'tag'}
@@ -310,7 +282,7 @@ export default function CategoriesScreen({ route }) {
                       {item.type === 'income' ? 'Income' : 'Expense'}
                     </Text>
                   </View>
-                </View>
+                </TouchableOpacity>
 
                 <View style={{ flexDirection: 'row' }}>
                   <TouchableOpacity onPress={() => startEdit(item)} style={{ marginRight: 12 }}>
@@ -351,6 +323,41 @@ export default function CategoriesScreen({ route }) {
         onSelect={setEditColor}
         currentColor={editColor}
       />
+
+      <CategoryCreateModal
+        visible={showModal}
+        onClose={() => setShowModal(false)}
+        editData={editCategory}
+        onSave={() => {
+          setShowModal(false);
+          load();
+        }}
+      />
+
+      <TouchableOpacity
+        style={{
+          position: 'absolute',
+          bottom: 20,
+          right: 20,
+          width: 56,
+          height: 56,
+          borderRadius: 28,
+          backgroundColor: '#4B7CF3',
+          alignItems: 'center',
+          justifyContent: 'center',
+          elevation: 5,
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.25,
+          shadowRadius: 3.84,
+        }}
+        onPress={() => {
+          setEditCategory(null);
+          setShowModal(true);
+        }}
+      >
+        <MaterialCommunityIcons name="plus" size={24} color="#fff" />
+      </TouchableOpacity>
     </View>
   );
 }

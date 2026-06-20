@@ -9,8 +9,8 @@ import { Avatar, TextInput as PaperTextInput, Button as PaperButton, Chip, Searc
 import Card from '../components/Card';
 import { Colors, Spacing } from '../components/Theme';
 import CategoryCreateModal from '../components/CategoryCreateModal';
-import IconPicker from '../components/IconPicker'; // Assuming this is a custom component
 import { Feather } from '@expo/vector-icons';
+import FAB from '../components/FAB';
 
 export default function TransactionsScreen({ navigation, route }) {
   const [items, setItems] = useState([]);
@@ -405,10 +405,13 @@ export default function TransactionsScreen({ navigation, route }) {
         onClose={() => setShowCategoryCreateModal(false)}
         onCategoryCreated={(newCategory) => {
           load(); // Reload all categories
-          setEditCategoryId(newCategory.id); // Select the newly created category
+          if (editingId !== null) {
+            setEditCategoryId(newCategory.id); // Select the newly created category only if editing
+          }
         }}
         currentType={editType}
       />
+      <FAB onPress={() => navigation.navigate('TransactionAdd')} />
       <ConfirmDialog visible={confirmVisible} title="Delete Transaction" message={confirmMessage} onCancel={() => { setConfirmVisible(false); setConfirmTargetId(null); }} onConfirm={async () => { if (confirmTargetId) { await deleteTransaction(confirmTargetId); } setConfirmVisible(false); setConfirmTargetId(null); load(); }} />
     </View>
   );
