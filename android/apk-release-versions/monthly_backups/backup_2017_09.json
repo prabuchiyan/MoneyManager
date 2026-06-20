@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "timestamp": "2026-06-20T06:52:21.342428Z",
+  "data": {
+    "transactions": [],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Groceries",
+        "type": "expense"
+      },
+      {
+        "id": 2,
+        "name": "Rent",
+        "type": "expense"
+      },
+      {
+        "id": 3,
+        "name": "Utilities",
+        "type": "expense"
+      },
+      {
+        "id": 4,
+        "name": "Salary",
+        "type": "income"
+      },
+      {
+        "id": 5,
+        "name": "Misc",
+        "type": "expense"
+      },
+      {
+        "id": 9,
+        "name": "Snacks",
+        "type": "expense"
+      },
+      {
+        "id": 12,
+        "name": "Bike / Vehicle",
+        "type": "expense"
+      },
+      {
+        "id": 13,
+        "name": "Money Received",
+        "type": "income"
+      },
+      {
+        "id": 15,
+        "name": "Money Given",
+        "type": "expense"
+      },
+      {
+        "id": 16,
+        "name": "Food & Dining",
+        "type": "expense"
+      },
+      {
+        "id": 18,
+        "name": "Gifts",
+        "type": "expense"
+      },
+      {
+        "id": 19,
+        "name": "Savings",
+        "type": "expense"
+      },
+      {
+        "id": 20,
+        "name": "Loan / EMI",
+        "type": "expense"
+      },
+      {
+        "id": 21,
+        "name": "Transport",
+        "type": "expense"
+      },
+      {
+        "id": 22,
+        "name": "Entertainment",
+        "type": "expense"
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "name": "Cash"
+      },
+      {
+        "id": 3,
+        "name": "Axis Bank"
+      },
+      {
+        "id": 4,
+        "name": "Paytm"
+      },
+      {
+        "id": 5,
+        "name": "Axis Credit Card"
+      },
+      {
+        "id": 6,
+        "name": "SBI"
+      }
+    ],
+    "budgets": [],
+    "bills": []
+  }
+}
