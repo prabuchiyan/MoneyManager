@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Text, View, Image } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import React, { useEffect, useState, useRef } from 'react';
+import { Text, View, Image, BackHandler, ToastAndroid } from 'react-native';
+import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ErrorBoundary from './src/screens/ErrorBoundary';
-import HomeScreen from './src/screens/HomeScreen';
-import TransactionsScreen from './src/screens/TransactionsScreen';
 import TransactionAddScreen from './src/screens/TransactionAddScreen';
 import SourcesDashboard from './src/screens/SourcesDashboard';
 import SourcesDetails from './src/screens/SourcesDetails';
@@ -22,12 +20,13 @@ import { Colors } from './src/components/Theme';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const navigationRef = useNavigationContainerRef();
+  const backPressCount = useRef(0);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
     (async () => {
       try {
-        // Load icons
         if (MaterialCommunityIcons?.loadFont) {
           await MaterialCommunityIcons.loadFont();
         }
@@ -35,17 +34,14 @@ export default function App() {
           await Feather.loadFont();
         }
 
-        // Init DB
         await initDB();
 
-        // Run maintenance
         try {
           await runBillMaintenance();
         } catch (e) {
           console.warn('Bill maintenance error', e);
         }
 
-        // ✅ ONLY after everything is ready
         setReady(true);
 
       } catch (e) {
@@ -54,7 +50,27 @@ export default function App() {
     })();
   }, []);
 
-  // 🚨 BLOCK UI until ready
+  useEffect(() => {
+    const onBackPress = () => {
+      const route = navigationRef.getCurrentRoute();
+      if (route?.name !== 'Drawer') {
+        return false;
+      }
+      if (backPressCount.current === 0) {
+        backPressCount.current += 1;
+        ToastAndroid.show('Press back again to exit', ToastAndroid.SHORT);
+        setTimeout(() => {
+          backPressCount.current = 0;
+        }, 2000);
+        return true;
+      }
+      BackHandler.exitApp();
+      return true;
+    };
+    const subscription = BackHandler.addEventListener('hardwareBackPress', onBackPress);
+    return () => subscription.remove();
+  }, []);
+
   if (!ready) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -80,7 +96,7 @@ export default function App() {
           }
         }}
       >
-        <NavigationContainer>
+        <NavigationContainer ref={navigationRef}>
           <Stack.Navigator>
             <Stack.Screen
               name="Drawer"

@@ -11,6 +11,7 @@ import { Spacing } from './Theme';
 
 export default function CategoryCreateModal({ visible, onClose, onCategoryCreated, onSave, editData, currentType = 'expense' }) {
   const [action, setAction] = useState('');
+  const [submitText, setSubmitText] = useState('');
   const [name, setName] = useState('');
   const [type, setType] = useState(currentType);
   const [selectedIcon, setSelectedIcon] = useState('tag');
@@ -24,12 +25,14 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
     if (visible) {
       if (editData) {
         setAction('Edit Category');
+        setSubmitText('Save');
         setName(editData.name || '');
         setType(editData.type || 'expense');
         setSelectedIcon(editData.icon || 'tag');
         setSelectedColor(editData.color || '#4B7CF3');
       } else {
         setAction('Create New Category');
+        setSubmitText('Create');
         setName('');
         setType(currentType);
         setSelectedIcon('tag');
@@ -158,7 +161,7 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
               Cancel
             </PaperButton>
             <PaperButton mode="contained" onPress={handleCreateCategory}>
-              Create
+              {submitText}
             </PaperButton>
           </View>
         </Card>
