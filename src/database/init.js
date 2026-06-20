@@ -1,4 +1,5 @@
 import { executeSql } from './db';
+import { Platform } from 'react-native';
 
 export async function initDB() {
   try {
@@ -163,6 +164,31 @@ export async function initDB() {
     }
   } catch (err) {
     console.error('DB init error', err);
+  }
+}
+
+export async function clearAllTables() {
+  const tables = ['transactions', 'bills', 'budgets', 'categories', 'sources'];
+
+  try {
+    for (const table of tables) {
+      await executeSql(`DELETE FROM ${table}`);
+
+      if (Platform.OS !== 'web') {
+        try {
+          await executeSql(`DELETE FROM sqlite_sequence WHERE name = ?`, [table]);
+        } catch (seqError) {
+          console.warn(`Failed to reset SQLite sequence for ${table}:`, seqError);
+        }
+      } else {
+        const prefix = 'mm_db_';
+        localStorage.setItem(`${prefix}${table}`, JSON.stringify([]));
+        localStorage.setItem(`${prefix}${table}_meta`, JSON.stringify({ nextId: 1 }));
+      }
+    }
+  } catch (e) {
+    console.error('Clear DB failed', e);
+    throw e;
   }
 }
 

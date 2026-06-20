@@ -52,7 +52,12 @@ function createWebExecuteSql() {
       const meta = JSON.parse(localStorage.getItem(metaKey) || '{"nextId":1}');
       const obj = {};
       for (let i = 0; i < cols.length; i++) obj[cols[i]] = params[i] !== undefined ? params[i] : null;
-      obj.id = meta.nextId++;
+      if (obj.id !== undefined && obj.id !== null) {
+        obj.id = Number(obj.id);
+        meta.nextId = Math.max(meta.nextId, obj.id + 1);
+      } else {
+        obj.id = meta.nextId++;
+      }
       rows.push(obj);
       writeTable(table, rows);
       localStorage.setItem(metaKey, JSON.stringify(meta));

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react';
+import React, { useEffect, useState, useLayoutEffect, useCallback } from 'react';
 import { View, Text, FlatList, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import { getTransactions, deleteTransaction } from '../services/transactions';
 import { getCategories } from '../services/categories';
@@ -6,6 +6,7 @@ import { getSources } from '../services/sources';
 import Card from '../components/Card';
 import { Colors, Spacing } from '../components/Theme';
 import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function SourcesDetails({ route, navigation }) {
   const { sourceId, sourceName } = route.params;
@@ -50,6 +51,12 @@ export default function SourcesDetails({ route, navigation }) {
 
   useEffect(() => { load(); }, []);
 
+  useFocusEffect(
+    useCallback(() => {
+      loadTransactions();
+    }, [])
+  );
+
   const handleDelete = (id) => {
     Alert.alert(
       'Delete Transaction',
@@ -72,7 +79,7 @@ export default function SourcesDetails({ route, navigation }) {
     // Navigate to the TransactionAdd screen, passing the transaction data for editing
     // The TransactionAddScreen will then pass these props to the TransactionForm
     // which will handle pre-filling the form and calling updateTransaction.
-    navigation.navigate('TransactionAdd', { 
+    navigation.navigate('TransactionAdd', {
       isEdit: true,
       transaction: item
     });

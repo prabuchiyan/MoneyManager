@@ -11,7 +11,8 @@ import {
   Dialog, 
   ActivityIndicator,
   List,
-  Surface
+  Surface,
+  ProgressBar
 } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { exportBackup, pickBackupFile, restoreBackup } from '../services/backup';
@@ -22,6 +23,8 @@ const LAST_BACKUP_KEY = 'mm_last_backup_time';
 
 export default function BackupScreen() {
   const [loading, setLoading] = useState(false);
+  const [progressPercentage, setProgressPercentage] = useState(0);
+  const [progressMessage, setProgressMessage] = useState('');
   const [lastBackupTime, setLastBackupTime] = useState(null);
   const [backupData, setBackupData] = useState(null);
   const [showPreview, setShowPreview] = useState(false);
@@ -41,6 +44,7 @@ export default function BackupScreen() {
 
   async function handleExport() {
     setLoading(true);
+    setProgressMessage('Generating backup...');
     try {
       const result = await exportBackup();
       if (result.success) {
@@ -52,6 +56,7 @@ export default function BackupScreen() {
       Alert.alert('Error', 'Failed to export backup: ' + error.message);
     } finally {
       setLoading(false);
+      setProgressMessage('');
     }
   }
 
@@ -70,8 +75,13 @@ export default function BackupScreen() {
   async function handleRestore() {
     setShowConfirmRestore(false);
     setLoading(true);
+    setProgressPercentage(0);
+    setProgressMessage('Initializing restore...');
     try {
-      await restoreBackup(backupData, restoreMode);
+      await restoreBackup(backupData, restoreMode, (percentage, message) => {
+        setProgressPercentage(percentage);
+        setProgressMessage(message);
+      });
       Alert.alert('Success', `Data ${restoreMode === 'replace' ? 'replaced' : 'merged'} successfully`);
       setBackupData(null);
       setShowPreview(false);
@@ -79,6 +89,8 @@ export default function BackupScreen() {
       Alert.alert('Error', 'Restore failed: ' + error.message);
     } finally {
       setLoading(false);
+      setProgressPercentage(0);
+      setProgressMessage('');
     }
   }
 
@@ -196,8 +208,22 @@ export default function BackupScreen() {
 
       {loading && (
         <Surface style={styles.loadingOverlay} elevation={4}>
-          <ActivityIndicator size="large" color={Colors.primary} />
-          <Text style={{ marginTop: 10, fontWeight: '700' }}>Processing Backup...</Text>
+          <ActivityIndicator size="large" color={Colors.primary} style={{ marginBottom: 15 }} />
+          <Text style={{ fontSize: 16, fontWeight: '700', marginBottom: 10, color: Colors.primary }}>
+            {progressMessage || 'Processing Backup...'}
+          </Text>
+          {progressPercentage > 0 && (
+            <View style={{ width: '80%', alignItems: 'center' }}>
+              <ProgressBar 
+                progress={progressPercentage / 100} 
+                color={Colors.primary} 
+                style={{ height: 8, borderRadius: 4, width: '100%' }} 
+              />
+              <Text style={{ marginTop: 5, fontSize: 12, color: Colors.muted }}>
+                {progressPercentage}%
+              </Text>
+            </View>
+          )}
         </Surface>
       )}
     </View>
