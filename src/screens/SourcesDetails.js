@@ -30,7 +30,7 @@ export default function SourcesDetails({ route, navigation }) {
     try {
       setLoading(true);
       const [txData, catData] = await Promise.all([
-        getTransactions(100, sourceId),
+        getTransactions(1000000, sourceId),
         getCategories(true)
       ]);
 

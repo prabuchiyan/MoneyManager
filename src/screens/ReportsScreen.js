@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, ActivityIndicator } from 'react-native';
 import { Chip } from 'react-native-paper';
 import { getTransactions } from '../services/transactions';
 import { getCategories } from '../services/categories';
@@ -19,7 +19,7 @@ export default function ReportsScreen() {
       try {
         setLoading(true);
         const [tx, cats] = await Promise.all([
-          getTransactions(500),
+          getTransactions(1000000),
           getCategories(true)
         ]);
         const cmap = {};
@@ -47,7 +47,7 @@ export default function ReportsScreen() {
   }, [reportData]);
 
   const formatLabel = (label) => {
-    if (mode === 'daily') return label.substring(5); // MM-DD
+    if (mode === 'daily') return label.substring(5);
     if (mode === 'monthly') {
       const [year, month] = label.split('-');
       const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -77,15 +77,32 @@ export default function ReportsScreen() {
       <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
         <Card style={styles.chartCard}>
           <Text style={styles.chartTitle}>Income vs Expense Chart</Text>
-          {reportData.length === 0 ? (
+          {loading ? (
+            <View style={styles.loaderContainer}>
+              <ActivityIndicator size="large" color={Colors.primary} />
+              <Text style={styles.loadingText}>Loading report...</Text>
+            </View>
+          ) : reportData.length === 0 ? (
             <Text style={styles.emptyText}>No data available for the selected period</Text>
           ) : (
             <View style={styles.chartOuterRow}>
               {reportData.map((data, idx) => (
                 <View key={idx} style={styles.chartColumn}>
                   <View style={styles.barContainer}>
-                    <View style={[styles.bar, styles.incomeBar, { height: `${Math.max((data.income / maxAmount) * 100, 2)}%` }]} />
-                    <View style={[styles.bar, styles.expenseBar, { height: `${Math.max((data.expense / maxAmount) * 100, 2)}%` }]} />
+                    <View
+                      style={[
+                        styles.bar,
+                        styles.incomeBar,
+                        { height: `${Math.max((data.income / maxAmount) * 100, 2)}%` }
+                      ]}
+                    />
+                    <View
+                      style={[
+                        styles.bar,
+                        styles.expenseBar,
+                        { height: `${Math.max((data.expense / maxAmount) * 100, 2)}%` }
+                      ]}
+                    />
                   </View>
                   <Text style={styles.axisLabel} numberOfLines={1}>
                     {formatLabel(data.label)}
@@ -94,13 +111,22 @@ export default function ReportsScreen() {
               ))}
             </View>
           )}
-          <View style={styles.legendRow}>
-            <View style={styles.legendItem}><View style={[styles.dot, { backgroundColor: '#36B37E' }]} /><Text style={styles.legendText}>Income</Text></View>
-            <View style={styles.legendItem}><View style={[styles.dot, { backgroundColor: '#E46A6A' }]} /><Text style={styles.legendText}>Expense</Text></View>
-          </View>
+
+          {!loading && reportData.length > 0 && (
+            <View style={styles.legendRow}>
+              <View style={styles.legendItem}>
+                <View style={[styles.dot, { backgroundColor: '#36B37E' }]} />
+                <Text style={styles.legendText}>Income</Text>
+              </View>
+              <View style={styles.legendItem}>
+                <View style={[styles.dot, { backgroundColor: '#E46A6A' }]} />
+                <Text style={styles.legendText}>Expense</Text>
+              </View>
+            </View>
+          )}
         </Card>
 
-        {reportData.map((data, idx) => (
+        {!loading && reportData.map((data, idx) => (
           <Card key={idx} style={styles.itemCard}>
             <View style={styles.cardHeader}>
               <Text style={styles.periodLabel}>{data.label}</Text>
@@ -120,11 +146,11 @@ export default function ReportsScreen() {
                 return (
                   <View key={cid} style={styles.catRow}>
                     <View style={styles.catInfo}>
-                      <MaterialCommunityIcons 
-                        name={cat.icon || 'tag'} 
-                        size={16} 
-                        color={cat.color} 
-                        style={{ marginRight: 6 }} 
+                      <MaterialCommunityIcons
+                        name={cat.icon || 'tag'}
+                        size={16}
+                        color={cat.color}
+                        style={{ marginRight: 6 }}
                       />
                       <Text style={styles.catName}>{cat.name}</Text>
                     </View>
@@ -146,30 +172,135 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: Colors.background, padding: Spacing.m },
   tabContainer: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 16 },
   chip: { flex: 1, marginHorizontal: 2, alignItems: 'center', justifyContent: 'center' },
-  chartCard: { padding: 16, marginBottom: 16, alignItems: 'center', borderRadius: 16 },
-  chartTitle: { fontSize: 16, fontWeight: '700', color: Colors.text, marginBottom: 20 },
-  chartOuterRow: { flexDirection: 'row', alignItems: 'flex-end', height: 160, justifyContent: 'space-around', width: '100%' },
-  chartColumn: { alignItems: 'center', flex: 1 },
-  barContainer: { flexDirection: 'row', alignItems: 'flex-end', height: '85%', justifyContent: 'center', width: '100%' },
+  chartCard: {
+    width: '100%',
+    marginBottom: 16,
+    borderRadius: 16
+  },
+  chartTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: Colors.text,
+    marginBottom: 20,
+    textAlign: 'center'
+  },
+  loaderContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 40
+  },
+  loadingText: {
+    marginTop: 10,
+    color: Colors.muted
+  },
+  chartOuterRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    height: 160,
+    width: '100%',
+    justifyContent: 'space-between'
+  },
+  chartColumn: {
+    flex: 1,
+    alignItems: 'center',
+    marginHorizontal: 4,
+  },
+  barContainer: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    height: '85%',
+    justifyContent: 'center',
+    width: '100%'
+  },
   bar: { width: 8, borderRadius: 4, marginHorizontal: 1.5 },
   incomeBar: { backgroundColor: '#36B37E' },
   expenseBar: { backgroundColor: '#E46A6A' },
-  axisLabel: { fontSize: 11, color: Colors.muted, marginTop: 6, textAlign: 'center' },
-  legendRow: { flexDirection: 'row', justifyContent: 'center', gap: 16, marginTop: 16 },
-  legendItem: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  axisLabel: {
+    fontSize: 11,
+    color: Colors.muted,
+    marginTop: 6,
+    textAlign: 'center'
+  },
+  legendRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 16,
+    marginTop: 16
+  },
+  legendItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6
+  },
   dot: { width: 10, height: 10, borderRadius: 5 },
-  legendText: { fontSize: 12, color: Colors.text, fontWeight: '500' },
-  emptyText: { color: Colors.muted, marginVertical: 40 },
-  itemCard: { marginBottom: 10, padding: 14, borderRadius: 12 },
-  cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', borderBottomWidth: 1, borderColor: '#f5f5f5', paddingBottom: 8 },
-  periodLabel: { fontSize: 14, fontWeight: '700', color: Colors.text },
-  netBalance: { fontSize: 14, fontWeight: '800' },
-  detailsRow: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 },
-  incomeText: { fontSize: 13, color: '#36B37E', fontWeight: '600' },
-  expenseText: { fontSize: 13, color: '#E46A6A', fontWeight: '600' },
-  categoryBreakdown: { marginTop: 12, paddingTop: 8, borderTopWidth: 1, borderTopColor: '#f9f9f9' },
-  catRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 },
-  catInfo: { flexDirection: 'row', alignItems: 'center' },
-  catName: { fontSize: 12, color: Colors.text },
-  catAmount: { fontSize: 12, fontWeight: '600' },
+  legendText: {
+    fontSize: 12,
+    color: Colors.text,
+    fontWeight: '500'
+  },
+  emptyText: {
+    color: Colors.muted,
+    marginVertical: 40,
+    textAlign: 'center'
+  },
+  itemCard: {
+    marginBottom: 10,
+    borderRadius: 12
+  },
+  cardHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderColor: '#f5f5f5',
+    paddingBottom: 8
+  },
+  periodLabel: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: Colors.text
+  },
+  netBalance: {
+    fontSize: 14,
+    fontWeight: '800'
+  },
+  detailsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 10
+  },
+  incomeText: {
+    fontSize: 13,
+    color: '#36B37E',
+    fontWeight: '600'
+  },
+  expenseText: {
+    fontSize: 13,
+    color: '#E46A6A',
+    fontWeight: '600'
+  },
+  categoryBreakdown: {
+    marginTop: 12,
+    paddingTop: 8,
+    borderTopWidth: 1,
+    borderTopColor: '#f9f9f9'
+  },
+  catRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 4
+  },
+  catInfo: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  catName: {
+    fontSize: 12,
+    color: Colors.text
+  },
+  catAmount: {
+    fontSize: 12,
+    fontWeight: '600'
+  }
 });

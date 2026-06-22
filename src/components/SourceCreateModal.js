@@ -95,7 +95,7 @@ export default function SourceCreateModal({ visible, onClose, onSave, editData }
 
             <IconButton
               label="Color"
-              icon="palette"
+              icon="droplet"
               onPress={() => setShowColorPicker(true)}
             />
 

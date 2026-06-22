@@ -11,7 +11,7 @@ export async function getTotalBalance() {
   const sources = await getSources(true);
   const initial = sources.reduce((s, src) => s + (parseFloat(src.initial_balance) || 0), 0);
 
-  const tx = await getTransactions(10000);
+  const tx = await getTransactions(1000000);
   const income = tx.filter(t => t.type === 'income').reduce((s, t) => s + (parseFloat(t.amount) || 0), 0);
   const expense = tx.filter(t => t.type === 'expense').reduce((s, t) => s + (parseFloat(t.amount) || 0), 0);
 
@@ -19,7 +19,7 @@ export async function getTotalBalance() {
 }
 
 export async function getCategorySpending(month = null) {
-  const tx = await getTransactions(10000);
+  const tx = await getTransactions(1000000);
   const cats = await getCategories(true);
   const byId = {};
   const m = month || new Date().toISOString().slice(0, 7);
@@ -39,7 +39,7 @@ export async function getCategorySpending(month = null) {
 }
 
 export async function getMonthlyTrends(months = 6) {
-  const tx = await getTransactions(10000);
+  const tx = await getTransactions(1000000);
   const trends = [];
   const now = new Date();
   for (let i = months - 1; i >= 0; i--) {
@@ -55,7 +55,7 @@ export async function getMonthlyTrends(months = 6) {
 
 export async function getSourceBalances() {
   const sources = await getSources(true);
-  const tx = await getTransactions(10000);
+  const tx = await getTransactions(1000000);
   const result = sources.map(s => {
     const initial = parseFloat(s.initial_balance) || 0;
     const income = tx.filter(t => String(t.source_id) === String(s.id) && t.type === 'income').reduce((a,b)=>a + (parseFloat(b.amount)||0), 0);
@@ -83,9 +83,9 @@ export function groupTransactions(transactions, mode) {
       const weekStart = new Date(dateObj.setDate(diff));
       key = weekStart.toISOString().split('T')[0];
     } else if (mode === 'monthly') {
-      key = tx.date.substring(0, 7); // YYYY-MM
+      key = tx.date.substring(0, 7);
     } else if (mode === 'yearly') {
-      key = tx.date.substring(0, 4); // YYYY
+      key = tx.date.substring(0, 4);
     }
 
     if (!groups[key]) {
@@ -107,12 +107,12 @@ export function groupTransactions(transactions, mode) {
   });
 
   const result = Object.values(groups);
-  result.sort((a, b) => a.label.localeCompare(b.label));
-
-  if (mode === 'daily') return result.slice(-7);
-  if (mode === 'weekly') return result.slice(-8);
-  if (mode === 'monthly') return result.slice(-12);
-  if (mode === 'yearly') return result.slice(-5);
+  result.sort((a, b) => b.label.localeCompare(a.label));
+  
+  if (mode === 'daily') return result.slice(0, 7);
+  if (mode === 'weekly') return result.slice(0, 8);
+  if (mode === 'monthly') return result.slice(0, 12);
+  if (mode === 'yearly') return result.slice(0, 5);
   return result;
 }
 

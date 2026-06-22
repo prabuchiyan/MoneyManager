@@ -20,7 +20,7 @@ export default function SourcesScreen() {
 
   async function load() {
     const sources = await getSources(true);
-    const transactions = await getTransactions();
+    const transactions = await getTransactions(1000000);
 
     const balanceMap = transactions.reduce((acc, txn) => {
       const amt = Number(txn.amount || 0);

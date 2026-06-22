@@ -122,7 +122,12 @@ export default function BillForm({ bill, onSaved, onCancel }) {
           mode="outlined"
           style={{ marginBottom: 12 }}
           error={!!errors.dueDate}
-          right={<PaperTextInput.Icon icon="calendar" />}
+          right={
+            <PaperTextInput.Icon
+              icon="calendar"
+              onPress={() => setShowDuePicker(true)}
+            />
+          }
         />
       </TouchableOpacity>
 

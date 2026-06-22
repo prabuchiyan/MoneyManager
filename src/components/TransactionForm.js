@@ -140,7 +140,12 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
             pointerEvents="none"
             mode="outlined"
             style={{ marginBottom: 8 }}
-            right={<PaperTextInput.Icon icon="calendar" />}
+            right={
+              <PaperTextInput.Icon
+                icon="calendar"
+                onPress={() => setShowDateTimePicker(true)}
+              />
+            }
           />
         </TouchableOpacity>
       </View>

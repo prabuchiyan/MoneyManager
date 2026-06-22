@@ -1,7 +1,16 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { View, Text, FlatList, Modal, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  Modal,
+  TouchableOpacity,
+  TextInput
+} from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
-import { Chip, Searchbar } from 'react-native-paper';
+import { Searchbar } from 'react-native-paper';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 import {
   getBills,
   getBillsSummary,
@@ -38,6 +47,9 @@ export default function BillsScreen({ navigation }) {
   const [categoryFilter, setCategoryFilter] = useState(null);
   const [sortBy, setSortBy] = useState('due_date');
   const [search, setSearch] = useState('');
+  const [showStatusDropdown, setShowStatusDropdown] = useState(false);
+  const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
+  const [categorySearch, setCategorySearch] = useState('');
   const [showForm, setShowForm] = useState(false);
   const [editingBill, setEditingBill] = useState(null);
   const [confirmVisible, setConfirmVisible] = useState(false);
@@ -62,9 +74,9 @@ export default function BillsScreen({ navigation }) {
     setItems(rows);
     setSummary(sum);
     setInsights(ins);
-    setCategories(cats.filter((c) => c.type === 'expense'));
+    setCategories(cats.filter(c => c.type === 'expense'));
     const map = {};
-    for (const c of cats) map[c.id] = c;
+    cats.forEach(c => map[c.id] = c);
     setCategoriesMap(map);
   }
 
@@ -76,9 +88,17 @@ export default function BillsScreen({ navigation }) {
 
   const filteredItems = useMemo(() => {
     if (!search.trim()) return items;
-    const q = search.trim().toLowerCase();
-    return items.filter((b) => b.name?.toLowerCase().includes(q));
+    return items.filter(b =>
+      b.name?.toLowerCase().includes(search.toLowerCase())
+    );
   }, [items, search]);
+
+  const filteredCategories = useMemo(() => {
+    if (!categorySearch.trim()) return categories;
+    return categories.filter(c =>
+      c.name.toLowerCase().includes(categorySearch.toLowerCase())
+    );
+  }, [categories, categorySearch]);
 
   function openDetail(bill) {
     navigation.navigate('BillDetail', { billId: bill.id });
@@ -101,132 +121,80 @@ export default function BillsScreen({ navigation }) {
     setConfirmVisible(true);
   }
 
-  const renderBill = useCallback(
-    ({ item }) => (
-      <SwipeableBillCard
-        bill={item}
-        category={categoriesMap[item.category_id]}
-        onPress={openDetail}
-        onMarkPaid={handleMarkPaid}
-        onSkip={handleSkip}
-        onEdit={openEdit}
-      />
-    ),
-    [categoriesMap]
+  const renderBill = ({ item }) => (
+    <SwipeableBillCard
+      bill={item}
+      category={categoriesMap[item.category_id]}
+      onPress={openDetail}
+      onMarkPaid={handleMarkPaid}
+      onSkip={handleSkip}
+      onEdit={openEdit}
+    />
   );
 
   const listHeader = (
     <View>
+
       <BillSummaryBar summary={summary} />
 
-      {summary?.overdueCount > 0 ? (
-        <View
-          style={{
-            backgroundColor: '#FFF0F0',
-            borderRadius: 10,
-            padding: 12,
-            marginBottom: Spacing.m,
-            borderLeftWidth: 4,
-            borderLeftColor: '#E46A6A',
-          }}
-        >
+      {summary?.overdueCount > 0 && (
+        <View style={{
+          backgroundColor: '#FFF0F0',
+          padding: 12,
+          borderRadius: 10,
+          marginBottom: Spacing.m
+        }}>
           <Text style={{ color: '#E46A6A', fontWeight: '700' }}>
-            {summary.overdueCount} overdue bill{summary.overdueCount > 1 ? 's' : ''} — {formatCurrency(summary.overdueAmount)}
+            {summary.overdueCount} overdue — {formatCurrency(summary.overdueAmount)}
           </Text>
         </View>
-      ) : null}
+      )}
 
-      {insights ? (
-        <View
-          style={{
-            backgroundColor: Colors.card,
-            borderRadius: 12,
-            padding: Spacing.m,
-            marginBottom: Spacing.m,
-          }}
-        >
-          <Text style={{ fontWeight: '700', marginBottom: 8, color: Colors.text }}>Insights</Text>
-          <Text style={{ color: Colors.muted, fontSize: 13, marginBottom: 4 }}>
-            Recurring bills total: {formatCurrency(insights.recurringMonthlyTotal)}
+      {/* STATUS DROPDOWN */}
+      <TouchableOpacity style={styles.dropdownTrigger} onPress={() => setShowStatusDropdown(true)}>
+        <View>
+          <Text style={styles.label}>Status</Text>
+          <Text style={styles.value}>
+            {STATUS_FILTERS.find(f => f.key === statusFilter)?.label}
           </Text>
-          <Text style={{ color: Colors.muted, fontSize: 13, marginBottom: 4 }}>
-            Upcoming (7 days): {insights.upcomingDues?.length || 0} bill(s)
-          </Text>
-          {insights.topCategoryId ? (
-            <Text style={{ color: Colors.muted, fontSize: 13 }}>
-              Top category: {categoriesMap[insights.topCategoryId]?.name || 'Unknown'} ({formatCurrency(insights.topCategoryAmount)})
-            </Text>
-          ) : null}
         </View>
-      ) : null}
+        <MaterialCommunityIcons name="chevron-down" size={20} color={Colors.muted} />
+      </TouchableOpacity>
 
-      <View style={{ flexDirection: 'row', marginBottom: Spacing.s }}>
-        <Chip
-          selected={viewMode === 'list'}
-          onPress={() => setViewMode('list')}
-          style={{ marginRight: 8 }}
-        >
-          List
-        </Chip>
-        <Chip selected={viewMode === 'calendar'} onPress={() => setViewMode('calendar')}>
-          Calendar
-        </Chip>
-      </View>
+      {/* CATEGORY DROPDOWN */}
+      <TouchableOpacity style={styles.dropdownTrigger} onPress={() => setShowCategoryDropdown(true)}>
+        <View>
+          <Text style={styles.label}>Category</Text>
+          <Text style={styles.value}>
+            {categoryFilter
+              ? categories.find(c => c.id === categoryFilter)?.name
+              : 'All categories'}
+          </Text>
+        </View>
+        <MaterialCommunityIcons name="chevron-down" size={20} color={Colors.muted} />
+      </TouchableOpacity>
 
       <Searchbar
         placeholder="Search bills"
         value={search}
         onChangeText={setSearch}
-        style={{ marginBottom: Spacing.s, backgroundColor: Colors.card }}
+        style={{ marginBottom: Spacing.s }}
       />
-
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginBottom: Spacing.s }}>
-        {STATUS_FILTERS.map((f) => (
-          <Chip
-            key={f.key}
-            selected={statusFilter === f.key}
-            onPress={() => setStatusFilter(f.key)}
-            style={{ marginRight: 6, marginBottom: 6 }}
-          >
-            {f.label}
-          </Chip>
-        ))}
-      </View>
-
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginBottom: Spacing.s }}>
-        <Chip
-          selected={!categoryFilter}
-          onPress={() => setCategoryFilter(null)}
-          style={{ marginRight: 6, marginBottom: 6 }}
-        >
-          All categories
-        </Chip>
-        {categories.map((c) => (
-          <Chip
-            key={c.id}
-            selected={categoryFilter === c.id}
-            onPress={() => setCategoryFilter(categoryFilter === c.id ? null : c.id)}
-            style={{ marginRight: 6, marginBottom: 6 }}
-          >
-            {c.name}
-          </Chip>
-        ))}
-      </View>
 
       <View style={{ flexDirection: 'row', marginBottom: Spacing.m }}>
         <TouchableOpacity onPress={() => setSortBy('due_date')} style={{ marginRight: 16 }}>
-          <Text style={{ color: sortBy === 'due_date' ? Colors.primary : Colors.muted, fontWeight: '600' }}>
+          <Text style={{ color: sortBy === 'due_date' ? Colors.primary : Colors.muted }}>
             Sort: Due date
           </Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => setSortBy('amount')}>
-          <Text style={{ color: sortBy === 'amount' ? Colors.primary : Colors.muted, fontWeight: '600' }}>
+          <Text style={{ color: sortBy === 'amount' ? Colors.primary : Colors.muted }}>
             Sort: Amount
           </Text>
         </TouchableOpacity>
       </View>
 
-      {viewMode === 'calendar' ? (
+      {viewMode === 'calendar' && (
         <BillCalendarView
           bills={filteredItems}
           month={calMonth}
@@ -234,61 +202,93 @@ export default function BillsScreen({ navigation }) {
           onSelectBill={openDetail}
           onMonthChange={(y, m) => { setCalYear(y); setCalMonth(m); }}
         />
-      ) : null}
+      )}
     </View>
   );
 
   return (
     <View style={{ flex: 1, backgroundColor: Colors.background }}>
-      {viewMode === 'list' ? (
-        <FlatList
-          data={filteredItems}
-          keyExtractor={(i) => String(i.id)}
-          renderItem={renderBill}
-          ListHeaderComponent={listHeader}
-          contentContainerStyle={{ padding: Spacing.m, paddingBottom: 100 }}
-          initialNumToRender={12}
-          maxToRenderPerBatch={10}
-          windowSize={7}
-          ListEmptyComponent={
-            <Text style={{ color: Colors.muted, textAlign: 'center', marginTop: 24 }}>
-              No bills found. Tap + to add one.
-            </Text>
-          }
-        />
-      ) : (
-        <FlatList
-          data={[]}
-          ListHeaderComponent={listHeader}
-          contentContainerStyle={{ padding: Spacing.m, paddingBottom: 100 }}
-        />
-      )}
-
-      <FAB
-        onPress={() => { setEditingBill(null); setShowForm(true); }}
-        style={{ position: 'absolute', right: 20, bottom: 24 }}
+      <FlatList
+        data={filteredItems}
+        keyExtractor={(i) => String(i.id)}
+        renderItem={renderBill}
+        ListHeaderComponent={listHeader}
+        contentContainerStyle={{ padding: Spacing.m, paddingBottom: 100 }}
       />
 
-      <Modal visible={showForm} animationType="slide">
-        <View style={{ flex: 1, backgroundColor: Colors.background }}>
-          <View style={{ padding: Spacing.m, paddingTop: 48, borderBottomWidth: 1, borderBottomColor: '#EEF1F6' }}>
-            <Text style={{ fontSize: 20, fontWeight: '800', color: Colors.text }}>
-              {editingBill ? 'Edit Bill' : 'New Bill'}
-            </Text>
+      {/* STATUS MODAL */}
+      <Modal visible={showStatusDropdown} transparent>
+        <TouchableOpacity style={styles.overlay} onPress={() => setShowStatusDropdown(false)}>
+          <View style={styles.modal}>
+            {STATUS_FILTERS.map(f => (
+              <TouchableOpacity key={f.key} onPress={() => {
+                setStatusFilter(f.key);
+                setShowStatusDropdown(false);
+              }}>
+                <Text style={[styles.item, statusFilter === f.key && styles.selected]}>
+                  {f.label}
+                </Text>
+              </TouchableOpacity>
+            ))}
           </View>
-          <BillForm
-            bill={editingBill}
-            onSaved={() => { setShowForm(false); setEditingBill(null); load(); }}
-            onCancel={() => { setShowForm(false); setEditingBill(null); }}
-          />
-        </View>
+        </TouchableOpacity>
+      </Modal>
+
+      {/* CATEGORY MODAL WITH SEARCH */}
+      <Modal visible={showCategoryDropdown} transparent>
+        <TouchableOpacity style={styles.overlay} onPress={() => setShowCategoryDropdown(false)}>
+          <View style={styles.modalLarge}>
+
+            <TextInput
+              placeholder="Search category..."
+              value={categorySearch}
+              onChangeText={setCategorySearch}
+              style={styles.searchInput}
+            />
+
+            <FlatList
+              data={[{ id: 'all', name: 'All categories' }, ...filteredCategories]}
+              keyExtractor={(i) => i.id.toString()}
+              renderItem={({ item }) => {
+                const selected = item.id === 'all'
+                  ? !categoryFilter
+                  : categoryFilter === item.id;
+
+                return (
+                  <TouchableOpacity
+                    style={styles.row}
+                    onPress={() => {
+                      setCategoryFilter(item.id === 'all' ? null : item.id);
+                      setShowCategoryDropdown(false);
+                      setCategorySearch('');
+                    }}
+                  >
+                    <Text style={[styles.item, selected && styles.selected]}>
+                      {item.name}
+                    </Text>
+                    {selected && <MaterialCommunityIcons name="check" size={18} color={Colors.primary} />}
+                  </TouchableOpacity>
+                );
+              }}
+            />
+          </View>
+        </TouchableOpacity>
+      </Modal>
+
+      <FAB onPress={() => { setEditingBill(null); setShowForm(true); }} />
+
+      <Modal visible={showForm}>
+        <BillForm
+          bill={editingBill}
+          onSaved={() => { setShowForm(false); setEditingBill(null); load(); }}
+          onCancel={() => { setShowForm(false); setEditingBill(null); }}
+        />
       </Modal>
 
       <ConfirmDialog
         visible={confirmVisible}
-        title={confirmAction === 'delete' ? 'Delete Bill' : 'Skip Bill'}
         message={confirmMessage}
-        onCancel={() => { setConfirmVisible(false); setConfirmTarget(null); }}
+        onCancel={() => setConfirmVisible(false)}
         onConfirm={async () => {
           if (confirmTarget) {
             if (confirmAction === 'delete') await deleteBill(confirmTarget.id);
@@ -296,9 +296,31 @@ export default function BillsScreen({ navigation }) {
             load();
           }
           setConfirmVisible(false);
-          setConfirmTarget(null);
         }}
       />
     </View>
   );
 }
+
+const styles = {
+  dropdownTrigger: {
+    backgroundColor: Colors.card,
+    padding: 14,
+    borderRadius: 14,
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: '#eee',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  label: { fontSize: 11, color: Colors.muted },
+  value: { fontSize: 14, fontWeight: '700', color: Colors.text },
+  overlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.3)', justifyContent: 'center', padding: 20 },
+  modal: { backgroundColor: '#fff', borderRadius: 16, padding: 10 },
+  modalLarge: { backgroundColor: '#fff', borderRadius: 16, padding: 12 },
+  item: { padding: 12, fontSize: 14 },
+  selected: { color: Colors.primary, fontWeight: '700' },
+  searchInput: { borderBottomWidth: 1, borderColor: '#eee', marginBottom: 10, paddingVertical: 6 },
+  row: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }
+};

@@ -190,7 +190,7 @@ export default function HomeScreen({ navigation }) {
     }
     // recent transactions
     try {
-      const tx = await getTransactions(6);
+      const tx = await getTransactions(3);
       setRecentTx(tx);
     } catch (e) {
       // ignore
@@ -353,7 +353,7 @@ export default function HomeScreen({ navigation }) {
               </View>
             );
           }) : <Text style={{ color: Colors.muted }}>No recent transactions</Text>}
-          {recentTx.length > 3 && (
+          {recentTx.length > 2 && (
             <TouchableOpacity
               onPress={() => navigation.navigate('Transactions')}
               style={{ alignItems: 'center', marginTop: 8 }}
@@ -437,85 +437,88 @@ export default function HomeScreen({ navigation }) {
           })}
         </Card>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Bills')}>
-          <Card>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-              <Text style={{ fontWeight: '600' }}>Bills</Text>
-              <Text style={{ color: Colors.primary, fontWeight: '600', fontSize: 13 }}>View all ›</Text>
-            </View>
+        <Card>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+            <Text style={{ fontWeight: '600' }}>Bills</Text>
+            <Text
+              style={{ color: Colors.primary, fontWeight: '600', fontSize: 13 }}
+              onPress={() => navigation.navigate('Bills')}
+            >
+              View all ›
+            </Text>
+          </View>
 
-            {billsSummary ? (
-              <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginBottom: 12 }}>
-                <View style={{ width: '50%', marginBottom: 6 }}>
-                  <Text style={{ fontSize: 11, color: Colors.muted }}>This month</Text>
-                  <Text style={{ fontWeight: '700', color: Colors.text }}>{formatCurrency(billsSummary.totalThisMonth)}</Text>
+          {billsSummary ? (
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginBottom: 12 }}>
+              <View style={{ width: '50%', marginBottom: 6 }}>
+                <Text style={{ fontSize: 11, color: Colors.muted }}>This month</Text>
+                <Text style={{ fontWeight: '700', color: Colors.text }}>{formatCurrency(billsSummary.totalThisMonth)}</Text>
+              </View>
+              <View style={{ width: '50%', marginBottom: 6 }}>
+                <Text style={{ fontSize: 11, color: Colors.muted }}>Paid</Text>
+                <Text style={{ fontWeight: '700', color: '#36B37E' }}>{formatCurrency(billsSummary.totalPaid)}</Text>
+              </View>
+              <View style={{ width: '50%' }}>
+                <Text style={{ fontSize: 11, color: Colors.muted }}>Overdue</Text>
+                <Text style={{ fontWeight: '700', color: '#E46A6A' }}>{formatCurrency(billsSummary.overdueAmount)}</Text>
+              </View>
+              <View style={{ width: '50%' }}>
+                <Text style={{ fontSize: 11, color: Colors.muted }}>Next 7 days</Text>
+                <Text style={{ fontWeight: '700', color: '#FFB020' }}>{formatCurrency(billsSummary.upcoming7)}</Text>
+              </View>
+            </View>
+          ) : null}
+
+          {sortedBills.length ? sortedBills.slice(0, 5).map(b => {
+            const display = getBillDisplayStatus(b);
+            const catColor = categoriesMap[b.category_id]?.color || '#ccc';
+
+            return (
+              <View
+                key={b.id}
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  paddingVertical: 8
+                }}
+              >
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <View
+                    style={{
+                      width: 10,
+                      height: 10,
+                      borderRadius: 5,
+                      backgroundColor: catColor,
+                      marginRight: 8
+                    }}
+                  />
+                  <View>
+                    <Text style={{ color: Colors.text, fontWeight: '600' }}>
+                      {b.name}
+                    </Text>
+                    <Text style={{ fontSize: 12, color: Colors.muted }}>
+                      Due: {b.due_date ? new Date(b.due_date).toLocaleDateString() : '—'}
+                    </Text>
+                  </View>
                 </View>
-                <View style={{ width: '50%', marginBottom: 6 }}>
-                  <Text style={{ fontSize: 11, color: Colors.muted }}>Paid</Text>
-                  <Text style={{ fontWeight: '700', color: '#36B37E' }}>{formatCurrency(billsSummary.totalPaid)}</Text>
-                </View>
-                <View style={{ width: '50%' }}>
-                  <Text style={{ fontSize: 11, color: Colors.muted }}>Overdue</Text>
-                  <Text style={{ fontWeight: '700', color: '#E46A6A' }}>{formatCurrency(billsSummary.overdueAmount)}</Text>
-                </View>
-                <View style={{ width: '50%' }}>
-                  <Text style={{ fontSize: 11, color: Colors.muted }}>Next 7 days</Text>
-                  <Text style={{ fontWeight: '700', color: '#FFB020' }}>{formatCurrency(billsSummary.upcoming7)}</Text>
+
+                <View style={{ alignItems: 'flex-end' }}>
+                  <Text style={{ fontWeight: '700', color: display.color }}>
+                    {formatCurrency(b.amount)}
+                  </Text>
+                  <Text style={{ fontSize: 12, color: display.color }}>
+                    {display.label}
+                  </Text>
                 </View>
               </View>
-            ) : null}
-
-            {sortedBills.length ? sortedBills.slice(0, 5).map(b => {
-              const display = getBillDisplayStatus(b);
-              const catColor = categoriesMap[b.category_id]?.color || '#ccc';
-
-              return (
-                <View
-                  key={b.id}
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    paddingVertical: 8
-                  }}
-                >
-                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <View
-                      style={{
-                        width: 10,
-                        height: 10,
-                        borderRadius: 5,
-                        backgroundColor: catColor,
-                        marginRight: 8
-                      }}
-                    />
-                    <View>
-                      <Text style={{ color: Colors.text, fontWeight: '600' }}>
-                        {b.name}
-                      </Text>
-                      <Text style={{ fontSize: 12, color: Colors.muted }}>
-                        Due: {b.due_date ? new Date(b.due_date).toLocaleDateString() : '—'}
-                      </Text>
-                    </View>
-                  </View>
-
-                  <View style={{ alignItems: 'flex-end' }}>
-                    <Text style={{ fontWeight: '700', color: display.color }}>
-                      {formatCurrency(b.amount)}
-                    </Text>
-                    <Text style={{ fontSize: 12, color: display.color }}>
-                      {display.label}
-                    </Text>
-                  </View>
-                </View>
-              );
-            }) : (
-              <Text style={{ color: Colors.muted }}>
-                No bills added
-              </Text>
-            )}
-          </Card>
-        </TouchableOpacity>
+            );
+          }) : (
+            <Text style={{ color: Colors.muted }}>
+              No bills added
+            </Text>
+          )}
+        </Card>
 
         <Card>
           <Text style={{ fontWeight: '600', marginBottom: 8 }}>Top spends (this month)</Text>

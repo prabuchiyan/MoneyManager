@@ -28,16 +28,16 @@ function CustomDrawerContent(props) {
       activeIcon: 'view-dashboard',
     },
     {
-      name: 'Transactions',
-      label: 'Transactions',
-      icon: 'format-list-bulleted',
-      activeIcon: 'format-list-bulleted',
-    },
-    {
       name: 'Budgets',
       label: 'Budgets',
       icon: 'wallet-outline',
       activeIcon: 'wallet',
+    },
+    {
+      name: 'Sources',
+      label: 'Sources',
+      icon: 'credit-card-outline',
+      activeIcon: 'credit-card',
     },
     {
       name: 'Categories',
@@ -46,10 +46,16 @@ function CustomDrawerContent(props) {
       activeIcon: 'tag-multiple',
     },
     {
-      name: 'Sources',
-      label: 'Sources',
-      icon: 'credit-card-outline',
-      activeIcon: 'credit-card',
+      name: 'Bills',
+      label: 'Bills',
+      icon: 'file-document-outline',
+      activeIcon: 'file-document',
+    },
+    {
+      name: 'Transactions',
+      label: 'Transactions',
+      icon: 'format-list-bulleted',
+      activeIcon: 'format-list-bulleted',
     },
   ];
 
@@ -64,7 +70,7 @@ function CustomDrawerContent(props) {
           />
         </View>
         <View style={styles.headerTextContainer}>
-          <Text style={styles.appName}>Money Manager</Text>
+          <Text style={styles.appName}>SpendoraX</Text>
           <Text style={styles.appVersion}>v2.0</Text>
         </View>
       </View>
@@ -163,7 +169,7 @@ export default function DrawerNavigator() {
         name="Dashboard"
         component={HomeScreen}
         options={({ navigation }) => ({
-          title: 'Money Manager',
+          title: 'SpendoraX',
           // headerRight: () => (
           //   <MaterialCommunityIcons
           //     name="database-sync"

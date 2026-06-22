@@ -12,7 +12,7 @@ export default function SourcesDashboard({ navigation }) {
 
   async function load() {
     const availableSources = await getSources(true);
-    const transactions = await getTransactions();
+    const transactions = await getTransactions(1000000);
 
     // ✅ Build balance map using reduce
     const balanceMap = transactions.reduce((acc, txn) => {

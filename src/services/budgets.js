@@ -27,7 +27,7 @@ export async function getBudgetRemaining(budgetId) {
   const month = b.month || new Date().toISOString().slice(0, 7);
 
   // sum expenses for the budget's category in that month
-  const all = await getTransactions(10000);
+  const all = await getTransactions(1000000);
   const spent = all.filter(t => {
     if (t.type !== 'expense') return false;
     if (!t.date || !t.date.startsWith(month)) return false;

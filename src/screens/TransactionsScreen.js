@@ -39,7 +39,7 @@ export default function TransactionsScreen({ navigation, route }) {
   const [searchQuery, setSearchQuery] = useState('');
 
   async function load() {
-    const t = await getTransactions(500);
+    const t = await getTransactions(1000000);
     setItems(t);
     const cats = await getCategories(true);
     setCategories(cats);
