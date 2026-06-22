@@ -37,6 +37,8 @@ export default function BillForm({ bill, onSaved, onCancel }) {
   const [showDuePicker, setShowDuePicker] = useState(false);
   const [showEndPicker, setShowEndPicker] = useState(false);
   const [errors, setErrors] = useState({});
+  const [categorySearch, setCategorySearch] = useState('');
+  const [sourceSearch, setSourceSearch] = useState('');
 
   useEffect(() => {
     (async () => {
@@ -51,6 +53,12 @@ export default function BillForm({ bill, onSaved, onCancel }) {
 
   const selectedCategory = categories.find((c) => c.id === categoryId);
   const selectedSource = sources.find((s) => s.id === sourceId);
+  const filteredCategories = categories.filter(c =>
+    c.name.toLowerCase().includes(categorySearch.toLowerCase())
+  );
+  const filteredSources = sources.filter(s =>
+    s.name.toLowerCase().includes(sourceSearch.toLowerCase())
+  );
 
   function validate() {
     const next = {};
@@ -252,8 +260,15 @@ export default function BillForm({ bill, onSaved, onCancel }) {
         <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'flex-end' }}>
           <View style={{ backgroundColor: '#fff', maxHeight: '60%', borderTopLeftRadius: 16, borderTopRightRadius: 16, padding: 16 }}>
             <Text style={{ fontWeight: '700', fontSize: 16, marginBottom: 12 }}>Category</Text>
+            <PaperTextInput
+              placeholder="Search category..."
+              value={categorySearch}
+              onChangeText={setCategorySearch}
+              mode="outlined"
+              style={{ marginBottom: 10 }}
+            />
             <ScrollView>
-              {categories.map((c) => (
+              {filteredCategories.map((c) => (
                 <TouchableOpacity
                   key={c.id}
                   onPress={() => { setCategoryId(c.id); setShowCategoryPicker(false); }}
@@ -273,8 +288,15 @@ export default function BillForm({ bill, onSaved, onCancel }) {
         <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'flex-end' }}>
           <View style={{ backgroundColor: '#fff', maxHeight: '50%', borderTopLeftRadius: 16, borderTopRightRadius: 16, padding: 16 }}>
             <Text style={{ fontWeight: '700', fontSize: 16, marginBottom: 12 }}>Payment source</Text>
+            <PaperTextInput
+              placeholder="Search source..."
+              value={sourceSearch}
+              onChangeText={setSourceSearch}
+              mode="outlined"
+              style={{ marginBottom: 10 }}
+            />
             <ScrollView>
-              {sources.map((s) => (
+              {filteredSources.map((s) => (
                 <TouchableOpacity
                   key={s.id}
                   onPress={() => { setSourceId(s.id); setShowSourcePicker(false); }}

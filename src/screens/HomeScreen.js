@@ -543,7 +543,7 @@ export default function HomeScreen({ navigation }) {
       <BottomStatsBar
         navigation={navigation}
         totalBalance={totalBalance}
-        billsSummary={billsSummary}
+        billsSummary={billsSummary?.upcomingAndPendingDueAmt}
         totalMonthlySpend={totalMonthlySpend}
       />
       <FAB

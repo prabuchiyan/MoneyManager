@@ -29,10 +29,10 @@ export default function BottomStatsBar({
         onPress={() => navigation.navigate('Bills')}
       >
         <Text style={[styles.value, { color: '#FF9800' }]}>
-          ₹{Number(billsSummary?.upcoming7 || 0).toLocaleString('en-IN')}
+          ₹{Number(billsSummary?.totalAmount || 0).toLocaleString('en-IN')}
         </Text>
         <Text style={styles.subLabel}>
-          {billsSummary?.dueThisMonthCount || 0} Bill Due
+          {billsSummary?.count || 0} Bill Due
         </Text>
       </TouchableOpacity>
 

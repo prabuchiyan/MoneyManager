@@ -8,6 +8,7 @@ import ConfirmDialog from '../components/ConfirmDialog';
 import { Colors, Spacing } from '../components/Theme';
 import SourceCreateModal from '../components/SourceCreateModal';
 import { Searchbar } from 'react-native-paper';
+import FAB from '../components/FAB';
 
 export default function SourcesScreen() {
 
@@ -148,17 +149,8 @@ export default function SourcesScreen() {
         }}
       />
 
-      {/* FAB */}
-      <TouchableOpacity
-        style={styles.fab}
-        onPress={() => {
-          setEditSource(null);
-          setShowModal(true);
-        }}
-      >
-        <MaterialCommunityIcons name="plus" size={24} color="#fff" />
-      </TouchableOpacity>
-
+      
+      <FAB onPress={() => { setEditSource(null); setShowModal(true); }} />
     </View>
   );
 }

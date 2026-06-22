@@ -11,6 +11,7 @@ import Card from '../components/Card';
 import IconButton from '../components/IconButton';
 import { Spacing } from '../components/Theme';
 import CategoryCreateModal from '../components/CategoryCreateModal';
+import FAB from '../components/FAB';
 
 export default function CategoriesScreen({ route }) {
   const [items, setItems] = useState([]);
@@ -335,30 +336,7 @@ export default function CategoriesScreen({ route }) {
         }}
       />
 
-      <TouchableOpacity
-        style={{
-          position: 'absolute',
-          bottom: 20,
-          right: 20,
-          width: 56,
-          height: 56,
-          borderRadius: 28,
-          backgroundColor: '#4B7CF3',
-          alignItems: 'center',
-          justifyContent: 'center',
-          elevation: 5,
-          shadowColor: '#000',
-          shadowOffset: { width: 0, height: 2 },
-          shadowOpacity: 0.25,
-          shadowRadius: 3.84,
-        }}
-        onPress={() => {
-          setEditCategory(null);
-          setShowModal(true);
-        }}
-      >
-        <MaterialCommunityIcons name="plus" size={24} color="#fff" />
-      </TouchableOpacity>
+      <FAB onPress={() => { setEditCategory(null); setShowModal(true); }} />
     </View>
   );
 }

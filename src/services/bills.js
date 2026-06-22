@@ -164,6 +164,25 @@ export async function getBillsSummary() {
     .filter((b) => b.status === BILL_STATUS.OVERDUE)
     .reduce((s, b) => s + Number(b.amount || 0), 0);
 
+  const upcomingAndPendingDueAmt = active
+    .filter((b) => {
+      if (b.is_paid) return false;
+      const due = new Date(b.due_date);
+      const now = new Date();
+      return (
+        due.getFullYear() === now.getFullYear() &&
+        due.getMonth() === now.getMonth()
+      );
+    })
+    .reduce(
+      (acc, b) => {
+        acc.totalAmount += Number(b.amount || 0);
+        acc.count += 1;
+        return acc;
+      },
+      { totalAmount: 0, count: 0 }
+    );
+
   const upcoming7 = active
     .filter((b) => {
       if (b.status === BILL_STATUS.PAID || b.status === BILL_STATUS.SKIPPED) return false;
@@ -227,6 +246,7 @@ export async function getBillsSummary() {
     dueThisMonthAmount,
     overdueCount,
     pendingCount: active.filter((b) => b.status === BILL_STATUS.PENDING).length,
+    upcomingAndPendingDueAmt
   };
 }
 
