@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import { getSources } from '../services/sources';
+import { getTransactions } from '../services/transactions'; // ✅ added
 import Card from '../components/Card';
 import { Colors, Spacing } from '../components/Theme';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -11,9 +12,40 @@ export default function SourcesDashboard({ navigation }) {
 
   async function load() {
     const availableSources = await getSources(true);
-    setSources(availableSources);
-    
-    const total = availableSources.reduce((sum, item) => sum + Number(item.initial_balance || 0), 0);
+    const transactions = await getTransactions(1000000);
+
+    // ✅ Build balance map using reduce
+    const balanceMap = transactions.reduce((acc, txn) => {
+      const amt = Number(txn.amount || 0);
+      const id = txn.source_id;
+
+      if (!id) return acc;
+
+      if (!acc[id]) acc[id] = 0;
+
+      if (txn.type === 'income') {
+        acc[id] += amt;
+      } else if (txn.type === 'expense') {
+        acc[id] -= amt;
+      }
+
+      return acc;
+    }, {});
+
+    // ✅ Merge with initial balance
+    const updatedSources = availableSources.map(s => {
+      const initial = Number(s.initial_balance || 0);
+      const txnBalance = balanceMap[s.id] || 0;
+
+      return {
+        ...s,
+        balance: initial + txnBalance
+      };
+    });
+
+    setSources(updatedSources);
+
+    const total = updatedSources.reduce((sum, s) => sum + s.balance, 0);
     setTotalBalance(total);
   }
 
@@ -25,7 +57,8 @@ export default function SourcesDashboard({ navigation }) {
   return (
     <View style={{ flex: 1, backgroundColor: Colors.background }}>
       <ScrollView contentContainerStyle={styles.container}>
-        {/* Total Balance Hero Section */}
+        
+        {/* Total Balance */}
         <View style={styles.heroSection}>
           <Text style={styles.heroLabel}>Net Worth</Text>
           <Text style={styles.heroAmount}>
@@ -35,10 +68,7 @@ export default function SourcesDashboard({ navigation }) {
 
         <View style={styles.headerRow}>
           <Text style={styles.sectionTitle}>Your Accounts</Text>
-          <TouchableOpacity 
-            onPress={() => navigation.navigate('Sources')}
-            style={styles.manageButton}
-          >
+          <TouchableOpacity onPress={() => navigation.navigate('Sources')} style={styles.manageButton}>
             <Text style={styles.manageButtonText}>Manage</Text>
           </TouchableOpacity>
         </View>
@@ -55,6 +85,7 @@ export default function SourcesDashboard({ navigation }) {
             >
               <Card style={styles.sourceCard}>
                 <View style={styles.sourceContent}>
+                  
                   <View style={[styles.iconWrapper, { backgroundColor: (item.color || Colors.primary) + '15' }]}>
                     <MaterialCommunityIcons 
                       name={item.icon || 'bank'} 
@@ -62,16 +93,19 @@ export default function SourcesDashboard({ navigation }) {
                       color={item.color || Colors.primary} 
                     />
                   </View>
+
                   <View style={styles.infoWrapper}>
                     <Text style={styles.sourceName}>{item.name}</Text>
                     <Text style={styles.sourceType}>Account</Text>
                   </View>
+
                   <View style={styles.amountWrapper}>
                     <Text style={styles.sourceAmount}>
-                      ₹{Number(item.initial_balance || 0).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
+                      ₹{Number(item.balance || 0).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                     </Text>
                     <MaterialCommunityIcons name="chevron-right" size={20} color={Colors.muted} />
                   </View>
+
                 </View>
               </Card>
             </TouchableOpacity>
@@ -83,13 +117,11 @@ export default function SourcesDashboard({ navigation }) {
           )}
         </View>
 
-        <TouchableOpacity 
-          onPress={() => navigation.navigate('Sources')} 
-          style={styles.addButton}
-        >
+        <TouchableOpacity onPress={() => navigation.navigate('Sources')} style={styles.addButton}>
           <MaterialCommunityIcons name="plus" size={18} color="#fff" />
           <Text style={styles.addButtonText}>Add New Source</Text>
         </TouchableOpacity>
+
       </ScrollView>
     </View>
   );

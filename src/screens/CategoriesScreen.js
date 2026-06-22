@@ -1,19 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, TextInput, TouchableOpacity, ScrollView, Modal } from 'react-native';
+import React, { useEffect, useState, useMemo } from 'react';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { TextInput as PaperTextInput, Button as PaperButton, Chip, Avatar } from 'react-native-paper';
+import { TextInput as PaperTextInput, Button as PaperButton, Searchbar, Avatar } from 'react-native-paper';
 import IconPicker from '../components/IconPicker';
 import ConfirmDialog from '../components/ConfirmDialog';
 import ColorPickerModal from '../components/ColorPickerModal';
-import { createCategory, getCategories, softDeleteCategory, updateCategory } from '../services/categories';
+import { getCategories, softDeleteCategory, updateCategory } from '../services/categories';
 import Card from '../components/Card';
 import IconButton from '../components/IconButton';
 import { Spacing } from '../components/Theme';
+import CategoryCreateModal from '../components/CategoryCreateModal';
+import FAB from '../components/FAB';
 
 export default function CategoriesScreen({ route }) {
   const [items, setItems] = useState([]);
   const [name, setName] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [editCategory, setEditCategory] = useState(null);
   const [type, setType] = useState('expense');
   const [editingId, setEditingId] = useState(null);
   const [editName, setEditName] = useState('');
@@ -26,16 +30,12 @@ export default function CategoriesScreen({ route }) {
   const [showIconPickerForEdit, setShowIconPickerForEdit] = useState(false);
   const [userPickedIconAdd, setUserPickedIconAdd] = useState(false);
   const [userPickedIconEdit, setUserPickedIconEdit] = useState(false);
-
-  const EXTENDED_COLORS = ['#4B7CF3', '#3B82F6', '#2563EB', '#6366F1', '#8B5CF6', '#A78BFA', '#F97316', '#FB923C', '#F59E0B', '#FBBF24', '#16A34A', '#22C55E', '#A3E635', '#84CC16', '#DC2626', '#EF4444', '#F43F5E', '#DB2777', '#0EA5A4', '#14B8A6', '#06B6D4', '#0891B2', '#334155', '#475569', '#64748B'];
-
   const [showColorPickerForAdd, setShowColorPickerForAdd] = useState(false);
   const [showColorPickerForEdit, setShowColorPickerForEdit] = useState(false);
-  const [customColorInputAdd, setCustomColorInputAdd] = useState('');
-  const [customColorInputEdit, setCustomColorInputEdit] = useState('');
   const [confirmVisible, setConfirmVisible] = useState(false);
   const [confirmTargetId, setConfirmTargetId] = useState(null);
   const [confirmMessage, setConfirmMessage] = useState('Are you sure you want to delete this item?');
+  const [searchQuery, setSearchQuery] = useState('');
 
   async function load() {
     const rows = await getCategories(true);
@@ -53,20 +53,13 @@ export default function CategoriesScreen({ route }) {
     }
   }, [route, items]);
 
-  async function add() {
-    if (!name) return;
-    await createCategory({ name, type, icon: selectedIcon, color: selectedColor });
-    setName('');
-    setSelectedIcon('tag');
-    setSelectedColor('#4B7CF3');
-    setUserPickedIconAdd(false);
-    load();
-  }
-
-  function handleNameChange(t) {
-    setName(t);
-    if (userPickedIconAdd) setUserPickedIconAdd(false);
-  }
+  const filteredItems = useMemo(() => {
+    if (!searchQuery) return items;
+    const q = searchQuery.toLowerCase();
+    return items.filter(item =>
+      (item.name || '').toLowerCase().includes(q)
+    );
+  }, [items, searchQuery]);
 
   async function startEdit(item) {
     setEditingId(item.id);
@@ -180,35 +173,19 @@ export default function CategoriesScreen({ route }) {
 
   return (
     <View style={{ flex: 1 }}>
-      <Card style={{ margin: Spacing.m }}>
-        <Text style={{ fontSize: 18, marginBottom: 8 }}>Categories</Text>
-        <PaperTextInput label="Name" value={name} onChangeText={handleNameChange} mode="outlined" style={{ marginBottom: 8 }} />
-        <View style={{ flexDirection: 'row', marginBottom: 8 }}>
-          <View style={{ flexDirection: 'row' }}>
-            <Chip mode="outlined" selected={type === 'income'} onPress={() => setType('income')} style={{ marginRight: 8 }}>Income</Chip>
-            <Chip mode="outlined" selected={type === 'expense'} onPress={() => setType('expense')}>Expense</Chip>
-          </View>
-        </View>
-        <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 8 }}>
-          <TouchableOpacity onPress={() => setShowIconPickerForAdd(true)} style={{ padding: 8, borderRadius: 8, backgroundColor: '#fff', borderWidth: 1, borderColor: '#eee' }}>
-            <MaterialCommunityIcons name={selectedIcon} size={22} color={selectedColor} />
-          </TouchableOpacity>
-          <View />
-          <IconButton label="Colors" icon="droplet" onPress={() => setShowColorPickerForAdd(true)} />
-          <IconButton label="Icon" icon="image" onPress={() => setShowIconPickerForAdd(true)} />
-          <View />
-        </View>
-        <View style={{ flexDirection: 'row', marginBottom: 8 }}>
-          <View style={{ flexDirection: 'right' }}>
-            <PaperButton mode="contained" onPress={add} style={{ alignSelf: 'flex-start' }}>
-              Add Category
-            </PaperButton>
-          </View>
-        </View>
-      </Card>
+
+      <View style={{ padding: Spacing.m, paddingBottom: 0 }}>
+        <Searchbar
+          placeholder="Search Categories..."
+          onChangeText={setSearchQuery}
+          value={searchQuery}
+          style={{ elevation: 0, backgroundColor: '#fff', borderWidth: 1, borderColor: '#eee' }}
+          inputStyle={{ fontSize: 14 }}
+        />
+      </View>
 
       <FlatList
-        data={items}
+        data={filteredItems}
         keyExtractor={(i) => String(i.id)}
         contentContainerStyle={{ padding: Spacing.m }}
         ListEmptyComponent={() => (
@@ -231,31 +208,30 @@ export default function CategoriesScreen({ route }) {
                   style={{ marginBottom: 10 }}
                 />
                 <View style={{ flexDirection: 'row', marginBottom: 10 }}>
-                  <TouchableOpacity
+                  <PaperButton
+                    mode={type === 'income' ? 'contained' : 'outlined'}
                     onPress={() => setEditType('income')}
-                    style={{
-                      backgroundColor: editType === 'income' ? '#2ECC71' : '#eee',
-                      padding: 10,
-                      borderRadius: 10,
-                      marginRight: 8
-                    }}
+                    style={{ marginRight: Spacing.s }}
                   >
-                    <MaterialCommunityIcons name="arrow-down-bold" size={18} color="#fff" />
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
+                    Income
+                  </PaperButton>
+                  <PaperButton
+                    mode={type === 'expense' ? 'contained' : 'outlined'}
                     onPress={() => setEditType('expense')}
-                    style={{
-                      backgroundColor: editType === 'expense' ? '#E74C3C' : '#eee',
-                      padding: 10,
-                      borderRadius: 10
-                    }}
                   >
-                    <MaterialCommunityIcons name="arrow-up-bold" size={18} color="#fff" />
-                  </TouchableOpacity>
+                    Expense
+                  </PaperButton>
                 </View>
 
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
+
+                  <TouchableOpacity
+                    onPress={() => setShowIconPickerForEdit(true)}
+                    style={[styles.iconSelector, { backgroundColor: (editColor || Colors.primary) + '15' }]}
+                  >
+                    <MaterialCommunityIcons name={editIcon} size={24} color={editColor} />
+                  </TouchableOpacity>
+
                   <TouchableOpacity onPress={() => setShowIconPickerForEdit(true)}>
                     <Avatar.Icon size={32} icon={editIcon} style={{ backgroundColor: editColor }} />
                   </TouchableOpacity>
@@ -287,33 +263,31 @@ export default function CategoriesScreen({ route }) {
             ) : (
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
 
-                <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
-                  <Avatar.Icon
-                    size={36}
-                    icon={item.icon || 'tag'}
-                    style={{
-                      backgroundColor: item.color || '#4B7CF3',
-                      marginRight: 10
-                    }}
-                  />
-                  <View style={{ flex: 1 }}>
-                    <Text
-                      numberOfLines={1}
-                      style={{ fontWeight: '600' }}
-                    >
-                      {item.name}
-                    </Text>
-                    <Text style={{
-                      fontSize: 11,
-                      color: item.type === 'income' ? '#2ECC71' : '#E74C3C'
-                    }}>
-                      {item.type === 'income' ? 'Income' : 'Expense'}
-                    </Text>
-                  </View>
+                <Avatar.Icon
+                  size={36}
+                  icon={item.icon || 'tag'}
+                  style={{
+                    backgroundColor: item.color || '#4B7CF3',
+                    marginRight: 10
+                  }}
+                />
+                <View style={{ flex: 1 }}>
+                  <Text
+                    numberOfLines={1}
+                    style={{ fontWeight: '600' }}
+                  >
+                    {item.name}
+                  </Text>
+                  <Text style={{
+                    fontSize: 11,
+                    color: item.type === 'income' ? '#2ECC71' : '#E74C3C'
+                  }}>
+                    {item.type === 'income' ? 'Income' : 'Expense'}
+                  </Text>
                 </View>
 
                 <View style={{ flexDirection: 'row' }}>
-                  <TouchableOpacity onPress={() => startEdit(item)} style={{ marginRight: 12 }}>
+                  <TouchableOpacity onPress={() => { setEditCategory(item); setShowModal(true); }} style={{ marginRight: 12 }}>
                     <Feather name="edit-2" size={18} />
                   </TouchableOpacity>
                   <TouchableOpacity
@@ -351,6 +325,31 @@ export default function CategoriesScreen({ route }) {
         onSelect={setEditColor}
         currentColor={editColor}
       />
+
+      <CategoryCreateModal
+        visible={showModal}
+        onClose={() => setShowModal(false)}
+        editData={editCategory}
+        onSave={() => {
+          setShowModal(false);
+          load();
+        }}
+      />
+
+      <FAB onPress={() => { setEditCategory(null); setShowModal(true); }} />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  iconSelector: {
+    width: 48,
+    height: 48,
+    borderRadius: 12,
+    backgroundColor: '#f5f5f5',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#eee',
+  },
+});

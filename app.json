@@ -1,19 +1,22 @@
 {
   "expo": {
-    "name": "Money Manager",
-    "slug": "money-manager",
+    "name": "SpendoraX",
+    "slug": "spendorax",
     "version": "1.0.0",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo.png",
     "platforms": [
       "ios",
       "android",
       "web"
     ],
+    "web": {
+      "favicon": "./assets/logo.png"
+    },
     "plugins": [
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/logo.png",
           "backgroundColor": "#ffffff",
           "imageWidth": 200
         }
@@ -33,12 +36,12 @@
     "android": {
       "package": "com.prabuchiyan.moneymanager",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
+        "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#0B1F3A"
       }
     },
     "ios": {
-      "icon": "./assets/icon.png"
+      "icon": "./assets/logo.png"
     }
   }
 }

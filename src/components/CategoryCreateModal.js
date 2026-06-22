@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Modal } from 'react-native';
+import { View, Text, TouchableOpacity, Modal, StyleSheet } from 'react-native';
 import { TextInput as PaperInput, Button as PaperButton, Avatar } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Card from './Card';
 import IconButton from './IconButton';
 import IconPicker from './IconPicker';
-import ColorPickerModal from './ColorPickerModal'; // Assuming this is a custom component
-import { createCategory } from '../services/categories';
+import ColorPickerModal from './ColorPickerModal';
+import { createCategory, updateCategory } from '../services/categories';
 import { Spacing } from './Theme';
 
-export default function CategoryCreateModal({ visible, onClose, onCategoryCreated, currentType = 'expense' }) {
+export default function CategoryCreateModal({ visible, onClose, onCategoryCreated, onSave, editData, currentType = 'expense' }) {
+  const [action, setAction] = useState('');
+  const [submitText, setSubmitText] = useState('');
   const [name, setName] = useState('');
   const [type, setType] = useState(currentType);
   const [selectedIcon, setSelectedIcon] = useState('tag');
@@ -21,13 +23,24 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
   // Reset form when modal opens
   useEffect(() => {
     if (visible) {
-      setName('');
-      setType(currentType);
-      setSelectedIcon('tag');
-      setSelectedColor('#4B7CF3');
+      if (editData) {
+        setAction('Edit Category');
+        setSubmitText('Save');
+        setName(editData.name || '');
+        setType(editData.type || 'expense');
+        setSelectedIcon(editData.icon || 'tag');
+        setSelectedColor(editData.color || '#4B7CF3');
+      } else {
+        setAction('Create New Category');
+        setSubmitText('Create');
+        setName('');
+        setType(currentType);
+        setSelectedIcon('tag');
+        setSelectedColor('#4B7CF3');
+      }
       setNameError(false);
     }
-  }, [visible, currentType]);
+  }, [visible, editData, currentType]);
 
   // Simple icon suggestion based on name, similar to CategoriesScreen
   function suggestIconForText(text) {
@@ -59,8 +72,10 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
   }
 
   useEffect(() => {
-    setSelectedIcon(suggestIconForText(name));
-  }, [name]);
+    if (!editData) {
+      setSelectedIcon(suggestIconForText(name));
+    }
+  }, [name, editData]);
 
   const handleCreateCategory = async () => {
     if (!name.trim()) {
@@ -70,18 +85,31 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
     setNameError(false);
 
     try {
-      const newCategory = await createCategory({
-        name: name.trim(),
-        type,
-        icon: selectedIcon,
-        color: selectedColor,
-      });
-      onCategoryCreated(newCategory);
+      if (editData && editData.id) {
+        await updateCategory(editData.id, {
+          name: name.trim(),
+          type,
+          icon: selectedIcon,
+          color: selectedColor,
+          is_active: editData.is_active !== undefined ? editData.is_active : 1,
+        });
+        if (onSave) onSave({ id: editData.id, name: name.trim(), type, icon: selectedIcon, color: selectedColor });
+        if (onCategoryCreated) onCategoryCreated({ id: editData.id, name: name.trim(), type, icon: selectedIcon, color: selectedColor });
+      } else {
+        const newCategory = await createCategory({
+          name: name.trim(),
+          type,
+          icon: selectedIcon,
+          color: selectedColor,
+        });
+        const categoryResult = { id: newCategory, name: name.trim(), type, icon: selectedIcon, color: selectedColor };
+        if (onCategoryCreated) onCategoryCreated(categoryResult);
+        if (onSave) onSave(categoryResult);
+      }
       onClose();
     } catch (error) {
-      console.error('Error creating category:', error);
-      // Optionally show an alert or toast to the user
-      alert('Failed to create category. Please try again.');
+      console.error('Error saving category:', error);
+      alert('Failed to save category. Please try again.');
     }
   };
 
@@ -89,7 +117,7 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'center', padding: Spacing.m }}>
         <Card style={{ padding: Spacing.m }}>
-          <Text style={{ fontSize: 18, fontWeight: '600', marginBottom: Spacing.m }}>Create New Category</Text>
+          <Text style={{ fontSize: 18, fontWeight: '600', marginBottom: Spacing.m }}>{action}</Text>
 
           <PaperInput
             label="Category Name"
@@ -120,19 +148,12 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
           <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: Spacing.m }}>
             <TouchableOpacity
               onPress={() => setShowIconPicker(true)}
-              style={{
-                padding: Spacing.s,
-                borderRadius: 8,
-                backgroundColor: '#fff',
-                borderWidth: 1,
-                borderColor: '#eee',
-                marginRight: Spacing.s,
-              }}
+              style={[styles.iconSelector, { backgroundColor: (selectedColor || Colors.primary) + '20' }]}
             >
               <MaterialCommunityIcons name={selectedIcon} size={22} color={selectedColor} />
             </TouchableOpacity>
             <IconButton label="Icon" icon="image" onPress={() => setShowIconPicker(true)} />
-            <IconButton label="Color" icon="palette" onPress={() => setShowColorPicker(true)} />
+            <IconButton label="Color" icon="droplet" onPress={() => setShowColorPicker(true)} />
           </View>
 
           <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
@@ -140,7 +161,7 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
               Cancel
             </PaperButton>
             <PaperButton mode="contained" onPress={handleCreateCategory}>
-              Create
+              {submitText}
             </PaperButton>
           </View>
         </Card>
@@ -160,3 +181,16 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
     </Modal>
   );
 }
+
+const styles = StyleSheet.create({
+  iconSelector: {
+    width: 48,
+    height: 48,
+    borderRadius: 12,
+    backgroundColor: '#f5f5f5',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#eee',
+  },
+});

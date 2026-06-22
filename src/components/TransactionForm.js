@@ -140,7 +140,12 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
             pointerEvents="none"
             mode="outlined"
             style={{ marginBottom: 8 }}
-            right={<PaperTextInput.Icon icon="calendar" />}
+            right={
+              <PaperTextInput.Icon
+                icon="calendar"
+                onPress={() => setShowDateTimePicker(true)}
+              />
+            }
           />
         </TouchableOpacity>
       </View>
@@ -192,7 +197,10 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
             <View style={{ backgroundColor: '#fff', padding: 12, borderRadius: 8, maxHeight: '80%' }}>
               <PaperTextInput label="Search" value={srcSearch} onChangeText={setSrcSearch} mode="outlined" style={{ marginBottom: 8 }} />
               <ScrollView>
-                {sources.filter(s => s.name.toLowerCase().includes(srcSearch.toLowerCase()) && s.is_active).map(s => ( // Filter active sources
+                {sources.filter(s =>
+                  s.name.toLowerCase().includes(srcSearch.toLowerCase()) &&
+                  (s.is_active === undefined || s.is_active)
+                ).map(s => ( // Filter active sources
                   <TouchableOpacity key={s.id} onPress={() => { setSourceId(s.id); setShowSourcePicker(false); }} style={{ flexDirection: 'row', alignItems: 'center', padding: 10, borderBottomWidth: 1, borderColor: '#f3f3f3', backgroundColor: sourceId === s.id ? '#F7FBFF' : '#fff' }}>
                     <View style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: '#eef7ff', alignItems: 'center', justifyContent: 'center', marginRight: 12 }}>
                       <MaterialCommunityIcons name={s.icon || 'cash'} size={18} color={(s.color) || '#4B7CF3'} />
