@@ -6,6 +6,7 @@ import ErrorBoundary from './src/screens/ErrorBoundary';
 import TransactionAddScreen from './src/screens/TransactionAddScreen';
 import SourcesDashboard from './src/screens/SourcesDashboard';
 import SourcesDetails from './src/screens/SourcesDetails';
+import CategoriesDetails from './src/screens/CategoriesDetails';
 import ReportsScreen from './src/screens/ReportsScreen';
 import BillsScreen from './src/screens/BillsScreen';
 import BillDetailScreen from './src/screens/BillDetailScreen';
@@ -106,6 +107,7 @@ export default function App() {
             <Stack.Screen name="TransactionAdd" component={TransactionAddScreen} options={{ title: 'Add Transaction' }} />
             <Stack.Screen name="SourcesDashboard" component={SourcesDashboard} />
             <Stack.Screen name="SourcesDetails" component={SourcesDetails} />
+            <Stack.Screen name="CategoriesDetails" component={CategoriesDetails} />
             <Stack.Screen name="Reports" component={ReportsScreen} options={{ title: 'Financial Reports' }} />
             <Stack.Screen name="Bills" component={BillsScreen} options={{ title: 'Bills' }} />
             <Stack.Screen name="BillDetail" component={BillDetailScreen} options={{ title: 'Bill Details' }} />

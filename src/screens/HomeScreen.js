@@ -379,6 +379,7 @@ export default function HomeScreen({ navigation }) {
           )}
 
           {topCategories.map(c => {
+            console.log('Prabu c', c);
             const cat = categoriesMap[c.category_id] || {};
             const color = cat.color || '#4B7CF3';
             const icon = cat.icon || 'tag';
@@ -387,52 +388,62 @@ export default function HomeScreen({ navigation }) {
             const percent = totalSpend > 0 ? (amount / totalSpend) * 100 : 0;
 
             return (
-              <View key={c.category_id} style={{ marginBottom: 12 }}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    marginBottom: 6
-                  }}
-                >
-                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Avatar.Icon
-                      size={34}
-                      icon={icon}
-                      style={{
-                        backgroundColor: color,
-                        marginRight: 10
-                      }}
-                      color="#fff"
-                    />
-
-                    <Text style={{ color: Colors.text, fontWeight: '500' }}>
-                      {c.category_name}
-                    </Text>
-                  </View>
-                  <Text style={{ color: '#E46A6A', fontWeight: '600' }}>
-                    ₹{amount.toLocaleString('en-IN')}
-                  </Text>
-                </View>
-                <View
-                  style={{
-                    height: 6,
-                    backgroundColor: '#eee',
-                    borderRadius: 4,
-                    overflow: 'hidden'
-                  }}
+              <TouchableOpacity
+                onPress={() => navigation.navigate('CategoriesDetails', {
+                  categoryId: c.category_id,
+                  categoryName: c.category_name
+                })}
+              // onPress={() => navigation.navigate('Budgets', { editId: sel.budget.id })}
+              >
+                <View key={c.category_id}
+                  style={{ marginBottom: 12 }}
                 >
                   <View
                     style={{
-                      width: `${percent}%`,
-                      height: '100%',
-                      backgroundColor: color
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginBottom: 6
                     }}
-                  />
-                </View>
+                  >
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                      <Avatar.Icon
+                        size={34}
+                        icon={icon}
+                        style={{
+                          backgroundColor: color,
+                          marginRight: 10
+                        }}
+                        color="#fff"
+                      />
 
-              </View>
+                      <Text style={{ color: Colors.text, fontWeight: '500' }}>
+                        {c.category_name}
+                      </Text>
+                    </View>
+                    <Text style={{ color: '#E46A6A', fontWeight: '600' }}>
+                      ₹{amount.toLocaleString('en-IN')}
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      height: 6,
+                      backgroundColor: '#eee',
+                      borderRadius: 4,
+                      overflow: 'hidden'
+                    }}
+                  >
+                    <View
+                      style={{
+                        width: `${percent}%`,
+                        height: '100%',
+                        backgroundColor: color
+                      }}
+                    />
+                  </View>
+
+                </View>
+              </TouchableOpacity>
             );
           })}
         </Card>
