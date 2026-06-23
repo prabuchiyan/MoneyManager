@@ -32,7 +32,7 @@ function parseTransactionDate(value) {
   return null;
 }
 
-function getPeriodBounds(period, referenceDate = new Date()) {
+function getPeriodBounds(period, referenceDate = new Date(), minDate = null) {
   const ref = new Date(referenceDate);
 
   let start = null;
@@ -61,8 +61,11 @@ function getPeriodBounds(period, referenceDate = new Date()) {
     }
 
     case 'year': {
-      start = new Date(ref.getFullYear(), 0, 1);
-      end = new Date(ref.getFullYear() + 1, 0, 1);
+      start = minDate ? new Date(minDate) : new Date(0);
+      start.setHours(0, 0, 0, 0);
+
+      end = new Date(ref.getFullYear(), ref.getMonth(), ref.getDate() + 1);
+      end.setHours(0, 0, 0, 0);
       break;
     }
 
