@@ -1,5 +1,13 @@
-import React, { useEffect, useState, useLayoutEffect, useCallback } from 'react';
-import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState, useLayoutEffect, useCallback, useMemo } from 'react';
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+  ScrollView
+} from 'react-native';
 import { getTransactions, deleteTransaction } from '../services/transactions';
 import { getCategories } from '../services/categories';
 import Card from '../components/Card';
@@ -7,35 +15,251 @@ import { Colors, Spacing } from '../components/Theme';
 import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
 import ConfirmDialog from '../components/ConfirmDialog';
+import { Chip } from 'react-native-paper';
+
+const screenWidth = Dimensions.get('window').width;
+const BAR_TRACK_HEIGHT = 170;
+
+const hexToRgb = (hex) => {
+  if (!hex || typeof hex !== 'string') return null;
+
+  let cleanHex = hex.replace('#', '').trim();
+
+  if (cleanHex.length === 3) {
+    cleanHex = cleanHex
+      .split('')
+      .map(char => char + char)
+      .join('');
+  }
+
+  if (cleanHex.length !== 6) return null;
+
+  const num = parseInt(cleanHex, 16);
+
+  return {
+    r: (num >> 16) & 255,
+    g: (num >> 8) & 255,
+    b: num & 255
+  };
+};
+
+const rgbaFromColor = (color, opacity = 1) => {
+  if (!color) return `rgba(76, 110, 245, ${opacity})`;
+
+  if (color.startsWith('#')) {
+    const rgb = hexToRgb(color);
+    if (!rgb) return `rgba(76, 110, 245, ${opacity})`;
+    return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity})`;
+  }
+
+  if (color.startsWith('rgb(')) {
+    const values = color.replace('rgb(', '').replace(')', '').split(',').map(v => v.trim());
+    if (values.length === 3) {
+      return `rgba(${values[0]}, ${values[1]}, ${values[2]}, ${opacity})`;
+    }
+  }
+
+  if (color.startsWith('rgba(')) {
+    return color;
+  }
+
+  return `rgba(76, 110, 245, ${opacity})`;
+};
+
+const getPremiumBarColor = (baseColor, index, total, opacity = 1) => {
+  const safeColor = baseColor || Colors.primary;
+  const rgb = hexToRgb(safeColor);
+
+  if (!rgb) {
+    return `rgba(76, 110, 245, ${Math.max(0.84, opacity)})`;
+  }
+
+  const spread = total > 1 ? index / (total - 1) : 0;
+  const lightenAmount = 0.04 + spread * 0.16;
+
+  const r = Math.round(rgb.r + (255 - rgb.r) * lightenAmount);
+  const g = Math.round(rgb.g + (255 - rgb.g) * lightenAmount);
+  const b = Math.round(rgb.b + (255 - rgb.b) * lightenAmount);
+
+  const finalOpacity = Math.min(1, Math.max(0.84, opacity));
+
+  return `rgba(${r}, ${g}, ${b}, ${finalOpacity})`;
+};
+
+const formatCompactAmount = (amount) => {
+  const num = Number(amount || 0);
+  const abs = Math.abs(num);
+
+  if (abs >= 10000000) {
+    return `₹${(num / 10000000).toFixed(1).replace(/\.0$/, '')}Cr`;
+  }
+
+  if (abs >= 100000) {
+    return `₹${(num / 100000).toFixed(1).replace(/\.0$/, '')}L`;
+  }
+
+  if (abs >= 1000) {
+    return `₹${(num / 1000).toFixed(1).replace(/\.0$/, '')}K`;
+  }
+
+  return `₹${num.toLocaleString('en-IN')}`;
+};
+
+function PremiumRoundedBarChart({
+  labels = [],
+  values = [],
+  width,
+  height = 250,
+  baseColor,
+  onBarPress,
+  isEmpty = false
+}) {
+  if (isEmpty) {
+    return (
+      <View style={[styles.emptyChartArea, { width, height }]}>
+        <Text style={styles.emptyChartText}>No transactions yet</Text>
+      </View>
+    );
+  }
+
+  const maxValue = Math.max(...values, 1);
+  const chartInnerWidth = Math.max(width, labels.length * 54);
+
+  return (
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={{ paddingRight: 8 }}
+    >
+      <View style={[styles.customChartWrap, { width: chartInnerWidth, height }]}>
+        <View style={styles.customChartBarsRow}>
+          {values.map((value, index) => {
+            const total = values.length || 1;
+            const barColor = getPremiumBarColor(baseColor, index, total, 1);
+            const barHeight = maxValue > 0 ? (value / maxValue) * BAR_TRACK_HEIGHT : 0;
+
+            return (
+              <TouchableOpacity
+                key={`${labels[index]}-${index}`}
+                activeOpacity={0.85}
+                style={styles.customBarItem}
+                onPress={() =>
+                  onBarPress?.({
+                    index,
+                    value,
+                    label: labels[index]
+                  })
+                }
+              >
+                <View style={styles.customBarTrack}>
+                  <View
+                    style={[
+                      styles.customBarGroup,
+                      {
+                        height: barHeight + 22
+                      }
+                    ]}
+                  >
+                    <Text numberOfLines={1} style={styles.customBarValue}>
+                      {formatCompactAmount(value)}
+                    </Text>
+
+                    <View
+                      style={[
+                        styles.customBar,
+                        {
+                          height: barHeight,
+                          backgroundColor: barColor,
+                          borderRadius: 18
+                        }
+                      ]}
+                    />
+                  </View>
+                </View>
+
+                <Text numberOfLines={1} style={styles.customBarLabel}>
+                  {labels[index]}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+      </View>
+    </ScrollView>
+  );
+}
 
 export default function CategoriesDetails({ route, navigation }) {
   const { categoryId, categoryName } = route.params;
+
   const [transactions, setTransactions] = useState([]);
   const [categoriesMap, setCategoriesMap] = useState({});
   const [loading, setLoading] = useState(true);
+
+  const [period, setPeriod] = useState('month');
+  const [chartData, setChartData] = useState({ labels: [], datasets: [{ data: [] }] });
+
   const [confirmVisible, setConfirmVisible] = useState(false);
   const [confirmTargetId, setConfirmTargetId] = useState(null);
 
+  const [selectedBar, setSelectedBar] = useState(null);
+
   useLayoutEffect(() => {
-    navigation.setOptions({
-      title: categoryName
+    navigation.setOptions({ title: categoryName });
+  }, [categoryName, navigation]);
+
+  const getPeriodKey = (dateString) => {
+    const d = new Date(dateString);
+
+    if (period === 'day') return `${d.getHours()}:00`;
+    if (period === 'week') return d.toLocaleDateString('en-IN', { weekday: 'short' });
+    if (period === 'month') return d.toLocaleDateString('en-IN', { month: 'short' }) + " '" + String(d.getFullYear()).slice(2);
+    if (period === 'year') return String(d.getFullYear());
+
+    return '';
+  };
+
+  const groupData = (data) => {
+    const map = {};
+
+    data.forEach(tx => {
+      const key = getPeriodKey(tx.date);
+      map[key] = (map[key] || 0) + Number(tx.amount || 0);
     });
-  }, [categoryName]);
+
+    const labels = Object.keys(map);
+    const values = labels.map(k => map[k]);
+
+    setSelectedBar(null);
+
+    setChartData({
+      labels,
+      datasets: [
+        {
+          data: values
+        }
+      ]
+    });
+  };
 
   const loadTransactions = async () => {
     try {
       setLoading(true);
+
       const [txData, catData] = await Promise.all([
-        getTransactions(1000000, null, categoryId, 'month'),
+        getTransactions(1000000, null, categoryId, period),
         getCategories(true)
       ]);
-      console.log('Prabu txData', txData);
+
       const cmap = {};
       catData.forEach(c => { cmap[c.id] = c; });
+
+      const filtered = txData.filter(tx => tx.category_id === Number(categoryId));
+
       setCategoriesMap(cmap);
-      setTransactions(
-        txData.filter((tx) => tx.category_id === Number(categoryId))
-      );
+      setTransactions(filtered);
+
+      groupData(filtered);
     } catch (error) {
       console.error('Error loading transactions:', error);
     } finally {
@@ -43,16 +267,14 @@ export default function CategoriesDetails({ route, navigation }) {
     }
   };
 
-  async function load() {
-    await loadTransactions();
-  }
-
-  useEffect(() => { load(); }, []);
+  useEffect(() => {
+    loadTransactions();
+  }, [period]);
 
   useFocusEffect(
     useCallback(() => {
       loadTransactions();
-    }, [])
+    }, [period])
   );
 
   const handleDeleteConfirm = async () => {
@@ -69,13 +291,6 @@ export default function CategoriesDetails({ route, navigation }) {
     }
   };
 
-  const handleEdit = (item) => {
-    navigation.navigate('TransactionAdd', {
-      isEdit: true,
-      transaction: item
-    });
-  };
-
   const formatDate = (dateString) => {
     if (!dateString) return 'No date';
     const d = new Date(dateString);
@@ -86,16 +301,20 @@ export default function CategoriesDetails({ route, navigation }) {
     });
   };
 
-  // ✅ NEW: Total Spend (only expenses)
-  const totalSpend = transactions.reduce((sum, tx) => {
-    const amount = Number(tx.amount) || 0;
-    const type = (tx.type || '').toLowerCase();
+  const activeCategory = categoriesMap[Number(categoryId)] || {};
+  const activeCategoryColor = activeCategory.color || Colors.primary;
 
-    if (type === 'expense' || type === 'debit') {
-      return sum + amount;
-    }
-    return sum;
-  }, 0);
+  const chartValues = useMemo(
+    () => chartData?.datasets?.[0]?.data || [],
+    [chartData]
+  );
+
+  const hasChartData = chartData.labels.length > 0 && chartValues.length > 0;
+
+  const filteredTransactions = useMemo(() => {
+    if (!selectedBar?.label) return transactions;
+    return transactions.filter(tx => getPeriodKey(tx.date) === selectedBar.label);
+  }, [transactions, selectedBar, period]);
 
   const renderItem = ({ item }) => {
     const isExpense = item.type === 'expense';
@@ -104,8 +323,12 @@ export default function CategoriesDetails({ route, navigation }) {
     return (
       <Card style={styles.txCard}>
         <View style={styles.txContent}>
-
-          <View style={[styles.iconContainer, { backgroundColor: (category.color || '#eee') + '15' }]}>
+          <View
+            style={[
+              styles.iconContainer,
+              { backgroundColor: rgbaFromColor(category.color || '#999999', 0.10) }
+            ]}
+          >
             <MaterialCommunityIcons
               name={category.icon || 'tag'}
               size={22}
@@ -113,86 +336,136 @@ export default function CategoriesDetails({ route, navigation }) {
             />
           </View>
 
-          <View style={{ flex: 1 }}>
+          <View style={styles.txTextBlock}>
             <Text style={styles.title} numberOfLines={1}>
               {item.notes || category.name || 'Untitled'}
             </Text>
             <Text style={styles.date}>{formatDate(item.date)}</Text>
           </View>
 
-          <View style={{ alignItems: 'flex-end' }}>
-            <Text style={[
-              styles.amount,
-              { color: isExpense ? '#e53935' : '#2e7d32' }
-            ]}>
-              {isExpense ? '-' : '+'} ₹{Number(item.amount).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
+          <View style={styles.rightBlock}>
+            <Text style={[styles.amount, { color: isExpense ? '#D14343' : '#1E8E5A' }]}>
+              ₹{Number(item.amount).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
             </Text>
 
             <View style={styles.actions}>
-              <TouchableOpacity onPress={() => handleEdit(item)} style={styles.actionBtn}>
+              <TouchableOpacity
+                style={styles.actionBtn}
+                onPress={() => navigation.navigate('TransactionAdd', { isEdit: true, transaction: item })}
+              >
                 <Feather name="edit-2" size={14} color={Colors.primary} />
               </TouchableOpacity>
 
               <TouchableOpacity
+                style={[styles.actionBtn, styles.deleteBtn]}
                 onPress={() => {
                   setConfirmTargetId(item.id);
                   setConfirmVisible(true);
                 }}
-                style={styles.actionBtn}
               >
                 <Feather name="trash-2" size={14} color="#d32f2f" />
               </TouchableOpacity>
             </View>
           </View>
-
         </View>
       </Card>
     );
   };
 
+  const ListHeader = () => (
+    <>
+      <View
+        style={[
+          styles.chartCard,
+          { borderColor: rgbaFromColor(activeCategoryColor, 0.14) }
+        ]}
+      >
+
+        <PremiumRoundedBarChart
+          labels={chartData.labels}
+          values={chartValues}
+          width={screenWidth - 56}
+          height={250}
+          baseColor={activeCategoryColor}
+          isEmpty={!hasChartData}
+          onBarPress={(data) => {
+            setSelectedBar({
+              label: data.label,
+              value: data.value
+            });
+          }}
+        />
+
+      </View>
+
+      <View style={styles.chipsWrap}>
+        {['day', 'week', 'month', 'year'].map(p => {
+          const active = period === p;
+          return (
+            <Chip
+              key={p}
+              selected={active}
+              onPress={() => setPeriod(p)}
+              mode="flat"
+              style={[
+                styles.chip,
+                {
+                  backgroundColor: active
+                    ? activeCategoryColor
+                    : rgbaFromColor(activeCategoryColor, 0.08),
+                  borderColor: active
+                    ? activeCategoryColor
+                    : rgbaFromColor(activeCategoryColor, 0.22)
+                }
+              ]}
+              textStyle={[
+                styles.chipText,
+                {
+                  color: active ? '#FFFFFF' : activeCategoryColor
+                }
+              ]}
+            >
+              {p.toUpperCase()}
+            </Chip>
+          );
+        })}
+      </View>
+    </>
+  );
+
+  const ListEmpty = () => (
+    <View style={styles.emptyListWrap}>
+      <Text style={styles.emptyListText}>
+        {selectedBar?.label ? `No transactions for ${selectedBar.label}` : 'No transactions yet'}
+      </Text>
+    </View>
+  );
+
   return (
     <View style={styles.container}>
-
-      {/* ✅ UPDATED LABEL */}
-      <View style={styles.hero}>
-        <Text style={styles.heroLabel}>Total Spend</Text>
-        <Text style={styles.heroAmount}>
-          ₹{totalSpend.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
-        </Text>
-      </View>
-
-      <View style={styles.headerRow}>
-        <Text style={styles.headerTitle}>Recent Activity</Text>
-      </View>
-
       {loading ? (
-        <View style={styles.center}><Text>Loading...</Text></View>
-      ) : transactions.length === 0 ? (
         <View style={styles.center}>
-          <MaterialCommunityIcons name="clipboard-text-outline" size={48} color={Colors.muted} />
-          <Text style={{ marginTop: 12, color: Colors.muted }}>No transactions found</Text>
+          <Text style={styles.loadingText}>Loading...</Text>
         </View>
       ) : (
         <FlatList
-          data={transactions}
+          data={filteredTransactions}
           keyExtractor={(item) => item.id.toString()}
           renderItem={renderItem}
+          ListHeaderComponent={ListHeader}
+          ListEmptyComponent={ListEmpty}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingBottom: 40 }}
+          contentContainerStyle={styles.listContent}
         />
       )}
 
       <ConfirmDialog
         visible={confirmVisible}
         title="Delete Transaction"
-        message="Are you sure you want to delete?"
-        onCancel={() => {
-          setConfirmVisible(false);
-          setConfirmTargetId(null);
-        }}
+        message="Are you sure?"
+        onCancel={() => setConfirmVisible(false)}
         onConfirm={handleDeleteConfirm}
       />
-
     </View>
   );
 }
@@ -201,84 +474,215 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
-    padding: Spacing.m,
+    padding: Spacing.m
   },
-  hero: {
-    backgroundColor: '#fff',
-    borderRadius: 20,
-    padding: 14,
-    alignItems: 'center',
-    marginBottom: 12,
+
+  chartCard: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 24,
+    paddingHorizontal: 12,
+    paddingTop: 14,
+    paddingBottom: 10,
+    marginBottom: 14,
     borderWidth: 1,
-    borderColor: '#f0f0f0',
-    elevation: 2,
+    shadowColor: '#0F172A',
+    shadowOpacity: 0.06,
+    shadowRadius: 18,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 3
   },
-  heroLabel: {
-    fontSize: 13,
-    fontWeight: '700',
+
+  sectionSubtext: {
+    marginTop: 2,
+    fontSize: 12,
     color: Colors.muted,
-    textTransform: 'uppercase',
+    fontWeight: '600'
   },
-  heroAmount: {
-    fontSize: 24,
+
+  customChartWrap: {
+    justifyContent: 'flex-end'
+  },
+
+  customChartBarsRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    paddingHorizontal: 2
+  },
+
+  customBarItem: {
+    width: 42,
+    marginRight: 10,
+    alignItems: 'center'
+  },
+
+  customBarTrack: {
+    width: 38,
+    height: BAR_TRACK_HEIGHT + 22,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    backgroundColor: 'transparent'
+  },
+
+  customBarGroup: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'flex-end'
+  },
+
+  customBarValue: {
+    fontSize: 10,
     fontWeight: '800',
     color: Colors.text,
-    marginTop: 8,
+    marginBottom: 6,
+    maxWidth: 56,
+    textAlign: 'center'
   },
-  headerRow: {
-    marginBottom: 16,
+
+  customBarValueEmpty: {
+    color: Colors.muted,
+    fontWeight: '700'
   },
-  headerTitle: {
-    fontSize: 18,
+
+  customBar: {
+    width: 28
+  },
+
+  customBarLabel: {
+    marginTop: 10,
+    fontSize: 11,
     fontWeight: '700',
-    color: Colors.text,
+    color: Colors.muted
   },
+
+  emptyChartArea: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent'
+  },
+
+  emptyChartText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: Colors.muted
+  },
+
+  chipsWrap: {
+    flexDirection: 'row',
+    marginBottom: 14,
+    flexWrap: 'wrap'
+  },
+
+  chip: {
+    marginRight: 8,
+    marginBottom: 8,
+    borderWidth: 1,
+    borderRadius: 14
+  },
+
+  chipText: {
+    fontSize: 12,
+    fontWeight: '700'
+  },
+
+  listContent: {
+    paddingBottom: 10
+  },
+
+  emptyListWrap: {
+    paddingTop: 6,
+    paddingBottom: 18,
+    alignItems: 'center'
+  },
+
+  emptyListText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: Colors.muted
+  },
+
   txCard: {
     marginBottom: 12,
-    borderRadius: 16,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(20,20,20,0.05)',
+    shadowColor: '#0F172A',
+    shadowOpacity: 0.04,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 2
   },
+
   txContent: {
     flexDirection: 'row',
     alignItems: 'center',
+    paddingVertical: 2
   },
+
   iconContainer: {
-    width: 44,
-    height: 44,
-    borderRadius: 12,
+    width: 48,
+    height: 48,
+    borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 12,
+    marginRight: 12
   },
+
+  txTextBlock: {
+    flex: 1,
+    paddingRight: 10
+  },
+
   title: {
     fontSize: 15,
-    fontWeight: '700',
-    color: Colors.text,
+    fontWeight: '800',
+    color: Colors.text
   },
+
   date: {
     fontSize: 12,
     color: Colors.muted,
-    marginTop: 2,
+    marginTop: 4,
+    fontWeight: '500'
   },
+
+  rightBlock: {
+    alignItems: 'flex-end'
+  },
+
   amount: {
-    fontSize: 16,
-    fontWeight: '800',
+    fontSize: 15,
+    fontWeight: '900'
   },
+
   actions: {
     flexDirection: 'row',
-    marginTop: 8,
-    gap: 12,
+    marginTop: 8
   },
+
   actionBtn: {
-    padding: 4,
-    backgroundColor: '#fff',
-    borderRadius: 6,
-    borderWidth: 0.5,
-    borderColor: '#eee',
+    width: 30,
+    height: 30,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(76, 110, 245, 0.08)',
+    marginLeft: 8
   },
+
+  deleteBtn: {
+    backgroundColor: 'rgba(211, 47, 47, 0.08)'
+  },
+
   center: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 60,
+    justifyContent: 'center'
   },
+
+  loadingText: {
+    fontSize: 14,
+    color: Colors.muted,
+    fontWeight: '600'
+  }
 });

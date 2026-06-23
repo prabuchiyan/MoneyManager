@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ErrorBoundary from './src/screens/ErrorBoundary';
 import TransactionAddScreen from './src/screens/TransactionAddScreen';
 import SourcesDashboard from './src/screens/SourcesDashboard';
+import SpendAreasDashboard from './src/screens/SpendAreasDashboard';
 import SourcesDetails from './src/screens/SourcesDetails';
 import CategoriesDetails from './src/screens/CategoriesDetails';
 import ReportsScreen from './src/screens/ReportsScreen';
@@ -107,6 +108,7 @@ export default function App() {
             <Stack.Screen name="TransactionAdd" component={TransactionAddScreen} options={{ title: 'Add Transaction' }} />
             <Stack.Screen name="SourcesDashboard" component={SourcesDashboard} />
             <Stack.Screen name="SourcesDetails" component={SourcesDetails} />
+            <Stack.Screen name="SpendAreasDashboard" component={SpendAreasDashboard} />
             <Stack.Screen name="CategoriesDetails" component={CategoriesDetails} />
             <Stack.Screen name="Reports" component={ReportsScreen} options={{ title: 'Financial Reports' }} />
             <Stack.Screen name="Bills" component={BillsScreen} options={{ title: 'Bills' }} />

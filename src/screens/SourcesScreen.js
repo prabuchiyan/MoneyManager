@@ -7,7 +7,7 @@ import Card from '../components/Card';
 import ConfirmDialog from '../components/ConfirmDialog';
 import { Colors, Spacing } from '../components/Theme';
 import SourceCreateModal from '../components/SourceCreateModal';
-import { Searchbar } from 'react-native-paper';
+import { Searchbar, Avatar } from 'react-native-paper';
 import FAB from '../components/FAB';
 
 export default function SourcesScreen() {
@@ -65,7 +65,7 @@ export default function SourcesScreen() {
   }
 
   return (
-    <View style={{ flex: 1, backgroundColor: Colors.background }}>
+    <View style={{ flex: 1 }}>
       <View style={{ padding: Spacing.m, paddingBottom: 0 }}>
         <Searchbar
           placeholder="Search source..."
@@ -79,49 +79,79 @@ export default function SourcesScreen() {
       <FlatList
         data={filteredItems}
         keyExtractor={(i) => String(i.id)}
-        contentContainerStyle={{ padding: Spacing.m }}
+        contentContainerStyle={{ padding: Spacing.m, paddingBottom: 100 }}
+        ListEmptyComponent={
+          <View style={{ alignItems: 'center', marginTop: 60 }}>
+            <MaterialCommunityIcons name="clipboard-text-outline" size={48} color="#ccc" />
+            <Text style={{ color: Colors.muted, marginTop: 12 }}>No sources found</Text>
+          </View>
+        }
+        initialNumToRender={15}
+        windowSize={10}
         renderItem={({ item }) => (
-          <Card style={styles.card}>
-            <View style={styles.row}>
-
-              <View style={[styles.iconBox, { backgroundColor: (item.color || Colors.primary) + '15' }]}>
-                <MaterialCommunityIcons
-                  name={item.icon || 'cash'}
-                  size={22}
+          <Card style={{ marginBottom: Spacing.s }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+                <Avatar.Icon
+                  size={40}
+                  icon={item.icon || 'cash'}
+                  style={{
+                    backgroundColor: (item.color || Colors.primary) + '15',
+                    marginRight: 12
+                  }}
                   color={item.color || Colors.primary}
                 />
+
+                <View style={{ flex: 1 }}>
+                  <Text
+                    numberOfLines={1}
+                    style={{ fontWeight: '700', fontSize: 15, color: Colors.text }}
+                  >
+                    {item.name}
+                  </Text>
+
+                  <Text style={{ color: Colors.muted, fontSize: 12, marginTop: 2 }}>
+                    Available balance
+                  </Text>
+                </View>
               </View>
 
-              <View style={{ flex: 1 }}>
-                <Text style={styles.name}>{item.name}</Text>
-
-                <Text style={styles.amount}>
+              <View style={{ alignItems: 'flex-end', marginLeft: 8 }}>
+                <Text
+                  style={{
+                    fontWeight: '800',
+                    fontSize: 16,
+                    color: Number(item.balance || 0) < 0 ? '#E46A6A' : '#36B37E'
+                  }}
+                >
                   ₹{Number(item.balance || 0).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                 </Text>
+
+                <Text style={{ color: Colors.muted, fontSize: 10, marginTop: 2 }}>
+                  Balance
+                </Text>
+
+                <View style={{ flexDirection: 'row', marginTop: 8 }}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      setEditSource(item);
+                      setShowModal(true);
+                    }}
+                    style={{ marginRight: 10 }}
+                  >
+                    <Feather name="edit-2" size={16} color={Colors.primary} />
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    onPress={() => {
+                      setConfirmTargetId(item.id);
+                      setConfirmVisible(true);
+                    }}
+                  >
+                    <Feather name="trash-2" size={16} color="#E46A6A" />
+                  </TouchableOpacity>
+                </View>
               </View>
-
-              <View style={{ flexDirection: 'row' }}>
-                <TouchableOpacity
-                  onPress={() => {
-                    setEditSource(item);
-                    setShowModal(true);
-                  }}
-                  style={styles.actionBtn}
-                >
-                  <Feather name="edit-2" size={16} color={Colors.primary} />
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                  onPress={() => {
-                    setConfirmTargetId(item.id);
-                    setConfirmVisible(true);
-                  }}
-                  style={styles.actionBtn}
-                >
-                  <Feather name="trash-2" size={16} color="#e53935" />
-                </TouchableOpacity>
-              </View>
-
             </View>
           </Card>
         )}
@@ -145,11 +175,10 @@ export default function SourcesScreen() {
         editData={editSource}
         onSave={() => {
           setShowModal(false);
-          load(); // ✅ refresh with new balance
+          load();
         }}
       />
 
-      
       <FAB onPress={() => { setEditSource(null); setShowModal(true); }} />
     </View>
   );

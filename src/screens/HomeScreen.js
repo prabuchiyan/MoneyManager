@@ -371,15 +371,18 @@ export default function HomeScreen({ navigation }) {
           </Text>
 
           {topCategories.length ? (
-            <View style={{ alignItems: 'center', marginBottom: 12 }}>
-              <CategoryDonut data={topCategories} categoriesMap={categoriesMap} />
-            </View>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('SpendAreasDashboard')}
+            >
+              <View style={{ alignItems: 'center', marginBottom: 12 }}>
+                <CategoryDonut data={topCategories} categoriesMap={categoriesMap} />
+              </View>
+            </TouchableOpacity>
           ) : (
             <Text style={{ color: Colors.muted }}>No data</Text>
           )}
 
-          {topCategories.map(c => {
-            console.log('Prabu c', c);
+          {topCategories.slice(0, 3).map(c => {
             const cat = categoriesMap[c.category_id] || {};
             const color = cat.color || '#4B7CF3';
             const icon = cat.icon || 'tag';
@@ -393,7 +396,6 @@ export default function HomeScreen({ navigation }) {
                   categoryId: c.category_id,
                   categoryName: c.category_name
                 })}
-              // onPress={() => navigation.navigate('Budgets', { editId: sel.budget.id })}
               >
                 <View key={c.category_id}
                   style={{ marginBottom: 12 }}
@@ -446,6 +448,16 @@ export default function HomeScreen({ navigation }) {
               </TouchableOpacity>
             );
           })}
+          {topCategories.length > 2 && (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('SpendAreasDashboard')}
+              style={{ alignItems: 'center', marginTop: 8 }}
+            >
+              <Text style={{ color: Colors.primary, fontWeight: '600' }}>
+                See all ↓
+              </Text>
+            </TouchableOpacity>
+          )}
         </Card>
 
         <Card>

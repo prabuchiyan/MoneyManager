@@ -2,14 +2,14 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { TextInput as PaperTextInput, Button as PaperButton, Searchbar, Avatar } from 'react-native-paper';
+import { TextInput as PaperTextInput, Button as PaperButton, Searchbar, Avatar, Chip } from 'react-native-paper';
 import IconPicker from '../components/IconPicker';
 import ConfirmDialog from '../components/ConfirmDialog';
 import ColorPickerModal from '../components/ColorPickerModal';
 import { getCategories, softDeleteCategory, updateCategory } from '../services/categories';
 import Card from '../components/Card';
 import IconButton from '../components/IconButton';
-import { Spacing } from '../components/Theme';
+import { Colors, Spacing } from '../components/Theme';
 import CategoryCreateModal from '../components/CategoryCreateModal';
 import FAB from '../components/FAB';
 
@@ -173,7 +173,6 @@ export default function CategoriesScreen({ route }) {
 
   return (
     <View style={{ flex: 1 }}>
-
       <View style={{ padding: Spacing.m, paddingBottom: 0 }}>
         <Searchbar
           placeholder="Search Categories..."
@@ -187,131 +186,239 @@ export default function CategoriesScreen({ route }) {
       <FlatList
         data={filteredItems}
         keyExtractor={(i) => String(i.id)}
-        contentContainerStyle={{ padding: Spacing.m }}
-        ListEmptyComponent={() => (
-          <Card style={{ padding: 16 }}>
-            <Text style={{ color: '#888', textAlign: 'center' }}>
-              No categories yet
-            </Text>
-          </Card>
-        )}
-
+        contentContainerStyle={{ padding: Spacing.m, paddingBottom: 100 }}
+        ListEmptyComponent={
+          <View style={{ alignItems: 'center', marginTop: 60 }}>
+            <MaterialCommunityIcons name="clipboard-text-outline" size={48} color="#ccc" />
+            <Text style={{ color: Colors.muted, marginTop: 12 }}>No categories found</Text>
+          </View>
+        }
+        initialNumToRender={15}
+        windowSize={10}
         renderItem={({ item }) => (
-          <Card style={{ marginBottom: 10 }}>
-
+          <Card style={{ marginBottom: Spacing.s }}>
             {editingId === item.id ? (
-              <>
+              <View>
+                <View style={{ borderRadius: 10, overflow: 'hidden', marginBottom: 10 }}>
+                  <View
+                    style={{
+                      backgroundColor: editType === 'expense' ? '#FFF6F6' : '#F6FFFA',
+                      padding: 10,
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      justifyContent: 'space-between'
+                    }}
+                  >
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                      <View
+                        style={{
+                          width: 36,
+                          height: 36,
+                          borderRadius: 18,
+                          backgroundColor: (editColor || '#4B7CF3') + '20',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          marginRight: 10
+                        }}
+                      >
+                        <MaterialCommunityIcons name={editIcon || 'tag'} size={18} color={editColor || '#4B7CF3'} />
+                      </View>
+                      <Text
+                        style={{
+                          color: editType === 'expense' ? '#E46A6A' : '#36B37E',
+                          fontWeight: '700'
+                        }}
+                      >
+                        {editType.toUpperCase()}
+                      </Text>
+                    </View>
+
+                    <Text
+                      numberOfLines={1}
+                      style={{
+                        fontSize: 16,
+                        fontWeight: '800',
+                        color: editType === 'expense' ? '#E46A6A' : '#36B37E',
+                        maxWidth: '55%'
+                      }}
+                    >
+                      {editName || 'Category'}
+                    </Text>
+                  </View>
+                </View>
+
                 <PaperTextInput
                   value={editName}
                   onChangeText={handleEditNameChange}
                   mode="outlined"
-                  style={{ marginBottom: 10 }}
+                  style={{ marginBottom: 8, backgroundColor: '#fff' }}
+                  label="Category Name"
                 />
-                <View style={{ flexDirection: 'row', marginBottom: 10 }}>
-                  <PaperButton
-                    mode={type === 'income' ? 'contained' : 'outlined'}
-                    onPress={() => setEditType('income')}
-                    style={{ marginRight: Spacing.s }}
-                  >
-                    Income
-                  </PaperButton>
-                  <PaperButton
-                    mode={type === 'expense' ? 'contained' : 'outlined'}
+
+                <View style={{ flexDirection: 'row', marginBottom: 12 }}>
+                  <Chip
+                    mode={editType === 'expense' ? 'flat' : 'outlined'}
+                    selected={editType === 'expense'}
                     onPress={() => setEditType('expense')}
+                    style={{
+                      marginRight: 8,
+                      backgroundColor: editType === 'expense' ? '#FEE2E2' : 'transparent'
+                    }}
+                    selectedColor="#E46A6A"
                   >
                     Expense
-                  </PaperButton>
+                  </Chip>
+
+                  <Chip
+                    mode={editType === 'income' ? 'flat' : 'outlined'}
+                    selected={editType === 'income'}
+                    onPress={() => setEditType('income')}
+                    style={{
+                      backgroundColor: editType === 'income' ? '#D1FAE5' : 'transparent'
+                    }}
+                    selectedColor="#36B37E"
+                  >
+                    Income
+                  </Chip>
                 </View>
 
-                <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
-
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 12 }}>
                   <TouchableOpacity
                     onPress={() => setShowIconPickerForEdit(true)}
-                    style={[styles.iconSelector, { backgroundColor: (editColor || Colors.primary) + '15' }]}
+                    style={[
+                      styles.iconSelector,
+                      {
+                        backgroundColor: (editColor || '#4B7CF3') + '15',
+                        marginRight: 10
+                      }
+                    ]}
                   >
                     <MaterialCommunityIcons name={editIcon} size={24} color={editColor} />
                   </TouchableOpacity>
 
-                  <TouchableOpacity onPress={() => setShowIconPickerForEdit(true)}>
-                    <Avatar.Icon size={32} icon={editIcon} style={{ backgroundColor: editColor }} />
-                  </TouchableOpacity>
                   <IconButton label="Colors" icon="droplet" onPress={() => setShowColorPickerForEdit(true)} />
                   <IconButton label="Icon" icon="image" onPress={() => setShowIconPickerForEdit(true)} />
                 </View>
 
-                <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: 8 }}>
-                  <PaperButton
-                    mode="text"
-                    onPress={cancelEdit}
-                    style={{ marginRight: 8 }}
-                    labelStyle={{ fontSize: 13 }}
-                  >
-                    Cancel
-                  </PaperButton>
-
+                <View style={{ flexDirection: 'row' }}>
                   <PaperButton
                     mode="contained"
                     onPress={saveEdit}
-                    contentStyle={{ paddingHorizontal: 12 }}
-                    labelStyle={{ fontSize: 13 }}
+                    style={{
+                      flex: 1,
+                      borderRadius: 10,
+                      backgroundColor: editType === 'expense' ? '#E46A6A' : '#36B37E'
+                    }}
+                    contentStyle={{ paddingVertical: 4 }}
+                    labelStyle={{ color: '#fff', fontWeight: 'bold' }}
                   >
                     Save
                   </PaperButton>
-                </View>
 
-              </>
+                  <View style={{ width: 8 }} />
+
+                  <PaperButton
+                    mode="outlined"
+                    onPress={cancelEdit}
+                    style={{ flex: 1, borderRadius: 10 }}
+                    contentStyle={{ paddingVertical: 4 }}
+                  >
+                    Cancel
+                  </PaperButton>
+                </View>
+              </View>
             ) : (
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+                  <Avatar.Icon
+                    size={40}
+                    icon={item.icon || 'tag'}
+                    style={{
+                      backgroundColor: (item.color || '#eee') + '15',
+                      marginRight: 12
+                    }}
+                    color={item.color || '#999'}
+                  />
 
-                <Avatar.Icon
-                  size={36}
-                  icon={item.icon || 'tag'}
-                  style={{
-                    backgroundColor: item.color || '#4B7CF3',
-                    marginRight: 10
-                  }}
-                />
-                <View style={{ flex: 1 }}>
-                  <Text
-                    numberOfLines={1}
-                    style={{ fontWeight: '600' }}
-                  >
-                    {item.name}
-                  </Text>
-                  <Text style={{
-                    fontSize: 11,
-                    color: item.type === 'income' ? '#2ECC71' : '#E74C3C'
-                  }}>
-                    {item.type === 'income' ? 'Income' : 'Expense'}
-                  </Text>
+                  <View style={{ flex: 1 }}>
+                    <Text
+                      numberOfLines={1}
+                      style={{ fontWeight: '700', fontSize: 15, color: Colors.text }}
+                    >
+                      {item.name}
+                    </Text>
+
+                    <Text style={{ color: Colors.muted, fontSize: 12, marginTop: 2 }}>
+                      {item.type === 'income' ? 'Income' : 'Expense'}
+                    </Text>
+                  </View>
                 </View>
 
-                <View style={{ flexDirection: 'row' }}>
-                  <TouchableOpacity onPress={() => { setEditCategory(item); setShowModal(true); }} style={{ marginRight: 12 }}>
-                    <Feather name="edit-2" size={18} />
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    onPress={() => {
-                      setConfirmTargetId(item.id);
-                      setConfirmMessage(`Delete "${item.name}"?`);
-                      setConfirmVisible(true);
+                <View style={{ alignItems: 'flex-end', marginLeft: 8 }}>
+                  <Text
+                    style={{
+                      fontWeight: '800',
+                      fontSize: 16,
+                      color: item.type === 'expense' ? '#E46A6A' : '#36B37E'
                     }}
                   >
-                    <Feather name="trash-2" size={18} color="#E74C3C" />
-                  </TouchableOpacity>
-                </View>
+                    {item.type === 'income' ? 'Income' : 'Expense'}
+                  </Text>
 
+                  <Text style={{ color: Colors.muted, fontSize: 10, marginTop: 2 }}>
+                    Category
+                  </Text>
+
+                  <View style={{ flexDirection: 'row', marginTop: 8 }}>
+                    <TouchableOpacity
+                      onPress={() => { setEditCategory(item); setShowModal(true); }}
+                      style={{ marginRight: 10 }}
+                    >
+                      <Feather name="edit-2" size={16} color={Colors.primary} />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                      onPress={() => {
+                        setConfirmTargetId(item.id);
+                        setConfirmMessage(`Delete "${item.name}"?`);
+                        setConfirmVisible(true);
+                      }}
+                    >
+                      <Feather name="trash-2" size={16} color="#E46A6A" />
+                    </TouchableOpacity>
+                  </View>
+                </View>
               </View>
             )}
-
           </Card>
         )}
       />
 
-      <ConfirmDialog visible={confirmVisible} title="Delete Category" message={confirmMessage} onCancel={() => { setConfirmVisible(false); setConfirmTargetId(null); }} onConfirm={async () => { if (confirmTargetId) { await remove(confirmTargetId); } setConfirmVisible(false); setConfirmTargetId(null); }} />
+      <ConfirmDialog
+        visible={confirmVisible}
+        title="Delete Category"
+        message={confirmMessage}
+        onCancel={() => { setConfirmVisible(false); setConfirmTargetId(null); }}
+        onConfirm={async () => {
+          if (confirmTargetId) {
+            await remove(confirmTargetId);
+          }
+          setConfirmVisible(false);
+          setConfirmTargetId(null);
+        }}
+      />
 
-      <IconPicker visible={showIconPickerForAdd} onClose={() => setShowIconPickerForAdd(false)} onSelect={(name) => { setSelectedIcon(name); setUserPickedIconAdd(true); }} />
-      <IconPicker visible={showIconPickerForEdit} onClose={() => setShowIconPickerForEdit(false)} onSelect={(name) => { setEditIcon(name); setUserPickedIconEdit(true); }} />
+      <IconPicker
+        visible={showIconPickerForAdd}
+        onClose={() => setShowIconPickerForAdd(false)}
+        onSelect={(name) => { setSelectedIcon(name); setUserPickedIconAdd(true); }}
+      />
+
+      <IconPicker
+        visible={showIconPickerForEdit}
+        onClose={() => setShowIconPickerForEdit(false)}
+        onSelect={(name) => { setEditIcon(name); setUserPickedIconEdit(true); }}
+      />
 
       <ColorPickerModal
         visible={showColorPickerForAdd}
@@ -319,6 +426,7 @@ export default function CategoriesScreen({ route }) {
         onSelect={setSelectedColor}
         currentColor={selectedColor}
       />
+
       <ColorPickerModal
         visible={showColorPickerForEdit}
         onClose={() => setShowColorPickerForEdit(false)}
