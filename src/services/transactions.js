@@ -15,76 +15,136 @@ export async function createTransaction(tx) {
 // emit change after creation
 const _origCreate = createTransaction;
 
+function isValidDate(d) {
+  return d instanceof Date && !Number.isNaN(d.getTime());
+}
+
+function parseTransactionDate(value) {
+  if (!value) return null;
+
+  let d = new Date(value);
+  if (isValidDate(d)) return d;
+
+  // fallback if some legacy values are stored as "YYYY-MM-DD HH:mm:ss"
+  d = new Date(String(value).replace(' ', 'T'));
+  if (isValidDate(d)) return d;
+
+  return null;
+}
+
+function getPeriodBounds(period, referenceDate = new Date()) {
+  const ref = new Date(referenceDate);
+
+  let start = null;
+  let end = null;
+
+  switch (period) {
+    case 'day': {
+      start = new Date(ref.getFullYear(), ref.getMonth(), ref.getDate());
+      end = new Date(ref.getFullYear(), ref.getMonth(), ref.getDate() + 1);
+      break;
+    }
+
+    case 'week': {
+      start = new Date(ref.getFullYear(), ref.getMonth(), ref.getDate() - 6);
+      start.setHours(0, 0, 0, 0);
+
+      end = new Date(ref.getFullYear(), ref.getMonth(), ref.getDate() + 1);
+      end.setHours(0, 0, 0, 0);
+      break;
+    }
+
+    case 'month': {
+      start = new Date(ref.getFullYear(), ref.getMonth(), 1);
+      end = new Date(ref.getFullYear(), ref.getMonth() + 1, 1);
+      break;
+    }
+
+    case 'year': {
+      start = new Date(ref.getFullYear(), 0, 1);
+      end = new Date(ref.getFullYear() + 1, 0, 1);
+      break;
+    }
+
+    default:
+      return null;
+  }
+
+  return { start, end };
+}
+
+function matchesPeriod(txDate, period, referenceDate = new Date()) {
+  if (!period) return true;
+
+  const bounds = getPeriodBounds(period, referenceDate);
+  if (!bounds) return true;
+
+  return txDate >= bounds.start && txDate < bounds.end;
+}
+
 export async function getTransactions(
   limit = 100,
   sourceId = null,
   categoryId = null,
-  period = null
+  period = null,
+  referenceDate = new Date()
 ) {
   try {
     const params = [];
-    const rows = [];
+    const conditions = [];
     let query = `SELECT * FROM transactions`;
 
-    const conditions = [];
+    const normalizedSourceId =
+      sourceId !== null && sourceId !== undefined ? Number(sourceId) : null;
 
-    // Source filter
-    if (sourceId) {
+    const normalizedCategoryId =
+      categoryId !== null && categoryId !== undefined ? Number(categoryId) : null;
+
+    // Only use SQL for guaranteed-safe filters
+    if (normalizedSourceId !== null && !Number.isNaN(normalizedSourceId)) {
       conditions.push(`source_id = ?`);
-      params.push(sourceId);
+      params.push(normalizedSourceId);
     }
 
-    // Category filter
-    if (categoryId) {
+    if (normalizedCategoryId !== null && !Number.isNaN(normalizedCategoryId)) {
       conditions.push(`category_id = ?`);
-      params.push(categoryId);
+      params.push(normalizedCategoryId);
     }
 
-    // Period filter
-    if (period) {
-      if (period === 'day') {
-        conditions.push(`
-      date >= date('now', 'start of day', 'localtime')
-      AND date < date('now', 'start of day', '+1 day', 'localtime')
-    `);
-      }
-
-      if (period === 'week') {
-        conditions.push(`
-      date >= date('now', '-6 days', 'localtime')
-    `);
-      }
-
-      if (period === 'month') {
-        conditions.push(`
-      date >= date('now', 'start of month', 'localtime')
-      AND date < date('now', 'start of month', '+1 month', 'localtime')
-    `);
-      }
-
-      if (period === 'year') {
-        conditions.push(`
-      date >= date('now', 'start of year', 'localtime')
-      AND date < date('now', 'start of year', '+1 year', 'localtime')
-    `);
-      }
+    if (conditions.length > 0) {
+      query += ` WHERE ${conditions.join(' AND ')}`;
     }
 
-    // Apply WHERE
-    if (conditions.length) {
-      query += ` WHERE ` + conditions.join(' AND ');
-    }
+    // Don't apply date filtering in SQL
+    query += ` ORDER BY id DESC`;
 
-    query += ` ORDER BY date DESC LIMIT ?`;
-    params.push(limit);
-    console.log('Prabu query, query', query);
     const res = await executeSql(query, params);
 
+    const rows = [];
     for (let i = 0; i < res.rows.length; i++) {
       rows.push(res.rows.item(i));
     }
 
-    return rows;
+    // Filter by period in JS
+    const filtered = rows.filter((row) => {
+      const txDate = parseTransactionDate(row.date);
+
+      if (!txDate) {
+        console.warn('Invalid transaction date:', row.id, row.date);
+        return false;
+      }
+
+      return matchesPeriod(txDate, period, referenceDate);
+    });
+
+    // Sort again safely by parsed date desc
+    filtered.sort((a, b) => {
+      const da = parseTransactionDate(a.date)?.getTime() || 0;
+      const db = parseTransactionDate(b.date)?.getTime() || 0;
+      return db - da;
+    });
+
+    return filtered.slice(0, Number(limit));
   } catch (error) {
     console.error('getTransactions error:', error);
     return [];
