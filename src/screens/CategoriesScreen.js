@@ -13,7 +13,7 @@ import { Colors, Spacing } from '../components/Theme';
 import CategoryCreateModal from '../components/CategoryCreateModal';
 import FAB from '../components/FAB';
 
-export default function CategoriesScreen({ route }) {
+export default function CategoriesScreen({ route, navigation }) {
   const [items, setItems] = useState([]);
   const [name, setName] = useState('');
   const [showModal, setShowModal] = useState(false);
@@ -328,67 +328,77 @@ export default function CategoriesScreen({ route }) {
                 </View>
               </View>
             ) : (
-              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
-                  <Avatar.Icon
-                    size={40}
-                    icon={item.icon || 'tag'}
-                    style={{
-                      backgroundColor: (item.color || '#eee') + '15',
-                      marginRight: 12
-                    }}
-                    color={item.color || '#999'}
-                  />
+              <TouchableOpacity
+                onPress={() => {
+                  const parent = navigation.getParent();
+                  parent?.navigate('CategoriesDetails', { // ✅ FIXED
+                    categoryId: item.id,
+                    categoryName: item.name
+                  });
+                }}
+              >
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+                    <Avatar.Icon
+                      size={40}
+                      icon={item.icon || 'tag'}
+                      style={{
+                        backgroundColor: (item.color || '#eee') + '15',
+                        marginRight: 12
+                      }}
+                      color={item.color || '#999'}
+                    />
 
-                  <View style={{ flex: 1 }}>
-                    <Text
-                      numberOfLines={1}
-                      style={{ fontWeight: '700', fontSize: 15, color: Colors.text }}
-                    >
-                      {item.name}
-                    </Text>
+                    <View style={{ flex: 1 }}>
+                      <Text
+                        numberOfLines={1}
+                        style={{ fontWeight: '700', fontSize: 15, color: Colors.text }}
+                      >
+                        {item.name}
+                      </Text>
 
-                    <Text style={{ color: Colors.muted, fontSize: 12, marginTop: 2 }}>
-                      {item.type === 'income' ? 'Income' : 'Expense'}
-                    </Text>
+                      <Text style={{ color: Colors.muted, fontSize: 12, marginTop: 2 }}>
+                        {item.type === 'income' ? 'Income' : 'Expense'}
+                      </Text>
+                    </View>
                   </View>
-                </View>
 
-                <View style={{ alignItems: 'flex-end', marginLeft: 8 }}>
-                  <Text
-                    style={{
-                      fontWeight: '800',
-                      fontSize: 16,
-                      color: item.type === 'expense' ? '#E46A6A' : '#36B37E'
-                    }}
-                  >
-                    {item.type === 'income' ? 'Income' : 'Expense'}
-                  </Text>
-
-                  <Text style={{ color: Colors.muted, fontSize: 10, marginTop: 2 }}>
-                    Category
-                  </Text>
-
-                  <View style={{ flexDirection: 'row', marginTop: 8 }}>
-                    <TouchableOpacity
-                      onPress={() => { setEditCategory(item); setShowModal(true); }}
-                      style={{ marginRight: 10 }}
-                    >
-                      <Feather name="edit-2" size={16} color={Colors.primary} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                      onPress={() => {
-                        setConfirmTargetId(item.id);
-                        setConfirmMessage(`Delete "${item.name}"?`);
-                        setConfirmVisible(true);
+                  <View style={{ alignItems: 'flex-end', marginLeft: 8 }}>
+                    <Text
+                      style={{
+                        fontWeight: '800',
+                        fontSize: 16,
+                        color: item.type === 'expense' ? '#E46A6A' : '#36B37E'
                       }}
                     >
-                      <Feather name="trash-2" size={16} color="#E46A6A" />
-                    </TouchableOpacity>
+                      {item.type === 'income' ? 'Income' : 'Expense'}
+                    </Text>
+
+                    <Text style={{ color: Colors.muted, fontSize: 10, marginTop: 2 }}>
+                      Category
+                    </Text>
+
+                    <View style={{ flexDirection: 'row', marginTop: 8 }}>
+                      <TouchableOpacity
+                        onPress={() => { setEditCategory(item); setShowModal(true); }}
+                        style={{ marginRight: 10 }}
+                      >
+                        <Feather name="edit-2" size={16} color={Colors.primary} />
+                      </TouchableOpacity>
+
+                      <TouchableOpacity
+                        onPress={() => {
+                          setConfirmTargetId(item.id);
+                          setConfirmMessage(`Delete "${item.name}"?`);
+                          setConfirmVisible(true);
+                        }}
+                      >
+                        <Feather name="trash-2" size={16} color="#E46A6A" />
+                      </TouchableOpacity>
+                    </View>
                   </View>
                 </View>
-              </View>
+              </TouchableOpacity>
             )}
           </Card>
         )}
