@@ -40,6 +40,13 @@ export async function initDB() {
       FOREIGN KEY(source_id) REFERENCES sources(id)
     );`);
 
+    // ADD NEW COLUMNS
+    await executeSql(`ALTER TABLE transactions ADD COLUMN transfer_group_id TEXT;`)
+      .catch(() => { });
+    await executeSql(`ALTER TABLE transactions ADD COLUMN direction TEXT;`)
+      .catch(() => { });
+
+
     // Budgets
     await executeSql(`CREATE TABLE IF NOT EXISTS budgets (
       id INTEGER PRIMARY KEY AUTOINCREMENT,

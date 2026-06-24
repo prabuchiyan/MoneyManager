@@ -25,7 +25,9 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
   const [catSearch, setCatSearch] = useState('');
   const [srcSearch, setSrcSearch] = useState('');
   const [pickerMode, setPickerMode] = useState('date');
-  const [notesError, setNotesError] = useState(false); // Added for notes validation
+  const [notesError, setNotesError] = useState(false);
+  const [toAccount, setToAccount] = useState(null);
+  const [selectingFor, setSelectingFor] = useState('from');
 
   useEffect(() => {
     (async () => {
@@ -61,12 +63,34 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
     }
 
     let id;
-    const transactionData = { type, amount: val, category_id: categoryId, source_id: sourceId, date, notes };
+    if (type === 'transfer') {
+      if (!sourceId || !toAccount) {
+        alert('Select both accounts');
+        return;
+      }
 
-    if (isEdit && transaction && transaction.id) {
-      id = await updateTransaction(transaction.id, transactionData);
+      if (sourceId === toAccount) {
+        alert('Cannot transfer to same account');
+        return;
+      }
+
+      const { createTransfer } = require('../services/transactions');
+      await createTransfer({
+        fromAccount: sourceId,
+        toAccount: toAccount,
+        amount: val,
+        note: notes,
+        date
+      });
+      id = 'transfer';
     } else {
-      id = await createTransaction(transactionData);
+      const transactionData = { type, amount: val, category_id: categoryId, source_id: sourceId, date, notes };
+
+      if (isEdit && transaction && transaction.id) {
+        id = await updateTransaction(transaction.id, transactionData);
+      } else {
+        id = await createTransaction(transactionData);
+      }
     }
     if (onCreated) onCreated(id);
     if (!isEdit) { // Only reset form if it was a new transaction
@@ -95,12 +119,19 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
 
     return `${day} ${month} ${year}, ${hours}:${minutes} ${ampm}`;
   }
-  const accent = type === 'expense' ? '#E46A6A' : '#36B37E';
+  const accent =
+    type === 'expense' ? '#E46A6A' :
+      type === 'income' ? '#36B37E' : '#000';
 
   return (
-    <ScrollView contentContainerStyle={{ padding: 8 }}>
+    <ScrollView>
       <View style={{ borderRadius: 12, overflow: 'hidden', marginBottom: 12 }}>
-        <View style={{ backgroundColor: type === 'expense' ? '#FFF2F2' : '#F1FFF6', padding: 14, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+        <View style={{
+          backgroundColor:
+            type === 'expense' ? '#FFF2F2' :
+              type === 'income' ? '#F1FFF6' : '#F5F5F5',
+          padding: 14, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'
+        }}>
           <View>
             <Text style={{ color: accent, fontSize: 14, fontWeight: '700', textTransform: 'uppercase' }}>{type || 'expense'}</Text>
             <Text style={{ fontSize: 22, fontWeight: '800', color: accent }}>{amount ? (Number(amount).toLocaleString('en-IN', { minimumFractionDigits: 2 })) : '0.00'}</Text>
@@ -121,72 +152,111 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
       <PaperTextInput label="Amount" value={amount} onChangeText={(t) => { setAmount(t); if (amountError) setAmountError(false); }} keyboardType="numeric" mode="outlined" style={{ marginBottom: 12, fontSize: 20 }} error={amountError} contentStyle={{ fontSize: 24 }} />
       {amountError ? <Text style={{ color: '#E46A6A', marginBottom: 8 }}>Enter an amount greater than 0</Text> : null}
       <View style={{ flexDirection: 'row', marginBottom: 12 }}>
-        <Chip mode="outlined" selected={type === 'expense'} onPress={() => setType('expense')} style={{ marginRight: 8, borderColor: type === 'expense' ? accent : undefined }}>Expense</Chip>
-        <Chip mode="outlined" selected={type === 'income'} onPress={() => setType('income')} style={{ borderColor: type === 'income' ? accent : undefined }}>Income</Chip>
-      </View>
-
-      <View style={{ marginBottom: 12 }}>
-        <TouchableOpacity
-          activeOpacity={0.8}
-          onPress={() => {
-            setPickerMode('date');
-            setShowDateTimePicker(true);
-          }}
+        <Chip
+          mode="outlined"
+          selected={type === 'expense'}
+          showSelectedCheck={false}
+          onPress={() => setType('expense')}
+          style={{ marginRight: 8, borderColor: type === 'expense' ? accent : undefined }}
         >
-          <PaperTextInput
-            label="Date & Time"
-            value={formatDateTime(date)}
-            editable={false}
-            pointerEvents="none"
+          Expense
+        </Chip>
+
+        <Chip
+          mode="outlined"
+          selected={type === 'income'}
+          showSelectedCheck={false}
+          onPress={() => setType('income')}
+          style={{ marginRight: 8, borderColor: type === 'income' ? accent : undefined }}
+        >
+          Income
+        </Chip>
+
+        {!isEdit &&
+          <Chip
             mode="outlined"
-            style={{ marginBottom: 8 }}
-            right={
-              <PaperTextInput.Icon
-                icon="calendar"
-                onPress={() => setShowDateTimePicker(true)}
-              />
-            }
-          />
-        </TouchableOpacity>
+            selected={type === 'transfer'}
+            showSelectedCheck={false}
+            onPress={() => setType('transfer')}
+            style={{
+              borderColor: type === 'transfer' ? '#000' : undefined
+            }}
+            textStyle={{
+              color: type === 'transfer' ? '#000' : undefined,
+              fontWeight: type === 'transfer' ? '700' : 'normal'
+            }}
+          >
+            Transfer
+          </Chip>
+        }
       </View>
 
-      <View style={{ marginBottom: 12 }}>
-        <Text style={{ marginBottom: 6, color: '#666' }}>Category</Text>
-        <TouchableOpacity onPress={() => setShowCategoryPicker(true)} activeOpacity={0.8} style={{ borderWidth: 1, borderColor: '#eee', padding: 12, borderRadius: 8, backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center' }}>
-          <MaterialCommunityIcons name={(categories.find(x => x.id === categoryId) || {}).icon || 'tag'} size={20} color={(categories.find(x => x.id === categoryId) || {}).color || '#4B7CF3'} style={{ marginRight: 10 }} />
-          <Text style={{ fontSize: 16 }}>{(categories.find(x => x.id === categoryId) || {}).name || 'Select category'}</Text>
-        </TouchableOpacity>
-        <Modal visible={showCategoryPicker} transparent animationType="slide" onRequestClose={() => setShowCategoryPicker(false)}>
-          <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'center', padding: 20 }}>
-            <View style={{ backgroundColor: '#fff', padding: 12, borderRadius: 8, maxHeight: '80%' }}>
-              <PaperTextInput label="Search" value={catSearch} onChangeText={setCatSearch} mode="outlined" style={{ marginBottom: 8 }} />
-              <ScrollView>
-                <TouchableOpacity
-                  onPress={() => { setShowCategoryPicker(false); setShowCategoryCreateModal(true); }}
-                  style={{ flexDirection: 'row', alignItems: 'center', padding: 10, borderBottomWidth: 1, borderColor: '#f3f3f3', backgroundColor: '#e6f7ff' }}
-                >
-                  <MaterialCommunityIcons name="plus-circle-outline" size={20} color={'#4B7CF3'} style={{ marginRight: 12 }} />
-                  <Text style={{ fontSize: 16, color: '#4B7CF3', fontWeight: '600' }}>Create New Category</Text>
-                </TouchableOpacity>
-                {categories.filter(c => c.name.toLowerCase().includes(catSearch.toLowerCase())).map(c => (
-                  <TouchableOpacity key={c.id} onPress={() => { setCategoryId(c.id); setShowCategoryPicker(false); }} style={{ flexDirection: 'row', alignItems: 'center', padding: 10, borderBottomWidth: 1, borderColor: '#f3f3f3', backgroundColor: categoryId === c.id ? '#FFF9F9' : '#fff' }}>
-                    <View style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: c.color || '#eee', alignItems: 'center', justifyContent: 'center', marginRight: 12 }}>
-                      <MaterialCommunityIcons name={c.icon || 'tag'} size={18} color={'#fff'} />
-                    </View>
-                    <Text style={{ fontSize: 16 }}>{c.name}</Text>
-                  </TouchableOpacity>
-                ))}
-              </ScrollView>
-              <View style={{ height: 8 }} />
-              <PaperButton mode="outlined" onPress={() => setShowCategoryPicker(false)}>Close</PaperButton>
-            </View>
+      {type !== 'transfer' && (
+        <>
+          <View style={{ marginBottom: 12 }}>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => {
+                setPickerMode('date');
+                setShowDateTimePicker(true);
+              }}
+            >
+              <PaperTextInput
+                label="Date & Time"
+                value={formatDateTime(date)}
+                editable={false}
+                pointerEvents="none"
+                mode="outlined"
+                style={{ marginBottom: 8 }}
+                right={
+                  <PaperTextInput.Icon
+                    icon="calendar"
+                    onPress={() => setShowDateTimePicker(true)}
+                  />
+                }
+              />
+            </TouchableOpacity>
           </View>
-        </Modal>
-      </View>
+
+          <View style={{ marginBottom: 12 }}>
+            <Text style={{ marginBottom: 6, color: '#666' }}>Category</Text>
+            <TouchableOpacity onPress={() => setShowCategoryPicker(true)} activeOpacity={0.8} style={{ borderWidth: 1, borderColor: '#eee', padding: 12, borderRadius: 8, backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center' }}>
+              <MaterialCommunityIcons name={(categories.find(x => x.id === categoryId) || {}).icon || 'tag'} size={20} color={(categories.find(x => x.id === categoryId) || {}).color || '#4B7CF3'} style={{ marginRight: 10 }} />
+              <Text style={{ fontSize: 16 }}>{(categories.find(x => x.id === categoryId) || {}).name || 'Select category'}</Text>
+            </TouchableOpacity>
+            <Modal visible={showCategoryPicker} transparent animationType="slide" onRequestClose={() => setShowCategoryPicker(false)}>
+              <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'center', padding: 20 }}>
+                <View style={{ backgroundColor: '#fff', padding: 12, borderRadius: 8, maxHeight: '80%' }}>
+                  <PaperTextInput label="Search" value={catSearch} onChangeText={setCatSearch} mode="outlined" style={{ marginBottom: 8 }} />
+                  <ScrollView>
+                    <TouchableOpacity
+                      onPress={() => { setShowCategoryPicker(false); setShowCategoryCreateModal(true); }}
+                      style={{ flexDirection: 'row', alignItems: 'center', padding: 10, borderBottomWidth: 1, borderColor: '#f3f3f3', backgroundColor: '#e6f7ff' }}
+                    >
+                      <MaterialCommunityIcons name="plus-circle-outline" size={20} color={'#4B7CF3'} style={{ marginRight: 12 }} />
+                      <Text style={{ fontSize: 16, color: '#4B7CF3', fontWeight: '600' }}>Create New Category</Text>
+                    </TouchableOpacity>
+                    {categories.filter(c => c.name.toLowerCase().includes(catSearch.toLowerCase())).map(c => (
+                      <TouchableOpacity key={c.id} onPress={() => { setCategoryId(c.id); setShowCategoryPicker(false); }} style={{ flexDirection: 'row', alignItems: 'center', padding: 10, borderBottomWidth: 1, borderColor: '#f3f3f3', backgroundColor: categoryId === c.id ? '#FFF9F9' : '#fff' }}>
+                        <View style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: c.color || '#eee', alignItems: 'center', justifyContent: 'center', marginRight: 12 }}>
+                          <MaterialCommunityIcons name={c.icon || 'tag'} size={18} color={'#fff'} />
+                        </View>
+                        <Text style={{ fontSize: 16 }}>{c.name}</Text>
+                      </TouchableOpacity>
+                    ))}
+                  </ScrollView>
+                  <View style={{ height: 8 }} />
+                  <PaperButton mode="outlined" onPress={() => setShowCategoryPicker(false)}>Close</PaperButton>
+                </View>
+              </View>
+            </Modal>
+          </View>
+        </>
+      )}
 
       <View style={{ marginBottom: 12 }}>
         <Text style={{ marginBottom: 6, color: '#666' }}>Payment Source</Text>
-        <TouchableOpacity onPress={() => setShowSourcePicker(true)} activeOpacity={0.8} style={{ borderWidth: 1, borderColor: '#eee', padding: 12, borderRadius: 8, backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center' }}>
+        <TouchableOpacity onPress={() => { setSelectingFor('from'); setShowSourcePicker(true) }} activeOpacity={0.8} style={{ borderWidth: 1, borderColor: '#eee', padding: 12, borderRadius: 8, backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center' }}>
           <View style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: '#f0f4ff', alignItems: 'center', justifyContent: 'center', marginRight: 10 }}>
             <MaterialCommunityIcons name={(sources.find(x => x.id === sourceId) || {}).icon || 'cash'} size={18} color={(sources.find(x => x.id === sourceId) || {}).color || '#4B7CF3'} />
           </View>
@@ -201,7 +271,16 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
                   s.name.toLowerCase().includes(srcSearch.toLowerCase()) &&
                   (s.is_active === undefined || s.is_active)
                 ).map(s => ( // Filter active sources
-                  <TouchableOpacity key={s.id} onPress={() => { setSourceId(s.id); setShowSourcePicker(false); }} style={{ flexDirection: 'row', alignItems: 'center', padding: 10, borderBottomWidth: 1, borderColor: '#f3f3f3', backgroundColor: sourceId === s.id ? '#F7FBFF' : '#fff' }}>
+                  <TouchableOpacity key={s.id}
+                    onPress={() => {
+                      if (selectingFor === 'from') {
+                        setSourceId(s.id);
+                      } else {
+                        setToAccount(s.id);
+                      }
+                      setShowSourcePicker(false);
+                    }}
+                    style={{ flexDirection: 'row', alignItems: 'center', padding: 10, borderBottomWidth: 1, borderColor: '#f3f3f3', backgroundColor: sourceId === s.id ? '#F7FBFF' : '#fff' }}>
                     <View style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: '#eef7ff', alignItems: 'center', justifyContent: 'center', marginRight: 12 }}>
                       <MaterialCommunityIcons name={s.icon || 'cash'} size={18} color={(s.color) || '#4B7CF3'} />
                     </View>
@@ -215,6 +294,48 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
           </View>
         </Modal>
       </View>
+
+      {type === 'transfer' && (
+        <View style={{ marginBottom: 12 }}>
+          <Text style={{ marginBottom: 6, color: '#666' }}>To Account</Text>
+          <TouchableOpacity
+            onPress={() => {
+              setSelectingFor('to');
+              setShowSourcePicker(true);
+            }}
+            activeOpacity={0.8}
+            style={{
+              borderWidth: 1,
+              borderColor: '#eee',
+              padding: 12,
+              borderRadius: 8,
+              backgroundColor: '#fff',
+              flexDirection: 'row',
+              alignItems: 'center'
+            }}
+          >
+            <View style={{
+              width: 36,
+              height: 36,
+              borderRadius: 18,
+              backgroundColor: '#eef7ff',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginRight: 12
+            }}>
+              <MaterialCommunityIcons
+                name={(sources.find(x => x.id === toAccount) || {}).icon || 'cash'}
+                size={18}
+                color={(sources.find(x => x.id === toAccount) || {}).color || '#4B7CF3'}
+              />
+            </View>
+
+            <Text style={{ fontSize: 16 }}>
+              {(sources.find(x => x.id === toAccount) || {}).name || 'Select destination account'}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )}
 
       <PaperTextInput label="Notes" value={notes} onChangeText={(t) => { setNotes(t); setNotesError(false); }} mode="outlined" multiline style={{ marginBottom: 12 }} error={notesError} />
       {notesError && <Text style={{ color: '#E46A6A', marginBottom: 8 }}>Notes cannot be empty.</Text>}

@@ -192,7 +192,7 @@ export default function SourcesDetails({ route, navigation }) {
         />
       )}
 
-      {/* ✅ CONFIRM DIALOG */}
+      {/* CONFIRM DIALOG */}
       <ConfirmDialog
         visible={confirmVisible}
         title="Delete Transaction"
