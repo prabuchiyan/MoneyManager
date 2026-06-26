@@ -18,6 +18,7 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
   const [sourceId, setSourceId] = useState(isEdit && transaction ? transaction.source_id : null);
   const [date, setDate] = useState(isEdit && transaction ? transaction.date : new Date().toISOString());
   const [notes, setNotes] = useState(isEdit && transaction ? transaction.notes : '');
+  const [transferGroupId, setTransferGroupId] = useState(isEdit && transaction ? transaction.transfer_group_id : '');
   const [showCategoryPicker, setShowCategoryPicker] = useState(false);
   const [showSourcePicker, setShowSourcePicker] = useState(false);
   const [showDateTimePicker, setShowDateTimePicker] = useState(false);
@@ -28,6 +29,8 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
   const [notesError, setNotesError] = useState(false);
   const [toAccount, setToAccount] = useState(null);
   const [selectingFor, setSelectingFor] = useState('from');
+
+  console.log('Prabu transaction', transaction);
 
   useEffect(() => {
     (async () => {
@@ -97,6 +100,7 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
       setAmount('');
       setNotes('');
       setDate(new Date().toISOString());
+      setTransferGroupId('')
     }
     setAmountError(false);
     setNotesError(false);
@@ -138,8 +142,8 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <View style={{ alignItems: 'center', marginRight: 12 }}>
-              <MaterialCommunityIcons name={(categories.find(x => x.id === categoryId) || {}).icon || 'tag'} size={26} color={(categories.find(x => x.id === categoryId) || {}).color || '#4B7CF3'} />
-              <Text style={{ fontSize: 12 }}>{(categories.find(x => x.id === categoryId) || {}).name || 'Select Category'}</Text>
+              <MaterialCommunityIcons name={(categories.find(x => x.id === categoryId) || {}).icon || 'currency-usd'} size={26} color={(categories.find(x => x.id === categoryId) || {}).color || '#4B7CF3'} />
+              <Text style={{ fontSize: 12 }}>{(categories.find(x => x.id === categoryId) || {}).name || 'Uncategorized'}</Text>
             </View>
             <View style={{ alignItems: 'center' }}>
               <MaterialCommunityIcons name={(sources.find(x => x.id === sourceId) || {}).icon || 'cash'} size={26} color={(sources.find(x => x.id === sourceId) || {}).color || '#4B7CF3'} />
@@ -219,11 +223,15 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
           </View>
 
           <View style={{ marginBottom: 12 }}>
-            <Text style={{ marginBottom: 6, color: '#666' }}>Category</Text>
-            <TouchableOpacity onPress={() => setShowCategoryPicker(true)} activeOpacity={0.8} style={{ borderWidth: 1, borderColor: '#eee', padding: 12, borderRadius: 8, backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center' }}>
-              <MaterialCommunityIcons name={(categories.find(x => x.id === categoryId) || {}).icon || 'tag'} size={20} color={(categories.find(x => x.id === categoryId) || {}).color || '#4B7CF3'} style={{ marginRight: 10 }} />
-              <Text style={{ fontSize: 16 }}>{(categories.find(x => x.id === categoryId) || {}).name || 'Select category'}</Text>
-            </TouchableOpacity>
+            {!transferGroupId &&
+              <>
+                <Text style={{ marginBottom: 6, color: '#666' }}>Category</Text>
+                <TouchableOpacity onPress={() => setShowCategoryPicker(true)} activeOpacity={0.8} style={{ borderWidth: 1, borderColor: '#eee', padding: 12, borderRadius: 8, backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center' }}>
+                  <MaterialCommunityIcons name={(categories.find(x => x.id === categoryId) || {}).icon || 'tag'} size={20} color={(categories.find(x => x.id === categoryId) || {}).color || '#4B7CF3'} style={{ marginRight: 10 }} />
+                  <Text style={{ fontSize: 16 }}>{(categories.find(x => x.id === categoryId) || {}).name || 'Select category'}</Text>
+                </TouchableOpacity>
+              </>
+            }
             <Modal visible={showCategoryPicker} transparent animationType="slide" onRequestClose={() => setShowCategoryPicker(false)}>
               <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'center', padding: 20 }}>
                 <View style={{ backgroundColor: '#fff', padding: 12, borderRadius: 8, maxHeight: '80%' }}>

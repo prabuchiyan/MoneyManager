@@ -331,7 +331,7 @@ export default function CategoriesScreen({ route, navigation }) {
               <TouchableOpacity
                 onPress={() => {
                   const parent = navigation.getParent();
-                  parent?.navigate('CategoriesDetails', { // ✅ FIXED
+                  parent?.navigate('CategoriesDetails', {
                     categoryId: item.id,
                     categoryName: item.name
                   });

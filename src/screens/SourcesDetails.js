@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useLayoutEffect, useCallback } from 'react';
+import React, { useEffect, useState, useLayoutEffect, useCallback, useRef } from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { getTransactions, deleteTransaction } from '../services/transactions';
 import { getCategories } from '../services/categories';
@@ -20,6 +20,9 @@ export default function SourcesDetails({ route, navigation }) {
   const [confirmVisible, setConfirmVisible] = useState(false);
   const [confirmTargetId, setConfirmTargetId] = useState(null);
 
+  const flatListRef = useRef(null);
+  const lastOffset = useRef(0);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       title: sourceName
@@ -30,7 +33,7 @@ export default function SourcesDetails({ route, navigation }) {
     try {
       setLoading(true);
       const [txData, catData] = await Promise.all([
-        getTransactions(1000000, sourceId),
+        getTransactions(1000000, null, sourceId),
         getCategories(true)
       ]);
 
@@ -39,6 +42,13 @@ export default function SourcesDetails({ route, navigation }) {
 
       setCategoriesMap(cmap);
       setTransactions(txData);
+
+      requestAnimationFrame(() => {
+        flatListRef.current?.scrollToOffset({
+          offset: lastOffset.current,
+          animated: false,
+        });
+      });
     } catch (error) {
       console.error('Error loading transactions:', error);
     } finally {
@@ -116,7 +126,7 @@ export default function SourcesDetails({ route, navigation }) {
 
           <View style={[styles.iconContainer, { backgroundColor: (category.color || '#eee') + '15' }]}>
             <MaterialCommunityIcons
-              name={category.icon || 'tag'}
+              name={category.icon || 'currency-usd'}
               size={22}
               color={category.color || Colors.muted}
             />
@@ -184,11 +194,16 @@ export default function SourcesDetails({ route, navigation }) {
         </View>
       ) : (
         <FlatList
+          ref={flatListRef}
           data={transactions}
           keyExtractor={(item) => item.id.toString()}
           renderItem={renderItem}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 40 }}
+          onScroll={(e) => {
+            lastOffset.current = e.nativeEvent.contentOffset.y;
+          }}
+          scrollEventThrottle={16}
         />
       )}
 

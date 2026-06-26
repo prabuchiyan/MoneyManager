@@ -23,6 +23,7 @@ export async function getCategorySpending(month = null) {
   const cats = await getCategories(true);
   const byId = {};
   const m = month || new Date().toISOString().slice(0, 7);
+  console.log('Prabu tx', tx);
   tx.forEach(t => {
     if (t.type !== 'expense') return;
     if (!t.date || !t.date.startsWith(m)) return;

@@ -112,6 +112,7 @@ function matchesPeriod(txDate, period, referenceDate = new Date()) {
 
 export async function getTransactions(
   limit = 100,
+  isTransferInclude = 'No',
   sourceId = null,
   categoryId = null,
   period = null,
@@ -157,8 +158,10 @@ export async function getTransactions(
 
     // Filter by period in JS
     const filtered = rows.filter((row) => {
-      const txDate = parseTransactionDate(row.date);
 
+      if (isTransferInclude === 'No' && row.transfer_group_id !== null) return false;
+
+      const txDate = parseTransactionDate(row.date);
       if (!txDate) {
         console.warn('Invalid transaction date:', row.id, row.date);
         return false;
@@ -212,7 +215,6 @@ export async function createTransfer({
   await createTransaction({
     type: 'expense',
     amount,
-    category_id: 44 || null, // Update Dynamic or null
     source_id: fromAccount,
     date,
     notes: note || 'Transfer',
@@ -224,7 +226,6 @@ export async function createTransfer({
   await createTransaction({
     type: 'income',
     amount,
-    category_id: 44 || null, // Update Dynamic or null
     source_id: toAccount,
     date,
     notes: note || 'Transfer',

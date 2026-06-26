@@ -247,7 +247,7 @@ export default function CategoriesDetails({ route, navigation }) {
       setLoading(true);
 
       const [txData, catData] = await Promise.all([
-        getTransactions(1000000, null, categoryId, period),
+        getTransactions(1000000, null, null, categoryId, period),
         getCategories(true)
       ]);
 

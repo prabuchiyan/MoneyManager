@@ -22,7 +22,7 @@ export default function TransactionsScreen({ navigation }) {
   const [searchQuery, setSearchQuery] = useState('');
 
   async function load() {
-    const t = await getTransactions(1000000);
+    const t = await getTransactions(1000000, 'Yes');
     setItems(t);
     const cats = await getCategories(true);
     setCategories(cats);
@@ -88,7 +88,7 @@ export default function TransactionsScreen({ navigation }) {
                   return (
                     <Avatar.Icon
                       size={40}
-                      icon={cat?.icon || 'tag'}
+                      icon={cat?.icon || 'currency-usd'}
                       style={{ backgroundColor: (cat?.color || '#eee') + '15', marginRight: 12 }}
                       color={cat?.color || '#999'}
                     />

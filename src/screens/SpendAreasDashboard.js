@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
-import { getCategorySpending, getSourceBalances } from '../services/reports';
-import { getBudgetsWithRemaining } from '../services/budgets';
-import { getTransactions } from '../services/transactions';
+import { getCategorySpending } from '../services/reports';
 import { getCategories } from '../services/categories';
 import { Avatar } from 'react-native-paper';
 import Card from '../components/Card';

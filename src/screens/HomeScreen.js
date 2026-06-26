@@ -8,7 +8,7 @@ import { getBills, getBillsSummary } from '../services/bills';
 import { getBillDisplayStatus, formatCurrency } from '../services/billUtils';
 import { getSources } from '../services/sources';
 import ConfirmDialog from '../components/ConfirmDialog';
-import { getCategories, softDeleteCategory } from '../services/categories';
+import { getCategories } from '../services/categories';
 import { Avatar, Button as PaperButton } from 'react-native-paper';
 import events from '../services/events';
 import Card from '../components/Card';
@@ -190,7 +190,7 @@ export default function HomeScreen({ navigation }) {
     }
     // recent transactions
     try {
-      const tx = await getTransactions(3);
+      const tx = await getTransactions(3, 'Yes');
       setRecentTx(tx);
     } catch (e) {
       // ignore

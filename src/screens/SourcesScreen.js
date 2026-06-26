@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo, useCallback } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 import { getSources, deleteSource } from '../services/sources';
@@ -10,7 +11,7 @@ import SourceCreateModal from '../components/SourceCreateModal';
 import { Searchbar, Avatar } from 'react-native-paper';
 import FAB from '../components/FAB';
 
-export default function SourcesScreen() {
+export default function SourcesScreen({ route, navigation }) {
 
   const [items, setItems] = useState([]);
   const [confirmVisible, setConfirmVisible] = useState(false);
@@ -21,7 +22,7 @@ export default function SourcesScreen() {
 
   async function load() {
     const sources = await getSources(true);
-    const transactions = await getTransactions(1000000);
+    const transactions = await getTransactions(1000000, 'Yes');
 
     const balanceMap = transactions.reduce((acc, txn) => {
       const amt = Number(txn.amount || 0);
@@ -51,6 +52,12 @@ export default function SourcesScreen() {
 
   useEffect(() => { load(); }, []);
 
+  useFocusEffect(
+    useCallback(() => {
+      load();
+    }, [])
+  );
+
   const filteredItems = useMemo(() => {
     if (!searchQuery) return items;
     const q = searchQuery.toLowerCase();
@@ -75,7 +82,6 @@ export default function SourcesScreen() {
           inputStyle={{ fontSize: 14 }}
         />
       </View>
-
       <FlatList
         data={filteredItems}
         keyExtractor={(i) => String(i.id)}
@@ -89,71 +95,83 @@ export default function SourcesScreen() {
         initialNumToRender={15}
         windowSize={10}
         renderItem={({ item }) => (
-          <Card style={{ marginBottom: Spacing.s }}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-              <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
-                <Avatar.Icon
-                  size={40}
-                  icon={item.icon || 'cash'}
-                  style={{
-                    backgroundColor: (item.color || Colors.primary) + '15',
-                    marginRight: 12
-                  }}
-                  color={item.color || Colors.primary}
-                />
 
-                <View style={{ flex: 1 }}>
+
+          <TouchableOpacity
+            onPress={() => {
+              const parent = navigation.getParent();
+              parent?.navigate('SourcesDetails', {
+                sourceId: item.id,
+                sourceName: item.name
+              });
+            }}
+          >
+            <Card style={{ marginBottom: Spacing.s }}>
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+                  <Avatar.Icon
+                    size={40}
+                    icon={item.icon || 'cash'}
+                    style={{
+                      backgroundColor: (item.color || Colors.primary) + '15',
+                      marginRight: 12
+                    }}
+                    color={item.color || Colors.primary}
+                  />
+
+                  <View style={{ flex: 1 }}>
+                    <Text
+                      numberOfLines={1}
+                      style={{ fontWeight: '700', fontSize: 15, color: Colors.text }}
+                    >
+                      {item.name}
+                    </Text>
+
+                    <Text style={{ color: Colors.muted, fontSize: 12, marginTop: 2 }}>
+                      Available balance
+                    </Text>
+                  </View>
+                </View>
+
+                <View style={{ alignItems: 'flex-end', marginLeft: 8 }}>
                   <Text
-                    numberOfLines={1}
-                    style={{ fontWeight: '700', fontSize: 15, color: Colors.text }}
-                  >
-                    {item.name}
-                  </Text>
-
-                  <Text style={{ color: Colors.muted, fontSize: 12, marginTop: 2 }}>
-                    Available balance
-                  </Text>
-                </View>
-              </View>
-
-              <View style={{ alignItems: 'flex-end', marginLeft: 8 }}>
-                <Text
-                  style={{
-                    fontWeight: '800',
-                    fontSize: 16,
-                    color: Number(item.balance || 0) < 0 ? '#E46A6A' : '#36B37E'
-                  }}
-                >
-                  ₹{Number(item.balance || 0).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
-                </Text>
-
-                <Text style={{ color: Colors.muted, fontSize: 10, marginTop: 2 }}>
-                  Balance
-                </Text>
-
-                <View style={{ flexDirection: 'row', marginTop: 8 }}>
-                  <TouchableOpacity
-                    onPress={() => {
-                      setEditSource(item);
-                      setShowModal(true);
-                    }}
-                    style={{ marginRight: 10 }}
-                  >
-                    <Feather name="edit-2" size={16} color={Colors.primary} />
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    onPress={() => {
-                      setConfirmTargetId(item.id);
-                      setConfirmVisible(true);
+                    style={{
+                      fontWeight: '800',
+                      fontSize: 16,
+                      color: Number(item.balance || 0) < 0 ? '#E46A6A' : '#36B37E'
                     }}
                   >
-                    <Feather name="trash-2" size={16} color="#E46A6A" />
-                  </TouchableOpacity>
+                    ₹{Number(item.balance || 0).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
+                  </Text>
+
+                  <Text style={{ color: Colors.muted, fontSize: 10, marginTop: 2 }}>
+                    Balance
+                  </Text>
+
+                  <View style={{ flexDirection: 'row', marginTop: 8 }}>
+                    <TouchableOpacity
+                      onPress={() => {
+                        setEditSource(item);
+                        setShowModal(true);
+                      }}
+                      style={{ marginRight: 10 }}
+                    >
+                      <Feather name="edit-2" size={16} color={Colors.primary} />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                      onPress={() => {
+                        setConfirmTargetId(item.id);
+                        setConfirmVisible(true);
+                      }}
+                    >
+                      <Feather name="trash-2" size={16} color="#E46A6A" />
+                    </TouchableOpacity>
+                  </View>
                 </View>
               </View>
-            </View>
-          </Card>
+            </Card>
+          </TouchableOpacity>
         )}
       />
 
