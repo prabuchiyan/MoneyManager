@@ -35,17 +35,12 @@ export async function initDB() {
       date TEXT,
       notes TEXT,
       bill_id INTEGER,
+      transfer_group_id TEXT,
+      direction TEXT,
       created_at TEXT DEFAULT (datetime('now')),
       FOREIGN KEY(category_id) REFERENCES categories(id),
       FOREIGN KEY(source_id) REFERENCES sources(id)
     );`);
-
-    // ADD NEW COLUMNS
-    await executeSql(`ALTER TABLE transactions ADD COLUMN transfer_group_id TEXT;`)
-      .catch(() => { });
-    await executeSql(`ALTER TABLE transactions ADD COLUMN direction TEXT;`)
-      .catch(() => { });
-
 
     // Budgets
     await executeSql(`CREATE TABLE IF NOT EXISTS budgets (
