@@ -26,7 +26,7 @@ export async function getCategorySpending(month = null) {
   console.log('Prabu tx', tx);
   tx.forEach(t => {
     if (t.type !== 'expense') return;
-    if (!t.date || !t.date.startsWith(m)) return;
+    if (!t.date || !String(t.date).startsWith(m)) return;
     const cid = t.category_id || 'uncategorized';
     byId[cid] = (byId[cid] || 0) + (parseFloat(t.amount) || 0);
   });
@@ -46,7 +46,7 @@ export async function getMonthlyTrends(months = 6) {
   for (let i = months - 1; i >= 0; i--) {
     const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
     const m = d.toISOString().slice(0, 7);
-    const monthTx = tx.filter(t => t.date && t.date.startsWith(m));
+    const monthTx = tx.filter(t => t.date && String(t.date).startsWith(m));
     const income = monthTx.filter(t => t.type === 'income').reduce((s, t) => s + (parseFloat(t.amount) || 0), 0);
     const expense = monthTx.filter(t => t.type === 'expense').reduce((s, t) => s + (parseFloat(t.amount) || 0), 0);
     trends.push({ month: m, income, expense });
@@ -72,21 +72,23 @@ export function groupTransactions(transactions, mode) {
 
   transactions.forEach(tx => {
     const amount = Number(tx.amount) || 0;
-    const dateObj = new Date(tx.date);
+    const rawDate = tx.date ? String(tx.date) : '';
+    const dateStr = rawDate.replace(' ', 'T');
+    const dateObj = new Date(dateStr || rawDate);
     if (isNaN(dateObj.getTime())) return;
 
     let key = '';
     if (mode === 'daily') {
-      key = tx.date.split('T')[0];
+      key = dateStr.split('T')[0];
     } else if (mode === 'weekly') {
       const day = dateObj.getDay();
       const diff = dateObj.getDate() - day;
       const weekStart = new Date(dateObj.setDate(diff));
       key = weekStart.toISOString().split('T')[0];
     } else if (mode === 'monthly') {
-      key = tx.date.substring(0, 7);
+      key = dateStr.substring(0, 7);
     } else if (mode === 'yearly') {
-      key = tx.date.substring(0, 4);
+      key = dateStr.substring(0, 4);
     }
 
     if (!groups[key]) {
@@ -110,10 +112,6 @@ export function groupTransactions(transactions, mode) {
   const result = Object.values(groups);
   result.sort((a, b) => b.label.localeCompare(a.label));
   
-  if (mode === 'daily') return result.slice(0, 7);
-  if (mode === 'weekly') return result.slice(0, 8);
-  if (mode === 'monthly') return result.slice(0, 12);
-  if (mode === 'yearly') return result.slice(0, 5);
   return result;
 }
 

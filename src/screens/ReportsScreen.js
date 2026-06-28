@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { View, Text, ScrollView, StyleSheet, ActivityIndicator } from 'react-native';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import { View, Text, ScrollView, StyleSheet, ActivityIndicator, FlatList, Platform, Pressable } from 'react-native';
 import { Chip } from 'react-native-paper';
 import { getTransactions } from '../services/transactions';
 import { getCategories } from '../services/categories';
@@ -8,13 +8,55 @@ import Card from '../components/Card';
 import { Colors, Spacing } from '../components/Theme';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+const ReportItemCard = React.memo(({ data, categoriesMap }) => {
+  return (
+    <Card style={styles.itemCard}>
+      <View style={styles.cardHeader}>
+        <Text style={styles.periodLabel}>{data.label}</Text>
+        <Text style={[styles.netBalance, { color: data.balance >= 0 ? '#36B37E' : '#E46A6A' }]}>
+          Net: ₹{data.balance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
+        </Text>
+      </View>
+      <View style={styles.detailsRow}>
+        <Text style={styles.incomeText}>+ ₹{data.income.toLocaleString('en-IN')}</Text>
+        <Text style={styles.expenseText}>- ₹{data.expense.toLocaleString('en-IN')}</Text>
+      </View>
+
+      <View style={styles.categoryBreakdown}>
+        {Object.entries(data.categories).map(([cid, totals]) => {
+          const cat = categoriesMap[cid] || { name: 'Uncategorized', icon: 'help-circle', color: '#999' };
+          const isExpense = totals.expense > 0;
+          return (
+            <View key={cid} style={styles.catRow}>
+              <View style={styles.catInfo}>
+                <MaterialCommunityIcons
+                  name={cat.icon || 'tag'}
+                  size={16}
+                  color={cat.color}
+                  style={{ marginRight: 6 }}
+                />
+                <Text style={styles.catName}>{cat.name}</Text>
+              </View>
+              <Text style={[styles.catAmount, { color: isExpense ? '#E46A6A' : '#36B37E' }]}>
+                {isExpense ? '-' : '+'}₹{(isExpense ? totals.expense : totals.income).toLocaleString('en-IN')}
+              </Text>
+            </View>
+          );
+        })}
+      </View>
+    </Card>
+  );
+});
+
 export default function ReportsScreen() {
   const [transactions, setTransactions] = useState([]);
   const [categoriesMap, setCategoriesMap] = useState({});
   const [mode, setMode] = useState('monthly');
+  const [selectedPeriod, setSelectedPeriod] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let active = true;
     async function loadData() {
       try {
         setLoading(true);
@@ -22,22 +64,37 @@ export default function ReportsScreen() {
           getTransactions(1000000),
           getCategories(true)
         ]);
-        const cmap = {};
-        cats.forEach(c => { cmap[c.id] = c; });
-        setCategoriesMap(cmap);
-        setTransactions(tx);
+        if (active) {
+          const cmap = {};
+          cats.forEach(c => { cmap[c.id] = c; });
+          setCategoriesMap(cmap);
+          setTransactions(tx);
+        }
       } catch (e) {
         console.error(e);
       } finally {
-        setLoading(false);
+        if (active) {
+          setLoading(false);
+        }
       }
     }
     loadData();
+    return () => { active = false; };
+  }, []);
+
+  const handleModeChange = useCallback((newMode) => {
+    setMode(newMode);
+    setSelectedPeriod(null);
   }, []);
 
   const reportData = useMemo(() => {
     return groupTransactions(transactions, mode);
   }, [transactions, mode]);
+
+  const filteredReportData = useMemo(() => {
+    if (!selectedPeriod) return reportData;
+    return reportData.filter(d => d.label === selectedPeriod);
+  }, [reportData, selectedPeriod]);
 
   const maxAmount = useMemo(() => {
     if (!reportData || reportData.length === 0) return 100;
@@ -46,35 +103,25 @@ export default function ReportsScreen() {
     return max > 0 ? max : 100;
   }, [reportData]);
 
-  const formatLabel = (label) => {
+  const formatLabel = useCallback((label) => {
     if (mode === 'daily') return label.substring(5);
     if (mode === 'monthly') {
-      const [year, month] = label.split('-');
+      const parts = label.split('-');
+      if (parts.length < 2) return label;
+      const year = parts[0].substring(2);
+      const month = parts[1];
       const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-      return `${months[parseInt(month, 10) - 1]}`;
+      const index = parseInt(month, 10) - 1;
+      const monthName = months[index] || month;
+      return `${monthName} '${year}`;
     }
     if (mode === 'weekly') return `Wk ${label.substring(8, 10)}`;
     return label;
-  };
+  }, [mode]);
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.tabContainer}>
-        {['daily', 'weekly', 'monthly', 'yearly'].map((m) => (
-          <Chip
-            key={m}
-            mode="outlined"
-            selected={mode === m}
-            onPress={() => setMode(m)}
-            style={[styles.chip, mode === m && { borderColor: Colors.primary, backgroundColor: '#e6f7ff' }]}
-            selectedColor={Colors.primary}
-          >
-            {m.charAt(0).toUpperCase() + m.slice(1)}
-          </Chip>
-        ))}
-      </View>
-
-      <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
+  const renderHeader = useMemo(() => {
+    return (
+      <View>
         <Card style={styles.chartCard}>
           <Text style={styles.chartTitle}>Income vs Expense Chart</Text>
           {loading ? (
@@ -85,30 +132,55 @@ export default function ReportsScreen() {
           ) : reportData.length === 0 ? (
             <Text style={styles.emptyText}>No data available for the selected period</Text>
           ) : (
-            <View style={styles.chartOuterRow}>
-              {reportData.map((data, idx) => (
-                <View key={idx} style={styles.chartColumn}>
-                  <View style={styles.barContainer}>
-                    <View
-                      style={[
-                        styles.bar,
-                        styles.incomeBar,
-                        { height: `${Math.max((data.income / maxAmount) * 100, 2)}%` }
-                      ]}
-                    />
-                    <View
-                      style={[
-                        styles.bar,
-                        styles.expenseBar,
-                        { height: `${Math.max((data.expense / maxAmount) * 100, 2)}%` }
-                      ]}
-                    />
-                  </View>
-                  <Text style={styles.axisLabel} numberOfLines={1}>
-                    {formatLabel(data.label)}
-                  </Text>
+            <View>
+              <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chartScrollContainer}>
+                <View style={styles.chartOuterRow}>
+                  {reportData.map((data, idx) => {
+                    const isSelected = selectedPeriod === data.label;
+                    return (
+                      <Pressable
+                        key={idx}
+                        onPress={() => setSelectedPeriod(prev => prev === data.label ? null : data.label)}
+                        style={[
+                          styles.chartColumn,
+                          selectedPeriod && !isSelected && { opacity: 0.4 }
+                        ]}
+                      >
+                        <View style={[
+                          styles.barContainer,
+                          isSelected && styles.selectedBarContainer
+                        ]}>
+                          <View
+                            style={[
+                              styles.bar,
+                              styles.incomeBar,
+                              { height: `${Math.max((data.income / maxAmount) * 100, 2)}%` }
+                            ]}
+                          />
+                          <View
+                            style={[
+                              styles.bar,
+                              styles.expenseBar,
+                              { height: `${Math.max((data.expense / maxAmount) * 100, 2)}%` }
+                            ]}
+                          />
+                        </View>
+                        <Text style={[styles.axisLabel, isSelected && styles.selectedAxisLabel]} numberOfLines={1}>
+                          {formatLabel(data.label)}
+                        </Text>
+                      </Pressable>
+                    );
+                  })}
                 </View>
-              ))}
+              </ScrollView>
+              {selectedPeriod && (
+                <View style={styles.filterBanner}>
+                  <Text style={styles.filterText}>Filtering: {formatLabel(selectedPeriod)}</Text>
+                  <Pressable onPress={() => setSelectedPeriod(null)}>
+                    <Text style={styles.clearFilterText}>Clear Filter</Text>
+                  </Pressable>
+                </View>
+              )}
             </View>
           )}
 
@@ -125,127 +197,163 @@ export default function ReportsScreen() {
             </View>
           )}
         </Card>
+      </View>
+    );
+  }, [loading, reportData, maxAmount, formatLabel, selectedPeriod]);
 
-        {!loading && reportData.map((data, idx) => (
-          <Card key={idx} style={styles.itemCard}>
-            <View style={styles.cardHeader}>
-              <Text style={styles.periodLabel}>{data.label}</Text>
-              <Text style={[styles.netBalance, { color: data.balance >= 0 ? '#36B37E' : '#E46A6A' }]}>
-                Net: ₹{data.balance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
-              </Text>
-            </View>
-            <View style={styles.detailsRow}>
-              <Text style={styles.incomeText}>+ ₹{data.income.toLocaleString('en-IN')}</Text>
-              <Text style={styles.expenseText}>- ₹{data.expense.toLocaleString('en-IN')}</Text>
-            </View>
+  const renderItem = useCallback(({ item }) => {
+    return <ReportItemCard data={item} categoriesMap={categoriesMap} />;
+  }, [categoriesMap]);
 
-            <View style={styles.categoryBreakdown}>
-              {Object.entries(data.categories).map(([cid, totals]) => {
-                const cat = categoriesMap[cid] || { name: 'Uncategorized', icon: 'help-circle', color: '#999' };
-                const isExpense = totals.expense > 0;
-                return (
-                  <View key={cid} style={styles.catRow}>
-                    <View style={styles.catInfo}>
-                      <MaterialCommunityIcons
-                        name={cat.icon || 'tag'}
-                        size={16}
-                        color={cat.color}
-                        style={{ marginRight: 6 }}
-                      />
-                      <Text style={styles.catName}>{cat.name}</Text>
-                    </View>
-                    <Text style={[styles.catAmount, { color: isExpense ? '#E46A6A' : '#36B37E' }]}>
-                      {isExpense ? '-' : '+'}₹{(isExpense ? totals.expense : totals.income).toLocaleString('en-IN')}
-                    </Text>
-                  </View>
-                );
-              })}
-            </View>
-          </Card>
+  return (
+    <View style={styles.container}>
+      <View style={styles.tabContainer}>
+        {['daily', 'weekly', 'monthly', 'yearly'].map((m) => (
+          <Chip
+            key={m}
+            mode="outlined"
+            selected={mode === m}
+            onPress={() => handleModeChange(m)}
+            style={[styles.chip, mode === m && { borderColor: Colors.primary, backgroundColor: '#e6f7ff' }]}
+            selectedColor={Colors.primary}
+          >
+            {m.charAt(0).toUpperCase() + m.slice(1)}
+          </Chip>
         ))}
-      </ScrollView>
+      </View>
+
+      {loading && reportData.length === 0 ? (
+        <View style={styles.loaderContainer}>
+          <ActivityIndicator size="large" color={Colors.primary} />
+          <Text style={styles.loadingText}>Loading report...</Text>
+        </View>
+      ) : (
+        <FlatList
+          data={filteredReportData}
+          keyExtractor={item => item.label}
+          renderItem={renderItem}
+          ListHeaderComponent={renderHeader}
+          contentContainerStyle={{ paddingBottom: 40 }}
+          initialNumToRender={10}
+          maxToRenderPerBatch={10}
+          windowSize={5}
+          removeClippedSubviews={Platform.OS !== 'web'}
+        />
+      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: Colors.background, padding: Spacing.m },
-  tabContainer: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 16 },
-  chip: { flex: 1, marginHorizontal: 2, alignItems: 'center', justifyContent: 'center' },
+  container: {
+    flex: 1,
+    backgroundColor: Colors.background,
+    padding: Spacing.m,
+    alignSelf: 'center',
+    width: '100%',
+    maxWidth: 600,
+  },
+  tabContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+    gap: 8,
+  },
+  chip: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 8,
+  },
   chartCard: {
     width: '100%',
     marginBottom: 16,
-    borderRadius: 16
+    borderRadius: 16,
+    padding: 16,
   },
   chartTitle: {
     fontSize: 16,
     fontWeight: '700',
     color: Colors.text,
     marginBottom: 20,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   loaderContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 40
+    marginVertical: 40,
   },
   loadingText: {
     marginTop: 10,
-    color: Colors.muted
+    color: Colors.muted,
+  },
+  chartScrollContainer: {
+    paddingHorizontal: 8,
   },
   chartOuterRow: {
     flexDirection: 'row',
     alignItems: 'flex-end',
     height: 160,
-    width: '100%',
-    justifyContent: 'space-between'
   },
   chartColumn: {
-    flex: 1,
+    width: 50,
     alignItems: 'center',
-    marginHorizontal: 4,
+    marginHorizontal: 8,
   },
   barContainer: {
     flexDirection: 'row',
     alignItems: 'flex-end',
-    height: '85%',
+    height: 120,
     justifyContent: 'center',
-    width: '100%'
+    width: '100%',
   },
-  bar: { width: 8, borderRadius: 4, marginHorizontal: 1.5 },
-  incomeBar: { backgroundColor: '#36B37E' },
-  expenseBar: { backgroundColor: '#E46A6A' },
+  bar: {
+    width: 10,
+    borderRadius: 5,
+    marginHorizontal: 2,
+  },
+  incomeBar: {
+    backgroundColor: '#36B37E',
+  },
+  expenseBar: {
+    backgroundColor: '#E46A6A',
+  },
   axisLabel: {
     fontSize: 11,
     color: Colors.muted,
-    marginTop: 6,
-    textAlign: 'center'
+    marginTop: 8,
+    textAlign: 'center',
   },
   legendRow: {
     flexDirection: 'row',
     justifyContent: 'center',
     gap: 16,
-    marginTop: 16
+    marginTop: 16,
   },
   legendItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6
+    gap: 6,
   },
-  dot: { width: 10, height: 10, borderRadius: 5 },
+  dot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+  },
   legendText: {
     fontSize: 12,
     color: Colors.text,
-    fontWeight: '500'
+    fontWeight: '500',
   },
   emptyText: {
     color: Colors.muted,
     marginVertical: 40,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   itemCard: {
-    marginBottom: 10,
-    borderRadius: 12
+    marginBottom: 12,
+    borderRadius: 12,
+    padding: 16,
   },
   cardHeader: {
     flexDirection: 'row',
@@ -253,54 +361,84 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderBottomWidth: 1,
     borderColor: '#f5f5f5',
-    paddingBottom: 8
+    paddingBottom: 10,
   },
   periodLabel: {
     fontSize: 14,
     fontWeight: '700',
-    color: Colors.text
+    color: Colors.text,
   },
   netBalance: {
     fontSize: 14,
-    fontWeight: '800'
+    fontWeight: '800',
   },
   detailsRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 10
+    marginTop: 12,
   },
   incomeText: {
     fontSize: 13,
     color: '#36B37E',
-    fontWeight: '600'
+    fontWeight: '600',
   },
   expenseText: {
     fontSize: 13,
     color: '#E46A6A',
-    fontWeight: '600'
+    fontWeight: '600',
   },
   categoryBreakdown: {
     marginTop: 12,
-    paddingTop: 8,
+    paddingTop: 10,
     borderTopWidth: 1,
-    borderTopColor: '#f9f9f9'
+    borderTopColor: '#f9f9f9',
   },
   catRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 4
+    marginBottom: 6,
   },
   catInfo: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   catName: {
     fontSize: 12,
-    color: Colors.text
+    color: Colors.text,
   },
   catAmount: {
     fontSize: 12,
-    fontWeight: '600'
-  }
+    fontWeight: '600',
+  },
+  selectedBarContainer: {
+    borderBottomWidth: 3,
+    borderColor: Colors.primary,
+    paddingBottom: 2,
+  },
+  selectedAxisLabel: {
+    color: Colors.primary,
+    fontWeight: '700',
+  },
+  filterBanner: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#e6f7ff',
+    padding: 10,
+    borderRadius: 8,
+    marginTop: 12,
+    marginHorizontal: 8,
+  },
+  filterText: {
+    fontSize: 13,
+    color: Colors.primary,
+    fontWeight: '600',
+  },
+  clearFilterText: {
+    fontSize: 13,
+    color: Colors.primary,
+    fontWeight: '700',
+    textDecorationLine: 'underline',
+  },
 });
