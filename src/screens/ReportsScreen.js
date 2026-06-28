@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { View, Text, ScrollView, StyleSheet, ActivityIndicator, FlatList, Platform, Pressable } from 'react-native';
 import { Chip } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
 import { getTransactions } from '../services/transactions';
 import { getCategories } from '../services/categories';
 import { groupTransactions } from '../services/reports';
@@ -8,7 +9,7 @@ import Card from '../components/Card';
 import { Colors, Spacing } from '../components/Theme';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const ReportItemCard = React.memo(({ data, categoriesMap }) => {
+const ReportItemCard = React.memo(({ data, categoriesMap, onCategoryPress }) => {
   return (
     <Card style={styles.itemCard}>
       <View style={styles.cardHeader}>
@@ -27,7 +28,14 @@ const ReportItemCard = React.memo(({ data, categoriesMap }) => {
           const cat = categoriesMap[cid] || { name: 'Uncategorized', icon: 'help-circle', color: '#999' };
           const isExpense = totals.expense > 0;
           return (
-            <View key={cid} style={styles.catRow}>
+            <Pressable
+              key={cid}
+              style={({ pressed }) => [
+                styles.catRow,
+                pressed && { backgroundColor: '#f0f0f0', borderRadius: 4 }
+              ]}
+              onPress={() => onCategoryPress(cid, data.label)}
+            >
               <View style={styles.catInfo}>
                 <MaterialCommunityIcons
                   name={cat.icon || 'tag'}
@@ -37,10 +45,13 @@ const ReportItemCard = React.memo(({ data, categoriesMap }) => {
                 />
                 <Text style={styles.catName}>{cat.name}</Text>
               </View>
-              <Text style={[styles.catAmount, { color: isExpense ? '#E46A6A' : '#36B37E' }]}>
-                {isExpense ? '-' : '+'}₹{(isExpense ? totals.expense : totals.income).toLocaleString('en-IN')}
-              </Text>
-            </View>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Text style={[styles.catAmount, { color: isExpense ? '#E46A6A' : '#36B37E' }]}>
+                  {isExpense ? '-' : '+'}₹{(isExpense ? totals.expense : totals.income).toLocaleString('en-IN')}
+                </Text>
+                <MaterialCommunityIcons name="chevron-right" size={16} color="#ccc" style={{ marginLeft: 4 }} />
+              </View>
+            </Pressable>
           );
         })}
       </View>
@@ -54,6 +65,7 @@ export default function ReportsScreen() {
   const [mode, setMode] = useState('monthly');
   const [selectedPeriod, setSelectedPeriod] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigation = useNavigation();
 
   useEffect(() => {
     let active = true;
@@ -86,6 +98,14 @@ export default function ReportsScreen() {
     setMode(newMode);
     setSelectedPeriod(null);
   }, []);
+
+  const handleCategoryPress = useCallback((categoryId, periodLabel) => {
+    navigation.navigate('SpendAreasDashboard', {
+      categoryId,
+      periodLabel,
+      mode
+    });
+  }, [navigation, mode]);
 
   const reportData = useMemo(() => {
     return groupTransactions(transactions, mode);
@@ -202,8 +222,8 @@ export default function ReportsScreen() {
   }, [loading, reportData, maxAmount, formatLabel, selectedPeriod]);
 
   const renderItem = useCallback(({ item }) => {
-    return <ReportItemCard data={item} categoriesMap={categoriesMap} />;
-  }, [categoriesMap]);
+    return <ReportItemCard data={item} categoriesMap={categoriesMap} onCategoryPress={handleCategoryPress} />;
+  }, [categoriesMap, handleCategoryPress]);
 
   return (
     <View style={styles.container}>

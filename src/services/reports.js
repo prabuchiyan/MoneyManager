@@ -18,15 +18,33 @@ export async function getTotalBalance() {
   return { initial, income, expense, balance: initial + income - expense };
 }
 
-export async function getCategorySpending(month = null) {
+export async function getCategorySpending(period = null, mode = 'monthly') {
   const tx = await getTransactions(1000000);
   const cats = await getCategories(true);
   const byId = {};
-  const m = month || new Date().toISOString().slice(0, 7);
-  console.log('Prabu tx', tx);
+
+  let filterFn;
+  if (!period) {
+    const currentMonth = new Date().toISOString().slice(0, 7);
+    filterFn = (dateStr) => dateStr.startsWith(currentMonth);
+  } else if (mode === 'daily' || mode === 'monthly' || mode === 'yearly') {
+    filterFn = (dateStr) => dateStr.startsWith(period);
+  } else if (mode === 'weekly') {
+    const weekStart = new Date(period);
+    const weekEnd = new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
+    filterFn = (dateStr) => {
+      const d = new Date(dateStr);
+      return d >= weekStart && d < weekEnd;
+    };
+  } else {
+    filterFn = () => true;
+  }
+
   tx.forEach(t => {
     if (t.type !== 'expense') return;
-    if (!t.date || !String(t.date).startsWith(m)) return;
+    if (!t.date) return;
+    const dateStr = String(t.date).replace(' ', 'T');
+    if (!filterFn(dateStr)) return;
     const cid = t.category_id || 'uncategorized';
     byId[cid] = (byId[cid] || 0) + (parseFloat(t.amount) || 0);
   });

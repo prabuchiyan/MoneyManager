@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState, useMemo, useCallback, useRef } from 'react';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 import { getCategorySpending } from '../services/reports';
 import { getCategories } from '../services/categories';
-import { Avatar } from 'react-native-paper';
+import { getTransactions } from '../services/transactions';
+import { Avatar, Chip } from 'react-native-paper';
 import Card from '../components/Card';
 import { Colors, Spacing } from '../components/Theme';
 
@@ -61,53 +62,197 @@ function CategoryDonut({ data = [], categoriesMap = {} }) {
   );
 }
 
-export default function HomeScreen({ navigation }) {
-  const [topCategories, setTopCategories] = useState([]);
+export default function SpendAreasDashboard({ route, navigation }) {
+  const params = route?.params || {};
+  
+  const [transactions, setTransactions] = useState([]);
   const [categoriesMap, setCategoriesMap] = useState({});
+  const [filterMode, setFilterMode] = useState(params.mode || 'monthly');
+  const [selectedPeriod, setSelectedPeriod] = useState(params.periodLabel || null);
 
-  async function load() {
+  async function loadInitialData() {
     try {
       const catsAll = await getCategories(true);
       const cmap = {};
       catsAll.forEach(c => { cmap[c.id] = c; });
       setCategoriesMap(cmap);
+
+      const tx = await getTransactions(1000000);
+      setTransactions(tx);
     } catch (e) {
-      console.error('Error loading categories:', e);
+      console.error('Error loading dashboard data:', e);
     }
-    const cats = await getCategorySpending();
-    setTopCategories(cats);
   }
 
   useEffect(() => {
-    (async () => {
-      await load();
-    })();
+    loadInitialData();
   }, []);
 
-  const totalSpend = topCategories.reduce(
-    (sum, c) => sum + Number(c.amount || 0),
-    0
-  );
+  // Sync state if parameters change
+  useEffect(() => {
+    if (params.mode) {
+      setFilterMode(params.mode);
+    }
+    if (params.periodLabel) {
+      setSelectedPeriod(params.periodLabel);
+    }
+  }, [params.mode, params.periodLabel]);
+
+  // Compute all unique periods available in transactions for the selected filterMode
+  const allPeriods = useMemo(() => {
+    if (transactions.length === 0) return [];
+    const periods = new Set();
+    transactions.forEach(t => {
+      if (!t.date) return;
+      const dateStr = String(t.date).replace(' ', 'T');
+      const dateObj = new Date(dateStr);
+      if (isNaN(dateObj.getTime())) return;
+
+      let key = '';
+      if (filterMode === 'daily') {
+        key = dateStr.split('T')[0];
+      } else if (filterMode === 'weekly') {
+        const day = dateObj.getDay();
+        const diff = dateObj.getDate() - day;
+        const weekStart = new Date(dateObj.setDate(diff));
+        key = weekStart.toISOString().split('T')[0];
+      } else if (filterMode === 'monthly') {
+        key = dateStr.substring(0, 7);
+      } else if (filterMode === 'yearly') {
+        key = dateStr.substring(0, 4);
+      }
+      if (key) periods.add(key);
+    });
+
+    return Array.from(periods).sort((a, b) => b.localeCompare(a));
+  }, [transactions, filterMode]);
+
+  // Fallback selectedPeriod to the latest period if none is selected or matches the mode
+  useEffect(() => {
+    if (allPeriods.length > 0) {
+      if (!selectedPeriod || !allPeriods.includes(selectedPeriod)) {
+        setSelectedPeriod(allPeriods[0]);
+      }
+    }
+  }, [allPeriods, selectedPeriod]);
+
+  // Format period label for presentation
+  const formatPeriodLabel = useCallback((label) => {
+    if (!label) return '';
+    if (filterMode === 'daily') return label.substring(5);
+    if (filterMode === 'monthly') {
+      const parts = label.split('-');
+      if (parts.length < 2) return label;
+      const year = parts[0].substring(2);
+      const month = parts[1];
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const index = parseInt(month, 10) - 1;
+      const monthName = months[index] || month;
+      return `${monthName} '${year}`;
+    }
+    if (filterMode === 'weekly') return `Wk ${label.substring(8, 10)}`;
+    return label;
+  }, [filterMode]);
+
+  // Aggregate category spending on client-side
+  const topCategories = useMemo(() => {
+    if (transactions.length === 0 || !selectedPeriod) return [];
+
+    const byId = {};
+    let filterFn;
+
+    if (filterMode === 'daily' || filterMode === 'monthly' || filterMode === 'yearly') {
+      filterFn = (dateStr) => dateStr.startsWith(selectedPeriod);
+    } else if (filterMode === 'weekly') {
+      const weekStart = new Date(selectedPeriod);
+      const weekEnd = new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
+      filterFn = (dateStr) => {
+        const d = new Date(dateStr);
+        return d >= weekStart && d < weekEnd;
+      };
+    } else {
+      filterFn = () => true;
+    }
+
+    transactions.forEach(t => {
+      if (t.type !== 'expense') return;
+      if (!t.date) return;
+      const dateStr = String(t.date).replace(' ', 'T');
+      if (!filterFn(dateStr)) return;
+      const cid = t.category_id || 'uncategorized';
+      byId[cid] = (byId[cid] || 0) + (parseFloat(t.amount) || 0);
+    });
+
+    return Object.keys(byId).map(k => {
+      const cat = categoriesMap[k] || { name: 'Uncategorized' };
+      return { category_id: k, category_name: cat.name, amount: byId[k] };
+    }).sort((a, b) => b.amount - a.amount);
+  }, [transactions, selectedPeriod, filterMode, categoriesMap]);
+
+  const totalSpend = useMemo(() => {
+    return topCategories.reduce((sum, c) => sum + Number(c.amount || 0), 0);
+  }, [topCategories]);
 
   return (
     <View style={{ flex: 1, backgroundColor: Colors.background }}>
-      <ScrollView
-        contentContainerStyle={{
-          padding: Spacing.m,
-          paddingBottom: 120
-        }}
-      >
+      <ScrollView contentContainerStyle={{ padding: Spacing.m, paddingBottom: 120 }}>
+        {/* MODE SELECTOR */}
+        <View style={styles.tabContainer}>
+          {['daily', 'weekly', 'monthly', 'yearly'].map((m) => (
+            <Chip
+              key={m}
+              mode="outlined"
+              selected={filterMode === m}
+              onPress={() => {
+                setFilterMode(m);
+                setSelectedPeriod(null);
+              }}
+              style={[styles.chip, filterMode === m && { borderColor: Colors.primary, backgroundColor: '#e6f7ff' }]}
+              selectedColor={Colors.primary}
+            >
+              {m.charAt(0).toUpperCase() + m.slice(1)}
+            </Chip>
+          ))}
+        </View>
+
+        {/* PERIOD SELECTOR */}
+        {allPeriods.length > 0 && (
+          <ScrollView 
+            horizontal 
+            showsHorizontalScrollIndicator={false} 
+            style={styles.periodSelectorContainer} 
+            contentContainerStyle={styles.periodSelectorContent}
+          >
+            {allPeriods.map(p => {
+              const isSelected = selectedPeriod === p;
+              return (
+                <Chip
+                  key={p}
+                  mode="flat"
+                  selected={isSelected}
+                  onPress={() => setSelectedPeriod(p)}
+                  style={[styles.periodChip, isSelected && { backgroundColor: Colors.primary }]}
+                  selectedColor={isSelected ? '#fff' : Colors.text}
+                >
+                  {formatPeriodLabel(p)}
+                </Chip>
+              );
+            })}
+          </ScrollView>
+        )}
+
+        {/* SPEND SUMMARY CARD */}
         <Card>
-          <Text style={{ fontWeight: '700', marginBottom: 8 }}>
-            Spend Areas
+          <Text style={{ fontWeight: '700', marginBottom: 8, fontSize: 16, color: Colors.text }}>
+            Spend Areas {selectedPeriod ? `(${formatPeriodLabel(selectedPeriod)})` : ''}
           </Text>
 
           {topCategories.length ? (
-            <View style={{ alignItems: 'center', marginBottom: 12 }}>
+            <View style={{ alignItems: 'center', marginBottom: 20, marginTop: 10 }}>
               <CategoryDonut data={topCategories} categoriesMap={categoriesMap} />
             </View>
           ) : (
-            <Text style={{ color: Colors.muted }}>No data</Text>
+            <Text style={{ color: Colors.muted, marginVertical: 20, textAlign: 'center' }}>No spend data for this period</Text>
           )}
 
           {topCategories.map(c => {
@@ -117,16 +262,23 @@ export default function HomeScreen({ navigation }) {
 
             const amount = Number(c.amount || 0);
             const percent = totalSpend > 0 ? (amount / totalSpend) * 100 : 0;
+            const isTargetCategory = String(params.categoryId) === String(c.category_id);
 
             return (
               <TouchableOpacity
+                key={c.category_id}
                 onPress={() => navigation.navigate('CategoriesDetails', {
                   categoryId: c.category_id,
-                  categoryName: c.category_name
+                  categoryName: c.category_name,
+                  mode: filterMode,
+                  periodLabel: selectedPeriod
                 })}
               >
-                <View key={c.category_id}
-                  style={{ marginBottom: 12 }}
+                <View 
+                  style={[
+                    styles.categoryRowContainer,
+                    isTargetCategory && styles.highlightCategoryRow
+                  ]}
                 >
                   <View
                     style={{
@@ -171,7 +323,6 @@ export default function HomeScreen({ navigation }) {
                       }}
                     />
                   </View>
-
                 </View>
               </TouchableOpacity>
             );
@@ -181,3 +332,40 @@ export default function HomeScreen({ navigation }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  tabContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 12,
+    gap: 6,
+  },
+  chip: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 8,
+  },
+  periodSelectorContainer: {
+    marginBottom: 16,
+    maxHeight: 48,
+  },
+  periodSelectorContent: {
+    paddingHorizontal: 4,
+    gap: 8,
+    alignItems: 'center',
+  },
+  periodChip: {
+    borderRadius: 16,
+  },
+  categoryRowContainer: {
+    marginBottom: 12,
+    padding: 8,
+    borderRadius: 8,
+  },
+  highlightCategoryRow: {
+    backgroundColor: '#fffbe6',
+    borderWidth: 1,
+    borderColor: '#ffe58f',
+  },
+});

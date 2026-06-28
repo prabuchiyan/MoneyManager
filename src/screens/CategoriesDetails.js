@@ -190,30 +190,72 @@ function PremiumRoundedBarChart({
 }
 
 export default function CategoriesDetails({ route, navigation }) {
-  const { categoryId, categoryName } = route.params;
+  const { categoryId, categoryName, mode, periodLabel } = route.params || {};
 
   const [transactions, setTransactions] = useState([]);
   const [categoriesMap, setCategoriesMap] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const [period, setPeriod] = useState('month');
+  const initialPeriod = useMemo(() => {
+    if (mode === 'daily') return 'day';
+    if (mode === 'weekly') return 'week';
+    if (mode === 'monthly') return 'month';
+    if (mode === 'yearly') return 'year';
+    return 'month';
+  }, [mode]);
+
+  const [period, setPeriod] = useState(initialPeriod);
   const [chartData, setChartData] = useState({ labels: [], datasets: [{ data: [] }] });
 
   const [confirmVisible, setConfirmVisible] = useState(false);
   const [confirmTargetId, setConfirmTargetId] = useState(null);
 
-  const [selectedBar, setSelectedBar] = useState(null);
+  const initialSelectedBar = useMemo(() => {
+    const now = new Date();
+    if (periodLabel) {
+      if (initialPeriod === 'year') {
+        return { label: String(periodLabel) };
+      }
+      if (initialPeriod === 'month') {
+        const parts = String(periodLabel).split('-');
+        if (parts.length === 2) {
+          const year = parts[0].substring(2);
+          const monthIndex = parseInt(parts[1], 10) - 1;
+          const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+          const monthName = months[monthIndex] || parts[1];
+          return { label: `${monthName} '${year}` };
+        }
+      }
+    } else {
+      if (initialPeriod === 'month') {
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        return { label: `${months[now.getMonth()]} '${String(now.getFullYear()).slice(2)}` };
+      }
+      if (initialPeriod === 'year') {
+        return { label: String(now.getFullYear()) };
+      }
+    }
+    return null;
+  }, [periodLabel, initialPeriod]);
+
+  const [selectedBar, setSelectedBar] = useState(initialSelectedBar);
 
   useLayoutEffect(() => {
     navigation.setOptions({ title: categoryName });
   }, [categoryName, navigation]);
 
   const getPeriodKey = (dateString) => {
-    const d = new Date(dateString);
+    if (!dateString) return '';
+    const dateStr = String(dateString).replace(' ', 'T');
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return '';
 
     if (period === 'day') return `${d.getHours()}:00`;
     if (period === 'week') return d.toLocaleDateString('en-IN', { weekday: 'short' });
-    if (period === 'month') return d.toLocaleDateString('en-IN', { month: 'short' }) + " '" + String(d.getFullYear()).slice(2);
+    if (period === 'month') {
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      return `${months[d.getMonth()]} '${String(d.getFullYear()).slice(2)}`;
+    }
     if (period === 'year') return String(d.getFullYear());
 
     return '';
@@ -230,8 +272,6 @@ export default function CategoriesDetails({ route, navigation }) {
     const labels = Object.keys(map);
     const values = labels.map(k => map[k]);
 
-    setSelectedBar(null);
-
     setChartData({
       labels,
       datasets: [
@@ -247,7 +287,7 @@ export default function CategoriesDetails({ route, navigation }) {
       setLoading(true);
 
       const [txData, catData] = await Promise.all([
-        getTransactions(1000000, null, null, categoryId, period),
+        getTransactions(1000000, null, null, categoryId, null),
         getCategories(true)
       ]);
 
@@ -405,7 +445,10 @@ export default function CategoriesDetails({ route, navigation }) {
             <Chip
               key={p}
               selected={active}
-              onPress={() => setPeriod(p)}
+              onPress={() => {
+                setSelectedBar(null);
+                setPeriod(p);
+              }}
               mode="flat"
               style={[
                 styles.chip,
