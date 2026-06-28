@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, ScrollView, Modal, Text, Platform } from 'react-native';
-import { createTransaction } from '../services/transactions';
+import { createTransaction, createTransfer } from '../services/transactions';
 import { getCategories } from '../services/categories';
 import { getSources } from '../services/sources';
 import { TextInput as PaperTextInput, Button as PaperButton, Chip } from 'react-native-paper';
@@ -77,14 +77,18 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
         return;
       }
 
-      const { createTransfer } = require('../services/transactions');
-      await createTransfer({
-        fromAccount: sourceId,
-        toAccount: toAccount,
-        amount: val,
-        note: notes,
-        date
-      });
+      try {
+        await createTransfer({
+          fromAccount: sourceId,
+          toAccount,
+          amount: val,
+          note: notes,
+          date,
+        });
+      } catch (e) {
+        console.log(e);
+        alert(e.message);
+      }
       id = 'transfer';
     } else {
       const transactionData = { type, amount: val, category_id: categoryId, source_id: sourceId, date, notes };
