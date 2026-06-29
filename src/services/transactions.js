@@ -215,6 +215,7 @@ export async function createTransfer({
   await createTransaction({
     type: 'expense',
     amount,
+    category_id: null,
     source_id: fromAccount,
     date,
     notes: note || 'Transfer',
@@ -226,6 +227,7 @@ export async function createTransfer({
   await createTransaction({
     type: 'income',
     amount,
+    category_id: null,
     source_id: toAccount,
     date,
     notes: note || 'Transfer',

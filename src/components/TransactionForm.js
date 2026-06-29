@@ -52,8 +52,8 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
       setAmountError(true);
       return;
     }
-    if (!categoryId) {
-      alert('Please select a category.'); // Simple alert for missing category
+    if (type !== 'transfer' && !categoryId) {
+      alert('Please select a category.');
       return;
     }
     if (!sourceId) {
