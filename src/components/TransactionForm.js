@@ -30,8 +30,6 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
   const [toAccount, setToAccount] = useState(null);
   const [selectingFor, setSelectingFor] = useState('from');
 
-  console.log('Prabu transaction', transaction);
-
   useEffect(() => {
     (async () => {
       const cats = await getCategories(true);
@@ -52,7 +50,7 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
       setAmountError(true);
       return;
     }
-    if (type !== 'transfer' && !categoryId) {
+    if (!categoryId && type !== 'transfer' && transferGroupId === null) {
       alert('Please select a category.');
       return;
     }
@@ -146,8 +144,8 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <View style={{ alignItems: 'center', marginRight: 12 }}>
-              <MaterialCommunityIcons name={(categories.find(x => x.id === categoryId) || {}).icon || 'currency-usd'} size={26} color={(categories.find(x => x.id === categoryId) || {}).color || '#4B7CF3'} />
-              <Text style={{ fontSize: 12 }}>{(categories.find(x => x.id === categoryId) || {}).name || 'Uncategorized'}</Text>
+              <MaterialCommunityIcons name={type === 'transfer' ? 'currency-usd' : (categories.find(x => x.id === categoryId) || {}).icon || 'currency-usd'} size={26} color={(categories.find(x => x.id === categoryId) || {}).color || '#4B7CF3'} />
+              <Text style={{ fontSize: 12 }}>{type === 'transfer' ? 'Uncategorized' : (categories.find(x => x.id === categoryId) || {}).name || 'Uncategorized'}</Text>
             </View>
             <View style={{ alignItems: 'center' }}>
               <MaterialCommunityIcons name={(sources.find(x => x.id === sourceId) || {}).icon || 'cash'} size={26} color={(sources.find(x => x.id === sourceId) || {}).color || '#4B7CF3'} />

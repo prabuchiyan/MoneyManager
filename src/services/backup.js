@@ -16,7 +16,7 @@ export async function exportBackup() {
   try {
     const categories = await getCategories(false);
     const sources = await getSources(false);
-    const transactions = await getTransactions(1000000);
+    const transactions = await getTransactions(1000000, 'Yes');
     const budgets = await getBudgets();
     const bills = await getBills();
 
