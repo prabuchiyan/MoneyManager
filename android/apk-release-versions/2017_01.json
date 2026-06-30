@@ -10,8 +10,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-01",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-01 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 2,
@@ -20,8 +23,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-01",
-        "note": "Dinner",
-        "bill_id": null
+        "created_at": "2017-01-01 00:00:00",
+        "notes": "Dinner",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 3,
@@ -30,8 +36,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-02",
-        "note": "Breakfast",
-        "bill_id": null
+        "created_at": "2017-01-02 00:00:00",
+        "notes": "Breakfast",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 4,
@@ -40,8 +49,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-02",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-02 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 5,
@@ -50,8 +62,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-02",
-        "note": "Dinner",
-        "bill_id": null
+        "created_at": "2017-01-02 00:00:00",
+        "notes": "Dinner",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 6,
@@ -60,8 +75,11 @@
         "category_id": 30,
         "source_id": 1,
         "date": "2017-01-02",
-        "note": "Recharge",
-        "bill_id": null
+        "created_at": "2017-01-02 00:00:00",
+        "notes": "Recharge",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 7,
@@ -70,8 +88,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-04",
-        "note": "Breakfast",
-        "bill_id": null
+        "created_at": "2017-01-04 00:00:00",
+        "notes": "Breakfast",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 8,
@@ -80,8 +101,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-04",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-04 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 9,
@@ -90,8 +114,11 @@
         "category_id": 41,
         "source_id": 1,
         "date": "2017-01-04",
-        "note": "Snacks",
-        "bill_id": null
+        "created_at": "2017-01-04 00:00:00",
+        "notes": "Snacks",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 10,
@@ -100,8 +127,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-04",
-        "note": "Dinner",
-        "bill_id": null
+        "created_at": "2017-01-04 00:00:00",
+        "notes": "Dinner",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 11,
@@ -110,8 +140,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-05",
-        "note": "Breakfast",
-        "bill_id": null
+        "created_at": "2017-01-05 00:00:00",
+        "notes": "Breakfast",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 12,
@@ -120,8 +153,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-05",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-05 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 13,
@@ -130,8 +166,11 @@
         "category_id": 31,
         "source_id": 1,
         "date": "2017-01-05",
-        "note": "Give it back Sathiya",
-        "bill_id": null
+        "created_at": "2017-01-05 00:00:00",
+        "notes": "Give it back Sathiya",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 14,
@@ -140,8 +179,11 @@
         "category_id": 31,
         "source_id": 1,
         "date": "2017-01-05",
-        "note": "Give it back Ramya",
-        "bill_id": null
+        "created_at": "2017-01-05 00:00:00",
+        "notes": "Give it back Ramya",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 15,
@@ -150,8 +192,11 @@
         "category_id": 31,
         "source_id": 1,
         "date": "2017-01-05",
-        "note": "Give it back Vivek",
-        "bill_id": null
+        "created_at": "2017-01-05 00:00:00",
+        "notes": "Give it back Vivek",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 16,
@@ -160,8 +205,11 @@
         "category_id": 31,
         "source_id": 1,
         "date": "2017-01-05",
-        "note": "Give it back Naveen",
-        "bill_id": null
+        "created_at": "2017-01-05 00:00:00",
+        "notes": "Give it back Naveen",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 17,
@@ -170,8 +218,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-06",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-06 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 18,
@@ -180,8 +231,11 @@
         "category_id": 14,
         "source_id": 1,
         "date": "2017-01-06",
-        "note": "Party Spend",
-        "bill_id": null
+        "created_at": "2017-01-06 00:00:00",
+        "notes": "Party Spend",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 19,
@@ -190,8 +244,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-06",
-        "note": "Dinner",
-        "bill_id": null
+        "created_at": "2017-01-06 00:00:00",
+        "notes": "Dinner",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 20,
@@ -200,8 +257,11 @@
         "category_id": 21,
         "source_id": 1,
         "date": "2017-01-07",
-        "note": "bread, jam, water cane",
-        "bill_id": null
+        "created_at": "2017-01-07 00:00:00",
+        "notes": "bread, jam, water cane",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 21,
@@ -210,8 +270,11 @@
         "category_id": 7,
         "source_id": 1,
         "date": "2017-01-07",
-        "note": "DTH recharge",
-        "bill_id": null
+        "created_at": "2017-01-07 00:00:00",
+        "notes": "DTH recharge",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 22,
@@ -220,8 +283,11 @@
         "category_id": 21,
         "source_id": 1,
         "date": "2017-01-08",
-        "note": "Rice &Oil",
-        "bill_id": null
+        "created_at": "2017-01-08 00:00:00",
+        "notes": "Rice &Oil",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 23,
@@ -230,8 +296,11 @@
         "category_id": 24,
         "source_id": 1,
         "date": "2017-01-09",
-        "note": "Medical Bill",
-        "bill_id": null
+        "created_at": "2017-01-09 00:00:00",
+        "notes": "Medical Bill",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 24,
@@ -240,8 +309,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-09",
-        "note": "Breakfast",
-        "bill_id": null
+        "created_at": "2017-01-09 00:00:00",
+        "notes": "Breakfast",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 25,
@@ -250,8 +322,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-09",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-09 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 26,
@@ -260,8 +335,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-09",
-        "note": "Dinner",
-        "bill_id": null
+        "created_at": "2017-01-09 00:00:00",
+        "notes": "Dinner",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 27,
@@ -270,8 +348,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-10",
-        "note": "Dinner",
-        "bill_id": null
+        "created_at": "2017-01-10 00:00:00",
+        "notes": "Dinner",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 28,
@@ -280,8 +361,11 @@
         "category_id": 43,
         "source_id": 1,
         "date": "2017-01-11",
-        "note": "Bus",
-        "bill_id": null
+        "created_at": "2017-01-11 00:00:00",
+        "notes": "Bus",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 29,
@@ -290,8 +374,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-11",
-        "note": "Breakfast",
-        "bill_id": null
+        "created_at": "2017-01-11 00:00:00",
+        "notes": "Breakfast",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 30,
@@ -300,8 +387,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-12",
-        "note": "Breakfast",
-        "bill_id": null
+        "created_at": "2017-01-12 00:00:00",
+        "notes": "Breakfast",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 31,
@@ -310,8 +400,11 @@
         "category_id": 3,
         "source_id": 1,
         "date": "2017-01-12",
-        "note": "petrol",
-        "bill_id": null
+        "created_at": "2017-01-12 00:00:00",
+        "notes": "petrol",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 32,
@@ -320,8 +413,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-12",
-        "note": "Sweets",
-        "bill_id": null
+        "created_at": "2017-01-12 00:00:00",
+        "notes": "Sweets",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 33,
@@ -330,8 +426,11 @@
         "category_id": 28,
         "source_id": 1,
         "date": "2017-01-12",
-        "note": "spend",
-        "bill_id": null
+        "created_at": "2017-01-12 00:00:00",
+        "notes": "spend",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 34,
@@ -340,8 +439,11 @@
         "category_id": 42,
         "source_id": 1,
         "date": "2017-01-13",
-        "note": "spend Temple",
-        "bill_id": null
+        "created_at": "2017-01-13 00:00:00",
+        "notes": "spend Temple",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 35,
@@ -350,8 +452,11 @@
         "category_id": 14,
         "source_id": 1,
         "date": "2017-01-14",
-        "note": "Movie Spend",
-        "bill_id": null
+        "created_at": "2017-01-14 00:00:00",
+        "notes": "Movie Spend",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 36,
@@ -360,8 +465,11 @@
         "category_id": 3,
         "source_id": 1,
         "date": "2017-01-14",
-        "note": "Petrol",
-        "bill_id": null
+        "created_at": "2017-01-14 00:00:00",
+        "notes": "Petrol",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 37,
@@ -370,8 +478,11 @@
         "category_id": 14,
         "source_id": 1,
         "date": "2017-01-14",
-        "note": "Exhibition",
-        "bill_id": null
+        "created_at": "2017-01-14 00:00:00",
+        "notes": "Exhibition",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 38,
@@ -380,8 +491,11 @@
         "category_id": 14,
         "source_id": 1,
         "date": "2017-01-15",
-        "note": "Movie",
-        "bill_id": null
+        "created_at": "2017-01-15 00:00:00",
+        "notes": "Movie",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 39,
@@ -390,8 +504,11 @@
         "category_id": 30,
         "source_id": 1,
         "date": "2017-01-15",
-        "note": "Recharge Added",
-        "bill_id": null
+        "created_at": "2017-01-15 00:00:00",
+        "notes": "Recharge Added",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 40,
@@ -400,8 +517,11 @@
         "category_id": 3,
         "source_id": 1,
         "date": "2017-01-16",
-        "note": "Petrol",
-        "bill_id": null
+        "created_at": "2017-01-16 00:00:00",
+        "notes": "Petrol",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 41,
@@ -410,8 +530,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-16",
-        "note": "Breakfast",
-        "bill_id": null
+        "created_at": "2017-01-16 00:00:00",
+        "notes": "Breakfast",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 42,
@@ -420,8 +543,11 @@
         "category_id": 3,
         "source_id": 1,
         "date": "2017-01-16",
-        "note": "Petrol",
-        "bill_id": null
+        "created_at": "2017-01-16 00:00:00",
+        "notes": "Petrol",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 43,
@@ -430,8 +556,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-16",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-16 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 44,
@@ -440,8 +569,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-16",
-        "note": "Dinner",
-        "bill_id": null
+        "created_at": "2017-01-16 00:00:00",
+        "notes": "Dinner",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 45,
@@ -450,8 +582,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-17",
-        "note": "Breakfast",
-        "bill_id": null
+        "created_at": "2017-01-17 00:00:00",
+        "notes": "Breakfast",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 46,
@@ -460,8 +595,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-17",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-17 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 47,
@@ -470,8 +608,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-17",
-        "note": "Dinner",
-        "bill_id": null
+        "created_at": "2017-01-17 00:00:00",
+        "notes": "Dinner",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 48,
@@ -480,8 +621,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-18",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-18 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 49,
@@ -490,8 +634,11 @@
         "category_id": 41,
         "source_id": 1,
         "date": "2017-01-18",
-        "note": "Snacks",
-        "bill_id": null
+        "created_at": "2017-01-18 00:00:00",
+        "notes": "Snacks",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 50,
@@ -500,8 +647,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-19",
-        "note": "Breakfast",
-        "bill_id": null
+        "created_at": "2017-01-19 00:00:00",
+        "notes": "Breakfast",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 51,
@@ -510,8 +660,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-19",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-19 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 52,
@@ -520,8 +673,11 @@
         "category_id": 31,
         "source_id": 1,
         "date": "2017-01-19",
-        "note": "give it back",
-        "bill_id": null
+        "created_at": "2017-01-19 00:00:00",
+        "notes": "give it back",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 53,
@@ -530,8 +686,11 @@
         "category_id": 14,
         "source_id": 1,
         "date": "2017-01-19",
-        "note": "pot luck spend",
-        "bill_id": null
+        "created_at": "2017-01-19 00:00:00",
+        "notes": "pot luck spend",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 54,
@@ -540,8 +699,11 @@
         "category_id": 28,
         "source_id": 1,
         "date": "2017-01-20",
-        "note": "police",
-        "bill_id": null
+        "created_at": "2017-01-20 00:00:00",
+        "notes": "police",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 55,
@@ -550,8 +712,11 @@
         "category_id": 43,
         "source_id": 1,
         "date": "2017-01-21",
-        "note": "Jallikattu Toll",
-        "bill_id": null
+        "created_at": "2017-01-21 00:00:00",
+        "notes": "Jallikattu Toll",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 56,
@@ -560,8 +725,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-22",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-22 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 57,
@@ -570,8 +738,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-22",
-        "note": "Dinner",
-        "bill_id": null
+        "created_at": "2017-01-22 00:00:00",
+        "notes": "Dinner",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 58,
@@ -580,8 +751,11 @@
         "category_id": 41,
         "source_id": 1,
         "date": "2017-01-23",
-        "note": "Snacks",
-        "bill_id": null
+        "created_at": "2017-01-23 00:00:00",
+        "notes": "Snacks",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 59,
@@ -590,8 +764,11 @@
         "category_id": 11,
         "source_id": 1,
         "date": "2017-01-23",
-        "note": "Electricity Bill",
-        "bill_id": null
+        "created_at": "2017-01-23 00:00:00",
+        "notes": "Electricity Bill",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 60,
@@ -600,8 +777,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-24",
-        "note": "Breakfast",
-        "bill_id": null
+        "created_at": "2017-01-24 00:00:00",
+        "notes": "Breakfast",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 61,
@@ -610,8 +790,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-24",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-24 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 62,
@@ -620,8 +803,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-24",
-        "note": "Dinner",
-        "bill_id": null
+        "created_at": "2017-01-24 00:00:00",
+        "notes": "Dinner",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 63,
@@ -630,8 +816,11 @@
         "category_id": 31,
         "source_id": 1,
         "date": "2017-01-24",
-        "note": "Give it back",
-        "bill_id": null
+        "created_at": "2017-01-24 00:00:00",
+        "notes": "Give it back",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 64,
@@ -640,8 +829,11 @@
         "category_id": 17,
         "source_id": 1,
         "date": "2017-01-24",
-        "note": "Carrot",
-        "bill_id": null
+        "created_at": "2017-01-24 00:00:00",
+        "notes": "Carrot",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 65,
@@ -650,8 +842,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-25",
-        "note": "Breakfast",
-        "bill_id": null
+        "created_at": "2017-01-25 00:00:00",
+        "notes": "Breakfast",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 66,
@@ -660,8 +855,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-25",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-25 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 67,
@@ -670,8 +868,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-26",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-26 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 68,
@@ -680,8 +881,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-27",
-        "note": "Breakfast",
-        "bill_id": null
+        "created_at": "2017-01-27 00:00:00",
+        "notes": "Breakfast",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 69,
@@ -690,8 +894,11 @@
         "category_id": 2,
         "source_id": 1,
         "date": "2017-01-27",
-        "note": "Shampoo & Both soap",
-        "bill_id": null
+        "created_at": "2017-01-27 00:00:00",
+        "notes": "Shampoo & Both soap",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 70,
@@ -700,8 +907,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-27",
-        "note": "Dinner",
-        "bill_id": null
+        "created_at": "2017-01-27 00:00:00",
+        "notes": "Dinner",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 71,
@@ -710,8 +920,11 @@
         "category_id": 17,
         "source_id": 1,
         "date": "2017-01-27",
-        "note": "Carrot",
-        "bill_id": null
+        "created_at": "2017-01-27 00:00:00",
+        "notes": "Carrot",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 72,
@@ -720,8 +933,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-28",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-28 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 73,
@@ -730,8 +946,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-29",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-29 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 74,
@@ -740,8 +959,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-29",
-        "note": "Dinner",
-        "bill_id": null
+        "created_at": "2017-01-29 00:00:00",
+        "notes": "Dinner",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 75,
@@ -750,8 +972,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-30",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-30 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 76,
@@ -760,8 +985,11 @@
         "category_id": 41,
         "source_id": 1,
         "date": "2017-01-30",
-        "note": "Snacks",
-        "bill_id": null
+        "created_at": "2017-01-30 00:00:00",
+        "notes": "Snacks",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 77,
@@ -770,8 +998,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-31",
-        "note": "Breakfast",
-        "bill_id": null
+        "created_at": "2017-01-31 00:00:00",
+        "notes": "Breakfast",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 78,
@@ -780,8 +1011,11 @@
         "category_id": 16,
         "source_id": 1,
         "date": "2017-01-31",
-        "note": "Lunch",
-        "bill_id": null
+        "created_at": "2017-01-31 00:00:00",
+        "notes": "Lunch",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       },
       {
         "id": 79,
@@ -790,8 +1024,11 @@
         "category_id": 41,
         "source_id": 1,
         "date": "2017-01-31",
-        "note": "Snacks",
-        "bill_id": null
+        "created_at": "2017-01-31 00:00:00",
+        "notes": "Snacks",
+        "bill_id": null,
+        "transfer_group_id": null,
+        "direction": null
       }
     ],
     "categories": [
