@@ -140,7 +140,9 @@ export async function getTransactions(
       params.push(normalizedCategoryId);
     }
 
-    conditions.push(`transfer_group_id IS NULL`);
+    if (isTransferInclude === 'No') {
+      conditions.push(`transfer_group_id IS NULL`);
+    }
 
     if (conditions.length > 0) {
       query += ` WHERE ${conditions.join(' AND ')}`;
@@ -219,6 +221,7 @@ export async function createTransfer({
     source_id: fromAccount,
     date,
     notes: note || 'Transfer',
+    bill_id: null,
     transfer_group_id: groupId,
     direction: 'debit'
   });
@@ -231,6 +234,7 @@ export async function createTransfer({
     source_id: toAccount,
     date,
     notes: note || 'Transfer',
+    bill_id: null,
     transfer_group_id: groupId,
     direction: 'credit'
   });

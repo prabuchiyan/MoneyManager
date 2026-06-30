@@ -32,7 +32,7 @@ export default function SourcesDashboard({ navigation }) {
       return acc;
     }, {});
 
-    // ✅ Merge with initial balance
+    // Merge with initial balance
     const updatedSources = availableSources.map(s => {
       const initial = Number(s.initial_balance || 0);
       const txnBalance = balanceMap[s.id] || 0;

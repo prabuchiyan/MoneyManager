@@ -199,71 +199,69 @@ export default function TransactionForm({ onCreated, onCancel, transaction, isEd
         }
       </View>
 
-      {type !== 'transfer' && (
-        <>
-          <View style={{ marginBottom: 12 }}>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => {
-                setPickerMode('date');
-                setShowDateTimePicker(true);
-              }}
-            >
-              <PaperTextInput
-                label="Date & Time"
-                value={formatDateTime(date)}
-                editable={false}
-                pointerEvents="none"
-                mode="outlined"
-                style={{ marginBottom: 8 }}
-                right={
-                  <PaperTextInput.Icon
-                    icon="calendar"
-                    onPress={() => setShowDateTimePicker(true)}
-                  />
-                }
+      <View style={{ marginBottom: 12 }}>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={() => {
+            setPickerMode('date');
+            setShowDateTimePicker(true);
+          }}
+        >
+          <PaperTextInput
+            label="Date & Time"
+            value={formatDateTime(date)}
+            editable={false}
+            pointerEvents="none"
+            mode="outlined"
+            style={{ marginBottom: 8 }}
+            right={
+              <PaperTextInput.Icon
+                icon="calendar"
+                onPress={() => setShowDateTimePicker(true)}
               />
-            </TouchableOpacity>
-          </View>
-
-          <View style={{ marginBottom: 12 }}>
-            {!transferGroupId &&
-              <>
-                <Text style={{ marginBottom: 6, color: '#666' }}>Category</Text>
-                <TouchableOpacity onPress={() => setShowCategoryPicker(true)} activeOpacity={0.8} style={{ borderWidth: 1, borderColor: '#eee', padding: 12, borderRadius: 8, backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center' }}>
-                  <MaterialCommunityIcons name={(categories.find(x => x.id === categoryId) || {}).icon || 'tag'} size={20} color={(categories.find(x => x.id === categoryId) || {}).color || '#4B7CF3'} style={{ marginRight: 10 }} />
-                  <Text style={{ fontSize: 16 }}>{(categories.find(x => x.id === categoryId) || {}).name || 'Select category'}</Text>
-                </TouchableOpacity>
-              </>
             }
-            <Modal visible={showCategoryPicker} transparent animationType="slide" onRequestClose={() => setShowCategoryPicker(false)}>
-              <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'center', padding: 20 }}>
-                <View style={{ backgroundColor: '#fff', padding: 12, borderRadius: 8, maxHeight: '80%' }}>
-                  <PaperTextInput label="Search" value={catSearch} onChangeText={setCatSearch} mode="outlined" style={{ marginBottom: 8 }} />
-                  <ScrollView>
-                    <TouchableOpacity
-                      onPress={() => { setShowCategoryPicker(false); setShowCategoryCreateModal(true); }}
-                      style={{ flexDirection: 'row', alignItems: 'center', padding: 10, borderBottomWidth: 1, borderColor: '#f3f3f3', backgroundColor: '#e6f7ff' }}
-                    >
-                      <MaterialCommunityIcons name="plus-circle-outline" size={20} color={'#4B7CF3'} style={{ marginRight: 12 }} />
-                      <Text style={{ fontSize: 16, color: '#4B7CF3', fontWeight: '600' }}>Create New Category</Text>
+          />
+        </TouchableOpacity>
+      </View>
+
+      {type !== 'transfer' && (
+        <View style={{ marginBottom: 12 }}>
+          {!transferGroupId &&
+            <>
+              <Text style={{ marginBottom: 6, color: '#666' }}>Category</Text>
+              <TouchableOpacity onPress={() => setShowCategoryPicker(true)} activeOpacity={0.8} style={{ borderWidth: 1, borderColor: '#eee', padding: 12, borderRadius: 8, backgroundColor: '#fff', flexDirection: 'row', alignItems: 'center' }}>
+                <MaterialCommunityIcons name={(categories.find(x => x.id === categoryId) || {}).icon || 'tag'} size={20} color={(categories.find(x => x.id === categoryId) || {}).color || '#4B7CF3'} style={{ marginRight: 10 }} />
+                <Text style={{ fontSize: 16 }}>{(categories.find(x => x.id === categoryId) || {}).name || 'Select category'}</Text>
+              </TouchableOpacity>
+            </>
+          }
+          <Modal visible={showCategoryPicker} transparent animationType="slide" onRequestClose={() => setShowCategoryPicker(false)}>
+            <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'center', padding: 20 }}>
+              <View style={{ backgroundColor: '#fff', padding: 12, borderRadius: 8, maxHeight: '80%' }}>
+                <PaperTextInput label="Search" value={catSearch} onChangeText={setCatSearch} mode="outlined" style={{ marginBottom: 8 }} />
+                <ScrollView>
+                  <TouchableOpacity
+                    onPress={() => { setShowCategoryPicker(false); setShowCategoryCreateModal(true); }}
+                    style={{ flexDirection: 'row', alignItems: 'center', padding: 10, borderBottomWidth: 1, borderColor: '#f3f3f3', backgroundColor: '#e6f7ff' }}
+                  >
+                    <MaterialCommunityIcons name="plus-circle-outline" size={20} color={'#4B7CF3'} style={{ marginRight: 12 }} />
+                    <Text style={{ fontSize: 16, color: '#4B7CF3', fontWeight: '600' }}>Create New Category</Text>
+                  </TouchableOpacity>
+                  {categories.filter(c => c.name.toLowerCase().includes(catSearch.toLowerCase())).map(c => (
+                    <TouchableOpacity key={c.id} onPress={() => { setCategoryId(c.id); setShowCategoryPicker(false); }} style={{ flexDirection: 'row', alignItems: 'center', padding: 10, borderBottomWidth: 1, borderColor: '#f3f3f3', backgroundColor: categoryId === c.id ? '#FFF9F9' : '#fff' }}>
+                      <View style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: c.color || '#eee', alignItems: 'center', justifyContent: 'center', marginRight: 12 }}>
+                        <MaterialCommunityIcons name={c.icon || 'tag'} size={18} color={'#fff'} />
+                      </View>
+                      <Text style={{ fontSize: 16 }}>{c.name}</Text>
                     </TouchableOpacity>
-                    {categories.filter(c => c.name.toLowerCase().includes(catSearch.toLowerCase())).map(c => (
-                      <TouchableOpacity key={c.id} onPress={() => { setCategoryId(c.id); setShowCategoryPicker(false); }} style={{ flexDirection: 'row', alignItems: 'center', padding: 10, borderBottomWidth: 1, borderColor: '#f3f3f3', backgroundColor: categoryId === c.id ? '#FFF9F9' : '#fff' }}>
-                        <View style={{ width: 36, height: 36, borderRadius: 18, backgroundColor: c.color || '#eee', alignItems: 'center', justifyContent: 'center', marginRight: 12 }}>
-                          <MaterialCommunityIcons name={c.icon || 'tag'} size={18} color={'#fff'} />
-                        </View>
-                        <Text style={{ fontSize: 16 }}>{c.name}</Text>
-                      </TouchableOpacity>
-                    ))}
-                  </ScrollView>
-                  <View style={{ height: 8 }} />
-                  <PaperButton mode="outlined" onPress={() => setShowCategoryPicker(false)}>Close</PaperButton>
-                </View>
+                  ))}
+                </ScrollView>
+                <View style={{ height: 8 }} />
+                <PaperButton mode="outlined" onPress={() => setShowCategoryPicker(false)}>Close</PaperButton>
               </View>
-            </Modal>
-          </View>
-        </>
+            </View>
+          </Modal>
+        </View>
       )}
 
       <View style={{ marginBottom: 12 }}>

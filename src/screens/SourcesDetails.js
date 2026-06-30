@@ -152,7 +152,7 @@ export default function SourcesDetails({ route, navigation }) {
                 <Feather name="edit-2" size={14} color={Colors.primary} />
               </TouchableOpacity>
 
-              {/* ✅ FIXED DELETE TRIGGER */}
+              {/* DELETE TRIGGER */}
               <TouchableOpacity
                 onPress={() => {
                   setConfirmTargetId(item.id);
