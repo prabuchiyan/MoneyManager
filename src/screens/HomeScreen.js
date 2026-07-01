@@ -283,14 +283,55 @@ export default function HomeScreen({ navigation }) {
               })()}
             </>
           ) : (
-            <View style={{ alignItems: 'center', paddingVertical: 16 }}>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+                paddingVertical: 16,
+                width: '100%',
+              }}
+            >
               <TouchableOpacity onPress={() => navigation.navigate('Budgets')}>
-                <BudgetDonut limit={0} spent={0} remaining={0} daysLeft={daysRemainingInMonth()} />
+                <BudgetDonut
+                  limit={0}
+                  spent={0}
+                  remaining={0}
+                  daysLeft={daysRemainingInMonth()}
+                />
               </TouchableOpacity>
-              <View style={{ marginTop: 12, alignSelf: 'stretch', maxWidth: 360, alignItems: 'center' }}>
-                <Text style={{ fontWeight: '700', fontSize: 16 }}>No budgets set</Text>
-                <Text style={{ color: Colors.muted, marginTop: 8, textAlign: 'center' }}>Create a budget to track monthly spending and see safe/overspent amounts here.</Text>
-                <PaperButton mode="contained" onPress={() => navigation.navigate('Budgets')} style={{ marginTop: 12 }}>Create Budget</PaperButton>
+
+              <View
+                style={{
+                  marginTop: 12,
+                  width: '100%',
+                  maxWidth: 360,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <Text style={{ fontWeight: '700', fontSize: 16, textAlign: 'center' }}>
+                  No budgets set
+                </Text>
+
+                <Text
+                  style={{
+                    color: Colors.muted,
+                    marginTop: 8,
+                    textAlign: 'center',
+                  }}
+                >
+                  Create a budget to track monthly spending and see safe/overspent amounts
+                  here.
+                </Text>
+
+                <PaperButton
+                  mode="contained"
+                  onPress={() => navigation.navigate('Budgets')}
+                  style={{ marginTop: 12 }}
+                >
+                  Create Budget
+                </PaperButton>
               </View>
             </View>
           )}
