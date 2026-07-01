@@ -23,7 +23,7 @@ const LAST_BACKUP_KEY = 'mm_last_backup_time';
 
 export default function BackupScreen() {
   const [loading, setLoading] = useState(false);
-  const [progressPercentage, setProgressPercentage] = useState(0);
+  const [progressPercentage, setProgressPercentage] = useState(-1);
   const [progressMessage, setProgressMessage] = useState('');
   const [lastBackupTime, setLastBackupTime] = useState(null);
   const [backupData, setBackupData] = useState(null);
@@ -74,6 +74,7 @@ export default function BackupScreen() {
 
   async function handleRestore() {
     setShowConfirmRestore(false);
+    setShowPreview(false);
     setLoading(true);
     setProgressPercentage(0);
     setProgressMessage('Initializing restore...');
@@ -82,14 +83,15 @@ export default function BackupScreen() {
         setProgressPercentage(percentage);
         setProgressMessage(message);
       });
+      // Wait 100ms for React to render the 100% progress state before the blocking alert appears
+      await new Promise(resolve => setTimeout(resolve, 100));
       Alert.alert('Success', `Data ${restoreMode === 'replace' ? 'replaced' : 'merged'} successfully`);
       setBackupData(null);
-      setShowPreview(false);
     } catch (error) {
       Alert.alert('Error', 'Restore failed: ' + error.message);
     } finally {
       setLoading(false);
-      setProgressPercentage(0);
+      setProgressPercentage(-1);
       setProgressMessage('');
     }
   }
@@ -212,7 +214,7 @@ export default function BackupScreen() {
           <Text style={{ fontSize: 16, fontWeight: '700', marginBottom: 10, color: Colors.primary }}>
             {progressMessage || 'Processing Backup...'}
           </Text>
-          {progressPercentage > 0 && (
+          {progressPercentage >= 0 && (
             <View style={{ width: '80%', alignItems: 'center' }}>
               <ProgressBar 
                 progress={progressPercentage / 100} 

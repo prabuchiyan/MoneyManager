@@ -218,7 +218,7 @@ function isSelectQuery(sql) {
 
 function getNativeDb() {
   if (!db) {
-    db = SQLite.openDatabaseSync('money_manager.db');
+    db = SQLite.openDatabaseSync('spendorax.db');
   }
   return db;
 }

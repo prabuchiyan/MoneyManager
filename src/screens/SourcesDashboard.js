@@ -12,9 +12,9 @@ export default function SourcesDashboard({ navigation }) {
 
   async function load() {
     const availableSources = await getSources(true);
-    const transactions = await getTransactions(1000000);
+    const transactions = await getTransactions(1000000, 'Yes');
 
-    // ✅ Build balance map using reduce
+    // Build balance map using reduce
     const balanceMap = transactions.reduce((acc, txn) => {
       const amt = Number(txn.amount || 0);
       const id = txn.source_id;
@@ -32,7 +32,7 @@ export default function SourcesDashboard({ navigation }) {
       return acc;
     }, {});
 
-    // ✅ Merge with initial balance
+    // Merge with initial balance
     const updatedSources = availableSources.map(s => {
       const initial = Number(s.initial_balance || 0);
       const txnBalance = balanceMap[s.id] || 0;

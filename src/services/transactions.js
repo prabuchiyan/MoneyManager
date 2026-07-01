@@ -2,13 +2,38 @@ import { executeSql } from '../database/db';
 import events from './events';
 
 export async function createTransaction(tx) {
-  const { type, amount, category_id, source_id, date, notes, bill_id } = tx;
+  const {
+    type,
+    amount,
+    category_id,
+    source_id,
+    date,
+    notes,
+    bill_id,
+    transfer_group_id,
+    direction
+  } = tx;
+
   const res = await executeSql(
-    `INSERT INTO transactions (type, amount, category_id, source_id, date, notes, bill_id) VALUES (?,?,?,?,?,?,?)`,
-    [type, amount, category_id || null, source_id || null, date || new Date().toISOString(), notes || null, bill_id || null]
+    `INSERT INTO transactions 
+    (type, amount, category_id, source_id, date, notes, bill_id, transfer_group_id, direction)
+    VALUES (?,?,?,?,?,?,?,?,?)`,
+    [
+      type,
+      amount,
+      category_id || null,
+      source_id || null,
+      date || new Date().toISOString(),
+      notes || null,
+      bill_id || null,
+      transfer_group_id || null,
+      direction || null
+    ]
   );
-  // notify listeners that transactions changed
-  try { events.emit('transactionsChanged', { action: 'create', id: res.insertId }); } catch (e) { }
+
+  try {
+    events.emit('transactionsChanged', { action: 'create', id: res.insertId });
+  } catch (e) { }
   return res.insertId;
 }
 
@@ -87,6 +112,7 @@ function matchesPeriod(txDate, period, referenceDate = new Date()) {
 
 export async function getTransactions(
   limit = 100,
+  isTransferInclude = 'No',
   sourceId = null,
   categoryId = null,
   period = null,
@@ -114,6 +140,10 @@ export async function getTransactions(
       params.push(normalizedCategoryId);
     }
 
+    if (isTransferInclude === 'No') {
+      conditions.push(`transfer_group_id IS NULL`);
+    }
+
     if (conditions.length > 0) {
       query += ` WHERE ${conditions.join(' AND ')}`;
     }
@@ -130,8 +160,10 @@ export async function getTransactions(
 
     // Filter by period in JS
     const filtered = rows.filter((row) => {
-      const txDate = parseTransactionDate(row.date);
 
+      if (isTransferInclude === 'No' && row.transfer_group_id !== null) return false;
+
+      const txDate = parseTransactionDate(row.date);
       if (!txDate) {
         console.warn('Invalid transaction date:', row.id, row.date);
         return false;
@@ -171,4 +203,39 @@ export async function updateTransaction(id, fields) {
   const sql = `UPDATE transactions SET ${sets.join(', ')} WHERE id = ?`;
   await executeSql(sql, vals);
   try { events.emit('transactionsChanged', { action: 'update', id, fields }); } catch (e) { }
+}
+
+export async function createTransfer({
+  fromAccount,
+  toAccount,
+  amount,
+  note,
+  date
+}) {
+  const groupId = Date.now().toString();
+  // Debit
+  await createTransaction({
+    type: 'expense',
+    amount,
+    category_id: null,
+    source_id: fromAccount,
+    date,
+    notes: note || 'Transfer',
+    bill_id: null,
+    transfer_group_id: groupId,
+    direction: 'debit'
+  });
+
+  // Credit
+  await createTransaction({
+    type: 'income',
+    amount,
+    category_id: null,
+    source_id: toAccount,
+    date,
+    notes: note || 'Transfer',
+    bill_id: null,
+    transfer_group_id: groupId,
+    direction: 'credit'
+  });
 }

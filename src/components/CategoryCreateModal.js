@@ -115,62 +115,98 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
-      <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)', justifyContent: 'center', padding: Spacing.m }}>
-        <Card style={{ padding: Spacing.m }}>
-          <Text style={{ fontSize: 18, fontWeight: '600', marginBottom: Spacing.m }}>{action}</Text>
+      <View style={styles.overlay}>
+        <View style={styles.container}>
 
-          <PaperInput
-            label="Category Name"
-            value={name}
-            onChangeText={(text) => { setName(text); setNameError(false); }}
-            mode="outlined"
-            style={{ marginBottom: Spacing.s }}
-            error={nameError}
-          />
-          {nameError && <Text style={{ color: 'red', marginBottom: Spacing.s }}>Category name is required.</Text>}
+          {/* HEADER (same as source modal) */}
+          <View style={styles.header}>
+            <View style={[styles.iconContainer, { backgroundColor: selectedColor }]}>
+              <MaterialCommunityIcons name={selectedIcon} size={22} color="#fff" />
+            </View>
 
-          <View style={{ flexDirection: 'row', marginBottom: Spacing.s }}>
-            <PaperButton
-              mode={type === 'income' ? 'contained' : 'outlined'}
-              onPress={() => setType('income')}
-              style={{ marginRight: Spacing.s }}
-            >
-              Income
-            </PaperButton>
-            <PaperButton
-              mode={type === 'expense' ? 'contained' : 'outlined'}
-              onPress={() => setType('expense')}
-            >
-              Expense
-            </PaperButton>
+            <View style={{ marginLeft: 12 }}>
+              <Text style={styles.title}>{action}</Text>
+              <Text style={styles.subtitle}>Manage your category</Text>
+            </View>
           </View>
 
-          <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: Spacing.m }}>
-            <TouchableOpacity
-              onPress={() => setShowIconPicker(true)}
-              style={[styles.iconSelector, { backgroundColor: (selectedColor || Colors.primary) + '20' }]}
-            >
-              <MaterialCommunityIcons name={selectedIcon} size={22} color={selectedColor} />
-            </TouchableOpacity>
-            <IconButton label="Icon" icon="image" onPress={() => setShowIconPicker(true)} />
-            <IconButton label="Color" icon="droplet" onPress={() => setShowColorPicker(true)} />
+          {/* FORM */}
+          <View style={styles.formCard}>
+
+            <PaperInput
+              label="Category Name"
+              value={name}
+              onChangeText={(text) => { setName(text); setNameError(false); }}
+              mode="outlined"
+              style={styles.input}
+              error={nameError}
+            />
+
+            {nameError && (
+              <Text style={{ color: '#E46A6A', marginBottom: 8 }}>
+                Category name is required
+              </Text>
+            )}
+
+            {/* TYPE SWITCH */}
+            <View style={styles.typeRow}>
+              <PaperButton
+                mode={type === 'income' ? 'contained' : 'outlined'}
+                onPress={() => setType('income')}
+                style={{ marginRight: 8 }}
+              >
+                Income
+              </PaperButton>
+
+              <PaperButton
+                mode={type === 'expense' ? 'contained' : 'outlined'}
+                onPress={() => setType('expense')}
+              >
+                Expense
+              </PaperButton>
+            </View>
+
+            {/* ICON + COLOR */}
+            <View style={styles.controls}>
+              <TouchableOpacity
+                style={styles.controlBtn}
+                onPress={() => setShowIconPicker(true)}
+              >
+                <MaterialCommunityIcons name="image" size={18} color="#444" />
+                <Text style={styles.controlText}>Icon</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.controlBtn}
+                onPress={() => setShowColorPicker(true)}
+              >
+                <MaterialCommunityIcons name="palette" size={18} color="#444" />
+                <Text style={styles.controlText}>Color</Text>
+              </TouchableOpacity>
+            </View>
+
           </View>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-            <PaperButton mode="outlined" onPress={onClose} style={{ marginRight: Spacing.s }}>
+          {/* ACTIONS */}
+          <View style={styles.actions}>
+            <PaperButton mode="outlined" onPress={onClose} style={{ marginRight: 8 }}>
               Cancel
             </PaperButton>
+
             <PaperButton mode="contained" onPress={handleCreateCategory}>
               {submitText}
             </PaperButton>
           </View>
-        </Card>
 
+        </View>
+
+        {/* PICKERS */}
         <IconPicker
           visible={showIconPicker}
           onClose={() => setShowIconPicker(false)}
           onSelect={setSelectedIcon}
         />
+
         <ColorPickerModal
           visible={showColorPicker}
           onClose={() => setShowColorPicker(false)}
@@ -183,14 +219,92 @@ export default function CategoryCreateModal({ visible, onClose, onCategoryCreate
 }
 
 const styles = StyleSheet.create({
-  iconSelector: {
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
+    padding: 16,
+  },
+
+  container: {
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    padding: 16,
+  },
+
+  // HEADER
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+
+  iconContainer: {
     width: 48,
     height: 48,
-    borderRadius: 12,
-    backgroundColor: '#f5f5f5',
+    borderRadius: 14,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  title: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#111',
+  },
+
+  subtitle: {
+    fontSize: 12,
+    color: '#777',
+    marginTop: 2,
+  },
+
+  // FORM
+  formCard: {
+    backgroundColor: '#fafafa',
+    borderRadius: 14,
+    padding: 12,
+  },
+
+  input: {
+    marginBottom: 10,
+    backgroundColor: '#fff',
+  },
+
+  typeRow: {
+    flexDirection: 'row',
+    marginBottom: 10,
+  },
+
+  // CONTROLS
+  controls: {
+    flexDirection: 'row',
+    marginTop: 6,
+  },
+
+  controlBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderRadius: 10,
+    marginRight: 10,
     borderWidth: 1,
     borderColor: '#eee',
+  },
+
+  controlText: {
+    marginLeft: 6,
+    fontSize: 13,
+    color: '#444',
+    fontWeight: '500',
+  },
+
+  // ACTIONS
+  actions: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginTop: 16,
   },
 });

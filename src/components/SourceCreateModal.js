@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Modal, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Modal, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -58,54 +58,73 @@ export default function SourceCreateModal({ visible, onClose, onSave, editData }
       <View style={styles.overlay}>
         <View style={styles.container}>
 
-          {/* Name */}
-          <TextInput
-            label="Source Name"
-            value={name}
-            onChangeText={setName}
-            mode="outlined"
-            style={styles.input}
-          />
+          {/* HEADER */}
+          <View style={styles.header}>
+            <View style={[styles.iconContainer, { backgroundColor: color }]}>
+              <MaterialCommunityIcons name={icon} size={24} color="#fff" />
+            </View>
 
-          {/* Balance */}
-          <TextInput
-            label="Initial Balance"
-            value={initial}
-            onChangeText={setInitial}
-            keyboardType="numeric"
-            mode="outlined"
-            style={styles.input}
-          />
+            <View style={{ marginLeft: 12 }}>
+              <Text style={styles.title}>
+                {editData ? 'Edit Account' : 'New Account'}
+              </Text>
+              <Text style={styles.subtitle}>
+                Manage your source details
+              </Text>
+            </View>
+          </View>
 
-          {/* Icon + Color Row */}
-          <View style={styles.iconRow}>
+          {/* FORM CARD */}
+          <View style={styles.formCard}>
 
-            <TouchableOpacity
-              onPress={() => setShowIconPicker(true)}
-              style={[styles.iconBox, { backgroundColor: color + '20' }]}
-            >
-              <MaterialCommunityIcons name={icon} size={24} color={color} />
-            </TouchableOpacity>
-
-            <IconButton
-              label="Icon"
-              icon="image"
-              onPress={() => setShowIconPicker(true)}
+            <TextInput
+              label="Source Name"
+              value={name}
+              onChangeText={setName}
+              mode="outlined"
+              style={styles.input}
             />
 
-            <IconButton
-              label="Color"
-              icon="droplet"
-              onPress={() => setShowColorPicker(true)}
+            <TextInput
+              label="Initial Balance"
+              value={initial}
+              onChangeText={setInitial}
+              keyboardType="numeric"
+              mode="outlined"
+              style={styles.input}
             />
+
+            {/* ICON / COLOR */}
+            <View style={styles.controls}>
+              <TouchableOpacity
+                style={styles.controlBtn}
+                onPress={() => setShowIconPicker(true)}
+              >
+                <MaterialCommunityIcons name="image" size={18} color="#444" />
+                <Text style={styles.controlText}>Icon</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.controlBtn}
+                onPress={() => setShowColorPicker(true)}
+              >
+                <MaterialCommunityIcons name="palette" size={18} color="#444" />
+                <Text style={styles.controlText}>Color</Text>
+              </TouchableOpacity>
+            </View>
 
           </View>
 
-          {/* Actions */}
+          {/* ACTIONS */}
           <View style={styles.actions}>
-            <Button onPress={onClose}>Cancel</Button>
-            <Button mode="contained" onPress={handleSave}>
-              {editData ? 'Update' : 'Add'}
+            <Button onPress={onClose} textColor="#666">Cancel</Button>
+
+            <Button
+              mode="contained"
+              onPress={handleSave}
+              style={[styles.saveBtn, { backgroundColor: color }]}
+            >
+              {editData ? 'Update' : 'Create'}
             </Button>
           </View>
 
@@ -132,35 +151,91 @@ export default function SourceCreateModal({ visible, onClose, onSave, editData }
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.4)',
+    backgroundColor: 'rgba(0,0,0,0.5)',
     justifyContent: 'center',
-    padding: 20,
+    padding: 16,
   },
+
   container: {
     backgroundColor: '#fff',
+    borderRadius: 20,
     padding: 16,
-    borderRadius: 16,
   },
-  input: {
-    marginBottom: 12,
-  },
-  iconRow: {
+
+  // HEADER
+  header: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 16,
   },
-  iconBox: {
+
+  iconContainer: {
     width: 48,
     height: 48,
-    borderRadius: 12,
+    borderRadius: 14,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  title: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#111',
+  },
+
+  subtitle: {
+    fontSize: 12,
+    color: '#777',
+    marginTop: 2,
+  },
+
+  // FORM
+  formCard: {
+    backgroundColor: '#fafafa',
+    borderRadius: 14,
+    padding: 12,
+  },
+
+  input: {
+    marginBottom: 10,
+    backgroundColor: '#fff',
+  },
+
+  // CONTROLS
+  controls: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    marginTop: 6,
+  },
+
+  controlBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderRadius: 10,
     marginRight: 10,
     borderWidth: 1,
     borderColor: '#eee',
   },
+
+  controlText: {
+    marginLeft: 6,
+    fontSize: 13,
+    color: '#444',
+    fontWeight: '500',
+  },
+
+  // ACTIONS
   actions: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
+    marginTop: 16,
+  },
+
+  saveBtn: {
+    borderRadius: 10,
+    marginLeft: 8,
   },
 });

@@ -16,7 +16,7 @@ export async function exportBackup() {
   try {
     const categories = await getCategories(false);
     const sources = await getSources(false);
-    const transactions = await getTransactions(1000000);
+    const transactions = await getTransactions(1000000, 'Yes');
     const budgets = await getBudgets();
     const bills = await getBills();
 
@@ -115,6 +115,16 @@ export async function restoreBackup(backupData, mode = 'replace', onProgress = n
   const yieldToEventLoop = () => new Promise(resolve => setTimeout(resolve, 0));
   const BATCH_SIZE = 20;
 
+  let lastPercentage = 0;
+  const safeOnProgress = (percentage, message) => {
+    if (onProgress) {
+      if (percentage > lastPercentage) {
+        lastPercentage = percentage;
+      }
+      onProgress(lastPercentage, message);
+    }
+  };
+
   // Snapshot original data in-memory for recovery
   const originalData = {
     categories: [],
@@ -145,7 +155,7 @@ export async function restoreBackup(backupData, mode = 'replace', onProgress = n
 
   const rollback = async () => {
     console.log('Initiating database rollback...');
-    if (onProgress) onProgress(0, 'Restoring original database...');
+    safeOnProgress(lastPercentage, 'Restoring original database...');
     try {
       await clearAllTables();
 
@@ -196,28 +206,32 @@ export async function restoreBackup(backupData, mode = 'replace', onProgress = n
       }
 
       console.log('Database rollback completed.');
-      if (onProgress) onProgress(0, 'Rollback completed.');
+      safeOnProgress(lastPercentage, 'Rollback completed.');
     } catch (rollbackErr) {
       console.error('Database rollback failed critically:', rollbackErr);
     }
   };
 
   try {
+    safeOnProgress(0, 'Initializing restore...');
+    await yieldToEventLoop();
+
     if (mode === 'replace') {
-      if (onProgress) onProgress(0, 'Clearing database...');
+      safeOnProgress(0, 'Clearing database...');
       await clearAllTables();
       await yieldToEventLoop();
     }
 
     const { categories = [], sources = [], budgets = [], bills = [], transactions = [] } = backupData.data || {};
-    const totalItems = categories.length + sources.length + bills.length + transactions.length + budgets.length;
+    const billsWithLinkedTx = bills.filter(b => b.linked_transaction_id);
+    const totalItems = categories.length + sources.length + bills.length + transactions.length + budgets.length + billsWithLinkedTx.length;
     let processedItems = 0;
 
     const updateProgress = (completedInChunk, stepMessage) => {
       processedItems += completedInChunk;
-      if (onProgress && totalItems > 0) {
+      if (totalItems > 0) {
         const percentage = Math.min(99, Math.round((processedItems / totalItems) * 100));
-        onProgress(percentage, `${stepMessage} (${processedItems}/${totalItems})`);
+        safeOnProgress(percentage, `${stepMessage} (${processedItems}/${totalItems})`);
       }
     };
 
@@ -313,9 +327,7 @@ export async function restoreBackup(backupData, mode = 'replace', onProgress = n
     }
 
     // 5. Update Bills with linked transactions
-    const billsWithLinkedTx = bills.filter(b => b.linked_transaction_id);
     if (billsWithLinkedTx.length > 0) {
-      if (onProgress) onProgress(Math.min(99, Math.round((processedItems / totalItems) * 100)), 'Linking transactions to bills...');
       for (let i = 0; i < billsWithLinkedTx.length; i += BATCH_SIZE) {
         const chunk = billsWithLinkedTx.slice(i, i + BATCH_SIZE);
         await Promise.all(chunk.map(async (bill) => {
@@ -325,6 +337,7 @@ export async function restoreBackup(backupData, mode = 'replace', onProgress = n
             await updateBill(newBillId, { linked_transaction_id: newTxId });
           }
         }));
+        updateProgress(chunk.length, 'Linking transactions to bills...');
         await yieldToEventLoop();
       }
     }
@@ -349,7 +362,8 @@ export async function restoreBackup(backupData, mode = 'replace', onProgress = n
       await yieldToEventLoop();
     }
 
-    if (onProgress) onProgress(100, 'Restore completed successfully!');
+    safeOnProgress(100, 'Restore completed successfully!');
+    await yieldToEventLoop();
     return { success: true };
   } catch (error) {
     console.error('Restore failed:', error);

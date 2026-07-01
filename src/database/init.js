@@ -35,6 +35,8 @@ export async function initDB() {
       date TEXT,
       notes TEXT,
       bill_id INTEGER,
+      transfer_group_id TEXT,
+      direction TEXT,
       created_at TEXT DEFAULT (datetime('now')),
       FOREIGN KEY(category_id) REFERENCES categories(id),
       FOREIGN KEY(source_id) REFERENCES sources(id)
