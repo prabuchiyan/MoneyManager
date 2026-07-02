@@ -57,8 +57,8 @@ export async function initDB() {
       amount REAL NOT NULL,
       month INTEGER NOT NULL,
       year INTEGER NOT NULL,
-      created_at TEXT,
-      updated_at TEXT,
+      created_at TEXT DEFAULT (datetime('now')),
+      updated_at TEXT DEFAULT (datetime('now')),
       UNIQUE(category_id, month, year)
     );`);
 

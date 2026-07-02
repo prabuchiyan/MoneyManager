@@ -243,7 +243,7 @@ export default function BudgetsScreen({ route, navigation }) {
               />
 
               <Button mode="contained" onPress={saveCategoryBudgetNow} style={{ paddingVertical: 10, borderRadius: 10 }} contentStyle={{ paddingVertical: 4 }}>
-                Save Budget
+                {selectedCategory ? 'Update Budget' : 'Save Budget'}
               </Button>
             </Card>
 
