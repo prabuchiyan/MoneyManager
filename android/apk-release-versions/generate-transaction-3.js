@@ -1,183 +1,153 @@
 const fs = require("fs");
 
 const raw = `
-01/03/17 : Add Money to Paytm : $600
+01/04/17 : Bus Fair : $290
 
-01/03/17 : Breakfast : $30
+01/04/17 : Snacks : $40
 
-01/03/17 : Lunch : $30
+01/04/17 : Petrol : $100
 
-01/03/17 : Mobile Back Cover : $425
+01/04/17 : Spend : $11
 
-01/03/17 : Paste, dates & Shampoo : $425
+01/04/17 : Fruits : $110
 
-01/03/17 : Dinner : $35
+02/04/17 : DTH Recharge : $445
 
-02/03/17 : Breakfast : $30
+02/04/17 : Given to Akka : $400
 
-02/03/17 : Dinner : $30
+02/04/17 : Petrol : $300
 
-02/03/17 : Sugar, egg, Milk, Carrot : $62
+02/04/17 : Spend with abi : $965
 
-03/03/17 : Breakfast : $30
+02/04/17 : Money added to Paytm : $400
 
-03/03/17 : Lunch : $30
+03/04/17 : Give it Back Madhu : $2000
 
-04/03/17 : Juice : $30
+03/04/17 : Bus Fair : $268
 
-04/03/17 : Snacks : $30
+04/04/17 : Lunch : $40
 
-04/03/17 : Give it Back : $40
+04/04/17 : Dinner : $25
 
-04/03/17 : Carrot : $10
+05/04/17 : Lunch : $30
 
-04/03/17 : dinner : $28
+05/04/17 : spend : $50
 
-05/03/17 : Breakfast : $40
+05/04/17 : Give it Back : $10000
 
-05/03/17 : Grapes : $30
+05/04/17 : Room Rent : $3810
 
-05/03/17 : Snacks : $20
+05/04/17 : Give it Back Sasi : $2858
 
-05/03/17 : Dinner : $13
+05/04/17 : Gas Filled : $220
 
-06/03/17 : Bike EMI : $8951
+05/04/17 : Dinner : $30
 
-06/03/17 : Breakfast : $40
+06/04/17 : Lunch : $100
 
-06/03/17 : Lunch : $30
+07/04/17 : Recharge : $120
 
-06/03/17 : Give it Back : $500
+08/04/17 : Movie : $19
 
-06/03/17 : Snacks : $10
+10/04/17 : Give it Back Sathiya : $5000
 
-06/03/17 : Give it Back : $8000
+10/04/17 : Lunch : $30
 
-06/03/17 : Rd : $3500
+10/04/17 : Dinner : $25
 
-06/03/17 : Dinner : $20
+11/04/17 : Lunch : $30
 
-06/03/17 : Room Rent : $2000
+11/04/17 : Snacks : $50
 
-07/03/17 : Breakfast : $30
+11/04/17 : Petrol : $200
 
-07/03/17 : Lunch : $30
+12/04/17 : Lunch : $25
 
-07/03/17 : Dinner : $30
+12/04/17 : Snacks : $20
 
-08/03/17 : Breakfast : $34
+12/04/17 : Dinner : $30
 
-08/03/17 : Dinner : $20
+12/04/17 : Carrots : $25
 
-08/03/17 : Watch Pin : $20
+13/04/17 : Lunch : $20
 
-09/03/17 : Bus Fair : $268
+13/04/17 : Snacks : $34
 
-09/03/17 : Petrol : $300
+14/04/17 : Lunch : $100
 
-09/03/17 : Spend With ABI : $466
+14/04/17 : Dinner : $25
 
-09/03/17 : Cashew and Try Grapes : $260
+15/04/17 : Bus : $17
 
-09/03/17 : Bus Fair : $268
+15/04/17 : Bike Service : $1637
 
-10/03/17 : Breakfast : $40
+17/04/17 : Petrol : $200
 
-10/03/17 : TV Recharge : $260
+18/04/17 : Water : $40
 
-10/03/17 : Electricity Bill : $313
+19/04/17 : Breakfast : $40
 
-10/03/17 : Recharge : $106
+20/04/17 : Snacks : $25
 
-13/03/17 : Gift : $1150
+20/04/17 : Dinner : $40
 
-13/03/17 : Give it back : $100
+21/04/17 : Lunch : $60
 
-13/03/17 : Dinner​ : $30
+21/04/17 : Transfer Fees : $40
 
-13/03/17 : Carrot : $20
+21/04/17 : Bus Fair : $15
 
-14/03/17 : Give it back Sasi : $2000
+21/04/17 : Dinner : $25
 
-14/03/17 : Lunch : $40
+21/04/17 : Bus Fair : $240
 
-15/03/17 : Lunch : $30
+22/04/17 : Snacks+Lattu+Food : $190
 
-15/03/17 : Trip Amount : $2570
+22/04/17 : Photos with frames : $60
 
-15/03/17 : Dinner Purchase : $60
+22/04/17 : Bus Fair : $54
 
-16/03/17 : Lunch : $45
+22/04/17 : Bus Fair : $240
 
-16/03/17 : Dinner : $116
+22/04/17 : Bus Fair : $20
 
-17/03/17 : Lunch : $30
+23/04/17 : Lunch : $30
 
-17/03/17 : Juice : $30
+23/04/17 : Dinner : $40
 
-17/03/17 : Snack : $15
+24/04/17 : Courier : $174
 
-18/03/17 :  Hair Cut : $100
+24/04/17 : Lunch : $20
 
-19/03/17 : Egg and washing soap : $20
+24/04/17 : Dinner : $20
 
-20/03/17 : Add Money : $200
+24/04/17 : Give it Back : $200
 
-21/03/17 : Lunch : $30
+25/04/17 : Breakfast : $25
 
-21/03/17 : Give it back : $30
+25/04/17 : Lunch :$120
 
-21/03/17 : Carrot & eggs & Banana : $68
+25/04/17 : Dinner : $40
 
-22/03/17 : Lunch : $30
+26/04/17 : Lunch : $45
 
-23/03/17 : Snacks : $10
+26/04/17 : Dinner : $80
 
-23/03/17 : Dinner : $30
+26/04/17 : Carrots : $10
 
-23/03/17 : Carrots : $15
+27/04/17 : Petrol : $202
 
-24/03/17 : Treat : $620
+28/04/17 : Dinner : $20
 
-25/03/17 : Lunch : $30
+30/04/17 : Credit Card : $9472.54
 
-25/03/17 : Movie Bike Ticket : $20
+30/04/17 : Water Wash : $60
 
-26/03/17 : Dinner : $30
+30/04/17 : Gift : $200
 
-27/03/17 : Breakfast : $24
+30/04/17 : Give it Back Sasi : $100
 
-27/03/17 : Give it Back : $30
-
-27/03/17 : Lunch : $30
-
-27/03/17 : Snacks : $10
-
-27/03/17 : Snacks : $20
-
-27/03/17 : Dinner : $48
-
-28/03/17 : Dinner : $20
-
-28/03/17 : Add Paytm : $200
-
-29/03/17 : Water Cane : $40
-
-29/03/17 : Breakfast : $35
-
-29/03/17 : Lunch : $30
-
-29/03/17 : Snacks : $10
-
-29/03/17 : Dinner : $60
-
-29/03/17 : Carrot : $20
-
-30/03/17 : Give it Back : $100
-
-31/03/17 : Breakfast : $35
-
-31/03/17 : Lunch : $30
+30/04/17 : Petrol : $400
 `;
 
 const categoryMap = {
@@ -269,12 +239,40 @@ const transactions = raw
   .trim()
   .split("\n")
   .filter(line => line.trim() && !line.trim().startsWith("//"))
-  .map(line => {
-    const parts = line.split(" : ");
+  // .map(line => {
+  //   const parts = line.split(" : ");
 
-    const date = parts[0].trim();
-    const notes = parts[1].trim();
-    const amount = Number(parts[2].replace("$", "").trim());
+  //   const date = parts[0].trim();
+  //   const notes = parts[1].trim();
+  //   const amount = Number(parts[2].replace("$", "").trim());
+
+  //   const [dd, mm, yy] = date.split("/");
+
+  //   const formattedDate = `20${yy}-${mm}-${dd}`;
+
+  //   return {
+  //     id: id++,
+  //     type: "expense",
+  //     amount,
+  //     category_id: categoryMap[notes] ?? categoryMap.Default,
+  //     source_id: 3,
+  //     date: formattedDate,
+  //     notes,
+  //     bill_id: null,
+  //     created_at: `${formattedDate} 00:00:00`,
+  //     transfer_group_id: null,
+  //     direction: null
+  //   };
+  // });
+  .map(line => {
+    const match = line.match(/^(\d{2}\/\d{2}\/\d{2})\s*:\s*(.*?)\s*:\s*\$(.+)$/);
+
+    if (!match) {
+      console.log("Invalid line:", line);
+      return null;
+    }
+
+    const [, date, notes, amountStr] = match;
 
     const [dd, mm, yy] = date.split("/");
 
@@ -283,7 +281,7 @@ const transactions = raw
     return {
       id: id++,
       type: "expense",
-      amount,
+      amount: Number(amountStr.trim()),
       category_id: categoryMap[notes] ?? categoryMap.Default,
       source_id: 3,
       date: formattedDate,
@@ -293,7 +291,8 @@ const transactions = raw
       transfer_group_id: null,
       direction: null
     };
-  });
+  })
+  .filter(Boolean);
 
 const backup = {
   version: 1,
@@ -743,49 +742,49 @@ const backup = {
         "created_at": "2026-06-24 18:20:55"
       }
     ],
-	sources: [
-		{
-			"name": "Axis Bank",
-			"type": null,
-			"initial_balance": 0,
-			"icon": "bank",
-			"color": "#DC2626",
-			"id": 1
-		},
-		{
-			"name": "Bank of Baroda",
-			"type": null,
-			"initial_balance": 0,
-			"icon": "bank",
-			"color": "#6366F1",
-			"id": 2
-		},
-		{
-			"name": "Cash",
-			"type": null,
-			"initial_balance": 0,
-			"icon": "cash",
-			"color": "#A3E635",
-			"id": 3
-		},
-		{
-			"name": "State Bank of India",
-			"type": null,
-			"initial_balance": 0,
-			"icon": "bank",
-			"color": "#6366F1",
-			"id": 4
-		}
-	],
+    sources: [
+      {
+        "name": "Axis Bank",
+        "type": null,
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#DC2626",
+        "id": 1
+      },
+      {
+        "name": "Bank of Baroda",
+        "type": null,
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1",
+        "id": 2
+      },
+      {
+        "name": "Cash",
+        "type": null,
+        "initial_balance": 0,
+        "icon": "cash",
+        "color": "#A3E635",
+        "id": 3
+      },
+      {
+        "name": "State Bank of India",
+        "type": null,
+        "initial_balance": 0,
+        "icon": "bank",
+        "color": "#6366F1",
+        "id": 4
+      }
+    ],
     budgets: [],
     bills: []
   }
 };
 
 fs.writeFileSync(
-  "2017_03.json",
+  "2017_04.json",
   JSON.stringify(backup, null, 2),
   "utf8"
 );
 
-console.log("2017_03.json created successfully.");
+console.log("2017_04.json created successfully.");
