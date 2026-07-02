@@ -291,21 +291,143 @@ export default function BudgetsScreen({ route, navigation }) {
             {categoryBudgets.length > 0 ? (
               <Card>
                 <Text style={{ fontSize: 16, fontWeight: '700', marginBottom: 12 }}>Category Budgets for {currentMonth}/{currentYear}</Text>
-                {categoryBudgets.map(budget => (
-                  <View key={budget.id} style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: '#eee' }}>
-                    <Avatar.Icon size={36} icon={budget.icon} style={{ backgroundColor: budget.color, marginRight: 10 }} />
-                    <View style={{ flex: 1 }}>
-                      <Text style={{ fontWeight: '600', marginBottom: 2 }}>{budget.categoryName}</Text>
-                      <Text style={{ fontSize: 12, color: '#666' }}>₹{budget.budget.toLocaleString('en-IN')} / ₹{budget.spent.toLocaleString('en-IN')} spent</Text>
-                    </View>
-                    <IconButton icon="pencil" size={20} onPress={() => {
-                      setEditingBudgetId(budget.id);
-                      setSelectedCategory(categories.find(c => c.id === budget.categoryId));
-                      setCategoryBudgetAmount(String(budget.budget));
-                    }} />
-                    <IconButton icon="delete" size={20} onPress={() => handleDeleteCategoryBudget(budget.id)} />
-                  </View>
-                ))}
+                {categoryBudgets.map(budget => {
+                  let barColor = '#36B37E';
+
+                  if (budget.percentage >= 80 && budget.percentage <= 100) {
+                    barColor = '#FFB020';
+                  } else if (budget.percentage > 100) {
+                    barColor = '#E46A6A';
+                  }
+
+                  return (
+                    <TouchableOpacity
+                      key={budget.id}
+                      onPress={() =>
+                        navigation.navigate('CategoriesDetails', {
+                          categoryId: budget.categoryId,
+                          categoryName: budget.categoryName,
+                        })
+                      }
+                      style={{
+                        paddingVertical: 12,
+                        borderBottomWidth: 1,
+                        borderBottomColor: '#eee',
+                      }}
+                    >
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          marginBottom: 6,
+                        }}
+                      >
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            flex: 1,
+                          }}
+                        >
+                          <Avatar.Icon
+                            size={36}
+                            icon={budget.icon}
+                            style={{
+                              backgroundColor: budget.color,
+                              marginRight: 10,
+                            }}
+                          />
+
+                          <View style={{ flex: 1 }}>
+                            <Text style={{ fontWeight: '600' }}>
+                              {budget.categoryName}
+                            </Text>
+
+                            <Text
+                              style={{
+                                fontSize: 12,
+                                color: '#666',
+                              }}
+                            >
+                              ₹{budget.spent.toLocaleString('en-IN')} / ₹{budget.budget.toLocaleString('en-IN')}
+                            </Text>
+                          </View>
+                        </View>
+
+                        <View
+                          style={{
+                            alignItems: 'flex-end',
+                            marginLeft: 8,
+                          }}
+                        >
+                          <Text
+                            style={{
+                              fontWeight: '700',
+                              color: barColor,
+                              fontSize: 16,
+                            }}
+                          >
+                            {Math.round(budget.percentage)}%
+                          </Text>
+
+                          <Text
+                            style={{
+                              fontSize: 11,
+                              color: budget.exceeded ? '#E46A6A' : '#36B37E',
+                            }}
+                          >
+                            {budget.exceeded
+                              ? `+₹${Math.abs(budget.remaining).toLocaleString('en-IN')}`
+                              : `₹${budget.remaining.toLocaleString('en-IN')}`}
+                          </Text>
+                        </View>
+
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            marginLeft: 8,
+                          }}
+                        >
+                          <IconButton
+                            icon="pencil"
+                            size={20}
+                            onPress={() => {
+                              setEditingBudgetId(budget.id);
+                              setSelectedCategory(
+                                categories.find(c => c.id === budget.categoryId)
+                              );
+                              setCategoryBudgetAmount(String(budget.budget));
+                            }}
+                          />
+
+                          <IconButton
+                            icon="delete"
+                            size={20}
+                            onPress={() => handleDeleteCategoryBudget(budget.id)}
+                          />
+                        </View>
+                      </View>
+
+                      <View
+                        style={{
+                          height: 8,
+                          backgroundColor: '#eee',
+                          borderRadius: 4,
+                          overflow: 'hidden',
+                        }}
+                      >
+                        <View
+                          style={{
+                            width: `${Math.min(100, budget.percentage)}%`,
+                            height: '100%',
+                            backgroundColor: barColor,
+                          }}
+                        />
+                      </View>
+                    </TouchableOpacity>
+                  );
+                })}
               </Card>
             ) : (
               <Card>
