@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, FlatList } from 'react-native';
 import { TextInput as PaperInput, Button, Avatar, IconButton } from 'react-native-paper';
 import { createBudget, getBudgetsForMonth, updateBudget } from '../services/budgets';
-import { getCategoryBudgets, saveCategoryBudget, deleteCategoryBudget, getCategoryBudgetSummary } from '../services/categoryBudgets';
+import { saveCategoryBudget, deleteCategoryBudget, getCategoryBudgetSummary } from '../services/categoryBudgets';
 import { getCategories } from '../services/categories';
 import events from '../services/events';
 import Card from '../components/Card';
@@ -13,7 +13,7 @@ export default function BudgetsScreen({ route, navigation }) {
   const [tab, setTab] = useState('overall');
   const [limit, setLimit] = useState('');
   const [currentBudgetId, setCurrentBudgetId] = useState(null);
-  
+
   // Category budget tab
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -24,6 +24,7 @@ export default function BudgetsScreen({ route, navigation }) {
   const [confirmVisible, setConfirmVisible] = useState(false);
   const [confirmMessage, setConfirmMessage] = useState('');
   const [deletingBudgetId, setDeletingBudgetId] = useState(null);
+  const [editingBudgetId, setEditingBudgetId] = useState(null);
 
   const now = new Date();
   const currentMonth = now.getMonth() + 1;
@@ -50,8 +51,8 @@ export default function BudgetsScreen({ route, navigation }) {
     setCategoryBudgets(budgets);
   }
 
-  useEffect(() => { 
-    load(); 
+  useEffect(() => {
+    load();
     const unsub = navigation.addListener('focus', () => { load(); });
     return unsub;
   }, [navigation]);
@@ -71,6 +72,37 @@ export default function BudgetsScreen({ route, navigation }) {
     }
   }
 
+  async function syncOverallBudget() {
+    const budgets = await getCategoryBudgetSummary(
+      currentMonth,
+      currentYear
+    );
+
+    const totalCategoryBudgets = budgets.reduce(
+      (sum, item) => sum + item.budget,
+      0
+    );
+
+    const rows = await getBudgetsForMonth();
+    const general = rows.find(r => r.category_id == null);
+
+    if (general) {
+      await updateBudget(general.id, {
+        category_id: null,
+        monthly_limit: totalCategoryBudgets,
+        month: null,
+      });
+    } else if (totalCategoryBudgets > 0) {
+      const id = await createBudget({
+        monthly_limit: totalCategoryBudgets,
+        category_id: null,
+        month: null,
+      });
+
+      setCurrentBudgetId(id);
+    }
+  }
+
   async function saveCategoryBudgetNow() {
     if (!selectedCategory) {
       alert('Please select a category');
@@ -82,14 +114,16 @@ export default function BudgetsScreen({ route, navigation }) {
       return;
     }
     await saveCategoryBudget(selectedCategory.id, amount, currentMonth, currentYear);
+    await syncOverallBudget();
     events.emit('budgetsChanged', null);
     await load();
     setSelectedCategory(null);
     setCategoryBudgetAmount('');
+    setEditingBudgetId(null);
   }
 
-  const filteredCategories = categories.filter(c => 
-    c.name.toLowerCase().includes(searchText.toLowerCase()) && 
+  const filteredCategories = categories.filter(c =>
+    c.name.toLowerCase().includes(searchText.toLowerCase()) &&
     !categoryBudgets.some(b => b.categoryId === c.id)
   );
 
@@ -102,6 +136,7 @@ export default function BudgetsScreen({ route, navigation }) {
   async function confirmDeleteCategoryBudget() {
     if (deletingBudgetId) {
       await deleteCategoryBudget(deletingBudgetId);
+      await syncOverallBudget();
       events.emit('budgetsChanged', null);
       await load();
       setConfirmVisible(false);
@@ -181,7 +216,7 @@ export default function BudgetsScreen({ route, navigation }) {
           <>
             <Card style={{ marginBottom: 16 }}>
               <Text style={{ fontSize: 16, fontWeight: '700', marginBottom: 12 }}>Add Category Budget</Text>
-              
+
               {/* Category Dropdown */}
               <TouchableOpacity
                 onPress={() => setShowCategoryDropdown(!showCategoryDropdown)}
@@ -242,8 +277,13 @@ export default function BudgetsScreen({ route, navigation }) {
                 outlineColor="#eee"
               />
 
-              <Button mode="contained" onPress={saveCategoryBudgetNow} style={{ paddingVertical: 10, borderRadius: 10 }} contentStyle={{ paddingVertical: 4 }}>
-                {selectedCategory ? 'Update Budget' : 'Save Budget'}
+              <Button
+                mode="contained"
+                onPress={saveCategoryBudgetNow}
+                style={{ paddingVertical: 10, borderRadius: 10 }}
+                contentStyle={{ paddingVertical: 4 }}
+              >
+                {editingBudgetId ? 'Update Budget' : 'Save Budget'}
               </Button>
             </Card>
 
@@ -259,6 +299,7 @@ export default function BudgetsScreen({ route, navigation }) {
                       <Text style={{ fontSize: 12, color: '#666' }}>₹{budget.budget.toLocaleString('en-IN')} / ₹{budget.spent.toLocaleString('en-IN')} spent</Text>
                     </View>
                     <IconButton icon="pencil" size={20} onPress={() => {
+                      setEditingBudgetId(budget.id);
                       setSelectedCategory(categories.find(c => c.id === budget.categoryId));
                       setCategoryBudgetAmount(String(budget.budget));
                     }} />
