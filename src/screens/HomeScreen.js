@@ -190,7 +190,7 @@ export default function HomeScreen({ navigation }) {
       console.debug && console.debug('Home.load setSelectedBudgetId ->', firstId);
       setSelectedBudgetId(firstId);
     }
-    
+
     // Load category budgets
     try {
       const now = new Date();
@@ -201,7 +201,7 @@ export default function HomeScreen({ navigation }) {
     } catch (e) {
       console.error('Error loading category budgets:', e);
     }
-    
+
     // recent transactions
     try {
       const tx = await getTransactions(3, 'Yes');
@@ -365,7 +365,12 @@ export default function HomeScreen({ navigation }) {
               return (
                 <TouchableOpacity
                   key={budget.id}
-                  onPress={() => navigation.navigate('Budgets')}
+                  onPress={() =>
+                    navigation.navigate('CategoriesDetails', {
+                      categoryId: budget.categoryId,
+                      categoryName: budget.categoryName,
+                    })
+                  }
                   style={{ marginBottom: 16 }}
                 >
                   <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 }}>
