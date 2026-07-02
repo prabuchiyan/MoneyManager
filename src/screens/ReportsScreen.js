@@ -34,7 +34,7 @@ const ReportItemCard = React.memo(({ data, categoriesMap, onCategoryPress }) => 
                 styles.catRow,
                 pressed && { backgroundColor: '#f0f0f0', borderRadius: 4 }
               ]}
-              onPress={() => onCategoryPress(cid, data.label)}
+              onPress={() => onCategoryPress(cid, cat.name, data.label)}
             >
               <View style={styles.catInfo}>
                 <MaterialCommunityIcons
@@ -99,9 +99,10 @@ export default function ReportsScreen() {
     setSelectedPeriod(null);
   }, []);
 
-  const handleCategoryPress = useCallback((categoryId, periodLabel) => {
-    navigation.navigate('SpendAreasDashboard', {
+  const handleCategoryPress = useCallback((categoryId, categoryName, periodLabel) => {
+    navigation.navigate('CategoriesDetails', {
       categoryId,
+      categoryName,
       periodLabel,
       mode
     });
@@ -236,6 +237,7 @@ export default function ReportsScreen() {
             onPress={() => handleModeChange(m)}
             style={[styles.chip, mode === m && { borderColor: Colors.primary, backgroundColor: '#e6f7ff' }]}
             selectedColor={Colors.primary}
+            showSelectedCheck={false}
           >
             {m.charAt(0).toUpperCase() + m.slice(1)}
           </Chip>
