@@ -50,6 +50,18 @@ export async function initDB() {
       month TEXT NOT NULL
     );`);
 
+    // Category Budgets
+    await executeSql(`CREATE TABLE IF NOT EXISTS category_budgets (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      category_id INTEGER NOT NULL,
+      amount REAL NOT NULL,
+      month INTEGER NOT NULL,
+      year INTEGER NOT NULL,
+      created_at TEXT,
+      updated_at TEXT,
+      UNIQUE(category_id, month, year)
+    );`);
+
     // Bills
     await executeSql(`CREATE TABLE IF NOT EXISTS bills (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -170,7 +182,7 @@ export async function initDB() {
 }
 
 export async function clearAllTables() {
-  const tables = ['transactions', 'bills', 'budgets', 'categories', 'sources'];
+  const tables = ['transactions', 'bills', 'budgets', 'category_budgets', 'categories', 'sources'];
 
   try {
     for (const table of tables) {

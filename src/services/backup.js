@@ -33,7 +33,7 @@ export async function exportBackup() {
     };
 
     const backupJson = JSON.stringify(backupData);
-    const fileName = `MoneyManager_Backup_${new Date().toISOString().split('T')[0]}.json`;
+    const fileName = `SpendoraX_Backup_${new Date().toISOString().split('T')[0]}.json`;
 
     if (Platform.OS === 'web') {
       // Web Fallback: Create a blob and trigger a download

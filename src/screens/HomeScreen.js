@@ -3,6 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, Animated } from 'react-native
 import Svg, { Circle } from 'react-native-svg';
 import { getTotalBalance, getCategorySpending, getMonthlyTrends, getSourceBalances } from '../services/reports';
 import { getBudgetsWithRemaining } from '../services/budgets';
+import { getCategoryBudgetSummary } from '../services/categoryBudgets';
 import { getTransactions, deleteTransaction } from '../services/transactions';
 import { getBills, getBillsSummary } from '../services/bills';
 import { getBillDisplayStatus, formatCurrency } from '../services/billUtils';
@@ -151,6 +152,7 @@ export default function HomeScreen({ navigation }) {
   const [confirmTxMessage, setConfirmTxMessage] = useState('Are you sure you want to delete this transaction?');
   const [bills, setBills] = useState([]);
   const [billsSummary, setBillsSummary] = useState(null);
+  const [categoryBudgets, setCategoryBudgets] = useState([]);
 
   async function load() {
     // Load categories first to ensure we have colors/icons for reports
@@ -188,6 +190,18 @@ export default function HomeScreen({ navigation }) {
       console.debug && console.debug('Home.load setSelectedBudgetId ->', firstId);
       setSelectedBudgetId(firstId);
     }
+    
+    // Load category budgets
+    try {
+      const now = new Date();
+      const month = now.getMonth() + 1;
+      const year = now.getFullYear();
+      const catBudgets = await getCategoryBudgetSummary(month, year);
+      setCategoryBudgets(catBudgets);
+    } catch (e) {
+      console.error('Error loading category budgets:', e);
+    }
+    
     // recent transactions
     try {
       const tx = await getTransactions(3, 'Yes');
@@ -336,6 +350,68 @@ export default function HomeScreen({ navigation }) {
             </View>
           )}
         </Card>
+
+        {categoryBudgets.length > 0 && (
+          <Card>
+            <Text style={{ fontWeight: '700', marginBottom: 12 }}>Category Budgets</Text>
+            {[...categoryBudgets].sort((a, b) => b.percentage - a.percentage).map(budget => {
+              let barColor = '#36B37E'; // Green <80%
+              if (budget.percentage >= 80 && budget.percentage <= 100) {
+                barColor = '#FFB020'; // Orange 80-100%
+              } else if (budget.percentage > 100) {
+                barColor = '#E46A6A'; // Red >100%
+              }
+
+              return (
+                <TouchableOpacity
+                  key={budget.id}
+                  onPress={() => navigation.navigate('Budgets')}
+                  style={{ marginBottom: 16 }}
+                >
+                  <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+                      <Avatar.Icon
+                        size={36}
+                        icon={budget.icon}
+                        style={{ backgroundColor: budget.color, marginRight: 10 }}
+                      />
+                      <View style={{ flex: 1 }}>
+                        <Text style={{ fontWeight: '600', fontSize: 14 }}>{budget.categoryName}</Text>
+                        <Text style={{ fontSize: 12, color: Colors.muted }}>
+                          ₹{budget.spent.toLocaleString('en-IN')} / ₹{budget.budget.toLocaleString('en-IN')}
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={{ alignItems: 'flex-end', marginLeft: 8 }}>
+                      <Text style={{ fontWeight: '700', color: barColor, fontSize: 16 }}>
+                        {Math.round(budget.percentage)}%
+                      </Text>
+                      <Text style={{ fontSize: 11, color: budget.exceeded ? '#E46A6A' : '#36B37E' }}>
+                        {budget.exceeded ? `+₹${Math.abs(budget.remaining).toLocaleString('en-IN')}` : `₹${budget.remaining.toLocaleString('en-IN')}`}
+                      </Text>
+                    </View>
+                  </View>
+                  <View
+                    style={{
+                      height: 8,
+                      backgroundColor: '#eee',
+                      borderRadius: 4,
+                      overflow: 'hidden'
+                    }}
+                  >
+                    <View
+                      style={{
+                        width: `${Math.min(100, budget.percentage)}%`,
+                        height: '100%',
+                        backgroundColor: barColor
+                      }}
+                    />
+                  </View>
+                </TouchableOpacity>
+              );
+            })}
+          </Card>
+        )}
 
         <Card>
           <Text style={{ fontWeight: '600', marginBottom: 8 }}>Latest transactions</Text>
