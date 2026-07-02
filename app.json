@@ -2,7 +2,7 @@
   "expo": {
     "name": "SpendoraX",
     "slug": "spendorax",
-    "version": "2.2",
+    "version": "2.3.0",
     "icon": "./assets/logo.png",
     "platforms": [
       "ios",
@@ -38,10 +38,12 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#0B1F3A"
-      }
+      },
+      "versionCode": 2
     },
     "ios": {
-      "icon": "./assets/logo.png"
+      "icon": "./assets/logo.png",
+      "buildNumber": "2.3.0"
     }
   }
 }
